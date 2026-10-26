@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jonli Efir | Felix Mateo Show</title>
+  <title>Jonli Efir | Olimpiada Dasturi</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,18 +13,22 @@
   <style>
     :root {
       --primary: #2563eb;
+      --primary-hover: #1d4ed8;
       --danger: #ef4444;
       --dark: #0b1329;
       --card-dark: #132247;
+      --card-inner: #0f1a36;
       --text: #e2e8f0;
-      --transition: all 0.3s ease;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --transition: all 0.25s ease;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     body {
@@ -37,7 +41,7 @@
 
     header {
       background: rgba(15, 23, 42, 0.95);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid var(--border-color);
       padding: 16px 24px;
       backdrop-filter: blur(10px);
       position: sticky;
@@ -46,7 +50,7 @@
     }
 
     .header-container {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -58,14 +62,14 @@
     .back-btn {
       color: #94a3b8;
       text-decoration: none;
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: 0.95rem;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 16px;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-color);
       border-radius: 10px;
       transition: var(--transition);
     }
@@ -80,18 +84,18 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid rgba(239, 68, 68, 0.5);
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
       padding: 6px 14px;
       border-radius: 20px;
       color: #fca5a5;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     .live-dot {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       background-color: var(--danger);
       border-radius: 50%;
       box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.8);
@@ -105,7 +109,7 @@
     }
 
     .main-wrap {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 24px auto;
       padding: 0 20px;
       flex: 1;
@@ -114,13 +118,14 @@
 
     .grid-layout {
       display: grid;
-      grid-template-columns: 2.8fr 1.2fr;
+      grid-template-columns: 1fr 400px;
       gap: 24px;
+      align-items: start;
     }
 
     .video-card {
       background: var(--card-dark);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-color);
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
@@ -157,8 +162,8 @@
       margin-bottom: 20px;
     }
 
-    .channel-name {
-      font-size: 1.6rem;
+    .current-playing-title {
+      font-size: 1.45rem;
       font-weight: 800;
       color: #ffffff;
       margin-bottom: 6px;
@@ -180,7 +185,7 @@
       border-radius: 10px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       transition: var(--transition);
     }
 
@@ -191,8 +196,8 @@
     }
 
     .desc-box {
-      color: #94a3b8;
-      font-size: 1rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
       line-height: 1.6;
     }
 
@@ -204,27 +209,27 @@
 
     .info-card {
       background: var(--card-dark);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-color);
       border-radius: 18px;
-      padding: 24px;
+      padding: 20px;
     }
 
     .info-title {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: #38bdf8;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     .status-text-box {
-      background: rgba(11, 19, 41, 0.6);
+      background: var(--card-inner);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 10px;
       padding: 12px 14px;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: #cbd5e1;
       word-break: break-all;
     }
@@ -232,12 +237,13 @@
     .refresh-btn {
       margin-top: 10px;
       width: 100%;
-      background: rgba(37, 99, 235, 0.2);
+      background: rgba(37, 99, 235, 0.15);
       border: 1px solid var(--primary);
       color: #60a5fa;
       padding: 9px 14px;
       border-radius: 8px;
-      font-weight: 700;
+      font-weight: 600;
+      font-size: 0.88rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -251,9 +257,135 @@
       color: #ffffff;
     }
 
-    @media (max-width: 992px) {
+    /* FANLAR RO'YXATI STILI */
+    .stream-search {
+      width: 100%;
+      padding: 9px 14px;
+      background: var(--card-inner);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .stream-search:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }
+
+    .streams-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 580px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .streams-list::-webkit-scrollbar {
+      width: 6px;
+    }
+    .streams-list::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    .stream-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--card-inner);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .stream-item:hover {
+      background: rgba(37, 99, 235, 0.18);
+      border-color: var(--primary);
+      transform: translateX(3px);
+    }
+
+    .stream-item.active {
+      background: rgba(239, 68, 68, 0.18);
+      border-color: var(--danger);
+    }
+
+    .stream-item-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .stream-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #38bdf8;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .stream-item.active .stream-icon-box {
+      background: var(--danger);
+      color: #ffffff;
+    }
+
+    .stream-details {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .stream-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .stream-date-tag {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    .stream-ext-btn {
+      color: #64748b;
+      padding: 6px;
+      border-radius: 6px;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .stream-ext-btn:hover {
+      color: #ef4444;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    @media (max-width: 1024px) {
       .grid-layout {
         grid-template-columns: 1fr;
+      }
+      .streams-list {
+        max-height: 450px;
       }
     }
   </style>
@@ -268,7 +400,7 @@
       
       <div class="stream-status-pill">
         <span class="live-dot"></span>
-        <span id="liveStatusText">JONLI EFIR TEKSHIRILMOQDA...</span>
+        <span id="liveStatusText">JONLI EFIR UZATILMOQDA</span>
       </div>
     </div>
   </header>
@@ -276,13 +408,13 @@
   <main class="main-wrap">
     <div class="grid-layout">
       
-      <!-- Video Blok -->
+      <!-- Asosiy Video Blok -->
       <section class="video-card">
         <div class="video-container">
           <iframe 
             id="youtubePlayer"
-            src=""
-            title="Felix Mateo Show Jonli Efiri" 
+            src="https://www.youtube.com/embed/fb2YafHcGcE?autoplay=1"
+            title="Jonli Efir Pleyeri" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen>
           </iframe>
@@ -291,32 +423,32 @@
         <div class="video-info">
           <div class="channel-header">
             <div>
-              <h1 class="channel-name">Felix Mateo Show</h1>
-              <p style="color: #94a3b8; font-size: 0.95rem;">
-                <i class="fa-solid fa-tower-broadcast" style="color: #ef4444; margin-right: 6px;"></i> Rasmiy jonli efir dasturi
+              <h1 id="currentSubjectTitle" class="current-playing-title">Geografiya — Jonli Efir</h1>
+              <p id="currentSubjectDate" style="color: #94a3b8; font-size: 0.95rem;">
+                <i class="fa-regular fa-calendar-check" style="color: #38bdf8; margin-right: 6px;"></i> 15-oktabr, Payshanba
               </p>
             </div>
             
             <div class="action-btns">
-              <a href="https://www.youtube.com/@felixmateoshow/live" target="_blank" class="yt-live-btn">
-                <i class="fa-solid fa-play"></i> YouTube'da Ko‘rish
+              <a id="currentYtDirectLink" href="https://www.youtube.com/live/fb2YafHcGcE?si=NPflZVMKDz3WweS4" target="_blank" class="yt-live-btn">
+                <i class="fa-brands fa-youtube"></i> YouTube'da Ko‘rish
               </a>
             </div>
           </div>
 
           <div class="desc-box">
-            <p>Ushbu sahifadagi efir avtomatik ravishda <code>sozlama.txt</code> faylida ko‘rsatilgan jonli efir havolasi orqali uzatiladi.</p>
+            <p>Olimpiada jarayonlarining ochiqligi va shaffofligini ta'minlash maqsadida fanlar bo‘yicha jonli efirlar yozuvi. O‘ng paneldagi ro‘yxatdan kerakli fanni tanlang.</p>
           </div>
         </div>
       </section>
 
-      <!-- Yon Panel -->
+      <!-- O'ng Yon Panel -->
       <aside class="side-panel">
         
-        <!-- Fayl holati -->
+        <!-- Fayl holati (sozlama.txt) -->
         <div class="info-card">
           <h3 class="info-title"><i class="fa-solid fa-file-lines"></i> Sozlama Holati</h3>
-          <p style="color: #94a3b8; font-size: 0.88rem; margin-bottom: 8px;">
+          <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 8px;">
             <code>sozlama.txt</code> dan olingan manzil:
           </p>
           <div id="configDisplay" class="status-text-box">
@@ -329,13 +461,26 @@
 
         <!-- Kanal ma'lumotlari -->
         <div class="info-card">
-          <h3 class="info-title"><i class="fa-solid fa-circle-info"></i> Kanal</h3>
+          <h3 class="info-title"><i class="fa-solid fa-circle-info"></i> Kanal Ma'lumotlari</h3>
           <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 10px;">
-            <strong>Kanal:</strong> @felixmateoshow
+            <strong>Rasmiy sahifa:</strong> @felixmateoshow
           </p>
-          <a href="https://www.youtube.com/@felixmateoshow/live" target="_blank" style="color: #38bdf8; text-decoration: none; font-weight: 600; font-size: 0.92rem;">
+          <a href="https://www.youtube.com/@felixmateoshow/live" target="_blank" style="color: #38bdf8; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
             youtube.com/@felixmateoshow/live <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 4px;"></i>
           </a>
+        </div>
+
+        <!-- Fanlar bo'yicha Jonli Efirlar Arxiv bloki -->
+        <div class="info-card">
+          <h3 class="info-title">
+            <i class="fa-solid fa-list-check" style="color: #ef4444;"></i> Fanlar Jonli Efirlari
+          </h3>
+          
+          <input type="text" id="subjectSearch" class="stream-search" placeholder="Fanni qidirish (masalan: Tarix)..." onkeyup="filterSubjects()">
+
+          <div class="streams-list" id="subjectsContainer">
+            <!-- JavaScript orqali fanlar ro'yxati generatsiya bo'ladi -->
+          </div>
         </div>
 
       </aside>
@@ -344,16 +489,172 @@
   </main>
 
   <script>
-    // Havoladan Video ID ni ajratish funksiyasi
+    // Fanlar va ularning sanalari ro'yxati
+    const subjectsData = [
+      {
+        id: "fb2YafHcGcE",
+        url: "https://www.youtube.com/live/fb2YafHcGcE?si=NPflZVMKDz3WweS4",
+        name: "Geografiya",
+        date: "15-oktabr, Payshanba",
+        icon: "fa-globe"
+      },
+      {
+        id: "LdlhmRmzBTI",
+        url: "https://www.youtube.com/live/LdlhmRmzBTI?si=Nl6v9KwYcvbDqCqR",
+        name: "Tarix",
+        date: "16-oktabr, Juma",
+        icon: "fa-landmark"
+      },
+      {
+        id: "a42VsCLskck",
+        url: "https://www.youtube.com/live/a42VsCLskck?si=rchnydBVfY12enTB",
+        name: "Kimyo",
+        date: "17-oktabr, Shanba",
+        icon: "fa-flask-vial"
+      },
+      {
+        id: "O4HrkvTDxe8",
+        url: "https://www.youtube.com/live/O4HrkvTDxe8?si=9zb_i3Im5v1NUpZh",
+        name: "Fizika",
+        date: "18-oktabr, Yakshanba",
+        icon: "fa-atom"
+      },
+      {
+        id: "pnUUpBgoIZo",
+        url: "https://www.youtube.com/live/pnUUpBgoIZo?si=iDQX8QHO6uQHeM7g",
+        name: "Biologiya",
+        date: "19-oktabr, Dushanba",
+        icon: "fa-leaf"
+      },
+      {
+        id: "7IpqU3dzApo",
+        url: "https://www.youtube.com/live/7IpqU3dzApo?si=JrVMnFxsSfVtWxPZ",
+        name: "Biologiya (Davomi)",
+        date: "19-oktabr, Dushanba",
+        icon: "fa-dna"
+      },
+      {
+        id: "iP88Dzw6PVo",
+        url: "https://www.youtube.com/live/iP88Dzw6PVo?si=caNgVRpvPHcSffAP",
+        name: "Matematika",
+        date: "20-oktabr, Seshanba",
+        icon: "fa-calculator"
+      },
+      {
+        id: "yVXFKZb-eiU",
+        url: "https://www.youtube.com/live/yVXFKZb-eiU?si=NOR_g5TyTD2f8gxs",
+        name: "Informatika",
+        date: "21-oktabr, Chorshanba",
+        icon: "fa-laptop-code"
+      },
+      {
+        id: "Ivq89HdlXbY",
+        url: "https://www.youtube.com/live/Ivq89HdlXbY?si=EMSdGv8eooK3fZd-",
+        name: "Informatika (Davomi)",
+        date: "21-oktabr, Chorshanba",
+        icon: "fa-microchip"
+      },
+      {
+        id: "QvFcZYouKYw",
+        url: "https://www.youtube.com/live/QvFcZYouKYw?si=A9ZrThT2hMSWaf4m",
+        name: "Rus tili va adabiyoti",
+        date: "22-oktabr, Payshanba",
+        icon: "fa-book"
+      },
+      {
+        id: "lGsaF-tWOaY",
+        url: "https://www.youtube.com/live/lGsaF-tWOaY?si=lrWCDzQUlFMA4zzj",
+        name: "Nemis tili",
+        date: "23-oktabr, Juma",
+        icon: "fa-language"
+      },
+      {
+        id: "uP-3xqW_0O0",
+        url: "https://www.youtube.com/live/uP-3xqW_0O0?si=Pz1bWyPhh5zQtxsB",
+        name: "Ingliz tili",
+        date: "25-oktabr, Yakshanba",
+        icon: "fa-earth-americas"
+      },
+      {
+        id: "znxMsu9AlQA",
+        url: "https://www.youtube.com/live/znxMsu9AlQA?si=e3x_fBtuAQK15-rX",
+        name: "Davlat va huquq asoslari",
+        date: "26-oktabr, Dushanba",
+        icon: "fa-scale-balanced"
+      }
+    ];
+
+    // Fanlar ro'yxatini chiqarish
+    function renderSubjects() {
+      const container = document.getElementById('subjectsContainer');
+      container.innerHTML = '';
+
+      subjectsData.forEach((sub, index) => {
+        const item = document.createElement('div');
+        item.className = `stream-item ${index === 0 ? 'active' : ''}`;
+        item.setAttribute('data-id', sub.id);
+        item.onclick = (e) => {
+          // Tashqi havola bosilganda pleyerni o'zgartirmaslik uchun
+          if (e.target.closest('.stream-ext-btn')) return;
+          playSubject(sub, item);
+        };
+
+        item.innerHTML = `
+          <div class="stream-item-left">
+            <div class="stream-icon-box">
+              <i class="fa-solid ${sub.icon}"></i>
+            </div>
+            <div class="stream-details">
+              <span class="stream-name">${sub.name}</span>
+              <span class="stream-date-tag">
+                <i class="fa-regular fa-calendar" style="font-size: 0.72rem;"></i> ${sub.date}
+              </span>
+            </div>
+          </div>
+          <a href="${sub.url}" target="_blank" class="stream-ext-btn" title="YouTube'da alohida ochish">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    // Fanni pleyerga yuklash
+    function playSubject(sub, activeElement) {
+      const player = document.getElementById('youtubePlayer');
+      const title = document.getElementById('currentSubjectTitle');
+      const date = document.getElementById('currentSubjectDate');
+      const directLink = document.getElementById('currentYtDirectLink');
+
+      player.src = `https://www.youtube.com/embed/${sub.id}?autoplay=1`;
+      title.innerText = `${sub.name} — Jonli Efir`;
+      date.innerHTML = `<i class="fa-regular fa-calendar-check" style="color: #38bdf8; margin-right: 6px;"></i> ${sub.date}`;
+      directLink.href = sub.url;
+
+      // Active klassini yangilash
+      document.querySelectorAll('.stream-item').forEach(el => el.classList.remove('active'));
+      if (activeElement) {
+        activeElement.classList.add('active');
+      }
+    }
+
+    // Qidiruv filtri
+    function filterSubjects() {
+      const query = document.getElementById('subjectSearch').value.toLowerCase();
+      const items = document.querySelectorAll('.stream-item');
+
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(query) ? 'flex' : 'none';
+      });
+    }
+
+    // URL dan Video ID ajratish
     function extractVideoId(url) {
       if (!url) return '';
       url = url.trim();
-      if (url.length === 11 && !url.includes('/') && !url.includes('.')) {
-        return url;
-      }
-      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-      const match = url.match(regExp);
-      return (match && match[2].length === 11) ? match[2] : url;
+      const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|live\/))([\w-]{11})/);
+      return match ? match[1] : url;
     }
 
     // sozlama.txt faylidan o'qish funksiyasi
@@ -363,12 +664,8 @@
       const player = document.getElementById('youtubePlayer');
 
       try {
-        // Keshni aylanib o'tish uchun vaqt tamg'asi qo'shiladi (?t=...)
         const response = await fetch('sozlama.txt?t=' + new Date().getTime());
-        
-        if (!response.ok) {
-          throw new Error('sozlama.txt topilmadi');
-        }
+        if (!response.ok) throw new Error('sozlama.txt topilmadi');
 
         const rawUrl = await response.text();
         const cleanUrl = rawUrl.trim();
@@ -379,21 +676,18 @@
           player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
           liveStatusText.innerText = "JONLI EFIR UZATILMOQDA";
         } else {
-          // Fayl bo'sh bo'lsa
-          configDisplay.innerHTML = `<span style="color:#facc15;">Fayl bo‘sh!</span> Kanal videolari qo‘yildi.`;
-          player.src = "https://www.youtube.com/embed?listType=user_uploads&list=felixmateoshow";
-          liveStatusText.innerText = "STANDART VIDEOLAR";
+          configDisplay.innerHTML = `<span style="color:#facc15;">Fayl bo‘sh!</span> Ro‘yxatdagi efir qo‘yildi.`;
         }
       } catch (error) {
-        // Fayl topilmasa yoki xatolik yuz bersa
-        configDisplay.innerHTML = `<span style="color:#f87171;">Xatolik:</span> sozlama.txt o‘qilmadi.`;
-        player.src = "https://www.youtube.com/embed?listType=user_uploads&list=felixmateoshow";
-        liveStatusText.innerText = "STANDART VIDEOLAR";
+        configDisplay.innerHTML = `<span style="color:#94a3b8;">sozlama.txt topilmadi (Fanlar efiri ishlatilmoqda)</span>`;
       }
     }
 
-    // Sahifa ochilganda avtomatik yuklash
-    window.addEventListener('DOMContentLoaded', loadStreamFromTxt);
+    // Sahifa to'liq yuklanganda ishga tushirish
+    window.addEventListener('DOMContentLoaded', () => {
+      renderSubjects();
+      loadStreamFromTxt();
+    });
   </script>
 
 </body>
