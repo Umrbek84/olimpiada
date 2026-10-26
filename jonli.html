@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jonli Efir | Felix Mateo Show</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --danger: #ef4444;
+      --dark: #0b1329;
+      --card-dark: #132247;
+      --text: #e2e8f0;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+      background-color: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 24px;
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .back-btn {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      transition: var(--transition);
+    }
+
+    .back-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .stream-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: #fca5a5;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--danger);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.8);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.8); }
+      70% { transform: scale(1.15); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    .main-wrap {
+      max-width: 1400px;
+      margin: 30px auto;
+      padding: 0 20px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 2.8fr 1.2fr;
+      gap: 24px;
+    }
+
+    .video-card {
+      background: var(--card-dark);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 nisbat */
+      background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-info {
+      padding: 24px;
+    }
+
+    .channel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    .channel-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .yt-sub-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #cc0000;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .yt-sub-btn:hover {
+      background: #ff0000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(255, 0, 0, 0.4);
+    }
+
+    .desc-box {
+      color: #94a3b8;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .side-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-card {
+      background: var(--card-dark);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .info-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live-chat-wrap {
+      flex: 1;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-frame {
+      width: 100%;
+      height: 100%;
+      flex: 1;
+      border: none;
+      border-radius: 12px;
+      background: #0f172a;
+    }
+
+    @media (max-width: 992px) {
+      .grid-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Asosiy Portalga Qaytish
+      </a>
+      
+      <div class="stream-status-pill">
+        <span class="live-dot"></span>
+        <span>JONLI EFIR UZATILMOQDA</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrap">
+    <div class="grid-layout">
+      
+      <!-- Video Blok -->
+      <section class="video-card">
+        <div class="video-container">
+          <!-- YouTube jonli efir o'rnatmasi -->
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/live_stream?channel=felixmateoshow&autoplay=1" 
+            title="Felix Mateo Show Jonli Efiri" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="video-info">
+          <div class="channel-header">
+            <div>
+              <h1 class="channel-name">Felix Mateo Show</h1>
+              <p style="color: #94a3b8; font-size: 0.95rem;">
+                <i class="fa-solid fa-tower-broadcast" style="color: #ef4444; margin-right: 6px;"></i> Rasmiy jonli efir dasturi
+              </p>
+            </div>
+            <a href="http://www.youtube.com/@felixmateoshow?sub_confirmation=1" target="_blank" class="yt-sub-btn">
+              <i class="fa-brands fa-youtube"></i> Obuna bo‘lish
+            </a>
+          </div>
+
+          <div class="desc-box">
+            <p>Ushbu sahifada <strong>Felix Mateo Show</strong> rasmiy kanali orqali efirga uzatilayotgan jonli ko‘rsatuvlar, suhbatlar va taʼlim jarayonlari to‘g‘ridan-to‘g‘ri namoyish etiladi. Efir davomida savollaringizni YouTube chat orqali qoldirishingiz mumkin.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Yon Panel -->
+      <aside class="side-panel">
+        <div class="info-card">
+          <h3 class="info-title"><i class="fa-solid fa-circle-info"></i> Efir Maʼlumotlari</h3>
+          <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 12px;">
+            <strong>Kanal:</strong> @felixmateoshow
+          </p>
+          <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 12px;">
+            <strong>Holati:</strong> Efirda / Rejalashtirilgan
+          </p>
+          <a href="http://www.youtube.com/@felixmateoshow" target="_blank" style="color: #38bdf8; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+            YouTube'da ochish <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem;"></i>
+          </a>
+        </div>
+
+        <div class="info-card live-chat-wrap">
+          <h3 class="info-title"><i class="fa-solid fa-comments"></i> Jonli Chat</h3>
+          <p style="color: #64748b; font-size: 0.9rem; text-align: center; margin-top: auto; margin-bottom: auto;">
+            Efir boshlanganda chat avtomatik tarzda YouTube tizimi orqali ishlaydi yoki to‘g‘ridan-to‘g‘ri YouTube platformasida fikr bildirishingiz mumkin.
+          </p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+</body>
+</html>
