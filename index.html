@@ -71,6 +71,62 @@
       color: #ffffff;
     }
 
+
+    /* Jonli efir pulsatsiya animatsiyasi */
+.nav-live-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fca5a5 !important;
+  font-weight: 700 !important;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: var(--transition);
+}
+
+.live-dot {
+  width: 9px;
+  height: 9px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.8);
+  }
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.nav-live-link:hover .live-badge {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+}
+.nav-live-link:hover .live-dot {
+  background-color: #ffffff;
+}
+
     .brand-logo {
       width: 46px;
       height: 46px;
@@ -2470,6 +2526,14 @@
         <li><a href="#baholash"><i class="fa-solid fa-graduation-cap"></i> Yangi baholash (CHSB)</a></li>
         <li><a href="#akkreditatsiya"><i class="fa-solid fa-stamp"></i> Akkreditatsiya 2026</a></li>
         <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Aloqa</a></li>
+        <li>
+          <a href="jonli-efir.html" class="nav-live-link">
+            <span class="live-badge">
+              <span class="live-dot"></span>
+              <span>Jonli Efir</span>
+            </span>
+          </a>
+        </li>
       </ul>
       <button class="nav-burger" aria-label="Menyu" onclick="document.querySelector('.nav-menu').classList.toggle('open')"><i class="fa-solid fa-bars"></i></button>
     </div>
