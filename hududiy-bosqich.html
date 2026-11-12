@@ -57,9 +57,9 @@ a{color:inherit;text-decoration:none}button,input{font-family:inherit}
 .chips{display:flex;flex-wrap:wrap;gap:6px}.chips span{background:#eef2f7;border:1px solid #dde4ee;border-radius:8px;padding:3px 9px;font-size:.95rem;font-weight:700}
 .card .ty{margin-top:8px;color:#334155;font-size:.98rem}
 .card .dt{font-size:.85rem;color:#b45309;font-weight:700;margin-top:4px}
-.gridwrap{margin-top:22px;overflow:auto;border-radius:16px;box-shadow:0 4px 18px rgba(15,23,42,.08);background:#fff}
+.gridwrap{margin-top:22px;overflow:auto;max-height:calc(100vh - 150px);border-radius:16px;box-shadow:0 4px 18px rgba(15,23,42,.08);background:#fff}
 table.grid{border-collapse:separate;border-spacing:0;width:100%;min-width:1500px}
-.grid th{background:#0f2a5c;color:#fff;padding:9px 6px;font-size:.98rem;position:sticky;top:0}
+.grid th{background:#0f2a5c;color:#fff;padding:9px 6px;font-size:.98rem;position:sticky;top:0;z-index:3}
 .grid th small{display:block;font-size:.74rem;font-weight:400;opacity:.8}
 .grid th.cl,.grid td.cl{position:sticky;left:0;z-index:2}
 .grid th.cl{background:#0f2a5c;text-align:left;padding-left:12px;min-width:96px}
@@ -67,7 +67,7 @@ table.grid{border-collapse:separate;border-spacing:0;width:100%;min-width:1500px
 .grid td{border-top:1px solid #e8edf4;border-left:1px solid #eef2f7;vertical-align:top;padding:7px;min-width:132px}
 .ev{border-left:4px solid var(--c);background:color-mix(in srgb,var(--c) 9%,#fff);border-radius:8px;padding:6px 8px;margin-bottom:6px;font-size:.88rem;line-height:1.3}
 .ev .tm{font-size:.8rem;font-weight:700;color:#475569}.ev b{display:block;font-size:.95rem}.ev span{color:#475569}
-.tasks{margin-top:22px;overflow:auto;background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(15,23,42,.08)}
+.tasks{margin-top:22px;overflow:auto;max-height:calc(100vh - 150px);background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(15,23,42,.08)}
 table.tk{border-collapse:collapse;width:100%;min-width:900px}
 .tk th{background:#0f2a5c;color:#fff;text-align:left;padding:11px 14px;font-size:.95rem}
 .tk td{padding:12px 14px;border-top:1px solid #e8edf4;vertical-align:top;white-space:pre-line}
@@ -81,10 +81,13 @@ table.tk{border-collapse:collapse;width:100%;min-width:900px}
 .src{margin:18px 0 40px;font-size:.92rem;color:#64748b}
 footer{background:#0f2a5c;color:#dbe5fb;text-align:center;padding:20px;font-size:.95rem}
 @media(max-width:700px){.hero{padding-bottom:80px}.next{padding:14px}.cd div{min-width:54px}.cd b{font-size:1.4rem}}
+.grid th.cl{z-index:5}.tk th{position:sticky;top:0;z-index:2}.gridwrap,.tasks{-webkit-overflow-scrolling:touch}
+@media(max-width:700px){.top-in{padding:8px 12px}.top nav{flex-wrap:nowrap;overflow-x:auto;width:100%}.top nav a{white-space:nowrap;padding:7px 12px;font-size:.9rem}.wrap{padding:0 12px}.gridwrap,.tasks{max-height:calc(100vh - 120px)}.tasks.sw{max-height:none;overflow:visible;background:none;box-shadow:none}.tk.stu{min-width:0}.tk.stu thead{display:none}.tk.stu tr{display:block;background:#fff;border:1px solid #e2e8f0;border-radius:12px;margin:0 0 10px;padding:10px 12px}.tk.stu td{display:block;border:0;padding:1px 0;background:none!important}.tk.stu td:first-child{display:none}.tk.stu td[data-l]:before{content:attr(data-l) ": ";color:#64748b;font-size:.85rem}.tk.stu .nm{font-size:1.05rem}.cd div{min-width:50px}}
+html.shot .gridwrap,html.shot .tasks{max-height:none}
 html.shot .top,html.shot .ctl,html.shot .days,html.shot .next{display:none}html.shot .hero{padding-bottom:30px}html.shot .gridwrap,html.shot .tasks{margin-top:26px;overflow:visible}html.shot .wrap{max-width:1840px}html.shot table.grid{min-width:0}
 </style></head><body>
 <header class="top"><div class="top-in"><a class="brand" href="index.html"><b>Umrbek Mamatov</b><span>Boş mutaxassis · Taʼlim portali</span></a>
-<nav><a href="index.html"><i class="fa-solid fa-house"></i> Boş sahifa</a><a href="index.html#olimpiada"><i class="fa-solid fa-trophy"></i> Olimpiadalar</a><a href="hududiy-bosqich.html" class="on"><i class="fa-solid fa-calendar-days"></i> Hududiy bosqiç</a><a href="jonli.html" target="_blank" rel="noopener"><i class="fa-solid fa-tower-broadcast"></i> Jonli efir</a></nav></div></header>
+<nav><a href="index.html"><i class="fa-solid fa-house"></i> Boş sahifa</a><a href="index.html#olimpiada"><i class="fa-solid fa-trophy"></i> Olimpiadalar</a><a href="hududiy-bosqich.html" class="on"><i class="fa-solid fa-calendar-days"></i> Hududiy bosqiç grafigi</a><a href="jonli.html" target="_blank" rel="noopener"><i class="fa-solid fa-tower-broadcast"></i> Jonli efir</a></nav></div></header>
 <section class="hero"><div class="hero-in"><span class="kick"><i class="fa-solid fa-medal"></i> 2026–2027-öquv yili</span>
 <h1>Hududiy bosqiç reja-grafigi</h1>
 <p>Asosiy olimpiadaning uçinçi – hududiy bosqiçi, xalqaro olimpiadalarga saralaş va boşqa olimpiadalar.</p>
@@ -168,8 +171,8 @@ function viewStud(){if(!STU.length)return '<div class="empty">Yuklanmoqda...</di
  rows.sort((a,b)=>st2.date?(f(a)[0][1].localeCompare(f(b)[0][1])||cmpS(a.school,b.school)||a.fan.localeCompare(b.fan)):(cmpS(a.school,b.school)||a.fan.localeCompare(b.fan)||a.sinf-b.sinf||a.name.localeCompare(b.name)));
  let h='<div class="row" style="margin-top:22px"><select class="sel" id="fs"><option value="">Barça maktablar</option>'+schools.map(s=>'<option'+(s===st2.school?' selected':'')+'>'+esc(s)+'</option>').join('')+'</select><select class="sel" id="fd"><option value="">Barça sanalar</option>'+ds.map(d=>'<option value="'+d+'"'+(d===st2.date?' selected':'')+'>'+dl(d)+', '+wdn(d).toLowerCase()+'</option>').join('')+'</select></div>';
  h+='<div class="cnt">Jami: <b>'+rows.length+'</b> ta qatnaşuv · <b>'+new Set(rows.map(r=>r.name)).size+'</b> ta öquvçi</div>';
- h+='<div class="tasks"><table class="tk"><thead><tr><th>№</th><th>Öquvçi</th><th>Maktab</th><th>Fan</th><th>Sinf</th><th>Sana va vaqt</th></tr></thead><tbody>';
- rows.forEach((r,i)=>{h+='<tr><td>'+(i+1)+'</td><td class="nm">'+esc(r.name)+(bad.has(r)?' <span class="warn" title="Boşqa fan bilan vaqti ustma-ust">⚠</span>':'')+'</td><td class="mk">'+esc(r.school)+'</td><td>'+esc(r.fan)+'</td><td>'+r.sinf+'</td><td>'+f(r).map(s=>dl(s[0])+' · '+s[1]+'–'+s[2]+' · '+esc(s[3].split(' – ')[0])).join('\n')+'</td></tr>'});
+ h+='<div class="tasks sw"><table class="tk stu"><thead><tr><th>№</th><th>Öquvçi</th><th>Maktab</th><th>Fan</th><th>Sinf</th><th>Sana va vaqt</th></tr></thead><tbody>';
+ rows.forEach((r,i)=>{h+='<tr><td>'+(i+1)+'</td><td class="nm">'+esc(r.name)+(bad.has(r)?' <span class="warn" title="Boşqa fan bilan vaqti ustma-ust">⚠</span>':'')+'</td><td class="mk" data-l="Maktab">'+esc(r.school)+'</td><td data-l="Fan">'+esc(r.fan)+'</td><td data-l="Sinf">'+r.sinf+'</td><td data-l="Vaqt">'+f(r).map(s=>dl(s[0])+' · '+s[1]+'–'+s[2]+' · '+esc(s[3].split(' – ')[0])).join('\n')+'</td></tr>'});
  return h+'</tbody></table></div>'+cfBox(bad)}
 function cfBox(bad){const by={};bad.forEach(r=>(by[r.name]=by[r.name]||[]).push(r));const L=Object.entries(by);if(!L.length)return '';
  return '<div class="cfbox"><b>⚠ Vaqti ustma-ust tuşgan öquvçilar</b><p>Quyidagi öquvçilarning ikki fani bir vaqtga töğri keladi. Ularga özi uçun eng foydali (yutuq ehtimoli yuqori) fanni tanlab, şu fanga borişi tavsiya etiladi.</p><ul>'+L.map(([n,l])=>'<li><b>'+esc(n)+'</b> — '+esc(l[0].school)+': '+l.map(r=>esc(r.fan)+' ('+r.sinf+'-sinf, '+dl(r.slots[0][0])+')').join(' va ')+'</li>').join('')+'</ul></div>'}
