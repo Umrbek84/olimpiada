@@ -161,7 +161,7 @@ const sk=s=>{const m=s.match(/^(\d+)/);return m?[0,+m[1],s]:[1,0,s]};
 const cmpS=(a,b)=>{const x=sk(a),y=sk(b);return x[0]-y[0]||x[1]-y[1]||x[2].localeCompare(y[2])};
 function conflictSet(){const by={};STU.forEach(r=>(by[r.name]=by[r.name]||[]).push(r));const bad=new Set();
  Object.values(by).forEach(l=>{for(let i=0;i<l.length;i++)for(let j=i+1;j<l.length;j++)for(const a of l[i].slots)for(const b of l[j].slots)if(a[0]===b[0]&&a[1]<b[2]&&b[1]<a[2]){bad.add(l[i]);bad.add(l[j])}});return bad}
-function viewStud(){if(!STU.length)return '<div class="empty">Yüklanmoqda...</div>';
+function viewStud(){if(!STU.length)return '<div class="empty">Yuklanmoqda...</div>';
  const bad=conflictSet();const schools=[...new Set(STU.map(r=>r.school))].sort(cmpS);const ds=[...new Set(STU.flatMap(r=>r.slots.map(s=>s[0])))].sort();
  let rows=STU.filter(r=>(!st2.school||r.school===st2.school)&&(!st.q||(r.name+' '+r.school+' '+r.fan).toLowerCase().includes(st.q))&&(!st2.date||r.slots.some(s=>s[0]===st2.date)));
  const f=r=>st2.date?r.slots.filter(s=>s[0]===st2.date):r.slots;
@@ -172,7 +172,7 @@ function viewStud(){if(!STU.length)return '<div class="empty">Yüklanmoqda...</d
  rows.forEach((r,i)=>{h+='<tr><td>'+(i+1)+'</td><td class="nm">'+esc(r.name)+(bad.has(r)?' <span class="warn" title="Boşqa fan bilan vaqti ustma-ust">⚠</span>':'')+'</td><td class="mk">'+esc(r.school)+'</td><td>'+esc(r.fan)+'</td><td>'+r.sinf+'</td><td>'+f(r).map(s=>dl(s[0])+' · '+s[1]+'–'+s[2]+' · '+esc(s[3].split(' – ')[0])).join('\n')+'</td></tr>'});
  return h+'</tbody></table></div>'+cfBox(bad)}
 function cfBox(bad){const by={};bad.forEach(r=>(by[r.name]=by[r.name]||[]).push(r));const L=Object.entries(by);if(!L.length)return '';
- return '<div class="cfbox"><b>⚠ Vaqti ustma-ust tüşgan öquvçilar</b><p>Quyidagi öquvçilarning ikki fani bir vaqtga töğri keladi. Ularga özi üçün eng foydali (yutuq ehtimoli yuqori) fanni tanlab, şu fanga borişi tavsiya etiladi.</p><ul>'+L.map(([n,l])=>'<li><b>'+esc(n)+'</b> — '+esc(l[0].school)+': '+l.map(r=>esc(r.fan)+' ('+r.sinf+'-sinf, '+dl(r.slots[0][0])+')').join(' va ')+'</li>').join('')+'</ul></div>'}
+ return '<div class="cfbox"><b>⚠ Vaqti ustma-ust tuşgan öquvçilar</b><p>Quyidagi öquvçilarning ikki fani bir vaqtga töğri keladi. Ularga özi uçun eng foydali (yutuq ehtimoli yuqori) fanni tanlab, şu fanga borişi tavsiya etiladi.</p><ul>'+L.map(([n,l])=>'<li><b>'+esc(n)+'</b> — '+esc(l[0].school)+': '+l.map(r=>esc(r.fan)+' ('+r.sinf+'-sinf, '+dl(r.slots[0][0])+')').join(' va ')+'</li>').join('')+'</ul></div>'}
 function bindStud(){const a=$('fs'),b=$('fd');if(a)a.onchange=e=>{st2.school=e.target.value;render()};if(b)b.onchange=e=>{st2.date=e.target.value;render()}}
 fetch('hududiy-oquvchilar.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{STU=j.students.map(a=>({name:a[0],school:a[1],fan:a[2],sinf:a[3],slots:j.sets[a[4]]}));if(st.view==='stud')render()}).catch(()=>{});
 if(qp.get('view')==='stud')st.view='stud';
