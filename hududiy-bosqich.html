@@ -76,6 +76,7 @@ table.tk{border-collapse:collapse;width:100%;min-width:900px}
 .legend{margin-top:22px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:12px 16px;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.92rem;color:#334155}
 .legend span{display:inline-flex;gap:8px;align-items:flex-start}.legend i{width:10px;height:10px;border-radius:50%;margin-top:6px;flex:none}
 .sel{border:1px solid #d8e0ec;background:#fff;border-radius:10px;padding:8px 12px;font-size:1rem;font-family:inherit;color:#1e293b}.warn{color:#b91c1c;font-weight:700}.tk .nm{font-weight:700}.tk .mk{white-space:nowrap}.cnt{margin:14px 0 4px;color:#475569}
+.cfbox{margin-top:18px;background:#fef2f2;border:1px solid #fecaca;border-radius:14px;padding:14px 18px}.cfbox ul{margin:8px 0 0 20px}.cfbox p{margin-top:4px}
 .empty{padding:40px;text-align:center;color:#64748b}
 .src{margin:18px 0 40px;font-size:.92rem;color:#64748b}
 footer{background:#0f2a5c;color:#dbe5fb;text-align:center;padding:20px;font-size:.95rem}
@@ -169,7 +170,9 @@ function viewStud(){if(!STU.length)return '<div class="empty">Yüklanmoqda...</d
  h+='<div class="cnt">Jami: <b>'+rows.length+'</b> ta qatnaşuv · <b>'+new Set(rows.map(r=>r.name)).size+'</b> ta öquvçi</div>';
  h+='<div class="tasks"><table class="tk"><thead><tr><th>№</th><th>Öquvçi</th><th>Maktab</th><th>Fan</th><th>Sinf</th><th>Sana va vaqt</th></tr></thead><tbody>';
  rows.forEach((r,i)=>{h+='<tr><td>'+(i+1)+'</td><td class="nm">'+esc(r.name)+(bad.has(r)?' <span class="warn" title="Boşqa fan bilan vaqti ustma-ust">⚠</span>':'')+'</td><td class="mk">'+esc(r.school)+'</td><td>'+esc(r.fan)+'</td><td>'+r.sinf+'</td><td>'+f(r).map(s=>dl(s[0])+' · '+s[1]+'–'+s[2]+' · '+esc(s[3].split(' – ')[0])).join('\n')+'</td></tr>'});
- return h+'</tbody></table></div>'+(bad.size?'<p class="src"><span class="warn">⚠</span> — bu öquvçining ikki fani bir vaqtga to‘ğri keladi.</p>':'')}
+ return h+'</tbody></table></div>'+cfBox(bad)}
+function cfBox(bad){const by={};bad.forEach(r=>(by[r.name]=by[r.name]||[]).push(r));const L=Object.entries(by);if(!L.length)return '';
+ return '<div class="cfbox"><b>⚠ Vaqti ustma-ust tüşgan öquvçilar</b><p>Quyidagi öquvçilarning ikki fani bir vaqtga töğri keladi. Ularga özi üçün eng foydali (yutuq ehtimoli yuqori) fanni tanlab, şu fanga borişi tavsiya etiladi.</p><ul>'+L.map(([n,l])=>'<li><b>'+esc(n)+'</b> — '+esc(l[0].school)+': '+l.map(r=>esc(r.fan)+' ('+r.sinf+'-sinf, '+dl(r.slots[0][0])+')').join(' va ')+'</li>').join('')+'</ul></div>'}
 function bindStud(){const a=$('fs'),b=$('fd');if(a)a.onchange=e=>{st2.school=e.target.value;render()};if(b)b.onchange=e=>{st2.date=e.target.value;render()}}
 fetch('hududiy-oquvchilar.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{STU=j.students.map(a=>({name:a[0],school:a[1],fan:a[2],sinf:a[3],slots:j.sets[a[4]]}));if(st.view==='stud')render()}).catch(()=>{});
 if(qp.get('view')==='stud')st.view='stud';
