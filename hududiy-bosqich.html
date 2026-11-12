@@ -75,6 +75,7 @@ table.tk{border-collapse:collapse;width:100%;min-width:900px}
 .tk .gp{background:#eef2ff!important;font-weight:700;color:#0f2a5c;font-size:.95rem}
 .legend{margin-top:22px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:12px 16px;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.92rem;color:#334155}
 .legend span{display:inline-flex;gap:8px;align-items:flex-start}.legend i{width:10px;height:10px;border-radius:50%;margin-top:6px;flex:none}
+.sel{border:1px solid #d8e0ec;background:#fff;border-radius:10px;padding:8px 12px;font-size:1rem;font-family:inherit;color:#1e293b}.warn{color:#b91c1c;font-weight:700}.tk .nm{font-weight:700}.tk .mk{white-space:nowrap}.cnt{margin:14px 0 4px;color:#475569}
 .empty{padding:40px;text-align:center;color:#64748b}
 .src{margin:18px 0 40px;font-size:.92rem;color:#64748b}
 footer{background:#0f2a5c;color:#dbe5fb;text-align:center;padding:20px;font-size:.95rem}
@@ -90,8 +91,8 @@ html.shot .top,html.shot .ctl,html.shot .days,html.shot .next{display:none}html.
 <main class="wrap">
 <div class="next" id="next"></div>
 <div class="ctl">
- <div class="row"><div class="tabs" id="tabs"><button data-v="days" class="on">Kunlar böyiça</button><button data-v="grid">Jadval</button><button data-v="tasks">Topşiriq turlari</button></div>
- <label class="search"><i class="fa-solid fa-magnifying-glass" style="color:#94a3b8"></i><input id="q" type="search" placeholder="Fan nomi böyiça qidiriş..."></label></div>
+ <div class="row"><div class="tabs" id="tabs"><button data-v="days" class="on">Kunlar böyiça</button><button data-v="grid">Jadval</button><button data-v="tasks">Topşiriq turlari</button><button data-v="stud">Öquvçilar</button></div>
+ <label class="search"><i class="fa-solid fa-magnifying-glass" style="color:#94a3b8"></i><input id="q" type="search" placeholder="Qidiriş (fan, öquvçi, maktab)..."></label></div>
  <div class="row" id="gradeRow"><span class="lab">Sinf</span><span id="grades"></span></div>
  <div class="row" id="progRow"><span class="lab">Yönaliş</span><span id="progs" class="row"></span></div>
 </div>
@@ -142,8 +143,8 @@ function viewTasks(){const q=st.q;const T=DATA.tasks.filter(t=>!q||(t.subjects+'
  const grp=i=>i<5?'Asosiy olimpiadaning uçinçi – hududiy bosqiçi':'Koreys tili olimpiadasining hududiy bosqiçi';let last='',h='<div class="tasks"><table class="tk"><thead><tr><th>Fanlar</th><th>Topşiriq turi</th><th>Ball taqsimoti</th><th>Jami ball</th><th>Vaqt</th></tr></thead><tbody>';
  DATA.tasks.forEach((t,i)=>{if(!T.includes(t))return;const g=grp(i);if(g!==last){h+='<tr><td class="gp" colspan="5">'+g+'</td></tr>';last=g}h+='<tr><td>'+esc(t.subjects)+'</td><td>'+esc(t.task)+'</td><td>'+esc(t.points)+'</td><td>'+esc(t.total)+'</td><td>'+esc(t.time)+'</td></tr>'});
  return T.length?h+'</tbody></table></div>':'<div class="empty">Hiç narsa topilmadi.</div>'}
-function render(){dayStrip();$('view').innerHTML=st.view==='days'?viewDays():st.view==='grid'?viewGrid():viewTasks();
- const t=st.view==='tasks';$('dayStrip').style.display=t?'none':'';$('gradeRow').style.display=t?'none':'';$('progRow').style.display=t?'none':'';
+function render(){dayStrip();$('view').innerHTML=st.view==='days'?viewDays():st.view==='grid'?viewGrid():st.view==='stud'?viewStud():viewTasks();if(st.view==='stud')bindStud();
+ const t=st.view==='tasks'||st.view==='stud';$('dayStrip').style.display=t?'none':'';$('gradeRow').style.display=t?'none':'';$('progRow').style.display=t?'none':'';
  document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===st.view))}
 $('grades').innerHTML=[0,9,10,11].map(g=>'<button class="pill'+(g===0?' on':'')+'" data-g="'+g+'">'+(g?g+'-sinf':'Barçasi')+'</button>').join(' ');
 $('progs').innerHTML='<button class="pill on" data-p="all">Barçasi</button>'+Object.entries(P).map(([k,p])=>'<button class="pill" data-p="'+k+'"><i style="background:'+p.color+'"></i>'+esc(p.short)+'</button>').join('');
@@ -154,5 +155,23 @@ document.querySelectorAll('#grades button').forEach(b=>b.onclick=()=>{st.grade=+
 document.querySelectorAll('#progs button').forEach(b=>b.onclick=()=>{st.prog=b.dataset.p;document.querySelectorAll('#progs button').forEach(x=>x.classList.toggle('on',x===b));render()});
 $('q').oninput=e=>{st.q=e.target.value.toLowerCase().trim();render()};
 const qp=new URLSearchParams(location.search);if(qp.get('shot'))document.documentElement.classList.add('shot');if(['days','grid','tasks'].includes(qp.get('view')))st.view=qp.get('view');
+let STU=[];const st2={school:'',date:''};
+const sk=s=>{const m=s.match(/^(\d+)/);return m?[0,+m[1],s]:[1,0,s]};
+const cmpS=(a,b)=>{const x=sk(a),y=sk(b);return x[0]-y[0]||x[1]-y[1]||x[2].localeCompare(y[2])};
+function conflictSet(){const by={};STU.forEach(r=>(by[r.name]=by[r.name]||[]).push(r));const bad=new Set();
+ Object.values(by).forEach(l=>{for(let i=0;i<l.length;i++)for(let j=i+1;j<l.length;j++)for(const a of l[i].slots)for(const b of l[j].slots)if(a[0]===b[0]&&a[1]<b[2]&&b[1]<a[2]){bad.add(l[i]);bad.add(l[j])}});return bad}
+function viewStud(){if(!STU.length)return '<div class="empty">Yüklanmoqda...</div>';
+ const bad=conflictSet();const schools=[...new Set(STU.map(r=>r.school))].sort(cmpS);const ds=[...new Set(STU.flatMap(r=>r.slots.map(s=>s[0])))].sort();
+ let rows=STU.filter(r=>(!st2.school||r.school===st2.school)&&(!st.q||(r.name+' '+r.school+' '+r.fan).toLowerCase().includes(st.q))&&(!st2.date||r.slots.some(s=>s[0]===st2.date)));
+ const f=r=>st2.date?r.slots.filter(s=>s[0]===st2.date):r.slots;
+ rows.sort((a,b)=>st2.date?(f(a)[0][1].localeCompare(f(b)[0][1])||cmpS(a.school,b.school)||a.fan.localeCompare(b.fan)):(cmpS(a.school,b.school)||a.fan.localeCompare(b.fan)||a.sinf-b.sinf||a.name.localeCompare(b.name)));
+ let h='<div class="row" style="margin-top:22px"><select class="sel" id="fs"><option value="">Barça maktablar</option>'+schools.map(s=>'<option'+(s===st2.school?' selected':'')+'>'+esc(s)+'</option>').join('')+'</select><select class="sel" id="fd"><option value="">Barça sanalar</option>'+ds.map(d=>'<option value="'+d+'"'+(d===st2.date?' selected':'')+'>'+dl(d)+', '+wdn(d).toLowerCase()+'</option>').join('')+'</select></div>';
+ h+='<div class="cnt">Jami: <b>'+rows.length+'</b> ta qatnaşuv · <b>'+new Set(rows.map(r=>r.name)).size+'</b> ta öquvçi</div>';
+ h+='<div class="tasks"><table class="tk"><thead><tr><th>№</th><th>Öquvçi</th><th>Maktab</th><th>Fan</th><th>Sinf</th><th>Sana va vaqt</th></tr></thead><tbody>';
+ rows.forEach((r,i)=>{h+='<tr><td>'+(i+1)+'</td><td class="nm">'+esc(r.name)+(bad.has(r)?' <span class="warn" title="Boşqa fan bilan vaqti ustma-ust">⚠</span>':'')+'</td><td class="mk">'+esc(r.school)+'</td><td>'+esc(r.fan)+'</td><td>'+r.sinf+'</td><td>'+f(r).map(s=>dl(s[0])+' · '+s[1]+'–'+s[2]+' · '+esc(s[3].split(' – ')[0])).join('\n')+'</td></tr>'});
+ return h+'</tbody></table></div>'+(bad.size?'<p class="src"><span class="warn">⚠</span> — bu öquvçining ikki fani bir vaqtga to‘ğri keladi.</p>':'')}
+function bindStud(){const a=$('fs'),b=$('fd');if(a)a.onchange=e=>{st2.school=e.target.value;render()};if(b)b.onchange=e=>{st2.date=e.target.value;render()}}
+fetch('hududiy-oquvchilar.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{STU=j.students.map(a=>({name:a[0],school:a[1],fan:a[2],sinf:a[3],slots:j.sets[a[4]]}));if(st.view==='stud')render()}).catch(()=>{});
+if(qp.get('view')==='stud')st.view='stud';
 nextBox();render();
 </script></body></html>
