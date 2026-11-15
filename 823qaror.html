@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>823-ustama hisoblagiç — Qöşköpir tumani</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --primary:#2563eb;--primary-dark:#1d4ed8;--secondary:#0ea5e9;--accent:#f59e0b;
+  --dark:#0f172a;--light-bg:#f8fafc;--text:#334155;--muted:#64748b;--line:#e2e8f0;
+  --ok:#16a34a;--bad:#dc2626;--radius:16px;--tr:all .25s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Times New Roman',Times,serif}
+html{scroll-behavior:smooth}
+body{background:var(--light-bg);color:var(--text);line-height:1.55;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+header.top{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(15,23,42,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1)}
+.top-in{max-width:1200px;margin:0 auto;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:700;font-size:1.05rem}
+.brand i{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-size:17px}
+.back{color:#fff;font-weight:700;font-size:.98rem;padding:9px 18px;border-radius:30px;border:1px solid rgba(255,255,255,.35);transition:var(--tr);white-space:nowrap}
+.back:hover{background:#fff;color:var(--dark)}
+
+.hero{position:relative;padding:118px 20px 96px;color:#fff;text-align:center;background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 55%,#0369a1 100%);overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;opacity:.18;background:#fff}
+.hero::before{width:380px;height:380px;right:-110px;top:-120px}
+.hero::after{width:240px;height:240px;left:-70px;bottom:-90px}
+.hero .chip{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:7px 18px;border-radius:30px;font-weight:700;font-size:.92rem;margin-bottom:20px;position:relative}
+.hero h1{font-size:clamp(1.9rem,4.6vw,3.1rem);font-weight:800;line-height:1.15;max-width:880px;margin:0 auto 14px;position:relative}
+.hero p.sub{max-width:720px;margin:0 auto;color:#cfe0ff;font-size:1.12rem;position:relative}
+
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px 60px}
+.tabs{display:flex;gap:8px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px;margin-top:-34px;position:relative;z-index:3;box-shadow:0 12px 30px rgba(2,8,23,.09)}
+.tab{flex:1;background:none;border:none;cursor:pointer;padding:13px 10px;font-weight:800;font-size:1.05rem;color:var(--muted);border-radius:12px;display:flex;align-items:center;justify-content:center;gap:9px;transition:var(--tr)}
+.tab.on{background:var(--dark);color:#fff}
+.tab:not(.on):hover{background:#eef2f9;color:var(--primary)}
+.pane{display:none}.pane.on{display:block}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(2,8,23,.06);margin-top:22px}
+.panel h2{font-size:1.2rem;color:var(--dark);font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:3px solid var(--accent);width:fit-content;max-width:100%}
+.panel h2 i{color:var(--primary)}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fld label{display:block;font-weight:700;font-size:.9rem;color:#475569;margin-bottom:6px}
+.fld select,.fld input{width:100%;min-height:46px;border:1.5px solid var(--line);border-radius:12px;padding:8px 38px 8px 14px;font-size:1rem;background:#f8fafc;color:var(--dark);transition:var(--tr);outline:none;appearance:none;-webkit-appearance:none}
+.fld input{padding-right:14px}
+.fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2364748b' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.fld select:focus,.fld input:focus{border-color:var(--primary);background-color:#fff;box-shadow:0 0 0 4px rgba(37,99,235,.12)}
+.crit{display:grid;grid-template-columns:1fr 90px;gap:14px;align-items:end;padding:14px 0;border-bottom:1px dashed var(--line)}
+.crit:last-child{border-bottom:0}
+.crit .pt{text-align:center;font-weight:800;font-size:1.5rem;color:var(--dark);line-height:1}
+.crit .pt small{display:block;font-size:.78rem;color:var(--muted);font-weight:700;margin-top:3px}
+.crit.off{display:none}
+
+.result{margin-top:22px;border-radius:20px;padding:26px;color:#fff;background:linear-gradient(135deg,#0f172a,#1e3a8a);position:relative;overflow:hidden;box-shadow:0 14px 34px rgba(2,8,23,.18)}
+.result.ok{background:linear-gradient(135deg,#065f46,#16a34a)}
+.result.no{background:linear-gradient(135deg,#7f1d1d,#dc2626)}
+.res-row{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between}
+.res-box{text-align:center;min-width:130px}
+.res-box .n{font-size:3rem;font-weight:800;line-height:1}
+.res-box .l{font-size:.95rem;font-weight:700;opacity:.9;margin-top:4px;letter-spacing:.5px}
+.res-msg{flex:1;min-width:200px;font-size:1.15rem;font-weight:700}
+.res-name{font-size:.98rem;opacity:.9;margin-top:4px;font-weight:400}
+.bar{height:12px;border-radius:10px;background:rgba(255,255,255,.22);margin-top:20px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:#fde68a;border-radius:10px;transition:width .4s}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{border:none;cursor:pointer;font-weight:700;font-size:.97rem;padding:11px 20px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;transition:var(--tr);background:#fff;color:var(--dark)}
+.btn:hover{transform:translateY(-2px)}
+
+table.scale{width:100%;border-collapse:collapse;margin-top:6px}
+table.scale th,table.scale td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:1rem}
+table.scale th{background:#eef2f9;color:var(--dark);font-weight:800}
+table.scale tr.hit td{background:#dcfce7;font-weight:800;color:#065f46}
+.note{margin-top:22px;color:var(--muted);font-size:.93rem;text-align:center}
+footer{text-align:center;padding:24px 20px;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line)}
+
+@media(max-width:720px){
+  .g2,.g3{grid-template-columns:1fr}
+  .crit{grid-template-columns:1fr 64px}
+  .tab{font-size:.92rem;padding:11px 4px;flex-direction:column;gap:4px}
+  .brand span{display:none}
+  .res-box .n{font-size:2.4rem}
+}
+@media print{
+  header.top,.tabs,.btns,.note,footer{display:none!important}
+  .hero{padding:20px;color:#000;background:none}.hero p.sub,.hero .chip{display:none}
+  .panel,.result{box-shadow:none;break-inside:avoid}
+  .result{color:#000;background:#fff!important;border:2px solid #000}
+  .bar{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html"><i class="fa-solid fa-calculator"></i><span>Umrbek Mamatov · Taʼlim portali</span></a>
+    <a class="back" href="index.html"><i class="fa-solid fa-arrow-left"></i> Boş sahifa</a>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="chip"><i class="fa-solid fa-scale-balanced"></i> VMQ № 823 · 30.09.2019</span>
+  <h1>823-ustama hisoblagiç</h1>
+  <p class="sub">Pedagoglar, kutubxonaçilar va psixologlar uçun lavozim maaşiga ustama foizini mezonlar böyiça hisoblaş</p>
+</section>
+
+<main class="wrap">
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-p="ped"><i class="fa-solid fa-chalkboard-user"></i> Öqituvçi</button>
+    <button class="tab" data-p="lib"><i class="fa-solid fa-book"></i> Kutubxonaçi</button>
+    <button class="tab" data-p="psi"><i class="fa-solid fa-brain"></i> Psixolog</button>
+  </div>
+
+  <!-- ========== ÖQITUVÇI ========== -->
+  <div class="pane on" id="pane-ped">
+    <div class="panel">
+      <h2><i class="fa-solid fa-id-card"></i> Umumiy maʼlumotlar</h2>
+      <div class="fld" style="margin-bottom:14px"><label>F.I.Ş.</label><input type="text" id="p-name" placeholder="Masalan: Mamatov Umrbek Oliquliyeviç"></div>
+      <div class="g3">
+        <div class="fld"><label>Fan turi</label>
+          <select id="p-subject">
+            <option value="normal">Oddiy fan</option>
+            <option value="murakkab">Murakkab fan (ona tili, rus tili, çet tili, matematika, fizika, kimyo, biologiya)</option>
+          </select></div>
+        <div class="fld"><label>Sinf turi</label>
+          <select id="p-class">
+            <option value="yuqori">Yuqori sinf (5–11)</option>
+            <option value="boshlang">Boşlanğiç sinf (1–4)</option>
+          </select></div>
+        <div class="fld"><label>Pedagogning toifasi</label>
+          <select id="p-toifa">
+            <option value="0">Mutaxassis (toifasiz)</option>
+            <option value="5">2-toifa</option>
+            <option value="10">1-toifa</option>
+            <option value="20">Oliy toifa</option>
+          </select></div>
+      </div>
+      <div class="fld" style="margin-top:14px;max-width:320px"><label>Mehnat staji</label>
+        <select id="p-staj">
+          <option value="0">1 yildan kam</option>
+          <option value="4">1 yildan 5 yilgaça</option>
+          <option value="7">5 yildan 10 yilgaça</option>
+          <option value="10">10 yil va undan yuqori</option>
+        </select></div>
+    </div>
+
+    <div class="panel">
+      <h2><i class="fa-solid fa-list-check"></i> Baholaş mezonlari</h2>
+      <div class="crit"><div class="fld"><label>1. Öquvçilar çoraklik baholarining sifat körsatkiçi</label><select id="p-sifat"></select></div><div class="pt"><span id="pr1">0</span><small>ball</small></div></div>
+      <div class="crit" id="row-olimp"><div class="fld"><label>2. Olimpiada / musobaqada öquvçi iştiroki (tuman, şahar bosqiçi) — 5–11 sinf</label>
+        <select id="p-olimp">
+          <option value="0">Iştirok yöq — 0 ball</option>
+          <option value="5">Eng quyi ğolib körsatkiçning 55%+ natijasi — 5 ball</option>
+          <option value="10">70%+ natija körsatgan — 10 ball</option>
+          <option value="25">1–3 örin yoki xalqaro olimpiadada sovrin — 25 ball</option>
+        </select></div><div class="pt"><span id="pr2">0</span><small>ball</small></div></div>
+      <div class="crit off" id="row-bosh"><div class="fld"><label>2. Boşlanğiç sinf öquvçilarining musobaqada iştiroki — 1–4 sinf</label>
+        <select id="p-boshlang">
+          <option value="0">Iştirok yöq — 0 ball</option>
+          <option value="5">Maksimal ballning 55–70% — 5 ball</option>
+          <option value="10">Maksimal ballning 71–85% — 10 ball</option>
+          <option value="25">Maksimal ballning 86–100% — 25 ball</option>
+        </select></div><div class="pt"><span id="pr2b">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>3. Öqituvçi tajribasini ommalaştiriş darajasi (ötgan 3 yil)</label>
+        <select id="p-ommal">
+          <option value="0">Ommalaştiriş yöq — 0 ball</option>
+          <option value="5">Maktab miqyosida — 5 ball</option>
+          <option value="8">Tuman (şahar) miqyosida — 8 ball</option>
+          <option value="10">Viloyat miqyosida — 10 ball</option>
+          <option value="15">Respublika miqyosida — 15 ball</option>
+        </select></div><div class="pt"><span id="pr3">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>4. Sinf rahbarligi</label>
+        <select id="p-sinf">
+          <option value="0">Yuklatilmagan — 0 ball</option>
+          <option value="5">Yuklatilgan — 5 ball</option>
+        </select></div><div class="pt"><span id="pr4">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>5. Malaka oşirişda sertifikat</label>
+        <select id="p-kurs">
+          <option value="0">Ötmagan yoki sertifikatsiz — 0 ball</option>
+          <option value="10">Ötgan va sertifikatga ega — 10 ball</option>
+        </select></div><div class="pt"><span id="pr5">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>6. Sinfdan taşqari işlar</label>
+        <select id="p-tashqari">
+          <option value="0">Yöq — 0 ball</option>
+          <option value="3">Kreativ tadbirlar (körgazma, musiqa, teatr va boşq.) — 3 ball</option>
+          <option value="5">Mustaqil fikr rivojlantiruvçi loyihalar — 5 ball</option>
+          <option value="10">Qöşimça maşğulotlar (iqtidorli va böş öquvçilar) — 10 ball</option>
+        </select></div><div class="pt"><span id="pr6">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>7. Mehnat staji (yuqoridagi tanlov)</label><input type="text" id="p-staj-info" readonly></div><div class="pt"><span id="pr7">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>8. Malaka toifasi (yuqoridagi tanlov)</label><input type="text" id="p-toifa-info" readonly></div><div class="pt"><span id="pr8">0</span><small>ball</small></div></div>
+    </div>
+
+    <div class="result" id="p-res">
+      <div class="res-row">
+        <div class="res-box"><div class="n" id="p-total">0</div><div class="l">JAMI BALL / 100</div></div>
+        <div class="res-msg"><div id="p-msg">Mezonlarni tanlang</div><div class="res-name" id="p-nm"></div></div>
+        <div class="res-box"><div class="n" id="p-pct">—</div><div class="l">USTAMA</div></div>
+      </div>
+      <div class="bar"><i id="p-fill"></i></div>
+      <div class="btns"><button class="btn" onclick="window.print()"><i class="fa-solid fa-print"></i> Çop etiş</button></div>
+    </div>
+
+    <div class="panel">
+      <h2><i class="fa-solid fa-percent"></i> Ustama jadvali (öqituvçilar)</h2>
+      <table class="scale" id="p-scale">
+        <tr><th>Ball oraliği</th><th>Ustama</th></tr>
+        <tr data-a="65" data-b="70"><td>65 — 70</td><td>10%</td></tr>
+        <tr data-a="71" data-b="75"><td>71 — 75</td><td>15%</td></tr>
+        <tr data-a="76" data-b="80"><td>76 — 80</td><td>20%</td></tr>
+        <tr data-a="81" data-b="85"><td>81 — 85</td><td>25%</td></tr>
+        <tr data-a="86" data-b="90"><td>86 — 90</td><td>30%</td></tr>
+        <tr data-a="91" data-b="95"><td>91 — 95</td><td>35%</td></tr>
+        <tr data-a="96" data-b="100"><td>96 — 100</td><td>40%</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========== KUTUBXONAÇI ========== -->
+  <div class="pane" id="pane-lib">
+    <div class="panel">
+      <h2><i class="fa-solid fa-list-check"></i> Kutubxonaçi mezonlari</h2>
+      <div class="crit"><div class="fld"><label>1. Kutubxona işi böyiça mutaxassislik</label>
+        <select id="k-edu">
+          <option value="0">Nomutaxassis — 0 ball</option>
+          <option value="10">Örta maxsus yoki oliy taʼlimli mutaxassis — 10 ball</option>
+        </select></div><div class="pt"><span id="kr-edu">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>2. Malaka oşiriş kursi</label>
+        <select id="k-kurs">
+          <option value="0">Qatnaşmağan — 0 ball</option>
+          <option value="2">Qatnaşğan, lekin sertifikatsiz — 2 ball</option>
+          <option value="10">Sertifikatga ega — 10 ball</option>
+        </select></div><div class="pt"><span id="kr-kurs">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>3. Kutubxonadagi mehnat staji</label>
+        <select id="k-staj">
+          <option value="0">1 yildan kam — 0 ball</option>
+          <option value="5">1 yildan 5 yilgaça — 5 ball</option>
+          <option value="10">5 yildan 10 yilgaça — 10 ball</option>
+          <option value="20">10 yil va undan yuqori — 20 ball</option>
+        </select></div><div class="pt"><span id="kr-staj">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>4. Darsliklarga buyurtmalarning töğriligi va taʼminlanganlik</label>
+        <select id="k-dars">
+          <option value="0">10%+ xato, taʼminlanganlik 80% dan past — 0 ball</option>
+          <option value="10">10% gaça xato, taʼminlanganlik 80–89% — 10 ball</option>
+          <option value="20">5% gaça xato, taʼminlanganlik 90–95% — 20 ball</option>
+          <option value="30">Buyurtmalar töğri, taʼminlanganlik 96–100% — 30 ball</option>
+        </select></div><div class="pt"><span id="kr-dars">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>5. Öquvçilarning kutubxonaga oylik jalb qilinişi</label>
+        <select id="k-jalb">
+          <option value="0">Jalb qilinmağan — 0 ball</option>
+          <option value="10">Umumiy öquvçilarning 1–30% — 10 ball</option>
+          <option value="20">30–50% — 20 ball</option>
+          <option value="30">50% va undan yuqori — 30 ball</option>
+        </select></div><div class="pt"><span id="kr-jalb">0</span><small>ball</small></div></div>
+    </div>
+    <div class="result" id="k-res">
+      <div class="res-row">
+        <div class="res-box"><div class="n" id="k-total">0</div><div class="l">JAMI BALL / 100</div></div>
+        <div class="res-msg"><div id="k-msg">Mezonlarni tanlang</div></div>
+        <div class="res-box"><div class="n" id="k-pct">—</div><div class="l">USTAMA</div></div>
+      </div>
+      <div class="bar"><i id="k-fill"></i></div>
+      <div class="btns"><button class="btn" onclick="window.print()"><i class="fa-solid fa-print"></i> Çop etiş</button></div>
+    </div>
+    <div class="panel">
+      <h2><i class="fa-solid fa-percent"></i> Ustama jadvali (kutubxonaçi va psixolog)</h2>
+      <table class="scale" id="k-scale">
+        <tr><th>Ball oraliği</th><th>Ustama</th></tr>
+        <tr data-a="65" data-b="75"><td>65 — 75</td><td>10%</td></tr>
+        <tr data-a="76" data-b="85"><td>76 — 85</td><td>15%</td></tr>
+        <tr data-a="86" data-b="100"><td>86 — 100</td><td>20%</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========== PSIXOLOG ========== -->
+  <div class="pane" id="pane-psi">
+    <div class="panel">
+      <h2><i class="fa-solid fa-list-check"></i> Psixolog mezonlari</h2>
+      <div class="crit"><div class="fld"><label>1. Psixologiya mutaxassisligi va staj</label>
+        <select id="ps-edu">
+          <option value="0">Mutaxassis emas — 0 ball</option>
+          <option value="5">Oliy maʼlumotli (yoki qayta tayyorlangan), staj 1–5 yil — 5 ball</option>
+          <option value="10">Oliy maʼlumotli (yoki qayta tayyorlangan), staj 5 yil va yuqori — 10 ball</option>
+        </select></div><div class="pt"><span id="pr-edu">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>2. Malaka oşiriş sertifikati</label>
+        <select id="ps-kurs">
+          <option value="0">Qatnaşmağan — 0 ball</option>
+          <option value="10">Sertifikat (hujjat)ga ega — 10 ball</option>
+        </select></div><div class="pt"><span id="pr-kurs">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>3. Sinfdan taşqari profilaktika, korreksiya va rivojlantiriş işlari</label>
+        <select id="ps-dars">
+          <option value="0">Amalga oşirilmağan — 0 ball</option>
+          <option value="15">Asosiy körsatkiçlar bajarildi (7-sinfdan sörovnomalar, maʼlumotlar bazasi) — 15 ball</option>
+          <option value="30">Seminar-treninglar, kasb yönaltiriş ötkazildi — 30 ball</option>
+          <option value="45">Töliq amalga oşirildi (deviant xulq yöq, bitiruvçilar töğri yönaltirildi) — 45 ball</option>
+        </select></div><div class="pt"><span id="pr-dars">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>4. Ijodiy faoliyat</label>
+        <select id="ps-ijod">
+          <option value="0">Yöq — 0 ball</option>
+          <option value="10">Konferensiya yoki seminarda maʼruza / tezis (kamida 2 marta) — 10 ball</option>
+          <option value="20">Ilmiy maqola, tezis yoki metodik qöllanma naşr etildi — 20 ball</option>
+        </select></div><div class="pt"><span id="pr-ijod">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>5a. Kuzatuv kengaşining müsbat xulosasi</label>
+        <select id="ps-keng1"><option value="0">70% dan past — 0 ball</option><option value="5">70% va undan yuqori — 5 ball</option></select></div><div class="pt"><span id="pr-k1">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>5b. Pedagogik kengaşning müsbat xulosasi</label>
+        <select id="ps-keng2"><option value="0">70% dan past — 0 ball</option><option value="5">70% va undan yuqori — 5 ball</option></select></div><div class="pt"><span id="pr-k2">0</span><small>ball</small></div></div>
+      <div class="crit"><div class="fld"><label>5c. Öquvçilarning müsbat fikri</label>
+        <select id="ps-uq"><option value="0">70% dan past — 0 ball</option><option value="5">70% va undan yuqori — 5 ball</option></select></div><div class="pt"><span id="pr-k3">0</span><small>ball</small></div></div>
+    </div>
+    <div class="result" id="ps-res">
+      <div class="res-row">
+        <div class="res-box"><div class="n" id="ps-total">0</div><div class="l">JAMI BALL / 100</div></div>
+        <div class="res-msg"><div id="ps-msg">Mezonlarni tanlang</div></div>
+        <div class="res-box"><div class="n" id="ps-pct">—</div><div class="l">USTAMA</div></div>
+      </div>
+      <div class="bar"><i id="ps-fill"></i></div>
+      <div class="btns"><button class="btn" onclick="window.print()"><i class="fa-solid fa-print"></i> Çop etiş</button></div>
+    </div>
+    <div class="panel">
+      <h2><i class="fa-solid fa-percent"></i> Ustama jadvali (psixolog)</h2>
+      <table class="scale" id="ps-scale">
+        <tr><th>Ball oraliği</th><th>Ustama</th></tr>
+        <tr data-a="65" data-b="75"><td>65 — 75</td><td>10%</td></tr>
+        <tr data-a="76" data-b="85"><td>76 — 85</td><td>15%</td></tr>
+        <tr data-a="86" data-b="100"><td>86 — 100</td><td>20%</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <p class="note">Hisob-kitob Vazirlar Mahkamasining 2019-yil 30-sentyabrdagi 823-sonli qarori mezonlariga asoslanadi. Natija tavsifiy xarakterga ega.</p>
+</main>
+<footer>© 2026 Umrbek Mamatov · Taʼlim portali</footer>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var v=function(id){return parseInt($(id).value,10)||0};
+  var txt=function(id){var s=$(id);return s.options[s.selectedIndex].text};
+
+  /* tablar */
+  var tabs=document.querySelectorAll('.tab');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.classList.remove('on')});t.classList.add('on');
+    document.querySelectorAll('.pane').forEach(function(p){p.classList.remove('on')});
+    $('pane-'+t.getAttribute('data-p')).classList.add('on');
+  })});
+
+  /* ustama foizi */
+  function pctPed(b){return b>=96?40:b>=91?35:b>=86?30:b>=81?25:b>=76?20:b>=71?15:b>=65?10:0}
+  function pctOth(b){return b>=86?20:b>=76?15:b>=65?10:0}
+
+  function show(prefix,total,pct,scaleId,msgYes,msgNo){
+    $(prefix+'-total').textContent=total;
+    $(prefix+'-pct').textContent=pct?('+'+pct+'%'):'—';
+    $(prefix+'-fill').style.width=Math.min(total,100)+'%';
+    $(prefix+'-msg').textContent=pct?msgYes(pct):msgNo;
+    var box=$(prefix==='p'?'p-res':prefix+'-res');
+    box.classList.toggle('ok',pct>0);
+    box.classList.toggle('no',pct===0&&total>0&&total<65);
+    document.querySelectorAll('#'+scaleId+' tr[data-a]').forEach(function(r){
+      r.classList.toggle('hit',total>=+r.dataset.a&&total<=+r.dataset.b);
+    });
+  }
+
+  /* ===== Öqituvçi ===== */
+  var SIF={
+    normal:[['0','55% dan past — 0 ball'],['3','56–70% — 3 ball'],['4','71–85% — 4 ball'],['5','86% va undan yuqori — 5 ball']],
+    murakkab:[['0','55% dan past — 0 ball'],['3','56–65% — 3 ball'],['4','66–80% — 4 ball'],['5','81% va undan yuqori — 5 ball']]
+  };
+  function fillSifat(){
+    var cur=$('p-sifat').value||'0';
+    $('p-sifat').innerHTML=SIF[$('p-subject').value].map(function(o){return '<option value="'+o[0]+'">'+o[1]+'</option>'}).join('');
+    $('p-sifat').value=cur;
+  }
+  function calcPed(){
+    var yuqori=$('p-class').value==='yuqori';
+    $('row-olimp').classList.toggle('off',!yuqori);
+    $('row-bosh').classList.toggle('off',yuqori);
+    var a=v('p-sifat'),b=yuqori?v('p-olimp'):v('p-boshlang'),c=v('p-ommal'),d=v('p-sinf'),e=v('p-kurs'),f=v('p-tashqari'),g=v('p-staj'),h=v('p-toifa');
+    $('pr1').textContent=a;$('pr2').textContent=yuqori?b:0;$('pr2b').textContent=yuqori?0:b;
+    $('pr3').textContent=c;$('pr4').textContent=d;$('pr5').textContent=e;$('pr6').textContent=f;$('pr7').textContent=g;$('pr8').textContent=h;
+    $('p-staj-info').value=txt('p-staj')+' — '+g+' ball';
+    $('p-toifa-info').value=txt('p-toifa')+' — '+h+' ball';
+    var total=a+b+c+d+e+f+g+h,pct=pctPed(total);
+    var nm=$('p-name').value.trim();
+    $('p-nm').textContent=nm;
+    show('p',total,pct,'p-scale',function(p){return 'Lavozim maaşiga '+p+'% ustama belgilanadi'},total?'65 balldan past — ustama belgilanmaydi':'Mezonlarni tanlang');
+  }
+  ['p-subject'].forEach(function(i){$(i).addEventListener('change',fillSifat)});
+  ['p-name','p-subject','p-class','p-toifa','p-staj','p-sifat','p-olimp','p-boshlang','p-ommal','p-sinf','p-kurs','p-tashqari'].forEach(function(i){
+    $(i).addEventListener('input',calcPed);$(i).addEventListener('change',calcPed)});
+
+  /* ===== Kutubxonaçi ===== */
+  var KM={'k-edu':'kr-edu','k-kurs':'kr-kurs','k-staj':'kr-staj','k-dars':'kr-dars','k-jalb':'kr-jalb'};
+  function calcLib(){
+    var t=0;Object.keys(KM).forEach(function(k){var x=v(k);$(KM[k]).textContent=x;t+=x});
+    show('k',t,pctOth(t),'k-scale',function(p){return 'Lavozim maaşiga '+p+'% ustama belgilanadi'},t?'65 balldan past — ustama belgilanmaydi':'Mezonlarni tanlang');
+  }
+  Object.keys(KM).forEach(function(k){$(k).addEventListener('change',calcLib)});
+
+  /* ===== Psixolog ===== */
+  var PM={'ps-edu':'pr-edu','ps-kurs':'pr-kurs','ps-dars':'pr-dars','ps-ijod':'pr-ijod','ps-keng1':'pr-k1','ps-keng2':'pr-k2','ps-uq':'pr-k3'};
+  function calcPsi(){
+    var t=0;Object.keys(PM).forEach(function(k){var x=v(k);$(PM[k]).textContent=x;t+=x});
+    show('ps',t,pctOth(t),'ps-scale',function(p){return 'Lavozim maaşiga '+p+'% ustama belgilanadi'},t?'65 balldan past — ustama belgilanmaydi':'Mezonlarni tanlang');
+  }
+  Object.keys(PM).forEach(function(k){$(k).addEventListener('change',calcPsi)});
+
+  fillSifat();calcPed();calcLib();calcPsi();
+})();
+</script>
+</body>
+</html>
