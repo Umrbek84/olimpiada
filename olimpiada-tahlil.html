@@ -793,7 +793,7 @@ function anim(root){
  root.querySelectorAll('.mfill[data-w],.dfill[data-w],.afl[data-w],.stk i[data-w]').forEach(e=>e.style.width=e.dataset.w+'%');
  root.querySelectorAll('.ffill[data-w]').forEach(e=>e.style.width=e.dataset.w+'%');
 }
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-v');anim(e.target);io.unobserve(e.target)}}),{threshold:.12});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-v');anim(e.target);io.unobserve(e.target)}}),{threshold:0});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 /* sticky pills */
 const secs=[...document.querySelectorAll('section.blk')];const pl=[...document.querySelectorAll('#pills a')];
