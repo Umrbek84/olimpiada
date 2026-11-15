@@ -93,8 +93,10 @@ section.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px s
 footer{background:var(--navy);color:#cbd5e1;padding:34px 20px;text-align:center}
 footer a{color:var(--gold2);text-decoration:none;font-weight:700}
 </style>
+<style id="yz-prog-css">.yz-prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:99999;background:rgba(15,23,42,.08);pointer-events:none}.yz-prog>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#b45309,#d97706);transform-origin:0 50%;transform:scaleX(0);border-radius:0 3px 3px 0;will-change:transform}</style>
 </head>
 <body>
+<div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>
 <header><div class="bar">
   <a class="brand" href="index.html"><b>Umrbek Mamatov</b><span>Boş mutaxassis · Taʼlim portali</span></a>
   <nav>
@@ -221,6 +223,13 @@ q.oninput=function(){shown=30;render()};fan.onchange=function(){shown=30;render(
 more.onclick=function(){shown+=30;render()};
 fans();render();
 })();
+</script>
+<script>
+/* yz-prog: oʻqish chizigʻi */
+(function(){var b=document.querySelector('#yzProg>i');if(!b)return;var t=false;
+function u(){t=false;var d=document.documentElement,h=d.scrollHeight-window.innerHeight,y=window.pageYOffset||d.scrollTop||0;var r=h>0?Math.min(1,Math.max(0,y/h)):0;b.style.transform='scaleX('+r+')';}
+function q(){if(!t){t=true;requestAnimationFrame(u);}}
+window.addEventListener('scroll',q,{passive:true});window.addEventListener('resize',q);window.addEventListener('load',q);u();})();
 </script>
 </body>
 </html>

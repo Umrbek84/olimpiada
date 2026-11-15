@@ -162,8 +162,10 @@ footer{background:var(--dark);color:#94a3b8;padding:60px 24px 30px;border-top:1p
 .print-h{display:none;font-size:1.3rem;font-weight:800;margin:10px 0 14px;color:#000}
 .prac{margin-top:10px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:10px;padding:8px 12px;font-size:.9rem;font-weight:700;line-height:1.35}.prac i{margin-right:7px}.prac span{font-weight:600;display:block;color:#7c2d12;margin-top:2px}
 </style>
+<style id="yz-prog-css">.yz-prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:99999;background:rgba(15,23,42,.08);pointer-events:none}.yz-prog>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#b45309,#d97706);transform-origin:0 50%;transform:scaleX(0);border-radius:0 3px 3px 0;will-change:transform}</style>
 </head>
 <body>
+<div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>
 
 <header class="top">
   <div class="top-in">
@@ -430,6 +432,13 @@ document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>showPane(b.dataset.p)
 })();
 
 apply();
+</script>
+<script>
+/* yz-prog: oʻqish chizigʻi */
+(function(){var b=document.querySelector('#yzProg>i');if(!b)return;var t=false;
+function u(){t=false;var d=document.documentElement,h=d.scrollHeight-window.innerHeight,y=window.pageYOffset||d.scrollTop||0;var r=h>0?Math.min(1,Math.max(0,y/h)):0;b.style.transform='scaleX('+r+')';}
+function q(){if(!t){t=true;requestAnimationFrame(u);}}
+window.addEventListener('scroll',q,{passive:true});window.addEventListener('resize',q);window.addEventListener('load',q);u();})();
 </script>
 </body>
 </html>

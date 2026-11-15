@@ -85,7 +85,9 @@ footer{background:#0f2a5c;color:#dbe5fb;text-align:center;padding:20px;font-size
 @media(max-width:700px){.top-in{padding:8px 12px}.top nav{flex-wrap:nowrap;overflow-x:auto;width:100%}.top nav a{white-space:nowrap;padding:7px 12px;font-size:.9rem}.wrap{padding:0 12px}.gridwrap,.tasks{max-height:calc(100vh - 120px)}.tasks.sw{max-height:none;overflow:visible;background:none;box-shadow:none}.tk.stu{min-width:0}.tk.stu thead{display:none}.tk.stu tr{display:block;background:#fff;border:1px solid #e2e8f0;border-radius:12px;margin:0 0 10px;padding:10px 12px}.tk.stu td{display:block;border:0;padding:1px 0;background:none!important}.tk.stu td:first-child{display:none}.tk.stu td[data-l]:before{content:attr(data-l) ": ";color:#64748b;font-size:.85rem}.tk.stu .nm{font-size:1.05rem}.cd div{min-width:50px}}
 html.shot .gridwrap,html.shot .tasks{max-height:none}
 html.shot .top,html.shot .ctl,html.shot .days,html.shot .next{display:none}html.shot .hero{padding-bottom:30px}html.shot .gridwrap,html.shot .tasks{margin-top:26px;overflow:visible}html.shot .wrap{max-width:1840px}html.shot table.grid{min-width:0}
-</style></head><body>
+</style><style id="yz-prog-css">.yz-prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:99999;background:rgba(15,23,42,.08);pointer-events:none}.yz-prog>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#b45309,#d97706);transform-origin:0 50%;transform:scaleX(0);border-radius:0 3px 3px 0;will-change:transform}</style>
+</head><body>
+<div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>
 <header class="top"><div class="top-in"><a class="brand" href="index.html"><b>Umrbek Mamatov</b><span>Boş mutaxassis · Taʼlim portali</span></a>
 <nav><a href="index.html"><i class="fa-solid fa-house"></i> Boş sahifa</a><a href="index.html#olimpiada"><i class="fa-solid fa-trophy"></i> Olimpiadalar</a><a href="hududiy-bosqich.html" class="on"><i class="fa-solid fa-calendar-days"></i> Hududiy bosqiç grafigi</a><a href="jonli.html" target="_blank" rel="noopener"><i class="fa-solid fa-tower-broadcast"></i> Jonli efir</a></nav></div></header>
 <section class="hero"><div class="hero-in"><span class="kick"><i class="fa-solid fa-medal"></i> 2026–2027-öquv yili</span>
@@ -180,4 +182,11 @@ function bindStud(){const a=$('fs'),b=$('fd');if(a)a.onchange=e=>{st2.school=e.t
 fetch('hududiy-oquvchilar.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{STU=j.students.map(a=>({name:a[0],school:a[1],fan:a[2],sinf:a[3],slots:j.sets[a[4]]}));if(st.view==='stud')render()}).catch(()=>{});
 if(qp.get('view')==='stud')st.view='stud';
 nextBox();render();
-</script></body></html>
+</script><script>
+/* yz-prog: oʻqish chizigʻi */
+(function(){var b=document.querySelector('#yzProg>i');if(!b)return;var t=false;
+function u(){t=false;var d=document.documentElement,h=d.scrollHeight-window.innerHeight,y=window.pageYOffset||d.scrollTop||0;var r=h>0?Math.min(1,Math.max(0,y/h)):0;b.style.transform='scaleX('+r+')';}
+function q(){if(!t){t=true;requestAnimationFrame(u);}}
+window.addEventListener('scroll',q,{passive:true});window.addEventListener('resize',q);window.addEventListener('load',q);u();})();
+</script>
+</body></html>

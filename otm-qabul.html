@@ -63,7 +63,9 @@ td.fan{text-align:left;font-weight:700}td.dl{font-weight:800}td.dl.up{background
 .ring{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;justify-items:center}
 .ring .d{width:170px;height:170px;border-radius:50%;display:grid;place-items:center}.ring .d b{width:112px;height:112px;border-radius:50%;background:#fff;display:grid;place-items:center;font-family:Georgia,serif;font-size:1.5rem;text-align:center;line-height:1.1}.ring .d b small{display:block;font-size:.72rem;color:#64748b;font-family:Inter,sans-serif;font-weight:600}
 .ring p{text-align:center;font-size:.9rem;margin-top:8px}
-</style></head><body>
+</style><style id="yz-prog-css">.yz-prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:99999;background:rgba(15,23,42,.08);pointer-events:none}.yz-prog>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#b45309,#d97706);transform-origin:0 50%;transform:scaleX(0);border-radius:0 3px 3px 0;will-change:transform}</style>
+</head><body>
+<div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>
 <header class="top"><div class="top-in"><a class="brand" href="index.html"><b>Umrbek Mamatov</b><span>Boş mutaxassis · Taʼlim portali</span></a>
 <nav><a href="index.html#otm"><i class="fa-solid fa-arrow-left"></i> OTM tahlili</a><a href="otm-qabul.html" class="on"><i class="fa-solid fa-building-columns"></i> OTMga qabul</a><a href="otm-solishtirma.html"><i class="fa-solid fa-code-compare"></i> 4–5-blok soliştirma</a><a href="otm-past-natija.html"><i class="fa-solid fa-triangle-exclamation"></i> Past natijalar</a></nav></div></header>
 
@@ -133,4 +135,11 @@ document.getElementById('q').oninput=e=>{qs=e.target.value.toLowerCase().trim();
 document.querySelectorAll('.tools button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tools button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.s;draw()});
 draw();
 {const f=S.slice().sort(o.up)[0];document.getElementById('ext').innerHTML=`<b>Misol:</b> jadvalning birinçi qatorida <b>${f.name}</b> turibdi. 2025-yilda ${f.b25} nafar bitiruvçidan ${f.t25} nafari (${fmt(f.p25)}%), 2026-yilda ${f.b26} nafar bitiruvçidan ${f.t26} nafari (${fmt(f.p26)}%) OTMga kirgan. Kiriş uluşi <span class="${f.d>0?'g':'r'}">${f.d>0?'oşgan':'kamaygan'}</span>, şuning uçun farq <span class="${f.d>0?'g':'r'}">«${sg(f.d)}»</span>.`}
-</script></body></html>
+</script><script>
+/* yz-prog: oʻqish chizigʻi */
+(function(){var b=document.querySelector('#yzProg>i');if(!b)return;var t=false;
+function u(){t=false;var d=document.documentElement,h=d.scrollHeight-window.innerHeight,y=window.pageYOffset||d.scrollTop||0;var r=h>0?Math.min(1,Math.max(0,y/h)):0;b.style.transform='scaleX('+r+')';}
+function q(){if(!t){t=true;requestAnimationFrame(u);}}
+window.addEventListener('scroll',q,{passive:true});window.addEventListener('resize',q);window.addEventListener('load',q);u();})();
+</script>
+</body></html>
