@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Men haqimda — Umrbek Mamatov</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --primary:#2563eb;--secondary:#0ea5e9;--accent:#f59e0b;
+  --dark:#0f172a;--light-bg:#f8fafc;--text:#334155;--muted:#64748b;--line:#e2e8f0;--tr:all .25s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Times New Roman',Times,serif}
+html{scroll-behavior:smooth}
+body{background:var(--light-bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+header.top{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(15,23,42,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1)}
+.top-in{max-width:1100px;margin:0 auto;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:700;font-size:1.05rem;cursor:default;user-select:none}
+.brand i{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-size:17px}
+.back{color:#fff;font-weight:700;font-size:.98rem;padding:9px 18px;border-radius:30px;border:1px solid rgba(255,255,255,.35);transition:var(--tr);white-space:nowrap}
+.back:hover{background:#fff;color:var(--dark)}
+
+.hero{position:relative;padding:100px 20px 120px;color:#fff;text-align:center;background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 55%,#0369a1 100%);overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;opacity:.16;background:#fff}
+.hero::before{width:340px;height:340px;right:-100px;top:-110px}
+.hero::after{width:220px;height:220px;left:-60px;bottom:-80px}
+.hero .chip{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:7px 18px;border-radius:30px;font-weight:700;font-size:.92rem;margin-bottom:16px;position:relative}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;position:relative}
+
+.wrap{max-width:1100px;margin:-70px auto 0;padding:0 20px 50px;position:relative;z-index:3;display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 10px 30px rgba(2,8,23,.07)}
+.side{padding:18px;position:sticky;top:84px}
+.photo{width:100%;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#e2e8f0}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.side h2{font-size:1.3rem;color:var(--dark);font-weight:800;margin-top:16px;line-height:1.25}
+.side .pos{color:var(--primary);font-weight:800;font-size:.98rem;margin-top:4px;letter-spacing:.3px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.stat{background:#f1f5f9;border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center}
+.stat b{display:block;font-size:1.45rem;color:#1e3a8a;line-height:1.1}
+.stat span{display:block;font-size:.8rem;color:var(--muted);font-weight:700;margin-top:3px}
+.addr{margin-top:12px;background:#eff6ff;border:1px solid #dbeafe;border-radius:12px;padding:10px 12px;font-size:.92rem;color:#1e3a8a;font-weight:700}
+.links{display:grid;gap:8px;margin-top:14px}
+.links a{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;font-weight:700;font-size:.97rem;color:#fff;transition:var(--tr)}
+.links a:hover{transform:translateY(-2px)}
+.l-tg{background:#229ed9}.l-ch{background:#0f172a}.l-fb{background:#1877f2}.l-ig{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)}
+
+.main{display:grid;gap:22px}
+.blk{padding:24px}
+.eyebrow{color:var(--primary);font-weight:800;font-size:.85rem;letter-spacing:2px;text-transform:uppercase}
+.blk h1.t{font-size:clamp(1.7rem,3.6vw,2.3rem);color:var(--dark);font-weight:800;margin:4px 0 12px;line-height:1.15}
+.blk h3{font-size:1.2rem;color:var(--dark);font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:9px;border-bottom:3px solid var(--accent);width:fit-content;max-width:100%}
+.blk h3 i{color:var(--primary)}
+.blk p{font-size:1.08rem}
+.job{padding:14px 0;border-bottom:1px dashed var(--line)}
+.job:first-of-type{padding-top:0}
+.job:last-child{border-bottom:0;padding-bottom:0}
+.job-h{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.job-h b{font-size:1.12rem;color:var(--dark)}
+.tag{font-size:.82rem;font-weight:700;background:#eef2f9;color:#475569;padding:4px 11px;border-radius:20px}
+.tag.b{background:#dbeafe;color:#1d4ed8}
+.job .org{color:#1d4ed8;font-weight:800;margin-top:2px}
+.job .sub{color:var(--muted);font-style:italic;font-size:.95rem;margin-top:2px}
+.job p{margin-top:8px;font-size:1.02rem}
+.pr{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pr div{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:14px}
+.pr i{color:var(--accent);font-size:1.2rem}
+.pr b{display:block;color:var(--dark);margin:6px 0 4px;font-size:1.02rem}
+.pr span{font-size:.95rem;color:var(--text);line-height:1.45;display:block}
+.gal{margin:0}
+.gal img{width:100%;border-radius:14px;display:block}
+.gal figcaption{margin-top:8px;color:var(--muted);font-size:.95rem;text-align:center}
+footer{text-align:center;padding:24px 20px;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line)}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:1fr;margin-top:-60px}
+  .side{position:static;max-width:440px;margin:0 auto;width:100%}
+  .pr{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .brand span{display:none}
+  .blk{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><i class="fa-solid fa-user-tie"></i><span>Umrbek Mamatov · Taʼlim portali</span></div>
+    <a class="back" href="index.html"><i class="fa-solid fa-arrow-left"></i> Boş sahifa</a>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="chip"><i class="fa-solid fa-id-card"></i> Şaxsiy sahifa</span>
+  <h1>Men haqimda</h1>
+</section>
+
+<div class="wrap">
+
+  <aside class="card side">
+    <div class="photo"><img src="umrbek-mamatov.jpg" alt="Mamatov Umrbek Oliquliyeviç"></div>
+    <h2>Mamatov Umrbek Oliquliyeviç</h2>
+    <div class="pos">Boş mutaxassis</div>
+    <div class="stats">
+      <div class="stat"><b>2007</b><span>Faoliyat boşlangan yil</span></div>
+      <div class="stat"><b>2026</b><span>Boş mutaxassis (10-noyabrdan)</span></div>
+    </div>
+    <div class="addr"><i class="fa-solid fa-location-dot"></i> Xorazm viloyati, Qöşköpir tumani taʼlim bölimi</div>
+    <div class="links">
+      <a class="l-tg" href="https://t.me/umrbek_mamatov"><i class="fa-brands fa-telegram"></i> Telegram</a>
+      <a class="l-ch" href="https://t.me/talimxujjatlari"><i class="fa-solid fa-folder-open"></i> Taʼlimga oid hujjatlar</a>
+      <a class="l-fb" href="https://facebook.com/umrbek.mamatov"><i class="fa-brands fa-facebook"></i> Facebook</a>
+      <a class="l-ig" href="https://instagram.com/umrbek_mamatov"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="card blk">
+      <div class="eyebrow">Biografiya va faoliyat</div>
+      <h1 class="t">Umrbek Mamatov</h1>
+      <p>Qöşköpir tumani taʼlim tizimida 2007-yil 3-martdan buyon uzluksiz xizmat qilib kelmoqdaman. Asosiy maqsadim — taʼlim muassasalarida taʼlim sifatini oşiriş, xolis baholaş mexanizmlarini joriy qiliş, tahliliy-raqamli yondaşuvlarni tatbiq etiş hamda soha xodimlari va pedagoglarning kasbiy, mehnat huquqlarini kafolatli himoya qiliş.</p>
+    </section>
+
+    <section class="card blk">
+      <h3><i class="fa-solid fa-briefcase"></i> Hozirgi asosiy lavozimlar</h3>
+      <div class="job">
+        <div class="job-h"><b>Boş mutaxassis</b><span class="tag">2026-yil 10-noyabrdan</span></div>
+        <div class="org">Qöşköpir tumani taʼlim bölimi</div>
+        <div class="sub">Öquvçi, pedagog va taʼlim muassasasi faoliyatini baholaşni taşkil etiş şöbasi</div>
+        <p>Tuman miqyosida öquvçilar bilimi, pedagogik xodimlar salohiyati hamda umumtaʼlim muassasalari faoliyatini kompleks baholaş, monitoring va sifat körsatkiçlari tahlilini muvofiqlaştiriş.</p>
+      </div>
+      <div class="job">
+        <div class="job-h"><b>Tuman kengaşi raisi örinbosari</b><span class="tag b">Jamoat faoliyati</span></div>
+        <div class="org">Özbekiston taʼlim va fan xodimlari kasaba uyuşmasi</div>
+        <p>Tuman pedagoglari va soha xodimlarining mehnat qonunçiligiga oid huquqlarini taʼminlaş, mehnat muhofazasi hamda ijtimoiy-huquqiy manfaatlarini töliq himoya qiliş.</p>
+      </div>
+    </section>
+
+    <section class="card blk">
+      <h3><i class="fa-solid fa-laptop-code"></i> Amaliy tajriba va raqamlaştiriş</h3>
+      <p><b style="color:var(--dark)">Uzluksiz mehnat faoliyati:</b> 2007-yildan buyon taʼlim sifati monitoringi yönalişlarida masʼul mutaxassis lavozimlarida faoliyat yuritib, hududiy olimpiadalar, tahliliy sinovlar va tizimli monitoring işlarini muvofiqlaştirib kelmoqdaman.</p>
+      <p style="margin-top:10px"><b style="color:var(--dark)">Innovatsion yeçimlar:</b> Taʼlim tahlili, natijalarni hisoblaş hamda monitoring jarayonlarini avtomatlaştiriş maqsadida şaxsiy dasturiy vositalar, maʼlumotlar bazalari va tahliliy algoritmlarni işlab çiqiş hamda amaliyotda qöllaş böyiça tizimli tajribaga egaman.</p>
+    </section>
+
+    <section class="card blk">
+      <h3><i class="fa-solid fa-compass"></i> Faoliyat tamoyillari</h3>
+      <div class="pr">
+        <div><i class="fa-solid fa-scale-balanced"></i><b>Xolislik va aniq tahlil</b><span>Baholaş va monitoring işlarida faqat qatʼiy dalillar va xolis körsatkiçlarga tayaniş.</span></div>
+        <div><i class="fa-solid fa-gavel"></i><b>Qonun ustuvorligi</b><span>Har bir pedagogning kasaba uyuşmasi doirasidagi mehnat huquqlarini qatʼiy himoyalaş.</span></div>
+        <div><i class="fa-solid fa-microchip"></i><b>Raqamli integratsiya</b><span>Zamonaviy axborot texnologiyalari va dasturiy yeçimlarni boşqaruvga tatbiq etiş.</span></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>© 2026 Umrbek Mamatov · Taʼlim portali</footer>
+
+</body>
+</html>
