@@ -2619,6 +2619,8 @@ body{padding-top:0}
 header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid #e2e8f0;box-shadow:0 2px 14px rgba(15,23,42,.06)}
 .nx-bar{max-width:1280px;margin:0 auto;padding:0 20px;height:68px;display:flex;align-items:center;gap:22px}
 .nx-brand{display:flex;flex-direction:column;line-height:1.1;text-decoration:none;flex-shrink:0}
+.nx-brand{flex-direction:row;align-items:center;gap:10px;min-width:0}.nx-logo{width:46px;height:46px;border-radius:50%;flex-shrink:0;display:block;box-shadow:0 2px 8px rgba(15,23,42,.25)}.nx-bt{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+@media(max-width:400px){.nx-brand{gap:8px;flex-shrink:1}.nx-logo{width:40px;height:40px}.nx-brand .nx-bt b{font-size:1.12rem}.nx-brand .nx-bt span{font-size:.6rem;letter-spacing:.5px}}
 .nx-brand b{font-size:1.28rem;color:#0f2547;letter-spacing:.2px}
 .nx-brand span{font-size:.72rem;color:#b45309;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;margin-top:3px}
 .nx-nav{display:flex;align-items:center;gap:4px;margin-left:auto;list-style:none}
@@ -2666,6 +2668,23 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 @media(min-width:1001px){.nx-bar{gap:10px}.nx-nav>li>a,.nx-nav>li>button{padding:10px 9px;font-size:.96rem}.nx-hb{padding:9px 10px;font-size:.75rem}.nx-live{padding:9px 13px;font-size:.8rem}.nx-tools-btn{width:38px;height:38px}}
 @media(min-width:1001px) and (max-width:1260px){.nx-hb-d{font-size:0;padding:9px 12px}.nx-hb-d i{font-size:.95rem}}
 @media(max-width:1000px){.nx-tools{display:none}.nx-nav>li.nx-tools-m{display:block}}
+/* Telegram: aloqa va kanal menyusi */
+.tgx{position:fixed;right:16px;bottom:20px;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:10px;opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .3s,transform .3s}
+.tgx.show{opacity:1;transform:none;pointer-events:auto}
+.tgx-btn{width:56px;height:56px;border-radius:50%;border:0;background:#229ed9;color:#fff;font-size:1.7rem;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 22px rgba(34,158,217,.45);transition:background .2s}
+.tgx-btn:hover{background:#1b8bc2}
+.tgx.open .tgx-btn{background:#0f172a}
+.tgx-i2{display:none;font-size:1.4rem}.tgx.open .tgx-i1{display:none}.tgx.open .tgx-i2{display:inline-block}
+.tgx-menu{display:none;flex-direction:column;gap:8px;width:min(300px,calc(100vw - 32px))}
+.tgx.open .tgx-menu{display:flex}
+.tgx-item{display:flex;align-items:center;gap:12px;background:#fff;color:#0f172a!important;text-decoration:none;padding:12px 14px;border-radius:16px;border:1px solid #e2e8f0;box-shadow:0 10px 28px rgba(15,23,42,.22)}
+.tgx-item:hover{background:#f1f5f9}
+.tgx-item>i{font-size:1.7rem;color:#229ed9;flex-shrink:0;width:30px;text-align:center}
+.tgx-item b{display:block;font-size:1rem;line-height:1.2}
+.tgx-item small{display:block;font-size:.8rem;color:#64748b;margin-top:2px;line-height:1.25}
+.tgx-item.pri{background:#229ed9;border-color:#229ed9;color:#fff!important}
+.tgx-item.pri:hover{background:#1b8bc2}
+.tgx-item.pri>i{color:#fff}.tgx-item.pri small{color:rgba(255,255,255,.88)}
 /* Telegram kanal tugmasi */
 .tg-fab{position:fixed;right:16px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#229ed9;color:#fff!important;display:flex;align-items:center;justify-content:center;font-size:1.6rem;text-decoration:none;box-shadow:0 8px 22px rgba(34,158,217,.45);z-index:900;opacity:0;transform:translateY(20px) scale(.9);pointer-events:none;transition:.25s}
 .tg-fab.show{opacity:1;transform:none;pointer-events:auto}
@@ -2817,7 +2836,7 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
   <!-- 1. Yangi menyu -->
   <header class="nx-header">
     <div class="nx-bar">
-      <a href="#home" class="nx-brand"><b>Umrbek Mamatov</b><span>Boş mutaxassis · Taʼlim portali</span></a>
+      <a href="#home" class="nx-brand"><img class="nx-logo" src="logo.png" width="46" height="46" alt="Umrbek Mamatov logotipi"><div class="nx-bt"><b>Umrbek Mamatov</b><span>Boş mutaxassis · Taʼlim portali</span></div></a>
       <button class="nx-burger" aria-label="Menyu" onclick="document.getElementById('nxNav').classList.toggle('show')"><i class="fa-solid fa-bars"></i></button>
       <ul class="nx-nav" id="nxNav">
         <li><a href="#home"><i class="fa-solid fa-house"></i> Boş sahifa</a></li>
@@ -4443,12 +4462,27 @@ b.addEventListener('click',function(e){e.stopPropagation();t.classList.toggle('o
 document.addEventListener('click',function(e){if(!t.contains(e.target))t.classList.remove('open')});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')t.classList.remove('open')});})();
 </script>
-<a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener" class="tg-fab" id="tgFab" aria-label="Taʼlimga oid hujjatlar — Telegram kanal"><i class="fa-brands fa-telegram"></i><span>Taʼlimga oid hujjatlar</span></a>
+<div class="tgx" id="tgFab">
+<div class="tgx-menu" id="tgMenu">
+<a class="tgx-item pri" href="https://t.me/umrbek_mamatov" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i><span><b>Menga yozing</b><small>Sayt böyiça savol va takliflar uçun</small></span></a>
+<a class="tgx-item" href="https://t.me/talimxujjatlari" target="_blank" rel="noopener"><i class="fa-solid fa-bullhorn"></i><span><b>Taʼlimga oid hujjatlar</b><small>Telegram kanal</small></span></a>
+</div>
+<button type="button" class="tgx-btn" id="tgBtn" aria-expanded="false" aria-controls="tgMenu" aria-label="Telegram: aloqa va kanal"><i class="fa-brands fa-telegram tgx-i1"></i><i class="fa-solid fa-xmark tgx-i2"></i></button>
+</div>
 <script>
 /* Telegram tugmasi: pastga yürganda körinadi */
 (function(){var f=document.getElementById('tgFab');if(!f)return;
 function u(){f.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>350)}
 window.addEventListener('scroll',u,{passive:true});u();})();
+</script>
+<script>
+/* Telegram tugmasi: menyuni ochiş va yopiş */
+(function(){var t=document.getElementById('tgFab'),b=document.getElementById('tgBtn');if(!t||!b)return;
+function set(o){t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false')}
+b.addEventListener('click',function(e){e.stopPropagation();set(!t.classList.contains('open'))});
+document.addEventListener('click',function(e){if(!t.contains(e.target))set(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+window.addEventListener('scroll',function(){if(!t.classList.contains('show'))set(false)},{passive:true});})();
 </script>
 <script>
 /* yz-prog: oʻqish chizigʻi */
