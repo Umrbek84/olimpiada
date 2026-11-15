@@ -18,7 +18,7 @@ a{text-decoration:none;color:inherit}
 
 header.top{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(15,23,42,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1)}
 .top-in{max-width:1200px;margin:0 auto;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:700;font-size:1.05rem}
+.brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:700;font-size:1.05rem;cursor:default;user-select:none}
 .brand i{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-size:17px}
 .back{color:#fff;font-weight:700;font-size:.98rem;padding:9px 18px;border-radius:30px;border:1px solid rgba(255,255,255,.35);transition:var(--tr);white-space:nowrap}
 .back:hover{background:#fff;color:var(--dark)}
@@ -96,7 +96,7 @@ footer{text-align:center;padding:24px 20px;color:var(--muted);font-size:.92rem;b
 
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="index.html"><i class="fa-solid fa-calculator"></i><span>Umrbek Mamatov · Taʼlim portali</span></a>
+    <div class="brand"><i class="fa-solid fa-calculator"></i><span>Umrbek Mamatov · Taʼlim portali</span></div>
     <a class="back" href="index.html"><i class="fa-solid fa-arrow-left"></i> Boş sahifa</a>
   </div>
 </header>
