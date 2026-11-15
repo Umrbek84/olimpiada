@@ -2666,6 +2666,12 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 @media(min-width:1001px){.nx-bar{gap:10px}.nx-nav>li>a,.nx-nav>li>button{padding:10px 9px;font-size:.96rem}.nx-hb{padding:9px 10px;font-size:.75rem}.nx-live{padding:9px 13px;font-size:.8rem}.nx-tools-btn{width:38px;height:38px}}
 @media(min-width:1001px) and (max-width:1260px){.nx-hb-d{font-size:0;padding:9px 12px}.nx-hb-d i{font-size:.95rem}}
 @media(max-width:1000px){.nx-tools{display:none}.nx-nav>li.nx-tools-m{display:block}}
+/* Telegram kanal tugmasi */
+.tg-fab{position:fixed;right:16px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#229ed9;color:#fff!important;display:flex;align-items:center;justify-content:center;font-size:1.6rem;text-decoration:none;box-shadow:0 8px 22px rgba(34,158,217,.45);z-index:900;opacity:0;transform:translateY(20px) scale(.9);pointer-events:none;transition:.25s}
+.tg-fab.show{opacity:1;transform:none;pointer-events:auto}
+.tg-fab:hover{background:#1b8bc2}
+.tg-fab span{position:absolute;right:66px;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:6px 12px;border-radius:10px;white-space:nowrap;opacity:0;pointer-events:none;transition:.2s}
+@media(hover:hover){.tg-fab:hover span{opacity:1}}
 /* HERO */
 .nx-hero{position:relative;padding:130px 20px 80px;background:radial-gradient(1200px 500px at 85% -10%,#2b5fd9 0%,transparent 60%),radial-gradient(900px 500px at -10% 110%,#0ea5e9 0%,transparent 55%),#0b1e3f;color:#fff;overflow:hidden}
 .nx-hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(#000,transparent 90%)}
@@ -2819,19 +2825,21 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
         <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Aloqa</a></li>
         <li class="nx-hb-m"><a href="hududiy-bosqich.html" class="nx-hb"><i class="fa-solid fa-calendar-days"></i> Olimpiadaning hududiy bosqiçi grafigi</a></li>
         <li class="nx-live-m"><a href="jonli.html" target="_blank" rel="noopener" class="nx-live"><span class="d"></span> JONLI EFIR</a></li>
-        <li class="nx-tools-m"><button type="button"><i class="fa-solid fa-calculator"></i> Hisoblagiçlar <i class="fa-solid fa-chevron-down"></i></button>
+        <li class="nx-tools-m"><button type="button"><i class="fa-solid fa-calculator"></i> Xizmatlar <i class="fa-solid fa-chevron-down"></i></button>
           <ul class="nx-drop">
             <li><a href="823qaror.html"><i class="fa-solid fa-calculator"></i><span><b>823-ustama</b><small>Pedagog, kutubxonaçi va psixolog ustamasi hisoblagiçi</small></span></a></li>
             <li><a href="taqsimot.html"><i class="fa-solid fa-table-cells"></i><span><b>Dars soatlari taqsimoti</b><small>3271-nizom asosida avtomatik taqsimlaş</small></span></a></li>
+            <li><a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i><span><b>Taʼlimga oid hujjatlar</b><small>Telegram kanal: yangiliklar, qarorlar, buyruqlar</small></span></a></li>
           </ul></li>
       </ul>
       <a href="hududiy-bosqich.html" class="nx-hb nx-hb-d" title="Olimpiadaning hududiy bosqiçi grafigi"><i class="fa-solid fa-calendar-days"></i> HUDUDIY BOSQIÇ GRAFIGI</a>
       <a href="jonli.html" target="_blank" rel="noopener" class="nx-live"><span class="d"></span> JONLI EFIR</a>
       <div class="nx-tools" id="nxTools">
-        <button type="button" class="nx-tools-btn" aria-label="Hisoblagiçlar menyusi" aria-haspopup="true"><i class="fa-solid fa-bars"></i></button>
+        <button type="button" class="nx-tools-btn" aria-label="Xizmatlar menyusi" aria-haspopup="true"><i class="fa-solid fa-bars"></i></button>
         <ul class="nx-drop">
             <li><a href="823qaror.html"><i class="fa-solid fa-calculator"></i><span><b>823-ustama</b><small>Pedagog, kutubxonaçi va psixolog ustamasi hisoblagiçi</small></span></a></li>
             <li><a href="taqsimot.html"><i class="fa-solid fa-table-cells"></i><span><b>Dars soatlari taqsimoti</b><small>3271-nizom asosida avtomatik taqsimlaş</small></span></a></li>
+            <li><a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i><span><b>Taʼlimga oid hujjatlar</b><small>Telegram kanal: yangiliklar, qarorlar, buyruqlar</small></span></a></li>
         </ul>
       </div>
     </div>
@@ -3660,6 +3668,7 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
                 <h4 style="color: #ffffff; margin-bottom: 14px; font-size: 1.15rem;">Rasmiy boğlaniş va ijtimoiy tarmoqlar</h4>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
           <a href="https://t.me/umrbek_mamatov" target="_blank" class="btn btn-outline" style="padding: 10px 16px;"><i class="fa-brands fa-telegram"></i> Telegram</a>
+          <a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 10px 16px;"><i class="fa-brands fa-telegram"></i> Taʼlimga oid hujjatlar (kanal)</a>
           <a href="https://instagram.com/umrbek_mamatov" target="_blank" class="btn btn-outline" style="padding: 10px 16px;"><i class="fa-brands fa-instagram"></i> Instagram (@umrbek_mamatov)</a>
           <a href="https://www.facebook.com/umrbek.mamatov" target="_blank" class="btn btn-outline" style="padding: 10px 16px;"><i class="fa-brands fa-facebook"></i> Facebook (Umrbek Mamatov)</a>
           <a href="tel:+998996601415" class="btn btn-outline" style="padding: 10px 16px;"><i class="fa-solid fa-phone"></i> +998 99 660 14 15</a>
@@ -4395,6 +4404,13 @@ var b=t.querySelector('.nx-tools-btn');
 b.addEventListener('click',function(e){e.stopPropagation();t.classList.toggle('open')});
 document.addEventListener('click',function(e){if(!t.contains(e.target))t.classList.remove('open')});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')t.classList.remove('open')});})();
+</script>
+<a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener" class="tg-fab" id="tgFab" aria-label="Taʼlimga oid hujjatlar — Telegram kanal"><i class="fa-brands fa-telegram"></i><span>Taʼlimga oid hujjatlar</span></a>
+<script>
+/* Telegram tugmasi: pastga yürganda körinadi */
+(function(){var f=document.getElementById('tgFab');if(!f)return;
+function u(){f.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>350)}
+window.addEventListener('scroll',u,{passive:true});u();})();
 </script>
 </body>
 </html>
