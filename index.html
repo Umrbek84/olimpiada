@@ -2672,6 +2672,17 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 .tg-fab:hover{background:#1b8bc2}
 .tg-fab span{position:absolute;right:66px;background:#0f172a;color:#fff;font-size:.85rem;font-weight:700;padding:6px 12px;border-radius:10px;white-space:nowrap;opacity:0;pointer-events:none;transition:.2s}
 @media(hover:hover){.tg-fab:hover span{opacity:1}}
+.hs{background:#f8fafc;border-top:1px solid #e2e8f0;padding:70px 20px}
+.hs-in{max-width:1100px;margin:0 auto}
+.hs h2{font-size:clamp(1.6rem,3.4vw,2.2rem);color:#0f172a;font-weight:800;text-align:center;margin:0 0 8px}
+.hs-sub{text-align:center;color:#64748b;font-size:1.05rem;margin:0 auto 28px;max-width:640px}
+.hs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.hs-card{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(2,8,23,.06);transition:all .25s ease;text-decoration:none;color:inherit}
+.hs-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(2,8,23,.12);border-color:#93c5fd}
+.hs-ic{flex:0 0 58px;height:58px;border-radius:16px;background:linear-gradient(135deg,#2563eb,#0ea5e9);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px}
+.hs-card b{display:block;font-size:1.2rem;color:#0f172a;margin-bottom:3px}
+.hs-card span.t{display:block;color:#475569;font-size:1rem;line-height:1.4}
+@media(max-width:700px){.hs{padding:48px 16px}.hs-grid{grid-template-columns:1fr}}
 /* HERO */
 .nx-hero{position:relative;padding:130px 20px 80px;background:radial-gradient(1200px 500px at 85% -10%,#2b5fd9 0%,transparent 60%),radial-gradient(900px 500px at -10% 110%,#0ea5e9 0%,transparent 55%),#0b1e3f;color:#fff;overflow:hidden}
 .nx-hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(#000,transparent 90%)}
@@ -2806,11 +2817,6 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
             <li><a href="#rasmiy" onclick="setTimeout(function(){nxList2(2)},50)"><i class="fa-solid fa-lightbulb"></i><span><b>Körik-tanlov va musobaqalar</b><small>Rasmiy röyxat (37 ta)</small></span></a></li>
             
           </ul></li>
-        <li><button type="button"><i class="fa-solid fa-clipboard-check"></i> Attestatsiya <i class="fa-solid fa-chevron-down"></i></button>
-          <ul class="nx-drop">
-            <li><a href="attestatsiya.html"><i class="fa-solid fa-table-list"></i><span><b>Pedagoglar attestatsiyasi: test topşiriş grafigi</b><small>Sana, vaqt, fan va guruh böyiça qidiruv</small></span></a></li>
-            <li><a href="#akkreditatsiya"><i class="fa-solid fa-stamp"></i><span><b>Akkreditatsiya 2026</b><small>Taşkilotlar va ekspertlar</small></span></a></li>
-          </ul></li>
         <li><button type="button"><i class="fa-solid fa-graduation-cap"></i> Tahlil <i class="fa-solid fa-chevron-down"></i></button>
           <ul class="nx-drop">
 <li><a href="#yangi-baholash"><i class="fa-solid fa-school-circle-check"></i><span><b>Yangi baholaş tizimi</b><small>Tumandagi 45 ta maktab, hujjatlar</small></span></a></li>
@@ -2821,6 +2827,11 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
             <li><a href="otm-solishtirma.html"><i class="fa-solid fa-code-compare"></i><span><b>OTM: 2025–2026 soliştirma</b><small>Majburiy, 4- va 5-blok fanlari</small></span></a></li>
             <li><a href="otm-past-natija.html"><i class="fa-solid fa-chart-simple"></i><span><b>OTM: past natijalar tahlili</b><small>Maktab va fanlar kesimida</small></span></a></li>
             <li><a href="#directions"><i class="fa-solid fa-book-open"></i><span><b>Asosiy yönalişlar</b><small>Faoliyat bilan tanişiş</small></span></a></li>
+          </ul></li>
+        <li><button type="button"><i class="fa-solid fa-clipboard-check"></i> Attestatsiya <i class="fa-solid fa-chevron-down"></i></button>
+          <ul class="nx-drop">
+            <li><a href="attestatsiya.html"><i class="fa-solid fa-table-list"></i><span><b>Pedagoglar attestatsiyasi: test topşiriş grafigi</b><small>Sana, vaqt, fan va guruh böyiça qidiruv</small></span></a></li>
+            <li><a href="#akkreditatsiya"><i class="fa-solid fa-stamp"></i><span><b>Akkreditatsiya 2026</b><small>Taşkilotlar va ekspertlar</small></span></a></li>
           </ul></li>
         <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Aloqa</a></li>
         <li class="nx-hb-m"><a href="hududiy-bosqich.html" class="nx-hb"><i class="fa-solid fa-calendar-days"></i> Olimpiadaning hududiy bosqiçi grafigi</a></li>
@@ -2876,119 +2887,6 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
   </section>
 
 
-  <section class="yb" id="yangi-baholash"><div class="yb-in">
-    <div class="yb-top"><span class="yb-badge"><i class="fa-solid fa-school-circle-check"></i> Qöşköpir tumani · 2026/2027-öquv yili</span>
-    <h2>Yangi baholaş tizimi: tumanimizning 45 ta maktabi</h2>
-    <p>2026/2027-öquv yilida tumanimizdagi 45 ta umumtaʼlim maktabida 5–11-sinf öquvçilari bilimi yangi tartibda baholanadi. Uşbu bölim maktab rahbarlari va öqituvçilar uçun: tizim nima, qaysi hujjatlarga asoslanadi, qaysi maktablar kiradi va çorak davomida nimalar rejalaştirilgan.</p></div>
-
-    <div class="yb-k">
-      <div style="background:#dbeafe"><b style="color:#1d4ed8">45</b><span>maktabda yangi baholaş tizimi joriy etilgan</span></div>
-      <div style="background:#dcfce7"><b style="color:#15803d">14</b><span>maktab 2026/2027-öquv yilidan qöşildi</span></div>
-      <div style="background:#fef3c7"><b style="color:#b45309">31</b><span>maktab oldingi öquv yillaridan tajribaga ega</span></div>
-      <div style="background:#fce7f3"><b style="color:#be185d">648</b><span>sinf (5–11-sinflar) onlayn ÇSB ga qamrab olingan</span></div>
-    </div>
-
-    <h3 class="yb-h"><i class="fa-solid fa-circle-question" style="color:#2563eb"></i> Yangi baholaş tizimi nima?</h3>
-    <div class="yb-g">
-      <div class="yb-card"><i class="ic" style="background:#2563eb"><i class="fa-solid fa-ranking-star" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Reyting tizimi</h3><p>5–11-sinf öquvçilarining bilimi sifati yagona meʼyoriy tartibda nazorat qilinadi. Asos: Maktabgaça va maktab taʼlimi vazirining 2025-yil 4-fevraldagi 1-mh-sonli buyruği bilan tasdiqlangan nizom (röyxat raqami 2117).</p></div>
-      <div class="yb-card"><i class="ic" style="background:#16a34a"><i class="fa-solid fa-scale-balanced" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Xolis va şaffof baholaş</h3><p>Baholaş mezonlari, formativ va summativ baholaş talablari dars jarayonida xolis, şaffof va öz vaqtida yuritiladi. Talablar har bir fan öqituvçisi, öquvçi va ota-onalarga tuşuntiriladi.</p></div>
-      <div class="yb-card"><i class="ic" style="background:#9333ea"><i class="fa-solid fa-laptop-code" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Çorak yakuni: onlayn ÇSB</h3><p>Har çorak yakunida tanlab olingan fanlar böyiça çoraklik summativ baholaş (ÇSB) sinovlari «eMaktab» platformasida markazlaşgan holda onlayn ötkaziladi.</p></div>
-      <div class="yb-card"><i class="ic" style="background:#ea580c"><i class="fa-solid fa-chart-line" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Çorak tahlili</h3><p>Har çorak yakuni böyiça tahliliy xulosalar tayyorlanadi, natijalari past maktablar rahbarlari va fan öqituvçilari uçun maqsadli öquv-seminar va amaliy treninglar taşkil etiladi.</p></div>
-    </div>
-
-    <h3 class="yb-h"><i class="fa-solid fa-scroll" style="color:#2563eb"></i> Asosiy hujjatlar</h3>
-    <ul class="yb-tl">
-      <li><b>16.02.2026</b> · PF-22-son Prezident Farmoni<small>2026/2027-öquv yilidan yangi baholaş tizimi joriy etiladigan maktablar sonini respublika böyiça 4 500 taga yetkaziş belgilangan.</small></li>
-      <li><b>25.08.2026</b> · Vazirlikning 312-son buyruği<small>Respublikada 3 434 ta maktabda tizim joriy etilgan; qöşiladigan maktablar röyxati tasdiqlandi. Qöşköpir tumanidan 14 ta maktab kiritildi.</small></li>
-      <li><b>02.09.2026</b> · Xorazm viloyati boşqarmasining 240-son buyruği<small>Viloyatdagi 100 ta yangi maktabga oldingi yillarda tizimga ötgan maktablarni biriktiriş (ustoz-şogird) va har çorak yakunida tahlil hamda öquv-treninglar taşkil etiş belgilandi.</small></li>
-      <li><b>23.10.2026</b> · Vazirlikning 7-son buyruği<small>1-çorak yakuni böyiça markazlaşgan summativ baholaş sinovlari tartibi.</small></li>
-      <li><b>26.10.2026</b> · Viloyat boşqarmasining 289-son buyruği<small>Viloyatdagi 450 ta maktabning 5–11-sinf öquvçilari uçun ÇSB sinovlari 23-oktabr – 3-noyabr kunlari onlayn şaklda ötkaziladi.</small></li>
-      <li><b>28.10.2026</b> · Tuman bölimi boşliğining 923-12-172-MMTM/2026-son buyruği<small>Tuman Işçi guruhi tarkibi tasdiqlandi; barça 5–11-sinf öquvçilarini 100% qamrab oliş, sanitariya-gigiyena qoidalari, eMaktab materiallarini tarqatmaslik va texnik tayyorgarlik vazifalari belgilandi.</small></li>
-    </ul>
-
-    <h3 class="yb-h"><i class="fa-solid fa-school" style="color:#2563eb"></i> Tumanimizdagi 45 ta maktab</h3>
-    <div class="yb-two">
-      <div class="yb-box" style="background:#f0fdf4;border:1px solid #bbf7d0"><h3 style="color:#15803d"><i class="fa-solid fa-seedling"></i> 2026/2027-öquv yilidan qöşilgan (14 ta)</h3><p>Uşbu maktablarga tizim böyiça tajribali maktablar ustoz-şogird asosida biriktiriladi, tuman bölimi metodistlari doimiy amaliy va metodik yordam körsatadi.</p><span class="yb-c n">1-maktab</span><span class="yb-c n">3-maktab</span><span class="yb-c n">11-maktab</span><span class="yb-c n">12-maktab</span><span class="yb-c n">19-maktab</span><span class="yb-c n">20-maktab</span><span class="yb-c n">24-maktab</span><span class="yb-c n">27-maktab</span><span class="yb-c n">29-maktab</span><span class="yb-c n">30-maktab</span><span class="yb-c n">32-maktab</span><span class="yb-c n">39-maktab</span><span class="yb-c n">45-maktab</span><span class="yb-c n">54-maktab</span></div>
-      <div class="yb-box" style="background:#eff6ff;border:1px solid #bfdbfe"><h3 style="color:#1d4ed8"><i class="fa-solid fa-medal"></i> Oldingi yillardan tizimda (31 ta)</h3><p>Tizim joriy etilgan va tajriba töplagan maktablar. Ular yangi qöşilgan maktablar bilan tajriba almaşadi.</p><span class="yb-c o">4-AFÇÖM</span><span class="yb-c o">4-maktab</span><span class="yb-c o">5-maktab</span><span class="yb-c o">6-maktab</span><span class="yb-c o">7-maktab</span><span class="yb-c o">9-maktab</span><span class="yb-c o">10-maktab</span><span class="yb-c o">13-maktab</span><span class="yb-c o">15-maktab</span><span class="yb-c o">16-maktab</span><span class="yb-c o">18-maktab</span><span class="yb-c o">21-maktab</span><span class="yb-c o">23-maktab</span><span class="yb-c o">25-maktab</span><span class="yb-c o">26-maktab</span><span class="yb-c o">28-maktab</span><span class="yb-c o">31-maktab</span><span class="yb-c o">33-maktab</span><span class="yb-c o">36-maktab</span><span class="yb-c o">38-maktab</span><span class="yb-c o">41-maktab</span><span class="yb-c o">42-maktab</span><span class="yb-c o">43-maktab</span><span class="yb-c o">44-maktab</span><span class="yb-c o">46-maktab</span><span class="yb-c o">47-maktab</span><span class="yb-c o">48-maktab</span><span class="yb-c o">49-maktab</span><span class="yb-c o">50-maktab</span><span class="yb-c o">51-maktab</span><span class="yb-c o">52-maktab</span></div>
-    </div>
-
-    <h3 class="yb-h"><i class="fa-solid fa-list-check" style="color:#2563eb"></i> Maktablar uçun qisqa eslatma</h3>
-    <ul class="yb-lst">
-      <li><i class="fa-solid fa-circle-check"></i><span>Yangi reyting tizimi talablarini har bir fan öqituvçisi, öquvçi va ota-onalarga tuşuntiriş.</span></li>
-      <li><i class="fa-solid fa-circle-check"></i><span>Baholaş mezonlari, formativ va summativ baholaşni dars jarayonida xolis, şaffof va öz vaqtida yuritiş.</span></li>
-      <li><i class="fa-solid fa-circle-check"></i><span>5–11-sinf öquvçilarining tasdiqlangan jadval asosida ÇSB sinovlarida töliq iştirokini taʼminlaş.</span></li>
-      <li><i class="fa-solid fa-circle-check"></i><span>Kompyuter xonalari, elektr taʼminoti va internetning barqaror işlaşini oldindan tekşirib qöyiş.</span></li>
-      <li><i class="fa-solid fa-circle-check"></i><span>«eMaktab» platformasidagi sinov materiallari ijtimoiy tarmoqlarda tarqalmasligi uçun tuşuntiriş işlarini olib boriş.</span></li>
-      <li><i class="fa-solid fa-circle-check"></i><span>Dars tahlillari va baholaş böyiça pedagogik jamoaga doimiy metodik kömak körsatiş.</span></li>
-    </ul>
-
-    <div class="yb-n"><i class="fa-solid fa-handshake-angle"></i><div>Tuman bölimining Öquvçilar bilimini baholaş, tahlil qiliş va pedagoglarni kasbiy rivojlantirişni muvofiqlaştiriş şöbasi barça 45 ta maktabga metodik yordam körsatadi. Har çorak yakunida natijalar tahlil qilinadi va bu sahifada eʼlon qilinadi. Tahlillar maktab rahbarlari va öqituvçilar öz iş tajribasini tahlil qilib, xulosa çiqarişlari uçun tayyorlanadi.</div></div>
-
-    <div class="yb-go"><a href="1-chorak-yakunlari.html"><i class="fa-solid fa-chart-column"></i> 1-çorak yakunlari tahlili</a><a class="l" href="#baholash"><i class="fa-solid fa-calendar-check"></i> 1-çorak onlayn ÇSB grafigi</a></div>
-  </div></section>
-
-  <!-- 4. Asosiy Yoʻnalishlar -->
-  <section class="section" id="directions">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-subtitle">Asosiy yönalişlar</span>
-        <h2 class="section-title">Taʼlim jarayonlarini rivojlantiriş</h2>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="Taʼlim metodikasi" class="service-img">
-          <div class="service-body">
-            <span class="service-tag">Metodika va monitoring</span>
-            <h3 class="service-name">Taʼlim sifatini baholaş</h3>
-            <p class="service-desc">Maktablarda taʼlim sifatini oşiriş, fan oyliklari va ilğor öqitiş metodikalarini tuman böylab keng tatbiq etiş.</p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Iqtidorli yoşlar" class="service-img">
-<div class="service-body">
-            <span class="service-tag">Iqtidor va tanlovlar</span>
-            <h3 class="service-name">Olimpiada va tanlovlar</h3>
-            <p class="service-desc">Fan olimpiadalarining şaffof ötişini taʼminlaş, ğoliblarni viloyat va respublika bosqiçlariga tayyorlaş.</p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Tahlil va Reyting" class="service-img">
-          <div class="service-body">
-            <span class="service-tag">Raqamli tahlil</span>
-            <h3 class="service-name">Maktablar reytingi</h3>
-            <p class="service-desc">Öquvçilar va taʼlim muassasalarining tuman böyiça umumiy reyting tahlili hamda natijalar monitoringi.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="nx-sec" id="rasmiy">
-    <div class="nx-wrap">
-      <div class="nx-head"><span class="sub">Vazir buyruği · 2026-yil 30-yanvar, 35-son</span><h2>Olimpiadalar, körik-tanlovlar va musobaqalar röyxati</h2><p>2026–2027-öquv yilida öqituvçilarning bazaviy tarif stavkalariga direktor jamğarmasi hisobidan oylik ustama belgilaşda öquvçilarning iştiroki natijalari inobatga olinadigan tadbirlar.</p></div>
-      <div class="nx-tabs"><button class="nx-tab on" id="nxL1" onclick="nxList2(1)"><i class="fa-solid fa-trophy"></i> Fan olimpiadalari (38)</button><button class="nx-tab" id="nxL2" onclick="nxList2(2)"><i class="fa-solid fa-flag"></i> Körik-tanlov va musobaqalar (37)</button></div>
-      <div class="nx-filters" style="grid-template-columns:1fr"><input id="nxRQ" placeholder="Nomi böyiça qidiriş…" oninput="nxList2()"></div>
-      <ol class="nx-rlist" id="nxRL"></ol>
-      <p class="nx-note"><i class="fa-solid fa-circle-info"></i> Manba: Maktabgaça va maktab taʼlimi vazirining 2026-yil 30-yanvardagi 35-son buyruği ilovasi. Röyxatdagi bir xil takrorlangan bandlar bir marta keltirildi.</p>
-    </div>
-  </section>
-
-  <section class="nx-sec alt" id="goliblar">
-    <div class="nx-wrap">
-      <div class="nx-head"><span class="sub">2026/2027 · tuman bosqiçi</span><h2>Ğolib öquvçilar va ularning ustozlari</h2><p>Fan va sinf kesimida 1–3-örinni egallagan öquvçilar hamda ularni tayyorlagan fan öqituvçilari.</p></div>
-      <div class="nx-stats"><div><b>124</b><span>sovrinli örin</span></div><div><b>35</b><span>maktab</span></div><div><b>108</b><span>fan öqituvçisi</span></div><div><b>14</b><span>fan</span></div></div>
-      <div class="nx-tabs"><button class="nx-tab on" id="nxT1" onclick="nxTab(1)"><i class="fa-solid fa-medal"></i> Öquvçilar</button><button class="nx-tab" id="nxT2" onclick="nxTab(2)"><i class="fa-solid fa-chalkboard-user"></i> Ustozlar</button></div>
-      <div class="nx-filters"><input id="nxQ" placeholder="Ism, maktab yoki ustoz böyiça qidiriş…" oninput="nxRender(true)"><select id="nxF" onchange="nxRender(true)"><option value="">Barça fanlar</option></select><select id="nxC" onchange="nxRender(true)"><option value="">Barça sinflar</option><option>9</option><option>10</option><option>11</option></select></div>
-      <div class="nx-chips" id="nxChips"><button class="nx-chip on" data-p="0">Hammasi</button><button class="nx-chip" data-p="1">I örin</button><button class="nx-chip" data-p="2">II örin</button><button class="nx-chip" data-p="3">III örin</button><span class="nx-count" id="nxCnt"></span></div>
-      <div class="nx-win" id="nxList"></div>
-      <button class="nx-more" id="nxMore" onclick="nxShow+=24;nxRender(false)">Yana körsatiş</button>
-    </div>
-  </section>
-
-  <!-- 5. Olimpiada natijalari (Apps Script / Iframe ulash joyi) -->
   <section class="section embed-section" id="olimpiada">
     <div class="section-container">
       <div class="section-header">
@@ -3011,7 +2909,20 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
     </div>
   </section>
 
-<section class="olympiad-portal-section" id="grafik">
+<section class="nx-sec alt" id="goliblar">
+    <div class="nx-wrap">
+      <div class="nx-head"><span class="sub">2026/2027 · tuman bosqiçi</span><h2>Ğolib öquvçilar va ularning ustozlari</h2><p>Fan va sinf kesimida 1–3-örinni egallagan öquvçilar hamda ularni tayyorlagan fan öqituvçilari.</p></div>
+      <div class="nx-stats"><div><b>124</b><span>sovrinli örin</span></div><div><b>35</b><span>maktab</span></div><div><b>108</b><span>fan öqituvçisi</span></div><div><b>14</b><span>fan</span></div></div>
+      <div class="nx-tabs"><button class="nx-tab on" id="nxT1" onclick="nxTab(1)"><i class="fa-solid fa-medal"></i> Öquvçilar</button><button class="nx-tab" id="nxT2" onclick="nxTab(2)"><i class="fa-solid fa-chalkboard-user"></i> Ustozlar</button></div>
+      <div class="nx-filters"><input id="nxQ" placeholder="Ism, maktab yoki ustoz böyiça qidiriş…" oninput="nxRender(true)"><select id="nxF" onchange="nxRender(true)"><option value="">Barça fanlar</option></select><select id="nxC" onchange="nxRender(true)"><option value="">Barça sinflar</option><option>9</option><option>10</option><option>11</option></select></div>
+      <div class="nx-chips" id="nxChips"><button class="nx-chip on" data-p="0">Hammasi</button><button class="nx-chip" data-p="1">I örin</button><button class="nx-chip" data-p="2">II örin</button><button class="nx-chip" data-p="3">III örin</button><span class="nx-count" id="nxCnt"></span></div>
+      <div class="nx-win" id="nxList"></div>
+      <button class="nx-more" id="nxMore" onclick="nxShow+=24;nxRender(false)">Yana körsatiş</button>
+    </div>
+  </section>
+
+  <!-- 5. Olimpiada natijalari (Apps Script / Iframe ulash joyi) -->
+  <section class="olympiad-portal-section" id="grafik">
     <div class="olympiad-container">
       
       <!-- Yuqori Hero Banner (Toʻq koʻk naqshli orqa fon) -->
@@ -3115,26 +3026,87 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
   
   <!-- 7. Akkreditatsiya va Tashqi Baholash Boʻlimi -->
     <!-- OTMga kirish tahlili -->
-  <section class="section" id="otm" style="background:#f8fafc;border-top:1px solid #e2e8f0;">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-subtitle">Dastlabki maʼlumotlar tahlili</span>
-        <h2 class="section-title">OTMga kiriş tahlili</h2>
-        <p class="otm-sub">Qöşköpir tumani bitiruvçilarining 2025 va 2026-yil natijalari tahlili.</p>
-      </div>
-
-      <style>.otmx{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:0 0 26px}.otmx a{display:flex;gap:16px;align-items:center;padding:20px 22px;border-radius:18px;color:#fff;box-shadow:0 8px 24px rgba(15,23,42,.14);transition:transform .2s}.otmx a:hover{transform:translateY(-3px)}.otmx i.ic{width:54px;height:54px;border-radius:14px;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:1.5rem;flex:none}.otmx b{display:block;font-size:1.1rem;margin-bottom:3px}.otmx small{opacity:.92;font-size:.88rem;line-height:1.4;display:block}.otmx .go{margin-left:auto;font-size:1.2rem;opacity:.9}</style>
-      <div class="otmx">
-        <a href="otm-qabul.html" style="background:linear-gradient(135deg,#0f766e,#2563eb)"><i class="ic fa-solid fa-building-columns"></i><span><b>OTMga qabul: 2025 va 2026</b><small>Grant va şartnoma ösişi, OTM turlari, maktablar kesimida diagrammalar.</small></span><i class="go fa-solid fa-arrow-right"></i></a>
-        <a href="otm-solishtirma.html" style="background:linear-gradient(135deg,#1d4ed8,#7c3aed)"><i class="ic fa-solid fa-code-compare"></i><span><b>4- va 5-blok soliştirma tahlil</b><small>Majburiy, 4- va 5-blok fanlari, 56 ta maktab. Ösiş yaşil, kamayiş qizil.</small></span><i class="go fa-solid fa-arrow-right"></i></a>
-        <a href="otm-past-natija.html" style="background:linear-gradient(135deg,#c2410c,#d97706)"><i class="ic fa-solid fa-chart-simple"></i><span><b>Past natija körsatganlar tahlili</b><small>4- va 5-blokda 30 tadan 7 tagaça töğri javob berganlar — maktab va fanlar kesimida.</small></span><i class="go fa-solid fa-arrow-right"></i></a>
-      </div>
+  <section class="nx-sec" id="rasmiy">
+    <div class="nx-wrap">
+      <div class="nx-head"><span class="sub">Vazir buyruği · 2026-yil 30-yanvar, 35-son</span><h2>Olimpiadalar, körik-tanlovlar va musobaqalar röyxati</h2><p>2026–2027-öquv yilida öqituvçilarning bazaviy tarif stavkalariga direktor jamğarmasi hisobidan oylik ustama belgilaşda öquvçilarning iştiroki natijalari inobatga olinadigan tadbirlar.</p></div>
+      <div class="nx-tabs"><button class="nx-tab on" id="nxL1" onclick="nxList2(1)"><i class="fa-solid fa-trophy"></i> Fan olimpiadalari (38)</button><button class="nx-tab" id="nxL2" onclick="nxList2(2)"><i class="fa-solid fa-flag"></i> Körik-tanlov va musobaqalar (37)</button></div>
+      <div class="nx-filters" style="grid-template-columns:1fr"><input id="nxRQ" placeholder="Nomi böyiça qidiriş…" oninput="nxList2()"></div>
+      <ol class="nx-rlist" id="nxRL"></ol>
+      <p class="nx-note"><i class="fa-solid fa-circle-info"></i> Manba: Maktabgaça va maktab taʼlimi vazirining 2026-yil 30-yanvardagi 35-son buyruği ilovasi. Röyxatdagi bir xil takrorlangan bandlar bir marta keltirildi.</p>
     </div>
   </section>
 
+  <section class="yb" id="yangi-baholash"><div class="yb-in">
+    <div class="yb-top"><span class="yb-badge"><i class="fa-solid fa-school-circle-check"></i> Qöşköpir tumani · 2026/2027-öquv yili</span>
+    <h2>Yangi baholaş tizimi: tumanimizning 45 ta maktabi</h2>
+    <p>2026/2027-öquv yilida tumanimizdagi 45 ta umumtaʼlim maktabida 5–11-sinf öquvçilari bilimi yangi tartibda baholanadi. Uşbu bölim maktab rahbarlari va öqituvçilar uçun: tizim nima, qaysi hujjatlarga asoslanadi, qaysi maktablar kiradi va çorak davomida nimalar rejalaştirilgan.</p></div>
 
-  <!-- 6. Olimpiada Grafigi (Vercel ilovasi yoki Skrinshot oʻrni) -->
-    <!-- 6. Olimpiada Grafigi (olimpiada-jadval.vercel.app uslubida toʻliq original tizim) -->
+    <div class="yb-k">
+      <div style="background:#dbeafe"><b style="color:#1d4ed8">45</b><span>maktabda yangi baholaş tizimi joriy etilgan</span></div>
+      <div style="background:#dcfce7"><b style="color:#15803d">14</b><span>maktab 2026/2027-öquv yilidan qöşildi</span></div>
+      <div style="background:#fef3c7"><b style="color:#b45309">31</b><span>maktab oldingi öquv yillaridan tajribaga ega</span></div>
+      <div style="background:#fce7f3"><b style="color:#be185d">648</b><span>sinf (5–11-sinflar) onlayn ÇSB ga qamrab olingan</span></div>
+    </div>
+
+    <h3 class="yb-h"><i class="fa-solid fa-circle-question" style="color:#2563eb"></i> Yangi baholaş tizimi nima?</h3>
+    <div class="yb-g">
+      <div class="yb-card"><i class="ic" style="background:#2563eb"><i class="fa-solid fa-ranking-star" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Reyting tizimi</h3><p>5–11-sinf öquvçilarining bilimi sifati yagona meʼyoriy tartibda nazorat qilinadi. Asos: Maktabgaça va maktab taʼlimi vazirining 2025-yil 4-fevraldagi 1-mh-sonli buyruği bilan tasdiqlangan nizom (röyxat raqami 2117).</p></div>
+      <div class="yb-card"><i class="ic" style="background:#16a34a"><i class="fa-solid fa-scale-balanced" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Xolis va şaffof baholaş</h3><p>Baholaş mezonlari, formativ va summativ baholaş talablari dars jarayonida xolis, şaffof va öz vaqtida yuritiladi. Talablar har bir fan öqituvçisi, öquvçi va ota-onalarga tuşuntiriladi.</p></div>
+      <div class="yb-card"><i class="ic" style="background:#9333ea"><i class="fa-solid fa-laptop-code" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Çorak yakuni: onlayn ÇSB</h3><p>Har çorak yakunida tanlab olingan fanlar böyiça çoraklik summativ baholaş (ÇSB) sinovlari «eMaktab» platformasida markazlaşgan holda onlayn ötkaziladi.</p></div>
+      <div class="yb-card"><i class="ic" style="background:#ea580c"><i class="fa-solid fa-chart-line" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Çorak tahlili</h3><p>Har çorak yakuni böyiça tahliliy xulosalar tayyorlanadi, natijalari past maktablar rahbarlari va fan öqituvçilari uçun maqsadli öquv-seminar va amaliy treninglar taşkil etiladi.</p></div>
+    </div>
+
+    <h3 class="yb-h"><i class="fa-solid fa-scroll" style="color:#2563eb"></i> Asosiy hujjatlar</h3>
+    <ul class="yb-tl">
+      <li><b>16.02.2026</b> · PF-22-son Prezident Farmoni<small>2026/2027-öquv yilidan yangi baholaş tizimi joriy etiladigan maktablar sonini respublika böyiça 4 500 taga yetkaziş belgilangan.</small></li>
+      <li><b>25.08.2026</b> · Vazirlikning 312-son buyruği<small>Respublikada 3 434 ta maktabda tizim joriy etilgan; qöşiladigan maktablar röyxati tasdiqlandi. Qöşköpir tumanidan 14 ta maktab kiritildi.</small></li>
+      <li><b>02.09.2026</b> · Xorazm viloyati boşqarmasining 240-son buyruği<small>Viloyatdagi 100 ta yangi maktabga oldingi yillarda tizimga ötgan maktablarni biriktiriş (ustoz-şogird) va har çorak yakunida tahlil hamda öquv-treninglar taşkil etiş belgilandi.</small></li>
+      <li><b>23.10.2026</b> · Vazirlikning 7-son buyruği<small>1-çorak yakuni böyiça markazlaşgan summativ baholaş sinovlari tartibi.</small></li>
+      <li><b>26.10.2026</b> · Viloyat boşqarmasining 289-son buyruği<small>Viloyatdagi 450 ta maktabning 5–11-sinf öquvçilari uçun ÇSB sinovlari 23-oktabr – 3-noyabr kunlari onlayn şaklda ötkaziladi.</small></li>
+      <li><b>28.10.2026</b> · Tuman bölimi boşliğining 923-12-172-MMTM/2026-son buyruği<small>Tuman Işçi guruhi tarkibi tasdiqlandi; barça 5–11-sinf öquvçilarini 100% qamrab oliş, sanitariya-gigiyena qoidalari, eMaktab materiallarini tarqatmaslik va texnik tayyorgarlik vazifalari belgilandi.</small></li>
+    </ul>
+
+    <h3 class="yb-h"><i class="fa-solid fa-school" style="color:#2563eb"></i> Tumanimizdagi 45 ta maktab</h3>
+    <div class="yb-two">
+      <div class="yb-box" style="background:#f0fdf4;border:1px solid #bbf7d0"><h3 style="color:#15803d"><i class="fa-solid fa-seedling"></i> 2026/2027-öquv yilidan qöşilgan (14 ta)</h3><p>Uşbu maktablarga tizim böyiça tajribali maktablar ustoz-şogird asosida biriktiriladi, tuman bölimi metodistlari doimiy amaliy va metodik yordam körsatadi.</p><span class="yb-c n">1-maktab</span><span class="yb-c n">3-maktab</span><span class="yb-c n">11-maktab</span><span class="yb-c n">12-maktab</span><span class="yb-c n">19-maktab</span><span class="yb-c n">20-maktab</span><span class="yb-c n">24-maktab</span><span class="yb-c n">27-maktab</span><span class="yb-c n">29-maktab</span><span class="yb-c n">30-maktab</span><span class="yb-c n">32-maktab</span><span class="yb-c n">39-maktab</span><span class="yb-c n">45-maktab</span><span class="yb-c n">54-maktab</span></div>
+      <div class="yb-box" style="background:#eff6ff;border:1px solid #bfdbfe"><h3 style="color:#1d4ed8"><i class="fa-solid fa-medal"></i> Oldingi yillardan tizimda (31 ta)</h3><p>Tizim joriy etilgan va tajriba töplagan maktablar. Ular yangi qöşilgan maktablar bilan tajriba almaşadi.</p><span class="yb-c o">4-AFÇÖM</span><span class="yb-c o">4-maktab</span><span class="yb-c o">5-maktab</span><span class="yb-c o">6-maktab</span><span class="yb-c o">7-maktab</span><span class="yb-c o">9-maktab</span><span class="yb-c o">10-maktab</span><span class="yb-c o">13-maktab</span><span class="yb-c o">15-maktab</span><span class="yb-c o">16-maktab</span><span class="yb-c o">18-maktab</span><span class="yb-c o">21-maktab</span><span class="yb-c o">23-maktab</span><span class="yb-c o">25-maktab</span><span class="yb-c o">26-maktab</span><span class="yb-c o">28-maktab</span><span class="yb-c o">31-maktab</span><span class="yb-c o">33-maktab</span><span class="yb-c o">36-maktab</span><span class="yb-c o">38-maktab</span><span class="yb-c o">41-maktab</span><span class="yb-c o">42-maktab</span><span class="yb-c o">43-maktab</span><span class="yb-c o">44-maktab</span><span class="yb-c o">46-maktab</span><span class="yb-c o">47-maktab</span><span class="yb-c o">48-maktab</span><span class="yb-c o">49-maktab</span><span class="yb-c o">50-maktab</span><span class="yb-c o">51-maktab</span><span class="yb-c o">52-maktab</span></div>
+    </div>
+
+    <h3 class="yb-h"><i class="fa-solid fa-list-check" style="color:#2563eb"></i> Maktablar uçun qisqa eslatma</h3>
+    <ul class="yb-lst">
+      <li><i class="fa-solid fa-circle-check"></i><span>Yangi reyting tizimi talablarini har bir fan öqituvçisi, öquvçi va ota-onalarga tuşuntiriş.</span></li>
+      <li><i class="fa-solid fa-circle-check"></i><span>Baholaş mezonlari, formativ va summativ baholaşni dars jarayonida xolis, şaffof va öz vaqtida yuritiş.</span></li>
+      <li><i class="fa-solid fa-circle-check"></i><span>5–11-sinf öquvçilarining tasdiqlangan jadval asosida ÇSB sinovlarida töliq iştirokini taʼminlaş.</span></li>
+      <li><i class="fa-solid fa-circle-check"></i><span>Kompyuter xonalari, elektr taʼminoti va internetning barqaror işlaşini oldindan tekşirib qöyiş.</span></li>
+      <li><i class="fa-solid fa-circle-check"></i><span>«eMaktab» platformasidagi sinov materiallari ijtimoiy tarmoqlarda tarqalmasligi uçun tuşuntiriş işlarini olib boriş.</span></li>
+      <li><i class="fa-solid fa-circle-check"></i><span>Dars tahlillari va baholaş böyiça pedagogik jamoaga doimiy metodik kömak körsatiş.</span></li>
+    </ul>
+
+    <div class="yb-n"><i class="fa-solid fa-handshake-angle"></i><div>Tuman bölimining Öquvçilar bilimini baholaş, tahlil qiliş va pedagoglarni kasbiy rivojlantirişni muvofiqlaştiriş şöbasi barça 45 ta maktabga metodik yordam körsatadi. Har çorak yakunida natijalar tahlil qilinadi va bu sahifada eʼlon qilinadi. Tahlillar maktab rahbarlari va öqituvçilar öz iş tajribasini tahlil qilib, xulosa çiqarişlari uçun tayyorlanadi.</div></div>
+
+    <div class="yb-go"><a href="1-chorak-yakunlari.html"><i class="fa-solid fa-chart-column"></i> 1-çorak yakunlari tahlili</a><a class="l" href="#baholash"><i class="fa-solid fa-calendar-check"></i> 1-çorak onlayn ÇSB grafigi</a></div>
+  </div></section>
+
+  <!-- 4. Asosiy Yoʻnalishlar -->
+  <section class="cq" id="chorak-tahlil"><div class="cq-in">
+    <div class="cq-top"><span class="cq-badge"><i class="fa-solid fa-chart-column"></i> Qöşköpir tumani · 1-çorak yakunlari</span>
+    <h2>Öquvçilar bilim darajasi tahlili</h2>
+    <p>Çorak natijalari böyiça bilim sifati aʼlo (5) va yaxşi (4) baho olgan öquvçilar sonining barça fanlardan baho olgan öquvçilar soniga nisbati sifatida hisoblanadi.</p></div>
+    <div class="cq-f">
+      <div class="cq-b" style="background:#dcfce7"><i class="fa-solid fa-star" style="color:#16a34a"></i><b>Aʼlo (5)</b><span>2 784 nafar</span></div>
+      <div class="cq-op">+</div>
+      <div class="cq-b" style="background:#dbeafe"><i class="fa-solid fa-thumbs-up" style="color:#2563eb"></i><b>Yaxşi (4)</b><span>13 073 nafar</span></div>
+      <div class="cq-op">÷</div>
+      <div class="cq-b" style="background:#f1f5f9"><i class="fa-solid fa-users" style="color:#475569"></i><b>Baho olganlar</b><span>24 272 nafar</span></div>
+      <div class="cq-op">=</div>
+      <div class="cq-b" style="background:#fef3c7"><i class="fa-solid fa-bullseye" style="color:#d97706"></i><b style="font-size:1.8rem">65%</b><span>bilim sifati</span></div>
+    </div>
+    <div class="cq-eg"><b>Misol:</b> 23-maktabda (144 + 353) ÷ 540 = <b style="color:#15803d">92%</b>. Muvaffaqiyatli (3) va muvaffaqiyatsiz (2) baho bilim sifatiga kirmaydi.</div>
+    <div class="cq-k"><div><b>24 272</b><span>barça fanlardan baho olgan öquvçi</span></div><div><b style="color:#15803d">65%</b><span>tuman böyiça bilim sifati</span></div><div><b style="color:#15803d">100%</b><span>özlaştiriş körsatkiçi</span></div><div><b style="color:#dc2626">9</b><span>muvaffaqiyatsiz öquvçi</span></div></div>
+    <div class="cq-n"><i class="fa-solid fa-circle-info"></i><div>Baʼzi sinflarda bilim sifati 0% ga yaqin yoki 0% ga teng. Bu sinfda aʼlo va yaxşi baho olgan öquvçi yöqligini bildiradi: barça öquvçi muvaffaqiyatli (3) baho bilan özlaştirgan. Masalan, 32-maktabning 9- va 10-sinflarida. Batafsil izoh keyingi sahifada.</div></div>
+    <div class="cq-go"><a href="1-chorak-yakunlari.html"><i class="fa-solid fa-chart-line"></i> Töliq tahlilni oçiş</a></div>
+  </div></section>
+
   <section class="baholash-portal-section" id="baholash">
     <div class="baholash-container">
       
@@ -3431,25 +3403,26 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
   </section>
 
   <!-- 7. Aloqa va Futer -->
-  <section class="cq" id="chorak-tahlil"><div class="cq-in">
-    <div class="cq-top"><span class="cq-badge"><i class="fa-solid fa-chart-column"></i> Qöşköpir tumani · 1-çorak yakunlari</span>
-    <h2>Öquvçilar bilim darajasi tahlili</h2>
-    <p>Çorak natijalari böyiça bilim sifati aʼlo (5) va yaxşi (4) baho olgan öquvçilar sonining barça fanlardan baho olgan öquvçilar soniga nisbati sifatida hisoblanadi.</p></div>
-    <div class="cq-f">
-      <div class="cq-b" style="background:#dcfce7"><i class="fa-solid fa-star" style="color:#16a34a"></i><b>Aʼlo (5)</b><span>2 784 nafar</span></div>
-      <div class="cq-op">+</div>
-      <div class="cq-b" style="background:#dbeafe"><i class="fa-solid fa-thumbs-up" style="color:#2563eb"></i><b>Yaxşi (4)</b><span>13 073 nafar</span></div>
-      <div class="cq-op">÷</div>
-      <div class="cq-b" style="background:#f1f5f9"><i class="fa-solid fa-users" style="color:#475569"></i><b>Baho olganlar</b><span>24 272 nafar</span></div>
-      <div class="cq-op">=</div>
-      <div class="cq-b" style="background:#fef3c7"><i class="fa-solid fa-bullseye" style="color:#d97706"></i><b style="font-size:1.8rem">65%</b><span>bilim sifati</span></div>
-    </div>
-    <div class="cq-eg"><b>Misol:</b> 23-maktabda (144 + 353) ÷ 540 = <b style="color:#15803d">92%</b>. Muvaffaqiyatli (3) va muvaffaqiyatsiz (2) baho bilim sifatiga kirmaydi.</div>
-    <div class="cq-k"><div><b>24 272</b><span>barça fanlardan baho olgan öquvçi</span></div><div><b style="color:#15803d">65%</b><span>tuman böyiça bilim sifati</span></div><div><b style="color:#15803d">100%</b><span>özlaştiriş körsatkiçi</span></div><div><b style="color:#dc2626">9</b><span>muvaffaqiyatsiz öquvçi</span></div></div>
-    <div class="cq-n"><i class="fa-solid fa-circle-info"></i><div>Baʼzi sinflarda bilim sifati 0% ga yaqin yoki 0% ga teng. Bu sinfda aʼlo va yaxşi baho olgan öquvçi yöqligini bildiradi: barça öquvçi muvaffaqiyatli (3) baho bilan özlaştirgan. Masalan, 32-maktabning 9- va 10-sinflarida. Batafsil izoh keyingi sahifada.</div></div>
-    <div class="cq-go"><a href="1-chorak-yakunlari.html"><i class="fa-solid fa-chart-line"></i> Töliq tahlilni oçiş</a></div>
-  </div></section>
+  <section class="section" id="otm" style="background:#f8fafc;border-top:1px solid #e2e8f0;">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-subtitle">Dastlabki maʼlumotlar tahlili</span>
+        <h2 class="section-title">OTMga kiriş tahlili</h2>
+        <p class="otm-sub">Qöşköpir tumani bitiruvçilarining 2025 va 2026-yil natijalari tahlili.</p>
+      </div>
 
+      <style>.otmx{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:0 0 26px}.otmx a{display:flex;gap:16px;align-items:center;padding:20px 22px;border-radius:18px;color:#fff;box-shadow:0 8px 24px rgba(15,23,42,.14);transition:transform .2s}.otmx a:hover{transform:translateY(-3px)}.otmx i.ic{width:54px;height:54px;border-radius:14px;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:1.5rem;flex:none}.otmx b{display:block;font-size:1.1rem;margin-bottom:3px}.otmx small{opacity:.92;font-size:.88rem;line-height:1.4;display:block}.otmx .go{margin-left:auto;font-size:1.2rem;opacity:.9}</style>
+      <div class="otmx">
+        <a href="otm-qabul.html" style="background:linear-gradient(135deg,#0f766e,#2563eb)"><i class="ic fa-solid fa-building-columns"></i><span><b>OTMga qabul: 2025 va 2026</b><small>Grant va şartnoma ösişi, OTM turlari, maktablar kesimida diagrammalar.</small></span><i class="go fa-solid fa-arrow-right"></i></a>
+        <a href="otm-solishtirma.html" style="background:linear-gradient(135deg,#1d4ed8,#7c3aed)"><i class="ic fa-solid fa-code-compare"></i><span><b>4- va 5-blok soliştirma tahlil</b><small>Majburiy, 4- va 5-blok fanlari, 56 ta maktab. Ösiş yaşil, kamayiş qizil.</small></span><i class="go fa-solid fa-arrow-right"></i></a>
+        <a href="otm-past-natija.html" style="background:linear-gradient(135deg,#c2410c,#d97706)"><i class="ic fa-solid fa-chart-simple"></i><span><b>Past natija körsatganlar tahlili</b><small>4- va 5-blokda 30 tadan 7 tagaça töğri javob berganlar — maktab va fanlar kesimida.</small></span><i class="go fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 6. Olimpiada Grafigi (Vercel ilovasi yoki Skrinshot oʻrni) -->
+    <!-- 6. Olimpiada Grafigi (olimpiada-jadval.vercel.app uslubida toʻliq original tizim) -->
   <section class="section" id="akkreditatsiya" style="background: #ffffff; padding: 85px 24px; border-top: 1px solid #e2e8f0;">
     <div class="main-container" style="max-width: 1300px; margin: 0 auto; padding: 0 10px;">
       
@@ -3653,6 +3626,54 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
        8. YANGI BAHOLASH TIZIMI & 1-CHORAK ONLAYN CHSB SINOVLARI
        (Qoʻshkoʻpir tumani MMTB 23-oktabr 2026-yil 961-sonli xati)
        ========================================================= -->
+  <section class="hs" id="hisoblagichlar">
+<div class="hs-in">
+<h2>Hisoblagiçlar</h2>
+<p class="hs-sub">Maktab öquv işlarini yengillaştiruvçi tayyor hisoblagiçlar</p>
+<div class="hs-grid">
+<a class="hs-card" href="823qaror.html"><div class="hs-ic"><i class="fa-solid fa-calculator"></i></div><div><b>823-ustama hisoblagiç</b><span class="t">Pedagog, kutubxonaçi va psixolog ustamasini ball asosida hisoblaş</span></div></a>
+<a class="hs-card" href="taqsimot.html"><div class="hs-ic"><i class="fa-solid fa-table-cells"></i></div><div><b>Dars soatlari taqsimoti</b><span class="t">3271-nizom tartibi asosida soatlarni avtomatik taqsimlaş</span></div></a>
+</div>
+</div>
+</section>
+<section class="section" id="directions">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-subtitle">Asosiy yönalişlar</span>
+        <h2 class="section-title">Taʼlim jarayonlarini rivojlantiriş</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="Taʼlim metodikasi" class="service-img">
+          <div class="service-body">
+            <span class="service-tag">Metodika va monitoring</span>
+            <h3 class="service-name">Taʼlim sifatini baholaş</h3>
+            <p class="service-desc">Maktablarda taʼlim sifatini oşiriş, fan oyliklari va ilğor öqitiş metodikalarini tuman böylab keng tatbiq etiş.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Iqtidorli yoşlar" class="service-img">
+<div class="service-body">
+            <span class="service-tag">Iqtidor va tanlovlar</span>
+            <h3 class="service-name">Olimpiada va tanlovlar</h3>
+            <p class="service-desc">Fan olimpiadalarining şaffof ötişini taʼminlaş, ğoliblarni viloyat va respublika bosqiçlariga tayyorlaş.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Tahlil va Reyting" class="service-img">
+          <div class="service-body">
+            <span class="service-tag">Raqamli tahlil</span>
+            <h3 class="service-name">Maktablar reytingi</h3>
+            <p class="service-desc">Öquvçilar va taʼlim muassasalarining tuman böyiça umumiy reyting tahlili hamda natijalar monitoringi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer id="contact">
     <div class="footer-container">
       <div>
