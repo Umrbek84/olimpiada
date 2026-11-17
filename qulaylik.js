@@ -51,27 +51,6 @@ function labelA(){if(!bA)return;if(st.a==='std'){bA.textContent='Ş · Ç · Ö 
 function paint(){var h=document.documentElement;h.classList.remove('qz-f1','qz-f2','qz-c1','qz-c2');if(st.f)h.classList.add('qz-f'+st.f);if(st.c)h.classList.add('qz-c'+st.c);
  if(!box)return;var b=box.querySelectorAll('[data-f]');for(var i=0;i<b.length;i++)b[i].classList.toggle('on',+b[i].getAttribute('data-f')===st.f);
  b=box.querySelectorAll('[data-c]');for(var j=0;j<b.length;j++)b[j].classList.toggle('on',+b[j].getAttribute('data-c')===st.c)}
-function trk(s){return s.replace(/[qQxX\u011f\u011e\u02bb\u02bc\u2019']/g,function(c){return {q:'k',Q:'K',x:'h',X:'H','\u011f':'g','\u011e':'G'}[c]||''})}
-var speaking=false;
-function setS(){if(bS)bS.textContent=speaking?'Toxtatiş':'Öqiş'}
-function stopSpeak(){try{speechSynthesis.cancel()}catch(e){}speaking=false;setS()}
-function say(t){if(note)note.textContent=t||''}
-function speak(){
- if(!('speechSynthesis' in window)){say('Brauzer ovozli öqişni qöllamaydi');return}
- if(speaking){stopSpeak();return}
- var vs=speechSynthesis.getVoices(),v=null,tk=false;for(var i=0;i<vs.length;i++){if(/^uz/i.test(vs[i].lang)){v=vs[i];break}}
- if(!v){for(var q=0;q<vs.length;q++){if(/^tr/i.test(vs[q].lang)){v=vs[q];tk=true;break}}}
- if(!v){say('Qurilmada özbekça ovoz topilmadi');return}
- say(tk?'\u00d6zbek\u00e7a ovoz yoq: turk\u00e7a ovoz bilan \u00f6qilmoqda (taqribiy)':'');
- var t=String(window.getSelection?window.getSelection():'').trim();
- if(!t){var m=document.querySelector('main')||document.body;t=m.innerText||''}
- t=(tk?trk(t):tr(t)).replace(/\s+/g,' ').trim().slice(0,8000);if(!t)return;
- var parts=t.split(/(?<=[.!?])\s+/),ch=[],cur='';
- for(var k=0;k<parts.length;k++){if((cur+' '+parts[k]).length>180&&cur){ch.push(cur);cur=parts[k]}else cur=cur?cur+' '+parts[k]:parts[k]}
- if(cur)ch.push(cur);
- speaking=true;setS();
- for(var n=0;n<ch.length;n++){var u=new SpeechSynthesisUtterance(ch[n]);u.voice=v;u.lang=v.lang;u.rate=.95;
-  if(n===ch.length-1){u.onend=function(){speaking=false;setS()}}u.onerror=function(){speaking=false;setS()};speechSynthesis.speak(u)}}
 function build(){
  var st0=document.createElement('style');st0.id='qz-css';st0.textContent=css;document.head.appendChild(st0);
  box=document.createElement('div');box.id='qz';
@@ -80,21 +59,18 @@ function build(){
  +'<div class="qzp" id="qzP" hidden><div class="qzt">Köriş imkoniyati çeklanganlar uçun</div>'
  +'<div class="qzl">Şrift ölçami:</div><div class="qzr"><button type="button" data-f="0">A</button><button type="button" data-f="1">A+</button><button type="button" data-f="2">A++</button></div>'
  +'<div class="qzl">Ranglar kontrasti:</div><div class="qzr"><button type="button" data-c="0">Oddiy</button><button type="button" data-c="1">Kontrast</button><button type="button" data-c="2">Oq-qora</button></div>'
- +'<div class="qzl">Ovozli öqiş:</div><div class="qzr"><button type="button" id="qzS">Öqiş</button></div><div class="qzn" id="qzN"></div>'
- +'<button type="button" class="qzx" id="qzX">Asliga qaytariş</button></div>';
+  +'<button type="button" class="qzx" id="qzX">Asliga qaytariş</button></div>';
  document.documentElement.appendChild(box);
- bA=$('#qzA');bV=$('#qzV');P=$('#qzP');bS=$('#qzS');note=$('#qzN');
+ bA=$('#qzA');bV=$('#qzV');P=$('#qzP');
  bA.addEventListener('click',function(){st.a=st.a==='std'?'new':'std';LS.set('qz_a',st.a);applyAlpha()});
  bV.addEventListener('click',function(e){e.stopPropagation();P.hidden=!P.hidden});
  P.addEventListener('click',function(e){e.stopPropagation();var t=e.target;
   if(t.hasAttribute('data-f')){st.f=+t.getAttribute('data-f');LS.set('qz_f',st.f);paint()}
   else if(t.hasAttribute('data-c')){st.c=+t.getAttribute('data-c');LS.set('qz_c',st.c);paint()}
-  else if(t.id==='qzS'){speak()}
-  else if(t.id==='qzX'){stopSpeak();st.f=0;st.c=0;LS.set('qz_f',0);LS.set('qz_c',0);paint()}});
+  else if(t.id==='qzX'){st.f=0;st.c=0;LS.set('qz_f',0);LS.set('qz_c',0);paint()}});
  document.addEventListener('click',function(){if(P)P.hidden=true});
  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&P)P.hidden=true});
  paint();labelA();
- try{speechSynthesis.getVoices()}catch(e){}
  if(st.a==='std')applyAlpha();
  mo.observe(document.documentElement,{childList:true,subtree:true,characterData:true});
 }
