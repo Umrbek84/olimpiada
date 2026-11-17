@@ -51,6 +51,7 @@ function labelA(){if(!bA)return;if(st.a==='std'){bA.textContent='Ş · Ç · Ö 
 function paint(){var h=document.documentElement;h.classList.remove('qz-f1','qz-f2','qz-c1','qz-c2');if(st.f)h.classList.add('qz-f'+st.f);if(st.c)h.classList.add('qz-c'+st.c);
  if(!box)return;var b=box.querySelectorAll('[data-f]');for(var i=0;i<b.length;i++)b[i].classList.toggle('on',+b[i].getAttribute('data-f')===st.f);
  b=box.querySelectorAll('[data-c]');for(var j=0;j<b.length;j++)b[j].classList.toggle('on',+b[j].getAttribute('data-c')===st.c)}
+function trk(s){return s.replace(/[qQxX\u011f\u011e\u02bb\u02bc\u2019']/g,function(c){return {q:'k',Q:'K',x:'h',X:'H','\u011f':'g','\u011e':'G'}[c]||''})}
 var speaking=false;
 function setS(){if(bS)bS.textContent=speaking?'Toxtatiş':'Öqiş'}
 function stopSpeak(){try{speechSynthesis.cancel()}catch(e){}speaking=false;setS()}
@@ -58,12 +59,13 @@ function say(t){if(note)note.textContent=t||''}
 function speak(){
  if(!('speechSynthesis' in window)){say('Brauzer ovozli öqişni qöllamaydi');return}
  if(speaking){stopSpeak();return}
- var vs=speechSynthesis.getVoices(),v=null;for(var i=0;i<vs.length;i++){if(/^uz/i.test(vs[i].lang)){v=vs[i];break}}
+ var vs=speechSynthesis.getVoices(),v=null,tk=false;for(var i=0;i<vs.length;i++){if(/^uz/i.test(vs[i].lang)){v=vs[i];break}}
+ if(!v){for(var q=0;q<vs.length;q++){if(/^tr/i.test(vs[q].lang)){v=vs[q];tk=true;break}}}
  if(!v){say('Qurilmada özbekça ovoz topilmadi');return}
- say('');
+ say(tk?'\u00d6zbek\u00e7a ovoz yoq: turk\u00e7a ovoz bilan \u00f6qilmoqda (taqribiy)':'');
  var t=String(window.getSelection?window.getSelection():'').trim();
  if(!t){var m=document.querySelector('main')||document.body;t=m.innerText||''}
- t=tr(t).replace(/\s+/g,' ').trim().slice(0,8000);if(!t)return;
+ t=(tk?trk(t):tr(t)).replace(/\s+/g,' ').trim().slice(0,8000);if(!t)return;
  var parts=t.split(/(?<=[.!?])\s+/),ch=[],cur='';
  for(var k=0;k<parts.length;k++){if((cur+' '+parts[k]).length>180&&cur){ch.push(cur);cur=parts[k]}else cur=cur?cur+' '+parts[k]:parts[k]}
  if(cur)ch.push(cur);
