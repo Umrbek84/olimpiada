@@ -10,10 +10,10 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1080px;margin:0 auto;padding:18px 16px 40px}
 .head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .org{font-weight:700;font-size:1.02rem;color:#1e3a8a;letter-spacing:.02em}
-.clock{display:flex;align-items:center;gap:10px;background:#0b1220;color:#7CFFB2;border-radius:14px;padding:8px 16px;box-shadow:0 8px 20px -12px #000}
-.clock small{font-size:.8rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em}
-.dg{font-family:'Courier New',Courier,monospace;font-weight:700;letter-spacing:.06em;font-variant-numeric:tabular-nums}
-.clock .dg{font-size:1.7rem;text-shadow:0 0 12px rgba(124,255,178,.55)}
+.clock{display:flex;align-items:center;gap:10px;background:#1b2a4e;color:#fde68a;border-radius:14px;padding:8px 16px;box-shadow:0 8px 20px -12px #000}
+.clock small{font-size:.8rem;color:#bcc8e6;text-transform:uppercase;letter-spacing:.08em}
+.dg{font-family:'Times New Roman','Liberation Serif',Times,serif;font-weight:700;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.clock .dg{font-size:1.7rem}
 .hero{display:grid;grid-template-columns:230px 1fr;gap:0;border-radius:26px;overflow:hidden;box-shadow:0 22px 50px -26px rgba(15,23,42,.55);background:#fff;margin-bottom:20px}
 .cal{background:linear-gradient(160deg,#1e3a8a,#4338ca 60%,#7c3aed);color:#fff;text-align:center;padding:22px 12px;display:flex;flex-direction:column;justify-content:center;gap:2px}
 .cal .wd{font-size:1.25rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fcd34d}
@@ -33,12 +33,12 @@ a{color:inherit;text-decoration:none}
 .day.no{opacity:.45}
 .list{display:grid;gap:14px}
 .ev{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 26px -18px rgba(15,23,42,.6);display:grid;grid-template-columns:310px 1fr;border-left:8px solid var(--c)}
-.tm{background:#0b1220;color:#7CFFB2;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;gap:6px}
-.tm .rg{font-size:2.05rem;line-height:1;white-space:nowrap;text-shadow:0 0 14px rgba(124,255,178,.5)}
-.tm .lb{font-size:.82rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em}
-.tm .cd{font-size:1.55rem;color:#fcd34d;text-shadow:0 0 12px rgba(252,211,77,.4)}
-.tm .st{font-size:.95rem;font-weight:700;color:#7CFFB2}
-.ev.now .tm{box-shadow:inset 0 0 0 3px #22c55e}
+.tm{background:#1b2a4e;color:#fff;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.tm .rg{font-size:2.05rem;line-height:1;white-space:nowrap;}
+.tm .lb{font-size:.82rem;color:#bcc8e6;text-transform:uppercase;letter-spacing:.08em}
+.tm .cd{font-size:1.55rem;color:#fde68a}
+.tm .st{font-size:.95rem;font-weight:700;color:#bfdbfe}
+.ev.now .tm{box-shadow:inset 0 0 0 3px #f59e0b}
 .ev.done{opacity:.62}.ev.done .tm .cd{color:#94a3b8;text-shadow:none}
 .bd{padding:16px 22px;display:flex;flex-direction:column;gap:6px;justify-content:center}
 .pr{font-size:.86rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
@@ -60,12 +60,12 @@ a{color:inherit;text-decoration:none}
  .cal .dn{font-size:3.6rem}.cal .wd{width:100%}
  .info h1{font-size:1.55rem}
  .ev{grid-template-columns:1fr}
- .tm{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 16px}.tm .rg{font-size:1.9rem}
+ .tm{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 16px}.tm .rg{font-size:1.45rem}
 }
 </style></head><body>
 <div class="wrap">
- <div class="head"><div class="org">Qöşköpir tumani Maktabgaça va maktab taʼlimi bölimi</div>
-  <div class="clock"><small>Toşkent vaqti</small><span class="dg" id="clk">--:--:--</span></div></div>
+ <div class="head"><div class="org">Qöşköpir tumani Taʼlim bölimi</div>
+  <div class="clock"><small>Hozirgi soat</small><span class="dg" id="clk">--:--:--</span></div></div>
  <div class="hero"><div class="cal" id="cal"></div><div class="info" id="info"></div></div>
  <div class="strip" id="strip"></div>
  <div class="list" id="list"></div>

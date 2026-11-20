@@ -85,6 +85,10 @@ footer{background:#0f2a5c;color:#dbe5fb;text-align:center;padding:20px;font-size
 @media(max-width:700px){.top-in{padding:8px 12px}.top nav{flex-wrap:nowrap;overflow-x:auto;width:100%}.top nav a{white-space:nowrap;padding:7px 12px;font-size:.9rem}.wrap{padding:0 12px}.gridwrap,.tasks{max-height:calc(100vh - 120px)}.tasks.sw{max-height:none;overflow:visible;background:none;box-shadow:none}.tk.stu{min-width:0}.tk.stu thead{display:none}.tk.stu tr{display:block;background:#fff;border:1px solid #e2e8f0;border-radius:12px;margin:0 0 10px;padding:10px 12px}.tk.stu td{display:block;border:0;padding:1px 0;background:none!important}.tk.stu td:first-child{display:none}.tk.stu td[data-l]:before{content:attr(data-l) ": ";color:#64748b;font-size:.85rem}.tk.stu .nm{font-size:1.05rem}.cd div{min-width:50px}}
 html.shot .gridwrap,html.shot .tasks{max-height:none}
 html.shot .top,html.shot .ctl,html.shot .days,html.shot .next{display:none}html.shot .hero{padding-bottom:30px}html.shot .gridwrap,html.shot .tasks{margin-top:26px;overflow:visible}html.shot .wrap{max-width:1840px}html.shot table.grid{min-width:0}
+.daybn{display:flex;align-items:center;gap:16px;margin:0 0 18px;padding:16px 22px;border-radius:18px;background:linear-gradient(135deg,#f59e0b,#ea580c);color:#fff;box-shadow:0 14px 30px -16px rgba(234,88,12,.8);text-decoration:none;animation:bnp 2.4s ease-in-out infinite}
+.daybn i{font-size:2rem}.daybn b{display:block;font-size:1.3rem;line-height:1.2}.daybn span{font-size:1rem;opacity:.95}.daybn em{margin-left:auto;font-style:normal;font-weight:700;background:#fff;color:#c2410c;border-radius:12px;padding:8px 16px;white-space:nowrap}
+@keyframes bnp{0%,100%{transform:scale(1)}50%{transform:scale(1.012)}}
+@media(max-width:640px){.daybn{flex-wrap:wrap}.daybn em{margin-left:0}}
 </style><style id="yz-prog-css">.yz-prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:99999;background:rgba(15,23,42,.08);pointer-events:none}.yz-prog>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#b45309,#d97706);transform-origin:0 50%;transform:scaleX(0);border-radius:0 3px 3px 0;will-change:transform}</style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
@@ -99,6 +103,7 @@ html.shot .top,html.shot .ctl,html.shot .days,html.shot .next{display:none}html.
 <p>Asosiy olimpiadaning uçinçi – hududiy bosqiçi, xalqaro olimpiadalarga saralaş va boşqa olimpiadalar.</p>
 <div class="range"><i class="fa-regular fa-calendar"></i><b>24-noyabr – 5-dekabr</b> · 34 ta sinov</div></div></section>
 <main class="wrap">
+<a class="daybn" href="kunlik-elon.html"><i class="fa-solid fa-bullhorn"></i><div><b>Bugungi sinovlar — kunlik eʼlon</b><span>Har kuni avtomatik yangilanadi: sana, boşlaniş va tugaş vaqti, jonli soat</span></div><em>Ochiş →</em></a>
 <div class="next" id="next"></div>
 <div class="ctl">
  <div class="row"><div class="tabs" id="tabs"><button data-v="days" class="on">Kunlar böyiça</button><button data-v="grid">Jadval</button><button data-v="tasks">Topşiriq turlari</button><button data-v="stud">Öquvçilar</button></div>
