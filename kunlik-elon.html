@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bugungi olimpiada sinovlari | Hududiy bosqiç</title>
+<meta name="description" content="Asosiy olimpiadaning hududiy bosqiçi: bugungi sinovlar, boşlaniş va tugaş vaqti (24 soatlik rejim).">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--mut:#475569;--line:#dbe3ef;--bg:#eef2f9}
+body{font-family:'Times New Roman','Liberation Serif',Times,serif;background:var(--bg);color:var(--ink);line-height:1.45;font-size:19px;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:18px 16px 40px}
+.head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.org{font-weight:700;font-size:1.02rem;color:#1e3a8a;letter-spacing:.02em}
+.clock{display:flex;align-items:center;gap:10px;background:#0b1220;color:#7CFFB2;border-radius:14px;padding:8px 16px;box-shadow:0 8px 20px -12px #000}
+.clock small{font-size:.8rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em}
+.dg{font-family:'Courier New',Courier,monospace;font-weight:700;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.clock .dg{font-size:1.7rem;text-shadow:0 0 12px rgba(124,255,178,.55)}
+.hero{display:grid;grid-template-columns:230px 1fr;gap:0;border-radius:26px;overflow:hidden;box-shadow:0 22px 50px -26px rgba(15,23,42,.55);background:#fff;margin-bottom:20px}
+.cal{background:linear-gradient(160deg,#1e3a8a,#4338ca 60%,#7c3aed);color:#fff;text-align:center;padding:22px 12px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.cal .wd{font-size:1.25rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fcd34d}
+.cal .dn{font-size:6.2rem;line-height:1;font-weight:700;text-shadow:0 6px 24px rgba(0,0,0,.35)}
+.cal .mn{font-size:1.7rem;font-weight:700;text-transform:capitalize}
+.cal .yr{font-size:1rem;opacity:.8}
+.info{padding:22px 26px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.kick{font-size:.88rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#b45309}
+.info h1{font-size:2.05rem;line-height:1.15;color:#0f172a}
+.info p{color:var(--mut);font-size:1.05rem}
+.badge{display:inline-block;font-size:.9rem;font-weight:700;border-radius:99px;padding:3px 14px;background:#fef3c7;color:#92400e;border:1.5px solid #fcd34d;align-self:flex-start}
+.strip{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 12px;margin-bottom:6px}
+.day{flex:none;min-width:66px;text-align:center;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:6px 8px;cursor:pointer;font-family:inherit}
+.day b{display:block;font-size:1.5rem;line-height:1.1}.day span{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+.day.on{background:#1e3a8a;border-color:#1e3a8a;color:#fff}.day.on span{color:#fcd34d}
+.day.today{border-color:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,.25)}
+.day.no{opacity:.45}
+.list{display:grid;gap:14px}
+.ev{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 26px -18px rgba(15,23,42,.6);display:grid;grid-template-columns:310px 1fr;border-left:8px solid var(--c)}
+.tm{background:#0b1220;color:#7CFFB2;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.tm .rg{font-size:2.05rem;line-height:1;white-space:nowrap;text-shadow:0 0 14px rgba(124,255,178,.5)}
+.tm .lb{font-size:.82rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em}
+.tm .cd{font-size:1.55rem;color:#fcd34d;text-shadow:0 0 12px rgba(252,211,77,.4)}
+.tm .st{font-size:.95rem;font-weight:700;color:#7CFFB2}
+.ev.now .tm{box-shadow:inset 0 0 0 3px #22c55e}
+.ev.done{opacity:.62}.ev.done .tm .cd{color:#94a3b8;text-shadow:none}
+.bd{padding:16px 22px;display:flex;flex-direction:column;gap:6px;justify-content:center}
+.pr{font-size:.86rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.fan{font-size:1.45rem;font-weight:700;line-height:1.2}
+.tp{font-size:1.05rem;color:var(--mut)}
+.gr{display:flex;gap:8px;flex-wrap:wrap}
+.gr span{background:var(--c);color:#fff;border-radius:99px;padding:2px 14px;font-weight:700;font-size:1rem}
+.msg{background:#fff;border-radius:20px;padding:28px;text-align:center;font-size:1.3rem;box-shadow:0 10px 26px -18px rgba(15,23,42,.6)}
+.dir{margin-top:20px;background:#fff7ed;border:1.5px solid #fed7aa;border-radius:18px;padding:16px 22px;color:#7c2d12;font-size:1.08rem}
+.dir b{color:#9a3412}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{display:inline-block;background:#1e3a8a;color:#fff;font-weight:700;border-radius:12px;padding:10px 20px;font-size:1.05rem}
+.btn.o{background:#fff;color:#1e3a8a;border:1.5px solid #1e3a8a}
+.ft{text-align:center;color:var(--mut);font-size:.92rem;margin-top:22px}
+@media(max-width:760px){
+ body{font-size:17px}
+ .hero{grid-template-columns:1fr}
+ .cal{flex-direction:row;flex-wrap:wrap;gap:6px 14px;justify-content:center;align-items:baseline;padding:14px}
+ .cal .dn{font-size:3.6rem}.cal .wd{width:100%}
+ .info h1{font-size:1.55rem}
+ .ev{grid-template-columns:1fr}
+ .tm{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 16px}.tm .rg{font-size:1.9rem}
+}
+</style></head><body>
+<div class="wrap">
+ <div class="head"><div class="org">Qöşköpir tumani Maktabgaça va maktab taʼlimi bölimi</div>
+  <div class="clock"><small>Toşkent vaqti</small><span class="dg" id="clk">--:--:--</span></div></div>
+ <div class="hero"><div class="cal" id="cal"></div><div class="info" id="info"></div></div>
+ <div class="strip" id="strip"></div>
+ <div class="list" id="list"></div>
+ <div class="dir"><b>Direktorlar va öquv işlari böyiça direktor öribosarlari uçun:</b> öquvçilarning sinovga öz vaqtida, sinov boşlanişidan kamida 30 daqiqa oldin yetib kelişi taʼminlansin. Qaysi öquvçi qaysi kuni va soat neçada borişini «Öquvçilar» bölimidan maktab böyiça tekşirib oling.</div>
+ <div class="btns"><a class="btn" href="hududiy-bosqich.html?view=stud">Öquvçi qaçon boradi — maktab böyiça körişh</a><a class="btn o" href="hududiy-bosqich.html">Töliq reja-grafik</a></div>
+ <div class="ft">Manba: Fan olimpiadalari markazi reja-grafigi · Vaqt 24 soatlik rejimda, Toşkent vaqti böyiça · umamatov.uz</div>
+</div>
+<script>
+(function(){
+var MON=['yanvar','fevral','mart','aprel','may','iyun','iyul','avgust','sentabr','oktabr','noyabr','dekabr'];
+var WD=['Yakşanba','Duşanba','Seşanba','Çorşanba','Payşanba','Juma','Şanba'];
+var WS=['YAK','DUŞ','SEŞ','ÇOR','PAY','JUM','ŞAN'];
+var D=null,sel=null,qp=new URLSearchParams(location.search);
+function $(i){return document.getElementById(i)}
+function p2(n){return (n<10?'0':'')+n}
+function nowTK(){return new Date(Date.now()+5*3600e3)}
+function isoOf(d){return d.getUTCFullYear()+'-'+p2(d.getUTCMonth()+1)+'-'+p2(d.getUTCDate())}
+function pd(s){var a=s.split('-').map(Number);return new Date(Date.UTC(a[0],a[1]-1,a[2]))}
+function ts(date,t){return Date.parse(date+'T'+t+':00+05:00')}
+function hms(ms){if(ms<0)ms=0;var s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor((s%3600)/60);return p2(h)+':'+p2(m)+':'+p2(s%60)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function onDay(e,d){var end=e.endDate||e.date;return e.date<=d&&d<=end}
+function days(){var o={};D.events.forEach(function(e){var a=pd(e.date),b=pd(e.endDate||e.date);for(var x=a;x<=b;x=new Date(x.getTime()+864e5))o[isoOf(x)]=1});return Object.keys(o).sort()}
+function pickDay(){var all=days(),t=isoOf(nowTK());if(qp.get('date')&&all.indexOf(qp.get('date'))>=0)return qp.get('date');
+ if(all.indexOf(t)>=0)return t;for(var i=0;i<all.length;i++)if(all[i]>t)return all[i];return all[all.length-1]}
+function gradeTxt(g){return g.length>=3&&g[0]===9&&g[g.length-1]===11?'9–11-sinf':g.map(function(x){return x+'-sinf'}).join(', ')}
+function renderStrip(all,today){
+ $('strip').innerHTML=all.map(function(d){var x=pd(d);return '<button class="day'+(d===sel?' on':'')+(d===today?' today':'')+'" data-d="'+d+'"><span>'+WS[x.getUTCDay()]+'</span><b>'+x.getUTCDate()+'</b><span>'+MON[x.getUTCMonth()].slice(0,3)+'</span></button>'}).join('');
+ [].forEach.call($('strip').querySelectorAll('.day'),function(b){b.onclick=function(){sel=b.getAttribute('data-d');draw()}});
+ var on=$('strip').querySelector('.day.on');if(on&&on.scrollIntoView)try{$('strip').scrollLeft=on.offsetLeft-60}catch(e){}}
+function draw(){
+ var all=days(),today=isoOf(nowTK());if(!sel)sel=pickDay();
+ var x=pd(sel),isToday=sel===today;
+ $('cal').innerHTML='<div class="wd">'+WD[x.getUTCDay()]+'</div><div class="dn">'+x.getUTCDate()+'</div><div class="mn">'+MON[x.getUTCMonth()]+'</div><div class="yr">'+x.getUTCFullYear()+'-yil</div>';
+ var ev=D.events.filter(function(e){return onDay(e,sel)}).sort(function(a,b){return a.start<b.start?-1:a.start>b.start?1:(a.grades[0]-b.grades[0])});
+ var tag=isToday?'<span class="badge">BUGUN</span>':(sel>today?'<span class="badge">Yaqin sinov kuni</span>':'<span class="badge" style="background:#e2e8f0;color:#475569;border-color:#cbd5e1">Ötgan kun</span>');
+ $('info').innerHTML='<div class="kick">Asosiy olimpiada · hududiy bosqiç</div><h1>'+(isToday?'Bugungi sinovlar':x.getUTCDate()+'-'+MON[x.getUTCMonth()]+' kungi sinovlar')+'</h1><p>Jami <b>'+ev.length+'</b> ta sinov · boşlaniş va tugaş vaqti 24 soatlik rejimda</p>'+tag;
+ renderStrip(all,today);
+ if(!ev.length){$('list').innerHTML='<div class="msg">Bu kunda sinov yöq.</div>';return}
+ $('list').innerHTML=ev.map(function(e,i){var pr=D.programs[e.program]||{short:'',color:'#1e3a8a'};
+  return '<div class="ev" id="e'+i+'" style="--c:'+pr.color+'" data-s="'+ts(sel,e.start)+'" data-e="'+ts(sel,e.end)+'">'+
+  '<div class="tm"><div class="lb">Boşlanişi – tugaşi</div><div class="rg dg">'+e.start+' – '+e.end+'</div><div class="lb cl">—</div><div class="cd dg">--:--:--</div><div class="st"></div></div>'+
+  '<div class="bd"><div class="pr">'+esc(pr.short)+'</div><div class="fan">'+esc(e.title)+'</div><div class="tp">'+esc(e.type)+(e.endDate?' · '+pd(e.date).getUTCDate()+'-'+MON[pd(e.date).getUTCMonth()]+' – '+pd(e.endDate).getUTCDate()+'-'+MON[pd(e.endDate).getUTCMonth()]:'')+'</div><div class="gr"><span>'+gradeTxt(e.grades)+'</span></div></div></div>'}).join('')}
+function tick(){var n=nowTK();$('clk').textContent=p2(n.getUTCHours())+':'+p2(n.getUTCMinutes())+':'+p2(n.getUTCSeconds());
+ var t=Date.now();[].forEach.call(document.querySelectorAll('.ev'),function(el){var s=+el.getAttribute('data-s'),e=+el.getAttribute('data-e');
+  var cl=el.querySelector('.cl'),cd=el.querySelector('.cd'),st=el.querySelector('.st');el.classList.remove('now','done');
+  if(t<s){cl.textContent='Boşlanişigaça';cd.textContent=hms(s-t);st.textContent='Kutilmoqda'}
+  else if(t<e){cl.textContent='Tugaşigaça';cd.textContent=hms(e-t);st.textContent='● Sinov davom etmoqda';el.classList.add('now')}
+  else{cl.textContent='Holati';cd.textContent='00:00:00';st.textContent='Tugadi';el.classList.add('done')}});
+ var today=isoOf(n);if(sel&&!qp.get('date')&&window.__auto&&today!==window.__auto){window.__auto=today;sel=null;draw()}}
+function start(){window.__auto=isoOf(nowTK());draw();tick();setInterval(tick,1000)}
+function parse(h){var m=h.match(/const DATA=(\{[\s\S]*?\});\n/);if(!m)throw 0;return JSON.parse(m[1])}
+fetch('hududiy-bosqich.html',{cache:'no-store'}).then(function(r){return r.text()}).then(function(h){D=parse(h);start()}).catch(function(){$('list').innerHTML='<div class="msg">Maʼlumotni yükläb bölmadi. Sahifani yangilang.</div>'});
+})();
+</script></body></html>
