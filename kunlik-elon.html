@@ -8,12 +8,12 @@
 body{font-family:'Times New Roman','Liberation Serif',Times,serif;background:var(--bg);color:var(--ink);line-height:1.45;font-size:19px;min-height:100vh}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1080px;margin:0 auto;padding:18px 16px 40px}
-.head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-.org{font-weight:700;font-size:1.02rem;color:#1e3a8a;letter-spacing:.02em}
-.clock{display:flex;align-items:center;gap:10px;background:#1b2a4e;color:#fde68a;border-radius:14px;padding:8px 16px;box-shadow:0 8px 20px -12px #000}
+.head{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;margin:6px 0 20px}
+.org{font-weight:700;font-size:1.25rem;color:#1e3a8a;letter-spacing:.03em;display:flex;align-items:center;gap:12px}.org:before,.org:after{content:"";width:38px;height:2px;background:linear-gradient(90deg,transparent,#f59e0b)}.org:after{transform:scaleX(-1)}
+.clock{display:flex;flex-direction:column;align-items:center;gap:0;min-width:250px;background:#1b2a4e;color:#fde68a;border-radius:20px;padding:10px 30px 12px;box-shadow:0 16px 34px -18px #0b1437,inset 0 0 0 1px rgba(253,230,138,.25)}
 .clock small{font-size:.8rem;color:#bcc8e6;text-transform:uppercase;letter-spacing:.08em}
 .dg{font-family:'Times New Roman','Liberation Serif',Times,serif;font-weight:700;letter-spacing:.06em;font-variant-numeric:tabular-nums}
-.clock .dg{font-size:1.7rem}
+.clock .dg{font-size:2.6rem;line-height:1.1}.clock .dg i{font-style:normal;animation:bl 1s steps(2,start) infinite}@keyframes bl{to{opacity:.25}}
 .hero{display:grid;grid-template-columns:230px 1fr;gap:0;border-radius:26px;overflow:hidden;box-shadow:0 22px 50px -26px rgba(15,23,42,.55);background:#fff;margin-bottom:20px}
 .cal{background:linear-gradient(160deg,#1e3a8a,#4338ca 60%,#7c3aed);color:#fff;text-align:center;padding:22px 12px;display:flex;flex-direction:column;justify-content:center;gap:2px}
 .cal .wd{font-size:1.25rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fcd34d}
@@ -37,8 +37,8 @@ a{color:inherit;text-decoration:none}
 .tm .rg{font-size:2.05rem;line-height:1;white-space:nowrap;}
 .tm .lb{font-size:.82rem;color:#bcc8e6;text-transform:uppercase;letter-spacing:.08em}
 .tm .cd{font-size:1.55rem;color:#fde68a}
-.tm .st{font-size:.95rem;font-weight:700;color:#bfdbfe}
-.ev.now .tm{box-shadow:inset 0 0 0 3px #f59e0b}
+.tm .st{font-size:1rem;font-weight:700;color:#bfdbfe}
+.ev{animation:up .5s ease both}@keyframes up{from{opacity:0;transform:translateY(14px)}}.ev.now{box-shadow:0 0 0 3px #f59e0b,0 18px 40px -18px rgba(245,158,11,.8)}.ev.now .st:before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:#f59e0b;margin-right:8px;animation:pl 1.2s infinite}@keyframes pl{50%{opacity:.25;transform:scale(1.5)}}.pg{height:6px;border-radius:9px;background:rgba(255,255,255,.15);overflow:hidden;margin-top:4px}.pg u{display:block;height:100%;width:0;background:linear-gradient(90deg,#fde68a,#f59e0b);border-radius:9px;transition:width 1s linear}
 .ev.done{opacity:.62}.ev.done .tm .cd{color:#94a3b8;text-shadow:none}
 .bd{padding:16px 22px;display:flex;flex-direction:column;gap:6px;justify-content:center}
 .pr{font-size:.86rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
@@ -60,7 +60,7 @@ a{color:inherit;text-decoration:none}
  .cal .dn{font-size:3.6rem}.cal .wd{width:100%}
  .info h1{font-size:1.55rem}
  .ev{grid-template-columns:1fr}
- .tm{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 16px}.tm .rg{font-size:1.45rem}
+ .tm{align-items:center;text-align:center;gap:4px;padding:16px 14px}.tm .rg{font-size:2.1rem}.tm .cd{font-size:2rem}.tm .pg{width:100%}.org{font-size:1.05rem}.org:before,.org:after{width:18px}.clock{min-width:0;width:100%;max-width:300px}.clock .dg{font-size:2.3rem}.bd{text-align:center;align-items:center}.gr{justify-content:center}
 }
 </style></head><body>
 <div class="wrap">
@@ -107,13 +107,13 @@ function draw(){
  if(!ev.length){$('list').innerHTML='<div class="msg">Bu kunda sinov yöq.</div>';return}
  $('list').innerHTML=ev.map(function(e,i){var pr=D.programs[e.program]||{short:'',color:'#1e3a8a'};
   return '<div class="ev" id="e'+i+'" style="--c:'+pr.color+'" data-s="'+ts(sel,e.start)+'" data-e="'+ts(sel,e.end)+'">'+
-  '<div class="tm"><div class="lb">Boşlanişi – tugaşi</div><div class="rg dg">'+e.start+' – '+e.end+'</div><div class="lb cl">—</div><div class="cd dg">--:--:--</div><div class="st"></div></div>'+
+  '<div class="tm"><div class="lb">Boşlanişi – tugaşi</div><div class="rg dg">'+e.start+' – '+e.end+'</div><div class="lb cl">—</div><div class="cd dg">--:--:--</div><div class="st"></div><div class="pg"><u></u></div></div>'+
   '<div class="bd"><div class="pr">'+esc(pr.short)+'</div><div class="fan">'+esc(e.title)+'</div><div class="tp">'+esc(e.type)+(e.endDate?' · '+pd(e.date).getUTCDate()+'-'+MON[pd(e.date).getUTCMonth()]+' – '+pd(e.endDate).getUTCDate()+'-'+MON[pd(e.endDate).getUTCMonth()]:'')+'</div><div class="gr"><span>'+gradeTxt(e.grades)+'</span></div></div></div>'}).join('')}
-function tick(){var n=nowTK();$('clk').textContent=p2(n.getUTCHours())+':'+p2(n.getUTCMinutes())+':'+p2(n.getUTCSeconds());
+function tick(){var n=nowTK();$('clk').innerHTML=p2(n.getUTCHours())+'<i>:</i>'+p2(n.getUTCMinutes())+'<i>:</i>'+p2(n.getUTCSeconds());
  var t=Date.now();[].forEach.call(document.querySelectorAll('.ev'),function(el){var s=+el.getAttribute('data-s'),e=+el.getAttribute('data-e');
-  var cl=el.querySelector('.cl'),cd=el.querySelector('.cd'),st=el.querySelector('.st');el.classList.remove('now','done');
+  var pu=el.querySelector('.pg u');pu.style.width=(t<s?0:t>=e?100:((t-s)/(e-s)*100))+'%';var cl=el.querySelector('.cl'),cd=el.querySelector('.cd'),st=el.querySelector('.st');el.classList.remove('now','done');
   if(t<s){cl.textContent='Boşlanişigaça';cd.textContent=hms(s-t);st.textContent='Kutilmoqda'}
-  else if(t<e){cl.textContent='Tugaşigaça';cd.textContent=hms(e-t);st.textContent='● Sinov davom etmoqda';el.classList.add('now')}
+  else if(t<e){cl.textContent='Tugaşigaça';cd.textContent=hms(e-t);st.textContent='Sinov davom etmoqda';el.classList.add('now')}
   else{cl.textContent='Holati';cd.textContent='00:00:00';st.textContent='Tugadi';el.classList.add('done')}});
  var today=isoOf(n);if(sel&&!qp.get('date')&&window.__auto&&today!==window.__auto){window.__auto=today;sel=null;draw()}}
 function start(){window.__auto=isoOf(nowTK());draw();tick();setInterval(tick,1000)}
