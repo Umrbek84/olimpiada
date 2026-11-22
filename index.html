@@ -2643,6 +2643,15 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 .nx-hb{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#f59e0b,#ea580c);color:#fff!important;text-decoration:none;font-weight:700;font-size:.85rem;padding:9px 16px;border-radius:50px;flex-shrink:0;font-family:-apple-system,"Segoe UI",Roboto,sans-serif;animation:nxg 1.8s ease-in-out infinite}
 .nx-hb i{animation:nxp 1.4s infinite}
 @keyframes nxg{0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,.65),0 4px 14px rgba(234,88,12,.35)}50%{box-shadow:0 0 0 9px rgba(245,158,11,0),0 4px 18px rgba(234,88,12,.55)}}
+/* OTM ballari: menyudagi ajralib turuvçi tugma */
+.nx-otmb{background:linear-gradient(135deg,#0f766e,#2563eb)!important;animation:nxg2 1.8s ease-in-out infinite!important}
+.nx-otmb .nx-nb{background:#fff;color:#0f766e;border-radius:999px;font-size:.66rem;font-weight:800;letter-spacing:.04em;padding:2px 7px;margin-left:2px}
+@keyframes nxg2{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,.6),0 4px 14px rgba(15,118,110,.35)}50%{box-shadow:0 0 0 9px rgba(37,99,235,0),0 4px 18px rgba(15,118,110,.55)}}
+@media(max-width:1000px){.nx-nav .nx-hb-m a.nx-hb.nx-otmb{background:linear-gradient(135deg,#0f766e,#2563eb)!important;box-shadow:0 6px 18px rgba(37,99,235,.4)}}
+@media(min-width:1401px){.nx-bar{max-width:1480px}}
+@media(min-width:1001px) and (max-width:1400px){.nx-hm{display:none}.nx-bar{padding:0 12px}.nx-nav{gap:0}}
+@media(min-width:1001px) and (max-width:1499px){.nx-bar{gap:8px}.nx-nav>li>a,.nx-nav>li>button{padding:10px 9px}.nx-hb-d .nx-hg,.nx-otmb .nx-nb{display:none}}
+@media(min-width:1001px) and (max-width:1260px){.nx-otmb .nx-nt{display:none}.nx-otmb{font-size:0;padding:9px 12px}.nx-otmb i{font-size:.95rem}}
 .nx-nav .nx-hb-m{display:none}
 @media(min-width:1001px){.nx-nav a{white-space:nowrap}.nx-bar{gap:12px}.nx-hb{padding:9px 13px;font-size:.8rem}}
 @media(max-width:1000px){.nx-hb-d{display:none}.nx-nav .nx-hb-m{display:block;margin:6px 0}.nx-nav .nx-hb-m{padding:6px 14px}.nx-nav .nx-hb-m a.nx-hb{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;box-sizing:border-box;padding:14px 18px;border-radius:16px;background:linear-gradient(135deg,#f59e0b,#ea580c)!important;color:#fff!important;font-family:inherit;font-size:1.05rem;font-weight:700;line-height:1.3;text-align:center;white-space:normal;box-shadow:0 6px 18px rgba(234,88,12,.35)}.nx-nav .nx-hb-m a.nx-hb i{color:#fff!important;flex-shrink:0}}
@@ -2840,7 +2849,8 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
       <a href="#home" class="nx-brand"><img class="nx-logo" src="logo.png" width="46" height="46" alt="Umrbek Mamatov logotipi"><div class="nx-bt"><b>Umrbek Mamatov</b><span>Boş mutaxassis · Taʼlim portali</span></div></a>
       <button class="nx-burger" aria-label="Menyu" onclick="document.getElementById('nxNav').classList.toggle('show')"><i class="fa-solid fa-bars"></i></button>
       <ul class="nx-nav" id="nxNav">
-        <li><a href="#home"><i class="fa-solid fa-house"></i> Boş sahifa</a></li>
+        <li><a href="#home" title="Boş sahifa"><i class="fa-solid fa-house"></i><span class="nx-hm"> Boş sahifa</span></a></li>
+        <li class="nx-hb-m"><a href="otm-ballari.html" class="nx-hb nx-otmb"><i class="fa-solid fa-ranking-star"></i> OTMga kiriş ballari 2026 <span class="nx-nb">11-SINF</span></a></li>
         <li><button type="button"><i class="fa-solid fa-trophy"></i> Olimpiadalar <i class="fa-solid fa-chevron-down"></i></button>
           <ul class="nx-drop">
             <li><a href="#olimpiada"><i class="fa-solid fa-square-poll-vertical"></i><span><b>Tuman natijalari</b><small>Fan olimpiadasi, real vaqt</small></span></a></li>
@@ -2854,6 +2864,7 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
           </ul></li>
         <li><button type="button"><i class="fa-solid fa-graduation-cap"></i> Tahlil <i class="fa-solid fa-chevron-down"></i></button>
           <ul class="nx-drop">
+<li><a href="otm-ballari.html"><i class="fa-solid fa-ranking-star"></i><span><b>OTMga kiriş ballari 2026</b><small>Grant va şartnoma ballari, filtr (11-sinf uçun)</small></span></a></li>
 <li><a href="#yangi-baholash"><i class="fa-solid fa-school-circle-check"></i><span><b>Yangi baholaş tizimi</b><small>Tumandagi 45 ta maktab, hujjatlar</small></span></a></li>
                         <li><a href="1-chorak-yakunlari.html"><i class="fa-solid fa-chart-column"></i><span><b>1-çorak yakunlari tahlili</b><small>Bilim sifati: sinflar va maktablar</small></span></a></li>
             <li><a href="#baholash"><i class="fa-solid fa-calendar-check"></i><span><b>1-çorak onlayn ÇSB topşiriş grafigi</b><small>Sana, fan va maktablar jadvali</small></span></a></li>
@@ -2879,7 +2890,8 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
             <li><a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i><span><b>Taʼlimga oid hujjatlar</b><small>Telegram kanal: yangiliklar, qarorlar, buyruqlar</small></span></a></li>
           </ul></li>
       </ul>
-      <a href="hududiy-bosqich.html" class="nx-hb nx-hb-d" title="Olimpiadaning hududiy bosqiçi grafigi"><i class="fa-solid fa-calendar-days"></i> HUDUDIY BOSQIÇ GRAFIGI</a>
+      <a href="otm-ballari.html" class="nx-hb nx-hb-d nx-otmb" title="OTMga kiriş ballari 2026 (11-sinf uçun)"><i class="fa-solid fa-ranking-star"></i> <span class="nx-nt">OTM BALLARI</span> <span class="nx-nb">2026</span></a>
+      <a href="hududiy-bosqich.html" class="nx-hb nx-hb-d" title="Olimpiadaning hududiy bosqiçi grafigi"><i class="fa-solid fa-calendar-days"></i> HUDUDIY BOSQIÇ<span class="nx-hg"> GRAFIGI</span></a>
       <a href="jonli.html" target="_blank" rel="noopener" class="nx-live"><span class="d"></span> JONLI EFIR</a>
       <div class="nx-tools" id="nxTools">
         <button type="button" class="nx-tools-btn" aria-label="Xizmatlar menyusi" aria-haspopup="true"><i class="fa-solid fa-bars"></i></button>
@@ -3448,6 +3460,7 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 
       <style>.otmx{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:0 0 26px}.otmx a{display:flex;gap:16px;align-items:center;padding:20px 22px;border-radius:18px;color:#fff;box-shadow:0 8px 24px rgba(15,23,42,.14);transition:transform .2s}.otmx a:hover{transform:translateY(-3px)}.otmx i.ic{width:54px;height:54px;border-radius:14px;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:1.5rem;flex:none}.otmx b{display:block;font-size:1.1rem;margin-bottom:3px}.otmx small{opacity:.92;font-size:.88rem;line-height:1.4;display:block}.otmx .go{margin-left:auto;font-size:1.2rem;opacity:.9}</style>
       <div class="otmx">
+        <a href="otm-ballari.html" style="background:linear-gradient(135deg,#0f766e,#1d4ed8)"><i class="ic fa-solid fa-ranking-star"></i><span><b>OTMga kiriş ballari 2026</b><small>106 ta OTM, grant va şartnoma ötiş ballari. Ballingizni kiriting — qayerga kirişingizni körasiz.</small></span><i class="go fa-solid fa-arrow-right"></i></a>
         <a href="otm-qabul.html" style="background:linear-gradient(135deg,#0f766e,#2563eb)"><i class="ic fa-solid fa-building-columns"></i><span><b>OTMga qabul: 2025 va 2026</b><small>Grant va şartnoma ösişi, OTM turlari, maktablar kesimida diagrammalar.</small></span><i class="go fa-solid fa-arrow-right"></i></a>
         <a href="otm-solishtirma.html" style="background:linear-gradient(135deg,#1d4ed8,#7c3aed)"><i class="ic fa-solid fa-code-compare"></i><span><b>4- va 5-blok soliştirma tahlil</b><small>Majburiy, 4- va 5-blok fanlari, 56 ta maktab. Ösiş yaşil, kamayiş qizil.</small></span><i class="go fa-solid fa-arrow-right"></i></a>
         <a href="otm-past-natija.html" style="background:linear-gradient(135deg,#c2410c,#d97706)"><i class="ic fa-solid fa-chart-simple"></i><span><b>Past natija körsatganlar tahlili</b><small>4- va 5-blokda 30 tadan 7 tagaça töğri javob berganlar — maktab va fanlar kesimida.</small></span><i class="go fa-solid fa-arrow-right"></i></a>
