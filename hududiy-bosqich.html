@@ -94,6 +94,16 @@ html.shot .top,html.shot .ctl,html.shot .days,html.shot .next,html.shot .daybn{d
 .daybn b{display:block;font-size:1.3rem;line-height:1.2;margin:2px 0}.daybn .bt>span{font-size:.98rem;opacity:.9}
 .daybn em{flex:none;font-style:normal;font-weight:700;background:#fde68a;color:#78350f;border-radius:14px;padding:10px 18px;white-space:nowrap}
 @media(max-width:640px){.daybn{flex-direction:column;text-align:center;gap:10px;padding:18px 16px}.daybn em{width:100%}}
+.adr{margin:0 0 18px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:16px 18px;box-shadow:0 2px 10px rgba(15,23,42,.05)}
+.adr h2{font-size:1.15rem;color:#0f2a5c;margin-bottom:10px}
+.adr .rule{background:#fef3c7;border:1px solid #fcd34d;color:#78350f;border-radius:12px;padding:10px 14px;font-size:.98rem;margin-bottom:12px;font-weight:700}
+.adr .g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.adr .c{border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;background:#f8fafc}
+.adr .c b{display:block;color:#0f2a5c;margin-bottom:4px}
+.adr .c p{font-size:.98rem;margin-bottom:8px}
+.adr .c a{display:inline-block;font-weight:700;font-size:.92rem;padding:7px 14px;border-radius:999px;background:#0f2a5c;color:#fff}
+.adr .c a:hover{background:#1e40af}
+@media(max-width:700px){.adr .g{grid-template-columns:1fr}}
 </style><style id="yz-prog-css">.yz-prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:99999;background:rgba(15,23,42,.08);pointer-events:none}.yz-prog>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#b45309,#d97706);transform-origin:0 50%;transform:scaleX(0);border-radius:0 3px 3px 0;will-change:transform}</style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
@@ -110,6 +120,14 @@ html.shot .top,html.shot .ctl,html.shot .days,html.shot .next,html.shot .daybn{d
 <main class="wrap">
 <div class="next" id="next"></div>
 <a class="daybn" href="kunlik-elon.html"><span class="bi"><i class="fa-solid fa-bullhorn"></i></span><span class="bt"><small><u></u>Bugun · jonli</small><b>Bugungi sinovlar — kunlik eʼlon</b><span>Sana, boşlaniş va tugaş vaqti, raqamli soat</span></span><em>Ochiş <i class="fa-solid fa-arrow-right"></i></em></a>
+<section class="adr" id="manzil">
+<h2><i class="fa-solid fa-location-dot"></i> Olimpiada ötkaziladigan manzillar</h2>
+<div class="rule"><i class="fa-solid fa-circle-exclamation"></i> Olimpiada iştirokçilari özlari bilan şaxsini tasdiqlovçi hujjati, beydjik va ruçka olib kelişlari talab etiladi. Keçikib kelganlar kiritilmaydi.</div>
+<div class="g">
+<div class="c"><b><i class="fa-solid fa-laptop"></i> Faqat Informatika fani</b><p>Urganç şahardagi 15-sonli maktab (Urganç şahar, Özbekiston ovozi köçasi, 27/7-uy)da kompyuterda onlayn ötkaziladi.</p><a href="https://goo.gl/maps/V5cFN5Js9mBWoSHa7" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i> Xaritada köriş</a></div>
+<div class="c"><b><i class="fa-solid fa-book"></i> Qolgan barça fanlar</b><p>Urganç şahardagi 17-sonli maktab (Urganç şahar, 4-Yuqori boğ MFY, Maxtumquli köçasi, 229-a-uy)da ötkaziladi.</p><a href="https://maps.app.goo.gl/s2o7CmybZpJMU5a38" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i> Xaritada köriş</a></div>
+</div>
+</section>
 <div class="ctl">
  <div class="row"><div class="tabs" id="tabs"><button data-v="days" class="on">Kunlar böyiça</button><button data-v="grid">Jadval</button><button data-v="tasks">Topşiriq turlari</button><button data-v="stud">Öquvçilar</button></div>
  <label class="search"><i class="fa-solid fa-magnifying-glass" style="color:#94a3b8"></i><input id="q" type="search" placeholder="Qidiriş (fan, öquvçi, maktab)..."></label></div>
