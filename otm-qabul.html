@@ -94,8 +94,8 @@ td.fan{text-align:left;font-weight:700}td.dl{font-weight:800}td.dl.up{background
 <section class="blk"><h2 class="t"><i class="fa-solid fa-school" style="background:#15803d"></i> Maktablar kesimida</h2>
 <p class="sub">Bitiruvçilarga nisbatan OTMga kirganlar uluşi. Farq = 2026 − 2025, ösiş «+» yaşil, kamayiş «−» qizil.</p>
 <div class="tb"><div class="card"><h3 style="color:#15803d"><i class="fa-solid fa-arrow-trend-up"></i> Kiriş uluşi eng köp oşgan</h3><div id="topUp"></div></div><div class="card"><h3 style="color:#b91c1c"><i class="fa-solid fa-arrow-trend-down"></i> Kiriş uluşi kamaygan maktablar</h3><div id="topDn"></div></div></div>
-<div class="tools"><input id="q" placeholder="Maktab raqami böyiça qidiriş..."><button class="on" data-s="up">Ösişdan kamayişga</button><button data-s="dn">Kamayişdan ösişga</button><button data-s="no">Maktab raqami</button><button data-s="t26">Qabul soni (2026)</button></div>
-<div class="tw"><table><thead><tr><th>№</th><th>Maktab</th><th>Bitiruvçi 2025</th><th>Bitiruvçi 2026</th><th>Qabul 2025</th><th>Qabul 2026</th><th>Kiriş, % 2025</th><th>Kiriş, % 2026</th><th>Farq</th><th>Grant 2025</th><th>Grant 2026</th></tr></thead><tbody id="ts"></tbody></table></div>
+<div class="tools"><input id="q" placeholder="Maktab raqami böyiça qidiriş..."><button class="on" data-s="up">Ösişdan kamayişga</button><button data-s="dn">Kamayişdan ösişga</button><button data-s="no">Maktab raqami</button><button data-s="t26">Qabul soni (2026)</button><button data-s="ball">Örtaça ball</button></div>
+<div class="tw"><table><thead><tr><th>№</th><th>Maktab</th><th>Bitiruvçi 2025</th><th>Bitiruvçi 2026</th><th>Qabul 2025</th><th>Qabul 2026</th><th>Kiriş, % 2025</th><th>Kiriş, % 2026</th><th>Farq</th><th>Grant 2025</th><th>Grant 2026</th><th>Örtaça ball 2026</th></tr></thead><tbody id="ts"></tbody></table></div>
 <div class="rule" style="margin-top:12px"><div class="ex" id="ext" style="margin:0"></div></div>
 <p class="note">Kiriş, % = OTMga qabul qilinganlar ÷ maktab bitiruvçilari × 100.</p></section>
 </main><div class="foot wrap">Manba: tuman statistikasi (2026-yil maʼlumotlari 13-oktabr holatiga dastlabki), Qöşköpir tumani bitiruvçilari · <a href="index.html#otm">Asosiy sahifaga qaytiş</a><br>Qöşköpir tumani taʼlim bölimi, boş mutaxassis U.O. Mamatov</div>
@@ -132,9 +132,9 @@ const rowf=(s,c)=>`<div class="row ${c}"><b>${s.name}</b><em>${fmt(s.p25)} → $
 document.getElementById('topUp').innerHTML=big.slice(0,5).map(s=>rowf(s,'u')).join('');
 document.getElementById('topDn').innerHTML=(S.filter(s=>s.d<0).sort((a,b)=>a.d-b.d).map(s=>rowf(s,'d')).join('')||'<p class="sub">Kamaygan maktab yöq.</p>');
 let mode='up',qs='';
-const o={up:(x,y)=>y.d-x.d,dn:(x,y)=>x.d-y.d,no:(x,y)=>x.no-y.no,t26:(x,y)=>y.t26-x.t26};
+const o={up:(x,y)=>y.d-x.d,dn:(x,y)=>x.d-y.d,no:(x,y)=>x.no-y.no,t26:(x,y)=>y.t26-x.t26,ball:(x,y)=>y.ball-x.ball};
 function draw(){const a=S.filter(s=>s.name.toLowerCase().includes(qs)).sort(o[mode]);
- document.getElementById('ts').innerHTML=a.map((s,i)=>`<tr><td>${i+1}</td><td class="fan">${s.name}</td><td>${s.b25}</td><td>${s.b26}</td><td class="y25">${s.t25}</td><td class="y26">${s.t26}</td><td class="y25">${fmt(s.p25)}</td><td class="y26">${fmt(s.p26)}</td>${dcell(s.d)}<td>${s.g25}</td><td>${s.g26}</td></tr>`).join('');}
+ document.getElementById('ts').innerHTML=a.map((s,i)=>`<tr><td>${i+1}</td><td class="fan">${s.name}</td><td>${s.b25}</td><td>${s.b26}</td><td class="y25">${s.t25}</td><td class="y26">${s.t26}</td><td class="y25">${fmt(s.p25)}</td><td class="y26">${fmt(s.p26)}</td>${dcell(s.d)}<td>${s.g25}</td><td>${s.g26}</td><td class="y26">${fmt(s.ball)}</td></tr>`).join('');}
 document.getElementById('q').oninput=e=>{qs=e.target.value.toLowerCase().trim();draw()};
 document.querySelectorAll('.tools button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tools button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.s;draw()});
 draw();
