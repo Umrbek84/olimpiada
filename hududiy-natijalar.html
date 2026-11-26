@@ -52,13 +52,13 @@ table.rs{width:100%;border-collapse:collapse;min-width:820px}
 .rs th.n,.rs td.n{text-align:right}.rs th:first-child{border-top-left-radius:14px}.rs th:last-child{border-top-right-radius:14px}
 .rs td{padding:10px 12px;border-bottom:1px solid #edf1f7;vertical-align:middle}
 .rs tr:nth-child(even) td{background:#fafcff}
-.rs td.rk{font-weight:700;width:58px;color:var(--navy)}
+.rs td.rk{font-weight:700;width:58px;color:var(--navy)}.rs td.cmb{display:none}
 .rs td.nm{font-weight:700}.rs td.j{font-weight:700;font-size:1.1rem;color:var(--navy)}
 .rs tr.q td{background:#fff3d1!important;border-bottom-color:#f7d98a}.rs tr.q td:first-child{box-shadow:inset 6px 0 0 var(--gold)}
 .badge{display:inline-block;margin-left:8px;background:var(--gold);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 10px;vertical-align:middle;white-space:nowrap}
 .med{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;font-weight:700}
 .m1{background:#d4a017}.m2{background:#8e9aaf}.m3{background:#b87333}
-.np{display:inline-block;background:#fee2e2;color:#991b1b;border-radius:999px;font-size:.85rem;font-weight:700;padding:2px 12px}
+.np.ct{background:#1f2937;color:#fff}.np{display:inline-block;background:#fee2e2;color:#991b1b;border-radius:999px;font-size:.85rem;font-weight:700;padding:2px 12px}
 .empty{padding:36px;text-align:center;color:var(--mut)}
 .note{margin-top:14px;font-size:.92rem;color:var(--mut)}
 footer{margin:46px 0 26px;text-align:center;color:var(--mut);font-size:.92rem}
@@ -69,7 +69,7 @@ footer{margin:46px 0 26px;text-align:center;color:var(--mut);font-size:.92rem}
  .rs td{border:0;padding:0;background:transparent!important}.rs td.rk{grid-row:1/3;align-self:center;width:auto}
  .rs td.nm{grid-column:2}.rs td.j{grid-column:3;grid-row:1/3;align-self:center;text-align:right}
  .rs td.m{grid-column:2;color:var(--mut);font-size:.9rem}.rs td.sub{grid-column:2;font-size:.88rem;color:#334155}
- .rs td.hide{display:none}.rs tr.q{background:#fff3d1;box-shadow:inset 6px 0 0 var(--gold)}.rs tr.q td:first-child{box-shadow:none}
+ .rs tr.qq{grid-template-columns:1fr auto}.rs tr.qq td.fs{grid-column:1/-1;grid-row:auto;font-size:.8rem;color:#b45309;text-transform:uppercase;letter-spacing:.06em}.rs tr.qq td.nm,.rs tr.qq td.m,.rs tr.qq td.sub{grid-column:1}.rs tr.qq td.j{grid-column:2;grid-row:2/5}.rs td.dk,.rs th.dk{display:none}.rs td.cmb{display:block;grid-column:2}.rs td.cmb:before{content:none!important}.rs tr.q{background:#fff3d1;box-shadow:inset 6px 0 0 var(--gold)}.rs tr.q td:first-child{box-shadow:none}
  .rs td.sub:before{content:attr(data-l)": ";color:var(--mut)}
 }
 </style></head><body>
@@ -98,11 +98,11 @@ function dt(s){var a=s.split('-');return (+a[2])+'-'+MON[a[1]-1]+' '+a[0]+'-yil'
 function prep(){
  R=D.results.map(function(b){
   var rows=b.rows.map(function(r){return r.slice()});
-  var part=rows.filter(function(r){return r[6]!=null}).sort(function(a,b){return b[6]-a[6]||(b[5]||0)-(a[5]||0)});
+  var part=rows.filter(function(r){return !r[6]}).sort(function(a,b){return b[5]-a[5]});
   var rank=0,prev=null,i=0;
-  part.forEach(function(r){i++;if(r[6]!==prev){rank=i;prev=r[6]}r.rk=rank});
-  var np=rows.filter(function(r){return r[6]==null});
-  return {fan:b.fan,sinf:b.sinf,sana:b.sana,part:part,np:np,n:part.length}})}
+  part.forEach(function(r){i++;if(r[5]!==prev){rank=i;prev=r[5]}r.rk=rank});
+  var np=rows.filter(function(r){return !!r[6]});
+  return {fan:b.fan,sinf:b.sinf,sana:b.sana,cols:b.cols||['Test','Yozma iş'],max:b.max,note:b.note,part:part,np:np,n:part.length}})}
 function find(f,s){for(var i=0;i<R.length;i++)if(R[i].fan===f&&R[i].sinf===s)return R[i];return null}
 function allFans(){var a=FANS.slice();R.forEach(function(b){if(a.indexOf(b.fan)<0)a.push(b.fan)});return a}
 function qAll(){var o=[];R.forEach(function(b){b.part.concat(b.np).forEach(function(r){if(isQ(r))o.push({b:b,r:r})})});return o}
@@ -115,32 +115,34 @@ function matrix(){
   if(b){var q=b.part.concat(b.np).filter(isQ).length;h+='<td><button class="cell'+(S.fan===f&&S.sinf===s?' on':'')+'" data-f="'+esc(f)+'" data-s="'+s+'"><i class="fa-solid fa-circle-check"></i>'+b.n+(q?'<em>★'+q+'</em>':'')+'</button></td>'}
   else h+='<td><button class="cell no" disabled>tez orada</button></td>'});h+='</tr>'});
  return h+'</table></div>'}
-function rowHtml(r,showQ,extra){
- var q=isQ(r),np=r[6]==null;
+function sch(r){return /^\d+$/.test(r[3])?r[3]+'-maktab':r[3]}
+function brk(b,r){if(b.cols.length<=2)return b.cols.map(function(c,k){return c+': '+f1(r[4][k])}).join(' · ');return 'Topşiriqlar: '+r[4].map(f1).join(' / ')}
+function stb(r){return '<span class="np'+(r[6]==='Çetlatildi'?' ct':'')+'">'+esc(r[6])+'</span>'}
+function rowHtml(r,b){
+ var q=isQ(r),np=!!r[6];
  var rk=np?'—':(r.rk<=3?'<span class="med m'+r.rk+'">'+r.rk+'</span>':r.rk);
  return '<tr class="'+(q?'q':'')+'"><td class="rk">'+rk+'</td><td class="nm">'+esc(r[1])+(q?'<span class="badge"><i class="fa-solid fa-star"></i> Qöşköpir</span>':'')+'</td>'+
- (extra||'')+
- '<td class="m">'+esc(r[2])+' · '+esc(/^\d+$/.test(r[3])?r[3]+'-maktab':r[3])+'</td>'+
- (np?'<td class="n sub hide"></td><td class="n sub hide"></td><td class="j n"><span class="np">Qatnaşmadi</span></td>':
- '<td class="n sub" data-l="Test">'+f1(r[4])+'</td><td class="n sub" data-l="Yozma iş">'+f1(r[5])+'</td><td class="j n">'+f1(r[6])+'</td>')+'</tr>'}
+ '<td class="m">'+esc(r[2])+' · '+esc(sch(r))+'</td>'+
+ (np?'<td class="dk" colspan="'+b.cols.length+'"></td><td class="j n">'+stb(r)+'</td>':
+ r[4].map(function(v){return '<td class="n dk">'+f1(v)+'</td>'}).join('')+'<td class="sub cmb">'+esc(brk(b,r))+'</td><td class="j n">'+f1(r[5])+'</td>')+'</tr>'}
 function fsView(){
  var h=matrix();
  var b=(S.fan&&find(S.fan,S.sinf))||null;
  if(!b){return h+'<div class="card empty" style="margin-top:16px"><i class="fa-regular fa-hand-pointer"></i> Natijani körişh uçun yuqoridagi jadvaldan fan va sinfni tanlang.</div>'}
  var qs=b.part.concat(b.np).filter(isQ);
- var top=b.part.length?b.part[0][6]:null;
- h+='<div class="hd"><div><h2>'+esc(b.fan)+' · '+b.sinf+'-sinf</h2><p>'+dt(b.sana)+' · qatnaşçilar: <b>'+b.n+'</b>'+(b.np.length?' · qatnaşmaganlar: '+b.np.length:'')+' · eng yuqori ball: <b>'+f1(top)+'</b></p></div></div>';
- if(qs.length){h+='<div class="qs">'+qs.map(function(r){var np=r[6]==null;return '<div class="qc"><span class="tag"><i class="fa-solid fa-star"></i> Qöşköpir</span><b>'+esc(r[1])+'</b><span>'+(/^\d+$/.test(r[3])?r[3]+'-maktab':esc(r[3]))+'</span><div class="sc">'+(np?'<span class="np">Qatnaşmadi</span>':'<strong>'+f1(r[6])+'</strong><span>ball</span><em>'+r.rk+'-örin / '+b.n+'</em>')+'</div></div>'}).join('')+'</div>'}
+ var top=b.part.length?b.part[0][5]:null;
+ h+='<div class="hd"><div><h2>'+esc(b.fan)+' · '+b.sinf+'-sinf</h2><p>'+dt(b.sana)+' · qatnaşçilar: <b>'+b.n+'</b>'+(b.np.length?' · qatnaşmaganlar va çetlatilganlar: '+b.np.length:'')+' · eng yuqori ball: <b>'+f1(top)+(b.max?' / '+b.max:'')+'</b>'+(b.note?'<br>'+esc(b.note):'')+'</p></div></div>';
+ if(qs.length){h+='<div class="qs">'+qs.map(function(r){var np=!!r[6];return '<div class="qc"><span class="tag"><i class="fa-solid fa-star"></i> Qöşköpir</span><b>'+esc(r[1])+'</b><span>'+esc(sch(r))+'</span><div class="sc">'+(np?stb(r):'<strong>'+f1(r[5])+'</strong><span>ball</span><em>'+r.rk+'-örin / '+b.n+'</em>')+'</div></div>'}).join('')+'</div>'}
  h+='<div class="ctl"><div class="search"><i class="fa-solid fa-magnifying-glass" style="color:#94a3b8"></i><input id="q" placeholder="Qidiriş (F.I.Sh., tuman, maktab)..." value="'+esc(S.q)+'"></div><button class="pill'+(S.only?' on':'')+'" id="only"><i class="fa-solid fa-star"></i> Faqat Qöşköpir</button></div>';
  var q=S.q.toLowerCase(),all=b.part.concat(b.np).filter(function(r){return (!S.only||isQ(r))&&(!q||(r.slice(1,4).join(' ').toLowerCase().indexOf(q)>=0))});
- h+='<div class="card tw"><table class="rs"><thead><tr><th>Reyting</th><th>F.I.Sh.</th><th>Tuman (şahar) · taʼlim muassasasi</th><th class="n">Test</th><th class="n">Yozma iş</th><th class="n">Jami ball</th></tr></thead><tbody id="tb">'+(all.length?all.map(function(r){return rowHtml(r)}).join(''):'<tr><td colspan="6" class="empty">Heç narsa topilmadi.</td></tr>')+'</tbody></table></div>';
+ h+='<div class="card tw"><table class="rs"><thead><tr><th>Reyting</th><th>F.I.Sh.</th><th>Tuman (şahar) · taʼlim muassasasi</th>'+b.cols.map(function(c){return '<th class="n dk">'+esc(c)+'</th>'}).join('')+'<th class="n">Jami ball</th></tr></thead><tbody id="tb">'+(all.length?all.map(function(r){return rowHtml(r,b)}).join(''):'<tr><td colspan="6" class="empty">Heç narsa topilmadi.</td></tr>')+'</tbody></table></div>';
  return h}
 function qqView(){
  var q=qAll();
  if(!q.length)return '<div class="card empty" style="margin-top:16px">Hali Qöşköpir öquvçilari natijalari yöq.</div>';
- q.sort(function(a,b){return (a.r[6]==null)-(b.r[6]==null)||a.b.fan.localeCompare(b.b.fan)||a.b.sinf-b.b.sinf});
- var h='<div class="hd"><div><h2>Qöşköpir tumani öquvçilari</h2><p>Eʼlon qilingan barça natijalar böyiça · jami <b>'+q.length+'</b> ta</p></div></div><div class="card tw"><table class="rs"><thead><tr><th>Fan · sinf</th><th>F.I.Sh.</th><th>Maktab</th><th class="n">Test</th><th class="n">Yozma iş</th><th class="n">Jami ball</th><th class="n">Reyting</th></tr></thead><tbody>';
- q.forEach(function(o){var r=o.r,np=r[6]==null;h+='<tr class="q"><td class="rk" style="width:auto;white-space:nowrap">'+esc(o.b.fan)+' · '+o.b.sinf+'</td><td class="nm">'+esc(r[1])+'</td><td class="m">'+(/^\d+$/.test(r[3])?r[3]+'-maktab':esc(r[3]))+'</td>'+(np?'<td class="n hide"></td><td class="n hide"></td><td class="j n"><span class="np">Qatnaşmadi</span></td><td class="n">—</td>':'<td class="n sub" data-l="Test">'+f1(r[4])+'</td><td class="n sub" data-l="Yozma iş">'+f1(r[5])+'</td><td class="j n">'+f1(r[6])+'</td><td class="n sub" data-l="Reyting">'+r.rk+' / '+o.b.n+'</td>')+'</tr>'});
+ q.sort(function(a,b){return (!!a.r[6])-(!!b.r[6])||a.b.fan.localeCompare(b.b.fan)||a.b.sinf-b.b.sinf});
+ var h='<div class="hd"><div><h2>Qöşköpir tumani öquvçilari</h2><p>Eʼlon qilingan barça natijalar böyiça · jami <b>'+q.length+'</b> ta</p></div></div><div class="card tw"><table class="rs"><thead><tr><th>Fan · sinf</th><th>F.I.Sh.</th><th>Maktab</th><th>Ballar</th><th class="n">Reyting</th><th class="n">Jami ball</th></tr></thead><tbody>';
+ q.forEach(function(o){var r=o.r,b=o.b,np=!!r[6];h+='<tr class="q qq"><td class="rk fs" style="width:auto;white-space:nowrap">'+esc(b.fan)+' · '+b.sinf+'</td><td class="nm">'+esc(r[1])+'</td><td class="m">'+esc(sch(r))+'</td>'+(np?'<td class="sub" style="display:none"></td><td class="n sub" style="display:none"></td><td class="j n">'+stb(r)+'</td>':'<td class="sub" data-l="Ballar">'+esc(brk(b,r))+'</td><td class="n sub" data-l="Reyting">'+r.rk+' / '+b.n+'</td><td class="j n">'+f1(r[5])+'</td>')+'</tr>'});
  return h+'</tbody></table></div>'}
 function draw(){
  $('view').innerHTML=S.v==='fs'?fsView():qqView();
