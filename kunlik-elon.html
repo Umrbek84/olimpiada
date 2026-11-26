@@ -118,6 +118,6 @@ function tick(){var n=nowTK();$('clk').innerHTML=p2(n.getUTCHours())+'<i>:</i>'+
  var today=isoOf(n);if(sel&&!qp.get('date')&&window.__auto&&today!==window.__auto){window.__auto=today;sel=null;draw()}}
 function start(){window.__auto=isoOf(nowTK());draw();tick();setInterval(tick,1000)}
 function parse(h){var m=h.match(/const DATA=(\{[\s\S]*?\});\n/);if(!m)throw 0;return JSON.parse(m[1])}
-fetch('hududiy-bosqich.html',{cache:'no-store'}).then(function(r){return r.text()}).then(function(h){D=parse(h);start()}).catch(function(){$('list').innerHTML='<div class="msg">Maʼlumotni yükläb bölmadi. Sahifani yangilang.</div>'});
+fetch('hududiy-bosqich.html',{cache:'no-store'}).then(function(r){return r.text()}).then(function(h){D=parse(h);D.events=D.events.filter(function(e){return e.program==='h1'||e.program==='h2'});start()}).catch(function(){$('list').innerHTML='<div class="msg">Maʼlumotni yükläb bölmadi. Sahifani yangilang.</div>'});
 })();
 </script></body></html>
