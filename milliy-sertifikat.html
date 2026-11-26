@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Milliy sertifikat — OTMga kiriş bali | Umrbek Mamatov</title>
+<meta name="description" content="Milliy sertifikat OTMga kirişda neça ball beradi: kalkulyator, darajalar jadvali, çet tili sertifikatlari (B1, B2).">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Times New Roman",Times,serif}
+html{scroll-behavior:smooth}
+body{background:#f1f5f9;color:#0f172a;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+.yz-prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:99999;background:rgba(15,23,42,.08);pointer-events:none}
+.yz-prog>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#b45309,#d97706);transform-origin:0 50%;transform:scaleX(0);border-radius:0 3px 3px 0;will-change:transform}
+.top{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 8px rgba(15,23,42,.05)}
+.top-in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.brand b{display:block;font-size:1.15rem;color:#0f172a}.brand span{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#b45309}
+.top nav{display:flex;gap:8px;flex-wrap:wrap}.top nav a{font-size:.88rem;font-weight:700;padding:8px 14px;border-radius:999px;color:#334155;background:#f1f5f9}
+.top nav a:hover{background:#e2e8f0}.top nav a.on{background:#2563eb;color:#fff}
+.hero{position:relative;overflow:hidden;color:#fff;padding:44px 20px 92px;background:linear-gradient(135deg,#0b1f4d 0%,#1d4ed8 52%,#0f766e 100%)}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.07)}
+.hero:before{width:420px;height:420px;right:-120px;top:-160px}.hero:after{width:260px;height:260px;left:-80px;bottom:-130px}
+.hero-in{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px;align-items:center}
+.kick{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.17);padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.hero h1{font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.15;margin-bottom:12px}
+.hero p.lead{max-width:640px;font-size:1.08rem;opacity:.94}
+.hero .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.hero .pills span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:6px 13px;border-radius:999px;font-size:.9rem;font-weight:700}
+.finder{background:#fff;color:#0f172a;border-radius:20px;padding:22px;box-shadow:0 18px 44px rgba(2,6,23,.35)}
+.finder h2{font-size:1.25rem;margin-bottom:4px;display:flex;gap:10px;align-items:center}
+.finder h2 i{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#f59e0b,#ea580c);color:#fff;display:grid;place-items:center;font-size:.95rem}
+.finder .hint{color:#64748b;font-size:.93rem;margin-bottom:12px}
+.fin-row{display:flex;gap:10px}
+.fin-row input{flex:1;min-width:0;font-size:1.7rem;font-weight:700;text-align:center;padding:10px 12px;border:2px solid #cbd5e1;border-radius:14px;outline:none;color:#1d4ed8;background:#f8fafc}
+.fin-row input:focus{border-color:#2563eb;background:#fff}
+.fin-row button{padding:0 20px;border:0;border-radius:14px;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;font-weight:700;font-size:1.02rem;cursor:pointer;box-shadow:0 6px 16px rgba(37,99,235,.35)}
+.fin-row button:hover{filter:brightness(1.08)}
+.fin-res{margin-top:12px;display:none;gap:10px}
+.fin-res.on{display:grid;grid-template-columns:1fr 1fr}
+.fin-res button{text-align:left;border:1px solid #e2e8f0;border-radius:14px;padding:10px 12px;background:#f8fafc;cursor:pointer}
+.fin-res button b{display:block;font-size:1.5rem;line-height:1.1}.fin-res button small{font-size:.86rem;color:#475569;font-weight:700}
+.fin-res .fg b{color:#15803d}.fin-res .fk b{color:#1d4ed8}
+.fin-res button:hover{border-color:#93c5fd;background:#eff6ff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:-52px;position:relative}
+.kpi{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:14px 16px;box-shadow:0 6px 20px rgba(15,23,42,.08);display:flex;gap:12px;align-items:center}
+.kpi i{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:1.15rem;flex:none}
+.kpi small{display:block;font-size:.78rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.04em}
+.kpi b{display:block;font-size:1.5rem;line-height:1.15}.kpi em{display:block;font-style:normal;font-size:.8rem;color:#64748b;line-height:1.25}
+.panel{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:18px;margin-top:22px;box-shadow:0 2px 12px rgba(15,23,42,.05)}
+.flt{display:grid;grid-template-columns:2fr 2fr 1fr;gap:12px}
+.fld label{display:block;font-size:.78rem;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
+.fld input,.fld select{width:100%;padding:11px 13px;border:1px solid #cbd5e1;border-radius:12px;background:#fff;outline:none;font-size:1rem}
+.fld input:focus,.fld select:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.fld.s{position:relative}.fld.s i{position:absolute;left:13px;bottom:14px;color:#94a3b8}.fld.s input{padding-left:38px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.chips .lb{font-size:.78rem;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.04em;margin-right:4px}
+.chip{padding:8px 15px;border-radius:999px;border:1px solid #cbd5e1;background:#fff;font-weight:700;font-size:.93rem;cursor:pointer;color:#334155}
+.chip:hover{background:#f1f5f9}.chip.on{background:#2563eb;border-color:#2563eb;color:#fff}
+.chip.fit{border-color:#86efac;color:#166534;background:#f0fdf4;display:none}.chip.fit.show{display:inline-block}.chip.fit.on{background:#16a34a;border-color:#16a34a;color:#fff}
+.chip.clr{margin-left:auto;color:#b91c1c;border-color:#fecaca;background:#fff}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:26px 0 14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{padding:10px 18px;border-radius:12px;border:1px solid #cbd5e1;background:#fff;font-weight:700;cursor:pointer;font-size:1rem;color:#334155}
+.tab span{display:inline-block;margin-left:6px;font-size:.82rem;padding:1px 8px;border-radius:999px;background:#e2e8f0;color:#334155}
+.tab.on{color:#fff;border-color:transparent}.tab.on span{background:rgba(255,255,255,.25);color:#fff}
+.tab[data-t=all].on{background:#334155}.tab[data-t=g].on{background:#16a34a}.tab[data-t=k].on{background:#2563eb}
+.sort{display:flex;gap:8px;align-items:center;font-weight:700;color:#475569;font-size:.9rem}.sort select{padding:9px 12px;border:1px solid #cbd5e1;border-radius:12px;background:#fff;font-size:.98rem}
+.cnt{margin:2px 2px 12px;color:#475569;font-size:.98rem}.cnt b{color:#0f172a}
+.list{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.c{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:16px;box-shadow:0 2px 10px rgba(15,23,42,.05);display:flex;flex-direction:column;gap:12px;border-left:6px solid #cbd5e1;transition:transform .15s,box-shadow .15s}
+.c:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,23,42,.1)}
+.c.fg{border-left-color:#16a34a}.c.fk{border-left-color:#2563eb}.c.fn{border-left-color:#ef4444}
+.c h3{font-size:1.12rem;line-height:1.3}
+.code{display:inline-block;margin-left:6px;font-size:.78rem;font-weight:700;color:#64748b;background:#f1f5f9;border-radius:6px;padding:1px 7px;vertical-align:2px}
+.c .otm{color:#334155;font-size:.97rem;margin-top:4px}.c .otm i{color:#1d4ed8;margin-right:7px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tags span{font-size:.8rem;font-weight:700;padding:3px 10px;border-radius:999px;background:#f1f5f9;color:#475569}
+.tags .t-k{background:#fef3c7;color:#92400e}.tags .t-d{background:#ede9fe;color:#5b21b6}
+.sc{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sb{border-radius:12px;padding:8px 12px;border:1px solid #e2e8f0;background:#f8fafc}
+.sb small{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#64748b}
+.sb b{display:block;font-size:1.65rem;line-height:1.15}
+.sb.g b{color:#15803d}.sb.k b{color:#1d4ed8}.sb.x b{color:#94a3b8;font-size:1.2rem;padding:5px 0}
+.sb.g{background:#f0fdf4;border-color:#bbf7d0}.sb.k{background:#eff6ff;border-color:#bfdbfe}
+.sb.no{opacity:.55}
+.vd{font-size:.92rem;font-weight:700;padding:8px 12px;border-radius:10px;display:flex;gap:8px;align-items:center}
+.vd.a{background:#dcfce7;color:#166534}.vd.b{background:#dbeafe;color:#1e40af}.vd.n{background:#fee2e2;color:#991b1b}
+.more{display:block;margin:20px auto 0;padding:13px 30px;border:0;border-radius:14px;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;font-weight:700;font-size:1.05rem;cursor:pointer;box-shadow:0 6px 16px rgba(37,99,235,.3)}
+.empty{text-align:center;padding:46px 16px;color:#64748b;background:#fff;border:1px dashed #cbd5e1;border-radius:16px;grid-column:1/-1}
+.empty i{font-size:2.2rem;color:#94a3b8;display:block;margin-bottom:8px}
+.note{margin:26px 0 40px;background:#fffbeb;border:1px solid #fde68a;border-left:6px solid #f59e0b;border-radius:14px;padding:14px 18px;color:#78350f;font-size:.97rem}
+.note b{color:#92400e}
+footer.ft{background:#0f172a;color:#94a3b8;padding:48px 24px 28px;margin-top:20px}
+.ft-in{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-em{display:flex;align-items:center;gap:16px}
+.ft-em img{width:84px;height:84px;border-radius:50%;border:3px solid #f59e0b;box-shadow:0 0 22px rgba(245,158,11,.5);object-fit:cover;flex:none}
+.ft-name{font-size:1.5rem;font-weight:800;color:#fff}
+.ft-st{font-size:.92rem;font-weight:700;color:#fff;letter-spacing:.08em;text-transform:uppercase}
+.ft-mo{font-size:.95rem;color:#cbd5e1;font-style:italic}
+.ft-tx{max-width:520px;font-size:1rem;color:#cbd5e1;margin-top:14px}
+.ft h4{color:#fff;font-size:1.1rem;margin-bottom:12px}
+.ft-bt{display:flex;gap:10px;flex-wrap:wrap}
+.ft-bt a{display:inline-flex;align-items:center;gap:9px;padding:11px 16px;border-radius:12px;color:#fff;font-weight:700;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);font-size:.95rem}
+.ft-bt a:hover{background:rgba(255,255,255,.18)}
+.ft-cp{text-align:center;font-size:.9rem;margin-top:22px}
+.gc-bar{display:none;text-align:center;padding:16px 16px 4px;color:#94a3b8;font-size:1rem}
+@media(max-width:1000px){.hero-in{grid-template-columns:minmax(0,1fr)}.flt{grid-template-columns:1fr 1fr}.flt .fld.s{grid-column:1/-1}}
+@media(max-width:760px){.top{position:static}.sort select{min-width:0}.fld select{min-width:0}.list{grid-template-columns:minmax(0,1fr)}.hero{padding:30px 16px 84px}.wrap{padding:0 14px}.flt{grid-template-columns:1fr}.finder{padding:18px}.chip.clr{margin-left:0}.tab{flex:1;text-align:center;padding:10px 8px}.sort{width:100%}.sort select{flex:1}}
+@media(max-width:480px){.sb b{font-size:1.45rem}.fin-row input{font-size:1.5rem}.ft-em img{width:70px;height:70px}}
+@media print{.top,.finder,.panel,.more,.bar,.totop{display:none}.list{grid-template-columns:1fr 1fr}}
+.totop{position:fixed;right:16px;bottom:20px;width:48px;height:48px;border:0;border-radius:14px;background:linear-gradient(135deg,#1e3a8a,#3556b0);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:890;box-shadow:0 8px 20px rgba(30,58,138,.38);opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .3s,transform .3s,background .2s}.totop.show{opacity:1;transform:none;pointer-events:auto}.totop:hover{background:linear-gradient(135deg,#17306f,#2c4a9c)}.totop svg{width:22px;height:22px;display:block}
+
+body{background:#f3f8ee}
+.hero{background:linear-gradient(135deg,#14532d 0%,#15803d 55%,#65a30d 100%);padding-bottom:92px}
+.top nav a.on{background:#15803d}
+.finder h2 i{background:linear-gradient(135deg,#65a30d,#15803d)}
+.finder .fld{margin-top:10px}
+.out{margin-top:14px;border-radius:14px;background:#f0fdf4;border:1px solid #bbf7d0;padding:14px;text-align:center}
+.out b{display:block;font-size:2.3rem;line-height:1.1;color:#15803d}.out span{display:block;font-weight:700;color:#334155}
+.out.bad{background:#fef2f2;border-color:#fecaca}.out.bad b{color:#b91c1c}
+.panel h2{font-size:1.35rem;margin-bottom:12px;color:#14532d}.panel p+p{margin-top:8px}.panel ul,.panel ol{padding-left:22px}.panel li{margin:5px 0}
+.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:520px}th,td{border:1px solid #d9e5cf;padding:10px 12px;text-align:center}th{background:#15803d;color:#fff}tbody tr:nth-child(even){background:#f7fbf3}td:first-child{font-weight:700}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 16px}
+.kpi b small{display:inline}
+details{border:1px solid #d9e5cf;border-radius:12px;padding:12px 14px;margin-top:10px}summary{cursor:pointer;font-weight:700}details p{margin-top:8px}
+.src a{color:#15803d;text-decoration:underline}
+@media(max-width:760px){.two{grid-template-columns:minmax(0,1fr)}.hero{padding-bottom:84px}}
+@media print{.finder{display:none}}
+.fld[hidden]{display:none}
+</style></head>
+<body>
+<div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>
+<header class="top"><div class="top-in"><a class="brand" href="index.html"><b>Umrbek Mamatov</b><span>Boş mutaxassis · Taʼlim portali</span></a>
+<nav><a href="index.html"><i class="fa-solid fa-arrow-left"></i> Boş sahifa</a><a href="otm-ballari.html"><i class="fa-solid fa-ranking-star"></i> Kiriş ballari</a><a href="milliy-sertifikat.html" class="on"><i class="fa-solid fa-certificate"></i> Milliy sertifikat</a><a href="otm-qabul.html"><i class="fa-solid fa-building-columns"></i> OTMga qabul</a><a href="otm-solishtirma.html"><i class="fa-solid fa-code-compare"></i> 4–5-blok soliştirma</a><a href="otm-past-natija.html"><i class="fa-solid fa-triangle-exclamation"></i> Past natijalar</a></nav></div></header>
+
+<section class="hero"><div class="hero-in">
+ <div>
+  <span class="kick"><i class="fa-solid fa-certificate"></i> 11-sinf bitiruvçilari uçun</span>
+  <h1>Milliy sertifikat OTMga kirişda neça ball beradi?</h1>
+  <p class="lead">Sertifikatingizdagi ballni kiriting — kiriş imtihonida şu fandan neça ball yozilişini bir zumda biling.</p>
+  <div class="pills"><span><i class="fa-solid fa-calculator"></i> Kalkulyator</span><span><i class="fa-solid fa-table"></i> Darajalar jadvali</span><span><i class="fa-solid fa-language"></i> Çet tili sertifikatlari</span></div>
+ </div>
+ <div class="finder">
+  <h2><i class="fa-solid fa-calculator"></i> Ballni hisoblaş</h2>
+  <div class="fld"><label for="tur">Sertifikat turi</label><select id="tur"><option value="fan">Umumtaʼlim fani (milliy sertifikat)</option><option value="til">Çet tili (B1, B2, C1, C2)</option></select></div>
+  <div class="fld"><label for="orn">Fanning örni</label><select id="orn"><option value="93">1-fan (eng köpi 93 ball)</option><option value="63">2-fan (eng köpi 63 ball)</option><option value="11">Majburiy fan (11 ball)</option></select></div>
+  <div class="fld" id="wB"><label for="sb">Sertifikatdagi ball</label><input id="sb" type="text" inputmode="decimal" maxlength="6" autocomplete="off" placeholder="Masalan: 58,4"></div>
+  <div class="fld" id="wD" hidden><label for="dr">Til darajasi</label><select id="dr"><option value="1">B2, C1 yoki C2</option><option value="0.75">B1</option><option value="0">A2 va undan past</option></select></div>
+  <div class="out" id="out" aria-live="polite"></div>
+ </div>
+</div></section>
+
+<main class="wrap">
+<div class="kpis"><div class="kpi"><i class="fa-solid fa-star" style="background:linear-gradient(135deg,#15803d,#65a30d)"></i><div><small>1-fan</small><b>93 ball</b><em>eng yuqori ball</em></div></div><div class="kpi"><i class="fa-solid fa-star-half-stroke" style="background:linear-gradient(135deg,#15803d,#65a30d)"></i><div><small>2-fan</small><b>63 ball</b><em>eng yuqori ball</em></div></div><div class="kpi"><i class="fa-solid fa-book" style="background:linear-gradient(135deg,#15803d,#65a30d)"></i><div><small>Majburiy fanlar</small><b>3 × 11</b><em>har biri 11 ball</em></div></div><div class="kpi"><i class="fa-solid fa-trophy" style="background:linear-gradient(135deg,#15803d,#65a30d)"></i><div><small>Jami</small><b>189 ball</b><em>eng yuqori natija</em></div></div></div>
+
+<section class="panel"><h2>Darajalar böyiça ball jadvali</h2>
+<div class="scroll"><table><thead><tr><th>Daraja</th><th>Sertifikat bali</th><th>1-fan</th><th>2-fan</th><th>Majburiy fan</th></tr></thead><tbody>
+<tr><td>A+</td><td>70 va undan yuqori</td><td>93</td><td>63</td><td>11</td></tr>
+<tr><td>A</td><td>65 – 69,9</td><td>93</td><td>63</td><td>11</td></tr>
+<tr><td>B+</td><td>60 – 64,9</td><td>85,84 – 92,85</td><td>58,15 – 62,90</td><td>11</td></tr>
+<tr><td>B</td><td>55 – 59,9</td><td>78,69 – 85,70</td><td>53,30 – 58,05</td><td>11</td></tr>
+<tr><td>C+</td><td>50 – 54,9</td><td>71,53 – 78,54</td><td>48,46 – 53,21</td><td>11</td></tr>
+<tr><td>C</td><td>46 – 49,9</td><td>65,81 – 71,39</td><td>44,58 – 48,36</td><td>11</td></tr>
+</tbody></table></div>
+<p style="margin-top:12px"><b>A+ va A</b> — eng yuqori ball. <b>B+, B, C+, C</b> — mutanosib ball: sertifikat bali ÷ 65 × fanning eng yuqori bali. <b>Majburiy fan</b> — darajadan qatʼi nazar 11 ball.</p>
+<p>Misol: 58 ball, 1-fan: 58 ÷ 65 × 93 = 82,98 ball.</p></section>
+
+<div class="two">
+<section class="panel"><h2>Çet tili sertifikatlari</h2>
+<div class="scroll"><table style="min-width:0"><thead><tr><th>Daraja</th><th>1-fan</th><th>2-fan</th></tr></thead><tbody><tr><td>B2, C1, C2</td><td>93</td><td>63</td></tr><tr><td>B1 (75%)</td><td>69,75</td><td>47,25</td></tr><tr><td>A2 va past</td><td>—</td><td>—</td></tr></tbody></table></div>
+<ul style="margin-top:12px"><li>IELTS 5,5 va yuqori yoki TOEFL iBT 72 va yuqori — B2.</li><li>IELTS 4,0–5,0 yoki TOEFL iBT 42–71 — B1.</li></ul></section>
+<section class="panel"><h2>Bilib qöyiş kerak</h2>
+<ul><li>B+, B, C+, C sertifikati bilan mutaxassislik fanida abituriyent tanlaydi: sertifikat balini tasdiqlaydi (test topşirmaydi) yoki rad etib, test topşiradi.</li><li>Majburiy fandan sertifikat bölsa, şu fandan test topşirilmaydi va eng yuqori ball beriladi.</li><li>Sertifikatning amal qiliş muddati abituriyent röyxatdan ötgan sana holatiga hisobga olinadi.</li><li>46 balldan past natijaga sertifikat berilmaydi.</li></ul></section>
+</div>
+
+<section class="panel"><h2>Yaqin imtihon sanalari (2026-yil, dekabr)</h2>
+<div class="scroll"><table style="min-width:0"><thead><tr><th>Fan</th><th>Sana</th></tr></thead><tbody><tr><td>Huquqşunoslik</td><td>23-dekabr</td></tr><tr><td>Geografiya</td><td>25-dekabr</td></tr><tr><td>Ona tili va adabiyot</td><td>26–28-dekabr</td></tr><tr><td>Tarix</td><td>29-dekabr</td></tr></tbody></table></div>
+<p style="margin-top:12px">Sanalar özgarişi mümkin. Röyxatdan ötiş: <b>my.gov.uz</b>.</p></section>
+
+<section class="panel"><h2>Köp beriladigan savollar</h2>
+<details><summary>Milliy sertifikat nima?</summary><p>Fan yoki tilni bilish darajasini tasdiqlovçi rasmiy hujjat. Imtihonni Bilim va malakalarni baholaş agentligi ötkazadi.</p></details>
+<details><summary>Sertifikat bölsa, DTM imtihoniga kiriladimi?</summary><p>Ha, sertifikat bilan qoplanmagan fanlardan test topşiriladi.</p></details>
+<details><summary>A2 darajali til sertifikati ball beradimi?</summary><p>Yöq, imtiyoz B1 darajadan boşlanadi.</p></details></section>
+
+<div class="note src"><b>Eslatma:</b> maʼlumotlar 26.11.2026 holatiga. Yakuniy tartib uçun rasmiy hujjat va eʼlonlarga qarang. Manbalar: <a href="https://lex.uz/uz/docs/-7726569" target="_blank" rel="noopener">VMQ №578 (lex.uz)</a>, <a href="https://testmakon.uz/milliy-sertifikat/" target="_blank" rel="noopener">testmakon.uz</a>, <a href="https://infoedu.uz/milliy-sertifikat" target="_blank" rel="noopener">infoedu.uz</a>.</div>
+</main>
+
+<footer class="ft" id="contact">
+ <div class="ft-in">
+  <div>
+   <div class="ft-em"><img src="footer-surat.jpg" alt="Umrbek Mamatov" width="84" height="84"><div><div class="ft-name">Umrbek Mamatov</div><div class="ft-st">Boş mutaxassis</div><div class="ft-mo">Taʼlim sifati — kelajak kafolati</div></div></div>
+   <p class="ft-tx">Qöşköpir tumani taʼlim yönalişidagi rasmiy monitoring va axborot portali.</p>
+  </div>
+  <div>
+   <h4>Rasmiy boğlaniş va ijtimoiy tarmoqlar</h4>
+   <div class="ft-bt">
+    <a href="https://instagram.com/umrbek_mamatov" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram (@umrbek_mamatov)</a>
+    <a href="https://www.facebook.com/umrbek.mamatov" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook (Umrbek Mamatov)</a>
+    <a href="tel:+998996601415"><i class="fa-solid fa-phone"></i> +998 99 660 14 15</a>
+    <a href="mailto:umrbek84@gmail.com"><i class="fa-solid fa-envelope"></i> umrbek84@gmail.com</a>
+   </div>
+  </div>
+ </div>
+ <div class="ft-cp">© 2026 Umrbek Mamatov. Barça huquqlar himoyalangan.</div>
+ <div class="gc-bar" id="gcBar"><i class="fa-solid fa-eye"></i> Sayt tashrifları: <b id="gcN" style="color:#fff">…</b></div>
+</footer>
+
+<button type="button" class="totop" id="yzTop" aria-label="Yuqoriga"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script>
+(function(){
+"use strict";
+var $=function(i){return document.getElementById(i)};
+function fm(n){return (Math.floor(n*100+1e-6)/100).toFixed(2).replace(/\.?0+$/,'').replace('.',',')}
+function show(v,t,bad){$('out').className='out'+(bad?' bad':'');$('out').innerHTML='<b>'+v+'</b><span>'+t+'</span>'}
+function calc(){
+ var til=$('tur').value==='til',m=+$('orn').value;
+ $('wB').hidden=til||m===11;$('wD').hidden=!til;
+ var o=$('orn').options[2];o.hidden=o.disabled=til;
+ if(til&&m===11){$('orn').value='93';m=93;$('wD').hidden=false}
+ if(til){var k=+$('dr').value;if(!k)return show('0','Bu daraja ball bermaydi',true);return show(fm(m*k)+' ball',m+' balldan'+(k<1?' (75%)':' (eng yuqori ball)'))}
+ if(m===11)return show('11 ball','C va undan yuqori har qanday darajada');
+ var x=$('sb').value.trim().replace(',','.');
+ if(!x)return show('—','Sertifikatdagi ballni kiriting');
+ var n=Number(x);
+ if(isNaN(n)||n<0||n>100)return show('—','Ball notöğri kiritildi',true);
+ if(n<46)return show('0','46 balldan past — sertifikat berilmaydi',true);
+ var d=n>=70?'A+':n>=65?'A':n>=60?'B+':n>=55?'B':n>=50?'C+':'C';
+ show(fm(n>=65?m:n/65*m)+' ball',d+' daraja · '+m+' balldan')
+}
+['tur','orn','dr'].forEach(function(i){$(i).addEventListener('change',calc)});
+$('sb').addEventListener('input',calc);calc();
+/* yz-prog */
+(function(){var b=document.querySelector('#yzProg>i');var t=false;function u(){t=false;var d=document.documentElement,h=d.scrollHeight-window.innerHeight,y=window.pageYOffset||d.scrollTop||0;b.style.transform='scaleX('+(h>0?Math.min(1,Math.max(0,y/h)):0)+')'}
+function q(){if(!t){t=true;requestAnimationFrame(u)}}window.addEventListener('scroll',q,{passive:true});window.addEventListener('resize',q);u()})();
+/* yz-top */
+(function(){var b=$('yzTop');function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>350)}
+window.addEventListener('scroll',u,{passive:true});u();
+b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;window.scrollTo({top:0,behavior:r?'auto':'smooth'})})})();
+/* tashrif soni */
+(function(){var e=$('gcN');fetch('https://umamatov.goatcounter.com/counter/TOTAL.json').then(function(r){return r.json()}).then(function(d){if(d.count&&d.count!=='0'){e.textContent=d.count;$('gcBar').style.display='block'}}).catch(function(){})})();
+})();
+</script>
+<script data-goatcounter="https://umamatov.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body></html>
