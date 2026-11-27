@@ -296,7 +296,7 @@ const WD=['yakshanba','duşanba','seşanba','çorşanba','payşanba','juma','şa
 const $=id=>document.getElementById(id);
 const norm=s=>String(s).toLowerCase().replace(/[ʼʼ'`‘’´"]/g,'').replace(/\s+/g,' ').trim();
 
-// ---- vaqt (Toshkent, UTC+5) ----
+// ---- vaqt (Toşkent, UTC+5) ----
 function ts(di,tm){const [y,m,d]=D.dates[di].split('-').map(Number);const [h,mi]=tm.split(':').map(Number);return Date.UTC(y,m-1,d,h-5,mi);}
 function dayNum(di){const [y,m,d]=D.dates[di].split('-').map(Number);return Math.floor(Date.UTC(y,m-1,d)/864e5);}
 function todayNum(){return Math.floor((Date.now()+5*36e5)/864e5);}
@@ -361,7 +361,7 @@ function fanLabel(fi){
   const ds=[...new Set(D.s.filter(s=>s[0]===fi).map(s=>s[2]))].sort((a,b)=>a-b);
   return D.fans[fi]+(ds.length?' — '+ds.map(fmtDate).join(', '):'');
 }
-// Boshqa filtrlarga mos keladigan fan va sanalarni hisoblab, tanlovlarni qayta quradi
+// Boşqa filtrlarga mos keladigan fan va sanalarni hisoblab, tanlovlarni qayta quradi
 function refreshOptions(){
   const base=D.t.filter(t=>state.sc===''||t[1]==state.sc);
   // sanaga mos fanlar
