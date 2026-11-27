@@ -3664,16 +3664,19 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  gap: 5px;
+  min-width: 44px;
+  padding: 4px 10px;
+  border-radius: 50px;
   font-weight: 800;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  white-space: nowrap;
 }
-.ol-rank-1 { background: #fef3c7; color: #b45309; border: 1.5px solid #fcd34d; }
-.ol-rank-2 { background: #f1f5f9; color: #475569; border: 1.5px solid #cbd5e1; }
-.ol-rank-3 { background: #ffedd5; color: #c2410c; border: 1.5px solid #fdba74; }
-.ol-rank-def { background: #f8fafc; color: #64748b; }
+.ol-rank-1 { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color: #92400e; border: 1.5px solid #f59e0b; box-shadow: 0 2px 6px rgba(245,158,11,0.25); }
+.ol-rank-2 { background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); color: #334155; border: 1.5px solid #94a3b8; box-shadow: 0 2px 6px rgba(148,163,184,0.2); }
+.ol-rank-3 { background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%); color: #9a3412; border: 1.5px solid #ea580c; box-shadow: 0 2px 6px rgba(234,88,12,0.2); }
+.ol-rank-def { background: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; min-width: 34px; padding: 3px 8px; }
 
 .ol-score-pill {
   display: inline-block;
@@ -4084,11 +4087,14 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
             <table class="ol-table">
               <thead>
                 <tr>
-                  <th style="width:75px">Oʻrin</th>
+                  <th style="width:110px">Oʻrin</th>
                   <th>Gʻolib oʻquvchi</th>
                   <th>Taʼlim muassasasi</th>
                   <th>Fan & Sinf</th>
-                  <th>Ball</th>
+                  <th style="text-align:center" title="1-10 savollar bali">1-10</th>
+                  <th style="text-align:center" title="11-20 savollar bali">11-20</th>
+                  <th style="text-align:center" title="21-30 savollar bali">21-30</th>
+                  <th style="text-align:center">Jami ball</th>
                   <th>Ustoz (Oʻqituvchi)</th>
                 </tr>
               </thead>
@@ -5710,39 +5716,51 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
 <script src="qulaylik.js?v=2" defer></script>
 
 <script>
-/* ===== MAHALIY OLIMPIADA TIZIMI LOGIKASI ===== */
+/* ===== MAHALIY VA TEZKOR OLIMPIADA TIZIMI LOGIKASI ===== */
 (function(){
-  var rawData = window.OLIMPIADA_DATA || { sozlama: {}, fanlar: [], maktablar: [], natijalar: [] };
+  var rawData = window.OLIMPIADA_DATA || { sozlama: {}, fanlar: [], maktablar: [], goliblar: [], natijalar: [] };
   var currentSinf = 0;
   var currentPage = 1;
   var pageSize = 25;
   var filteredNatijalar = [];
 
   function initOlimpiada() {
-    if (!window.OLIMPIADA_DATA && typeof fetch !== 'undefined') {
+    if ((!window.OLIMPIADA_DATA || !window.OLIMPIADA_DATA.natijalar) && typeof fetch !== 'undefined') {
       fetch('olimpiada_data.json').then(function(r){ return r.json(); }).then(function(d){
         window.OLIMPIADA_DATA = d;
         rawData = d;
         setupUI();
       }).catch(function(){ setupUI(); });
     } else {
+      rawData = window.OLIMPIADA_DATA;
       setupUI();
     }
   }
 
   function setupUI() {
-    // 1. Ishtirokchilar soni
+    if (!rawData) return;
+
+    // 1. Ishtirokchilar va umumiy statistika
     var stP = document.getElementById('olStatParticipants');
     if (stP && rawData.natijalar) stP.textContent = rawData.natijalar.length.toLocaleString('uz-UZ');
+
+    var stW = document.getElementById('olStatWinners');
+    if (stW) {
+      var wCount = (rawData.goliblar && rawData.goliblar.length) || 124;
+      stW.textContent = wCount + ' nafar';
+    }
 
     // 2. Fanlar selectlarini to'ldirish
     var selFan = document.getElementById('olFilterFan');
     var selGolibFan = document.getElementById('olFilterGolibFan');
     if (selFan && rawData.fanlar) {
+      selFan.innerHTML = '<option value="">Barcha fanlar</option>';
+      if (selGolibFan) selGolibFan.innerHTML = '<option value="">Barcha fanlar</option>';
+
       rawData.fanlar.forEach(function(f){
         var opt = document.createElement('option');
         opt.value = f.name;
-        opt.textContent = f.emoji + ' ' + f.name;
+        opt.textContent = (f.emoji || '📚') + ' ' + f.name;
         selFan.appendChild(opt);
 
         if (selGolibFan) {
@@ -5777,9 +5795,9 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
       html += '  </div>';
       html += '  <div class="ol-fc-name">' + f.name + '</div>';
       html += '  <div class="ol-fc-counts">';
-      html += '    <div class="ol-fc-count-item"><b>' + f.c9 + '</b><small>9-sinf</small></div>';
-      html += '    <div class="ol-fc-count-item"><b>' + f.c10 + '</b><small>10-sinf</small></div>';
-      html += '    <div class="ol-fc-count-item"><b>' + f.c11 + '</b><small>11-sinf</small></div>';
+      html += '    <div class="ol-fc-count-item"><b>' + (f.c9 || 0) + '</b><small>9-sinf</small></div>';
+      html += '    <div class="ol-fc-count-item"><b>' + (f.c10 || 0) + '</b><small>10-sinf</small></div>';
+      html += '    <div class="ol-fc-count-item"><b>' + (f.c11 || 0) + '</b><small>11-sinf</small></div>';
       html += '  </div>';
       html += '  <div class="ol-fc-actions">';
       html += '    <button type="button" class="ol-fc-btn ol-fc-btn-view" onclick="olFilterByFan(\'' + f.name.replace(/'/g, "\\'") + '\')"><i class="fa-solid fa-list"></i> Natijalar</button>';
@@ -5800,12 +5818,17 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
     var panel = document.getElementById('olTab_' + tabName);
     if (btn) btn.classList.add('active');
     if (panel) panel.classList.add('active');
+
+    if (tabName === 'natijalar') renderTable();
+    else if (tabName === 'goliblar') renderGoliblar();
+    else if (tabName === 'maktablar') renderMaktablar();
+    else if (tabName === 'fanlar') renderFanlarGrid();
   };
 
   window.olSetSinf = function(sinf, btn) {
     currentSinf = sinf;
     document.querySelectorAll('#olSinfPills .ol-sinf-pill').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
+    if (btn) btn.classList.add('active');
     olApplyFilters(true);
   };
 
@@ -5821,7 +5844,7 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
     var selFan = document.getElementById('olFilterFan');
     var fanVal = selFan ? selFan.value : '';
 
-    filteredNatijalar = rawData.natijalar.filter(function(r){
+    filteredNatijalar = (rawData.natijalar || []).filter(function(r){
       var matchFan = !fanVal || r.f === fanVal;
       var matchSinf = !currentSinf || r.s === currentSinf;
       return matchFan && matchSinf;
@@ -5860,10 +5883,10 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
       html += '  <td><b>' + (r.n || '-') + '</b></td>';
       html += '  <td><span style="color:#475569">' + (r.m || '-') + '</span></td>';
       html += '  <td><span style="font-weight:700">' + (r.f || '-') + '</span> <small style="color:#64748b">(' + (r.s || '-') + '-sinf)</small></td>';
-      html += '  <td>' + (r.b1 || '-') + '</td>';
-      html += '  <td>' + (r.b2 || '-') + '</td>';
-      html += '  <td>' + (r.b3 || '-') + '</td>';
-      html += '  <td><span class="ol-score-pill">' + (r.b != null ? String(r.b).replace('.', ',') : '-') + '</span></td>';
+      html += '  <td style="text-align:center;">' + (r.b1 || '-') + '</td>';
+      html += '  <td style="text-align:center;">' + (r.b2 || '-') + '</td>';
+      html += '  <td style="text-align:center;">' + (r.b3 || '-') + '</td>';
+      html += '  <td style="text-align:center;"><span class="ol-score-pill">' + (r.b != null ? String(r.b).replace('.', ',') : '-') + '</span></td>';
       html += '  <td><small style="color:#475569">' + (r.t || '-') + '</small></td>';
       html += '</tr>';
     });
@@ -5880,87 +5903,76 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
     renderTable();
   };
 
-  window.olRenderGoliblar = function() {
+  function renderGoliblar() {
     var sel = document.getElementById('olFilterGolibFan');
     var fanVal = sel ? sel.value : '';
     var tb = document.getElementById('olGolibTableBody');
     var sum = document.getElementById('olGolibSummary');
     if (!tb) return;
 
-    var goliblar = rawData.natijalar.filter(function(r){
-      var isWinner = r.p >= 1 && r.p <= 3;
-      var matchFan = !fanVal || r.f === fanVal;
-      return isWinner && matchFan;
-    });
+    var list = (rawData.goliblar && rawData.goliblar.length) 
+               ? rawData.goliblar 
+               : (rawData.natijalar || []).filter(function(r){ return r.p >= 1 && r.p <= 3; });
+
+    if (fanVal) {
+      list = list.filter(function(r){ return r.f === fanVal; });
+    }
 
     var html = '';
-    goliblar.forEach(function(r){
+    list.forEach(function(r){
       var badgeCls = 'ol-rank-1', badgeText = '🥇 1-oʻrin';
       if (r.p === 2) { badgeCls = 'ol-rank-2'; badgeText = '🥈 2-oʻrin'; }
-      if (r.p === 3) { badgeCls = 'ol-rank-3'; badgeText = '🥉 3-oʻrin'; }
+      else if (r.p === 3) { badgeCls = 'ol-rank-3'; badgeText = '🥉 3-oʻrin'; }
 
       html += '<tr>';
-      html += '  <td><span class="ol-rank-badge ' + badgeCls + '" style="width:auto;padding:3px 10px;border-radius:20px;">' + badgeText + '</span></td>';
-      html += '  <td><b>' + r.n + '</b></td>';
-      html += '  <td><span style="color:#475569">' + r.m + '</span></td>';
-      html += '  <td><b>' + r.f + '</b> · ' + r.s + '-sinf</td>';
-      html += '  <td><span class="ol-score-pill">' + String(r.b).replace('.', ',') + ' ball</span></td>';
-      html += '  <td>' + (r.t || '-') + '</td>';
+      html += '  <td><span class="ol-rank-badge ' + badgeCls + '">' + badgeText + '</span></td>';
+      html += '  <td><b>' + (r.n || '-') + '</b></td>';
+      html += '  <td><span style="color:#475569">' + (r.m || '-') + '</span></td>';
+      html += '  <td><b>' + (r.f || '-') + '</b> · ' + (r.s || '-') + '-sinf</td>';
+      html += '  <td style="text-align:center;">' + (r.b1 || '-') + '</td>';
+      html += '  <td style="text-align:center;">' + (r.b2 || '-') + '</td>';
+      html += '  <td style="text-align:center;">' + (r.b3 || '-') + '</td>';
+      html += '  <td style="text-align:center;"><span class="ol-score-pill" style="font-weight:800;">' + (r.b != null ? String(r.b).replace('.', ',') : '-') + '</span></td>';
+      html += '  <td><small style="color:#475569;">' + (r.t || '-') + '</small></td>';
       html += '</tr>';
     });
 
-    tb.innerHTML = html || '<tr><td colspan="6" style="text-align:center;padding:30px;color:#94a3b8">Gʻoliblar topilmadi</td></tr>';
-    if (sum) sum.textContent = goliblar.length + ' nafar gʻolib';
-  };
+    tb.innerHTML = html || '<tr><td colspan="9" style="text-align:center;padding:30px;color:#94a3b8">Gʻoliblar topilmadi</td></tr>';
+    if (sum) sum.textContent = list.length + ' nafar gʻolib';
+  }
+  window.olRenderGoliblar = renderGoliblar;
 
   function renderMaktablar() {
     var tb = document.getElementById('olMaktabTableBody');
-    if (!tb || !rawData.maktablar) return;
+    if (!tb) return;
 
-    // Har bir maktab uchun g'oliblar va ballarni hisoblash
-    var stats = {};
-    rawData.maktablar.forEach(function(m){
-      stats[m.short] = { school: m.short, full: m.full, participants: m.total || 0, w1: 0, w2: 0, w3: 0, totalW: 0 };
-    });
-
-    rawData.natijalar.forEach(function(r){
-      // maktab nomini moslash
-      var mKey = r.m;
-      // Agar to'g'ridan to'g'ri bo'lmasa qisqa nomini topish
-      if (!stats[mKey]) {
-        for (var k in stats) {
-          if (mKey.indexOf(k) > -1 || (stats[k].full && stats[k].full.indexOf(mKey) > -1)) {
-            mKey = k;
-            break;
-          }
-        }
-      }
-      if (stats[mKey]) {
-        if (r.p === 1) { stats[mKey].w1++; stats[mKey].totalW++; }
-        else if (r.p === 2) { stats[mKey].w2++; stats[mKey].totalW++; }
-        else if (r.p === 3) { stats[mKey].w3++; stats[mKey].totalW++; }
-      }
-    });
-
-    var sorted = Object.values(stats).sort(function(a,b){
-      return b.totalW - a.totalW || b.w1 - a.w1 || b.participants - a.participants;
-    });
+    var list = rawData.maktablar || [];
+    if (!list || list.length === 0) {
+      tb.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:30px;color:#94a3b8">Maʼlumot topilmadi</td></tr>';
+      return;
+    }
 
     var html = '';
-    sorted.forEach(function(item, idx){
+    list.forEach(function(item, idx){
+      var rankBadge = (idx + 1);
+      if (idx === 0) rankBadge = '<span class="ol-rank-badge ol-rank-1">🥇 1</span>';
+      else if (idx === 1) rankBadge = '<span class="ol-rank-badge ol-rank-2">🥈 2</span>';
+      else if (idx === 2) rankBadge = '<span class="ol-rank-badge ol-rank-3">🥉 3</span>';
+
       html += '<tr>';
-      html += '  <td style="font-weight:800;color:#64748b">' + (idx + 1) + '</td>';
-      html += '  <td><b>' + item.school + '</b> <small style="display:block;color:#64748b">' + item.full + '</small></td>';
-      html += '  <td style="text-align:center;font-weight:700">' + item.participants + '</td>';
-      html += '  <td style="text-align:center"><span style="color:#b45309;font-weight:800">' + (item.w1 ? item.w1 + ' ta' : '-') + '</span></td>';
-      html += '  <td style="text-align:center"><span style="color:#475569;font-weight:800">' + (item.w2 ? item.w2 + ' ta' : '-') + '</span></td>';
-      html += '  <td style="text-align:center"><span style="color:#c2410c;font-weight:800">' + (item.w3 ? item.w3 + ' ta' : '-') + '</span></td>';
-      html += '  <td style="text-align:center"><span class="ol-score-pill" style="background:#fef3c7;color:#b45309">' + (item.totalW ? item.totalW + ' ta' : '0') + '</span></td>';
+      html += '  <td style="text-align:center;font-weight:800;color:#64748b;">' + rankBadge + '</td>';
+      html += '  <td><b>' + (item.short || item.full) + '</b>' + (item.full && item.full !== item.short ? '<small style="display:block;color:#64748b;font-size:0.8rem;">' + item.full + '</small>' : '') + '</td>';
+      html += '  <td style="text-align:center;font-weight:700;">' + (item.participants || 0) + '</td>';
+      html += '  <td style="text-align:center;"><span style="color:#b45309;font-weight:800;">' + (item.w1 ? item.w1 + ' ta' : '-') + '</span></td>';
+      html += '  <td style="text-align:center;"><span style="color:#475569;font-weight:800;">' + (item.w2 ? item.w2 + ' ta' : '-') + '</span></td>';
+      html += '  <td style="text-align:center;"><span style="color:#c2410c;font-weight:800;">' + (item.w3 ? item.w3 + ' ta' : '-') + '</span></td>';
+      html += '  <td style="text-align:center;"><span class="ol-score-pill" style="background:#fef3c7;color:#b45309;font-weight:800;">' + (item.totalW ? item.totalW + ' ta' : '0') + '</span></td>';
       html += '</tr>';
     });
 
     tb.innerHTML = html;
   }
+  window.olRenderMaktablar = renderMaktablar;
 
   // JONLI QIDIRUV
   window.olHandleSearch = function(val) {
@@ -5976,7 +5988,7 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
       return;
     }
 
-    var matches = rawData.natijalar.filter(function(r){
+    var matches = (rawData.natijalar || []).filter(function(r){
       return (r.n && r.n.toLowerCase().indexOf(q) > -1) ||
              (r.m && r.m.toLowerCase().indexOf(q) > -1) ||
              (r.t && r.t.toLowerCase().indexOf(q) > -1);
@@ -5990,14 +6002,20 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
 
     var html = '';
     matches.forEach(function(r){
-      html += '<div class="ol-sr-item" onclick="olFilterByFan(\'' + r.f.replace(/'/g, "\\'") + '\')">';
+      var rankBadge = '';
+      if (r.p === 1) rankBadge = '🥇 1-oʻrin';
+      else if (r.p === 2) rankBadge = '🥈 2-oʻrin';
+      else if (r.p === 3) rankBadge = '🥉 3-oʻrin';
+      else if (r.p) rankBadge = r.p + '-oʻrin';
+
+      html += '<div class="ol-sr-item" onclick="olFilterByFan(\'' + (r.f || '').replace(/'/g, "\\'") + '\')">';
       html += '  <div>';
       html += '    <b style="color:#0f172a;font-size:0.96rem;">' + r.n + '</b>';
       html += '    <div style="font-size:0.82rem;color:#64748b;">' + r.m + ' · ' + r.f + ' (' + r.s + '-sinf)</div>';
       html += '  </div>';
       html += '  <div style="text-align:right">';
-      html += '    <span class="ol-score-pill">' + String(r.b).replace('.', ',') + ' ball</span>';
-      html += '    <div style="font-size:0.75rem;color:#b45309;font-weight:700;">' + (r.p ? r.p + '-oʻrin' : '') + '</div>';
+      html += '    <span class="ol-score-pill">' + (r.b != null ? String(r.b).replace('.', ',') : '-') + ' ball</span>';
+      if (rankBadge) html += '    <div style="font-size:0.75rem;color:#b45309;font-weight:700;">' + rankBadge + '</div>';
       html += '  </div>';
       html += '</div>';
     });
