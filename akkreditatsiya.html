@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akkreditatsiya va taşqi baholaş (2026-yil) — Qöşköpir tumani</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+<style>
+:root {
+  --primary: #2563eb; --primary-dark: #1d4ed8; --dark: #0f172a; --bg: #f8fafc;
+  --line: #e2e8f0; --text: #334155; --muted: #64748b;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+body { background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
+
+.top-bar {
+  background: #ffffff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100;
+  padding: 12px 20px; display: flex; align-items: center; justify-content: space-between;
+}
+.top-bar .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); font-weight: 700; }
+.top-bar .brand img { width: 36px; height: 36px; border-radius: 8px; }
+.top-bar .back-btn {
+  display: inline-flex; align-items: center; gap: 8px; background: #eff6ff; color: #2563eb;
+  padding: 8px 16px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 0.9rem;
+}
+.top-bar .back-btn:hover { background: #dbeafe; }
+
+.top-hero { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+.badge-pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+  background: #eff6ff; color: #2563eb; border-radius: 99px; font-size: 0.85rem; font-weight: 700;
+}
+.top-hero h1 { font-size: 2.2rem; color: var(--dark); margin: 16px 0 10px; font-weight: 800; }
+.top-hero p { color: var(--muted); max-width: 750px; margin: 0 auto; font-size: 1.05rem; }
+
+.tabs-container { display: flex; gap: 10px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap; }
+.tab-btn {
+  padding: 12px 24px; border-radius: 12px; border: 1px solid var(--line); background: #ffffff;
+  color: var(--text); font-weight: 700; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 8px;
+}
+.tab-btn.active { background: #2563eb; color: #ffffff; border-color: #2563eb; box-shadow: 0 4px 14px rgba(37,99,235,0.3); }
+
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 30px; }
+.stat-card { background: #ffffff; border: 1px solid var(--line); border-radius: 14px; padding: 20px; text-align: center; }
+.stat-card b { font-size: 2rem; color: #2563eb; display: block; }
+.stat-card span { font-size: 0.88rem; color: var(--muted); font-weight: 600; }
+
+.table-wrap {
+  background: #ffffff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03); overflow-x: auto;
+}
+table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+th { background: #f1f5f9; color: var(--dark); font-weight: 700; padding: 14px 16px; border-bottom: 2px solid var(--line); }
+td { padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--text); }
+tr:hover { background: #f8fafc; }
+
+.badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; }
+.badge-blue { background: #dbeafe; color: #1e40af; }
+.badge-green { background: #dcfce7; color: #166534; }
+.badge-orange { background: #ffedd5; color: #c2410c; }
+
+.search-box {
+  width: 100%; max-width: 450px; margin: 0 auto 24px; position: relative;
+}
+.search-box input {
+  width: 100%; padding: 12px 18px 12px 42px; border: 1px solid var(--line); border-radius: 12px;
+  font-size: 0.95rem; outline: none; background: #ffffff;
+}
+.search-box i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html" class="brand">
+    <img src="logo.png" alt="Logo">
+    <div>
+      <div style="font-size:1.05rem;line-height:1.2;">Umrbek Mamatov</div>
+      <div style="font-size:0.75rem;color:var(--muted);font-weight:600;">MMTB Taʼlim portali</div>
+    </div>
+  </a>
+  <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Asosiy portalga qaytish</a>
+</div>
+
+<section class="section" id="akkreditatsiya" style="background: #ffffff; padding: 85px 24px; border-top: 1px solid #e2e8f0;">
+    <div class="main-container" style="max-width: 1300px; margin: 0 auto; padding: 0 10px;">
+      
+    
+    <!-- Sarlavha -->
+    <div class="top-hero">
+      <span class="badge-pill">
+        <i class="fa-solid fa-stamp"></i> Qöşköpir tumani MMTB rasmiy reja-grafigi
+      </span>
+      <h1>Akkreditatsiya va taşqi baholaş (2026-yil)</h1>
+      <p>Tumandagi 24 ta taʼlim muassasasi (18 ta maktab va 6 ta DMTT) uçun taşqi baholaş muddatlari va jalb etiladigan 80 nafar ekspertlar töliq reyestri.</p>
+    </div>
+
+    <!-- Tablar -->
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="showTab('reja', this)">
+        <i class="fa-solid fa-calendar-days"></i> 24 ta taşkilot rejasi
+      </button>
+      <button class="tab-btn" onclick="showTab('ekspert', this)">
+        <i class="fa-solid fa-users-gear"></i> 80 nafar ekspertlar
+      </button>
+    </div>
+
+    <!-- 1. JADVAL: 24 TA TASHKILOT REJASI -->
+    <div id="tab-reja" class="tab-content active">
+      <div class="search-filter-box">
+        <div>
+          <strong>Taʼlim muassasalari soni:</strong> 24 ta (18 ta maktab, 6 ta boğça)
+        </div>
+        <div style="position: relative;">
+          <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8;"></i>
+          <input type="text" id="orgSearch" class="search-inp" placeholder="Maktab raqami yoki rahbar F.I.Ş..." oninput="filterOrgs()">
+        </div>
+      </div>
+
+      <div class="table-container">
+        <div class="table-scroll">
+          <table id="orgsTable">
+            <thead>
+              <tr>
+                <th style="width: 60px; text-align: center;">T/r</th>
+                <th>Taşkilotning töliq nomi</th>
+                <th>Taşkilot rahbarining F.I.Ş.</th>
+                <th>Içki baholaş muddati</th>
+                <th>Taşqi baholaş (attestatsiya) muddati</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="text-align:center;">1</td><td style="font-weight:700;">16-sonli umumiy örta taʼlim maktabi</td><td>Saidov Şodlik Polvonoviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">2</td><td style="font-weight:700;">28-sonli umumiy örta taʼlim maktabi</td><td>Solirov Jasur Sultonoviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">3</td><td style="font-weight:700;">31-sonli umumiy örta taʼlim maktabi</td><td>Maşaripov Bekzod Bahtiyor öğli</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">4</td><td style="font-weight:700;">39-sonli umumiy örta taʼlim maktabi</td><td>Samandarova Sohiba Amanboyevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">5</td><td style="font-weight:700;">40-sonli umumiy örta taʼlim maktabi</td><td>Ruzmetova Guzaloy Yöldoşboyevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">6</td><td style="font-weight:700;">43-sonli umumiy örta taʼlim maktabi</td><td>Matniyazov Umarbek Arslonoviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">7</td><td style="font-weight:700;">46-sonli umumiy örta taʼlim maktabi</td><td>Maşaripov Uluğbek Qabuloviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">8</td><td style="font-weight:700;">30-sonli umumiy örta taʼlim maktabi</td><td>Otojonov Şodiyor Ğayibnazaroviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">9</td><td style="font-weight:700;">41-sonli umumiy örta taʼlim maktabi</td><td>Rajabov Hayitboy</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">10</td><td style="font-weight:700;">45-sonli umumiy örta taʼlim maktabi</td><td>Saidov Quvondiq Jumaboyeviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">11</td><td style="font-weight:700;">47-sonli umumiy örta taʼlim maktabi</td><td>Matyaqubov Botirbek Şarifboy öğli</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">12</td><td style="font-weight:700;">48-sonli umumiy örta taʼlim maktabi</td><td>Karimov Doniyorbek Şuxratoviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">13</td><td style="font-weight:700;">49-sonli umumiy örta taʼlim maktabi</td><td>Qiliçov Doniyor Otanazaroviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">14</td><td style="font-weight:700;">50-sonli umumiy örta taʼlim maktabi</td><td>Rahimova Dilrabo Safarboyevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">15</td><td style="font-weight:700;">51-sonli umumiy örta taʼlim maktabi</td><td>Raximov Furqat Farxodoviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">16</td><td style="font-weight:700;">52-sonli umumiy örta taʼlim maktabi</td><td>Tangriberganova Matluba Bekpölatovna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">17</td><td style="font-weight:700;">1-sonli ixtisoslaştirilgan davlat umumtaʼlim maktab-internati</td><td>Maşaripov Nuraddin Ataboyeviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">18</td><td style="font-weight:700;">4-sonli ixtisoslaştirilgan davlat umumtaʼlim maktabi</td><td>Matyoqubov Dilmurod Durdiboyeviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">19</td><td style="font-weight:700;">13-son davlat maktabgaça taʼlim taşkiloti</td><td>Iskandarova Dilaram Yuldaşevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">20</td><td style="font-weight:700;">16-son davlat maktabgaça taʼlim taşkiloti</td><td>Raximova Şoira Qurbondurdiyevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">21</td><td style="font-weight:700;">21-son davlat maktabgaça taʼlim taşkiloti</td><td>Isayeva Zuhrajon Hajiyevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">22</td><td style="font-weight:700;">28-son davlat maktabgaça taʼlim taşkiloti</td><td>Abdirimova Feruza Matyaqubovna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">23</td><td style="font-weight:700;">30-son davlat maktabgaça taʼlim taşkiloti</td><td>Sabirova Gulxayo Şavkatovna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
+              <tr><td style="text-align:center;">24</td><td style="font-weight:700;">17-son davlat maktabgaça taʼlim taşkiloti</td><td>Ğofurova Oysuluv Farxadovna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. EKSPERTLAR JADVALI (80 NAFAR) -->
+    <div id="tab-ekspert" class="tab-content">
+      <div class="search-filter-box">
+        <div style="display:flex; gap:8px;">
+          <button class="tab-btn active" id="flt-all" onclick="filterType('all', this)" style="padding:6px 14px; font-size:0.85rem;">Barçasi (80)</button>
+          <button class="tab-btn" id="flt-sch" onclick="filterType('Maktab', this)" style="padding:6px 14px; font-size:0.85rem;">Maktablar (60)</button>
+          <button class="tab-btn" id="flt-mtt" onclick="filterType('DMTT', this)" style="padding:6px 14px; font-size:0.85rem;">DMTT (20)</button>
+        </div>
+        <div style="position: relative;">
+          <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8;"></i>
+          <input type="text" id="expSearch" class="search-inp" placeholder="Ekspert F.I.Ş., fani yoki maktabi..." oninput="filterExperts()">
+        </div>
+      </div>
+
+      <div class="table-container">
+        <div class="table-scroll">
+          <table id="expertsTable">
+            <thead>
+              <tr>
+                <th style="width: 50px; text-align: center;">T/r</th>
+                <th>Ekspertning F.I.Ş.</th>
+                <th>Turi</th>
+                <th>Iş joyi</th>
+                <th>Lavozimi / Fani</th>
+                <th>Staji</th>
+                <th>Toifasi</th>
+                <th>Telefon raqami</th>
+              </tr>
+            </thead>
+            <tbody id="expertsBody">
+              <!-- Ekspertlar roʻyxati -->
+              <tr data-type="Maktab"><td style="text-align:center;">1</td><td style="font-weight:700;">Avezmetov Ortiqboy Baxtiyoroviç</td><td>Maktab</td><td>22</td><td>Direktor</td><td>29</td><td>mutaxassis</td><td>995047855</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">2</td><td style="font-weight:700;">Abdurazzokov Sultonnazir Botirboyeviç</td><td>Maktab</td><td>47</td><td>ÖIBDÖ</td><td>20</td><td>mutaxassis</td><td>(91) 999-11-83</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">3</td><td style="font-weight:700;">Otaboyev Rustambek Narimboyeviç</td><td>Maktab</td><td>51</td><td>MMIBDÖ</td><td>11</td><td>mutaxassis</td><td>(91) 094-77-78</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">4</td><td style="font-weight:700;">Aminova Dilfuza Bakdurdiyevna</td><td>Maktab</td><td>47</td><td>Boşlanğiç taʼlim</td><td>22</td><td>Birinçi</td><td>(95) 349-44-08</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">5</td><td style="font-weight:700;">Rözmetova Farida Rajabovna</td><td>Maktab</td><td>39</td><td>Boşlanğiç taʼlim</td><td>28</td><td>Ikkinçi</td><td>(99) 347-65-75</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">6</td><td style="font-weight:700;">Madraximova Şahodat Rustambekovna</td><td>Maktab</td><td>47</td><td>Ona tili fani öqituvçisi</td><td>18</td><td>Birinçi</td><td>(91) 277-73-64</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">7</td><td style="font-weight:700;">Raxmanova Nazokat Abdurazzoqovna</td><td>Maktab</td><td>39</td><td>Matematika fani öqituvçisi</td><td>21</td><td>Ikkinçi</td><td>(99) 504-21-83</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">8</td><td style="font-weight:700;">Raximov Izzat Baxtiyoroviç</td><td>Maktab</td><td>39</td><td>Kimyo fani öqituvçisi</td><td>9</td><td>mutaxassis</td><td>995029117</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">9</td><td style="font-weight:700;">Ibragimova Safura Sultanovna</td><td>Maktab</td><td>39</td><td>Fizika fani öqituvçisi</td><td>25</td><td>Ikkinçi</td><td>(77) 086-08-58</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">10</td><td style="font-weight:700;">Bobojonov Sardorbek Odilbek öğli</td><td>Maktab</td><td>47</td><td>Özbekiston tarixi fani öqituvçisi</td><td>8</td><td>Ikkinçi</td><td>977926310</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">11</td><td style="font-weight:700;">Rözmetova Nafosat Arslonovna</td><td>Maktab</td><td>39</td><td>Biologiya fani öqituvçisi</td><td>9</td><td>Ikkinçi</td><td>991811193</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">12</td><td style="font-weight:700;">Nurjanova Dinora Nodirbek qizi</td><td>Maktab</td><td>39</td><td>Ingliz tili fani öqituvçisi</td><td>3</td><td>Birinçi</td><td>(99) 942-22-90</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">13</td><td style="font-weight:700;">Saidov Xudaynazar Babajanoviç</td><td>Maktab</td><td>43</td><td>Direktor</td><td>24</td><td>mutaxassis</td><td>937490636</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">14</td><td style="font-weight:700;">Ismailova Onagul Atabayevna</td><td>Maktab</td><td>16</td><td>ÖIBDÖ</td><td>17</td><td>mutaxassis</td><td>(97) 453-02-86</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">15</td><td style="font-weight:700;">Bekçanova Zevar Şarifboyevna</td><td>Maktab</td><td>16</td><td>MMIBDÖ</td><td>22</td><td>mutaxassis</td><td>(99) 504-42-38</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">16</td><td style="font-weight:700;">Saʼdullayeva Sayyora Öktamovna</td><td>Maktab</td><td>15</td><td>Boşlanğiç taʼlim</td><td>23</td><td>Birinçi</td><td>(94) 119-08-79</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">17</td><td style="font-weight:700;">Sapaeva Feruza Quryozovna</td><td>Maktab</td><td>14</td><td>Boşlanğiç taʼlim</td><td>14</td><td>Ikkinçi</td><td>(99) 501-69-91</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">18</td><td style="font-weight:700;">Babajanova Gulasal Nematovna</td><td>Maktab</td><td>15</td><td>Ona tili fani öqituvçisi</td><td>31</td><td>Oliy</td><td>977679950</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">19</td><td style="font-weight:700;">Boltayev Murodjon Davronbek öğli</td><td>Maktab</td><td>43</td><td>Matematika fani öqituvçisi</td><td>4</td><td>Birinçi</td><td>(93) 198-75-65</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">20</td><td style="font-weight:700;">Babajanova Gulasal Nematovna</td><td>Maktab</td><td>15</td><td>Kimyo fani öqituvçisi</td><td>11</td><td>Ikkinçi</td><td>(94) 234-15-46</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">21</td><td style="font-weight:700;">Bobajonova Komila Otanazarovna</td><td>Maktab</td><td>14</td><td>Fizika fani öqituvçisi</td><td>19</td><td>mutaxassis</td><td>(97) 603-28-84</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">22</td><td style="font-weight:700;">Saporboyev Ximmat Bakpölat öğli</td><td>Maktab</td><td>43</td><td>Özbekiston tarixi fani öqituvçisi</td><td>5</td><td>Ikkinçi</td><td>(99) 965-44-95</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">23</td><td style="font-weight:700;">Qurbonov Kamoliddin Uktamoviç</td><td>Maktab</td><td>37</td><td>Biologiya fani öqituvçisi</td><td>11</td><td>Birinçi</td><td>998937428091</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">24</td><td style="font-weight:700;">Raximova Munira Qurbonboy qizi</td><td>Maktab</td><td>14</td><td>Ingliz tili fani öqituvçisi</td><td>4</td><td>oliy</td><td>933632123</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">25</td><td style="font-weight:700;">Bajiyev Tohirbek Otaboyeviç</td><td>Maktab</td><td>24</td><td>Direktor</td><td>11</td><td>mutaxassis</td><td>(97) 153-66-26</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">26</td><td style="font-weight:700;">Matyoqubov Saparboy Komiloviç</td><td>Maktab</td><td>41</td><td>ÖIBDÖ</td><td>32</td><td>mutaxassis</td><td>942353641</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">27</td><td style="font-weight:700;">Davletova Ozoda Yusupovna</td><td>Maktab</td><td>23</td><td>MMIBDÖ</td><td>25</td><td>mutaxassis</td><td>(97) 364-77-68</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">28</td><td style="font-weight:700;">Quryozova Dilnoza Ilxomboyevna</td><td>Maktab</td><td>24</td><td>Boşlanğiç taʼlim</td><td>15</td><td>Birinçi</td><td>943115699</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">29</td><td style="font-weight:700;">Allazarova Fazilat Rajabovna</td><td>Maktab</td><td>46</td><td>Boşlanğiç taʼlim</td><td>30</td><td>Ikkinçi</td><td>883627828</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">30</td><td style="font-weight:700;">Sobirova Dilfuza Otamamatovna</td><td>Maktab</td><td>24</td><td>Ona tili fani öqituvçisi</td><td>34</td><td>Ikkinçi</td><td>(93) 863-50-49</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">31</td><td style="font-weight:700;">Bajiyeva Iqbol Otobayevna</td><td>Maktab</td><td>23</td><td>Matematika fani öqituvçisi</td><td>27</td><td>oliy</td><td>(99) 348-50-78</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">32</td><td style="font-weight:700;">Xöjaniyozova Muhabbat Maşaripovna</td><td>Maktab</td><td>46</td><td>Kimyo fani öqituvçisi</td><td>30</td><td>mutaxassis</td><td>(97) 787-86-98</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">33</td><td style="font-weight:700;">Abdullayeva Risolat Şaripovna</td><td>Maktab</td><td>41</td><td>Fizika fani öqituvçisi</td><td>14</td><td>mutaxassis</td><td>975293031</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">34</td><td style="font-weight:700;">Xöjaniyazova Şahlo Rajabboy qizi</td><td>Maktab</td><td>46</td><td>Özbekiston tarixi fani öqituvçisi</td><td>11</td><td>Ikkinçi</td><td>977906310</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">35</td><td style="font-weight:700;">Artiqova Malohat Azimovna</td><td>Maktab</td><td>41</td><td>Biologiya fani öqituvçisi</td><td>14</td><td>Birinçi</td><td>943138602</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">36</td><td style="font-weight:700;">Qadirova Dilnoza Davronbekovna</td><td>Maktab</td><td>23</td><td>Ingliz tili fani öqituvçisi</td><td>17</td><td>oliy</td><td>(97) 361-88-46</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">37</td><td style="font-weight:700;">Ibragimov Mardonbek Maşariboviç</td><td>Maktab</td><td>18</td><td>Direktor</td><td>12</td><td>mutaxassis</td><td>973648703</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">38</td><td style="font-weight:700;">Ğoyipova Feruza Qadamboyevna</td><td>Maktab</td><td>48</td><td>ÖIBDÖ</td><td>26</td><td>mutaxassis</td><td>884528797</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">39</td><td style="font-weight:700;">Matyaqubov Mardonbek Ozodoviç</td><td>Maktab</td><td>17</td><td>MMIBDÖ</td><td>9</td><td>mutaxassis</td><td>974531922</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">40</td><td style="font-weight:700;">Ortiqova Maşhura Madrimovna</td><td>Maktab</td><td>17</td><td>Boşlanğiç taʼlim</td><td>12</td><td>Birinçi</td><td>991510506</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">41</td><td style="font-weight:700;">Rahimova Zulayho Baxodirovna</td><td>Maktab</td><td>19</td><td>Boşlanğiç taʼlim</td><td>24</td><td>Birinçi</td><td>932354670</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">42</td><td style="font-weight:700;">Raximova Nilufar Rözmatovna</td><td>Maktab</td><td>44</td><td>Ona tili fani öqituvçisi</td><td>19</td><td>Oliy</td><td>(97) 458-26-13</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">43</td><td style="font-weight:700;">Otanazarov Akmaljon Ikrombekoviç</td><td>Maktab</td><td>17</td><td>Matematika fani öqituvçisi</td><td>8</td><td>oliy</td><td>(93) 361-34-30</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">44</td><td style="font-weight:700;">Jumaniyazova Xolida Maşaribovna</td><td>Maktab</td><td>44</td><td>Kimyo fani öqituvçisi</td><td>11</td><td>Ikkinçi</td><td>(97) 510-12-99</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">45</td><td style="font-weight:700;">Allazarova Rözika Ganjayevna</td><td>Maktab</td><td>18</td><td>Fizika fani öqituvçisi</td><td>18</td><td>Ikkinçi</td><td>975133054</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">46</td><td style="font-weight:700;">Sobirova Muhayyo Orislonovna</td><td>Maktab</td><td>48</td><td>Özbekiston tarixi fani öqituvçisi</td><td>19</td><td>Ikkinçi</td><td>941178522</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">47</td><td style="font-weight:700;">Atayeva Muborak Egamberganovna</td><td>Maktab</td><td>44</td><td>Biologiya fani öqituvçisi</td><td>26</td><td>Ikkinçi</td><td>(97) 456-06-74</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">48</td><td style="font-weight:700;">Qurbonboyeva Şohida Dilşod qizi</td><td>Maktab</td><td>17</td><td>Ingliz tili fani öqituvçisi</td><td>8</td><td>oliy</td><td>(99) 029-96-13</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">49</td><td style="font-weight:700;">Rözmetov Fozilbek Atabayviç</td><td>Maktab</td><td>38</td><td>Direktor</td><td>29</td><td>mutaxassis</td><td>992513838</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">50</td><td style="font-weight:700;">Bobojanova Baxodir Quronboy öğli</td><td>Maktab</td><td>36</td><td>ÖIBDÖ</td><td>7</td><td>mutaxassis</td><td>(99) 421-31-47</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">51</td><td style="font-weight:700;">Abduraxmonova Navbaxor Abdukarimovna</td><td>Maktab</td><td>35</td><td>MMIBDÖ</td><td>22</td><td>mutaxassis</td><td>(99) 588-75-06</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">52</td><td style="font-weight:700;">Ismoilova Oybibi Abdullayevna</td><td>Maktab</td><td>38</td><td>Boşlanğiç taʼlim</td><td>27</td><td>Ikkinçi</td><td>(93) 468-18-75</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">53</td><td style="font-weight:700;">Törayeva Mehribon Bekçanovna</td><td>Maktab</td><td>36</td><td>Boşlanğiç taʼlim</td><td>22</td><td>Birinçi</td><td>(94) 318-34-95</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">54</td><td style="font-weight:700;">Allaberganova Gulnora Husinovna</td><td>Maktab</td><td>38</td><td>Ona tili fani öqituvçisi</td><td>19</td><td>Birinçi</td><td>(99) 213-13-01</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">55</td><td style="font-weight:700;">Tohirova Nafosat Ataboyevna</td><td>Maktab</td><td>38</td><td>Matematika fani öqituvçisi</td><td>16</td><td>Birinçi</td><td>(93) 285-13-86</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">56</td><td style="font-weight:700;">Allaberganova Donogul Xasanovna</td><td>Maktab</td><td>35</td><td>Kimyo fani öqituvçisi</td><td>16</td><td>mutaxassis</td><td>932831622</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">57</td><td style="font-weight:700;">Rustamova Maʼrifat Raşidbek qizi</td><td>Maktab</td><td>38</td><td>Fizika fani öqituvçisi</td><td>3</td><td>mutaxassis</td><td>(99) 251-38-38</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">58</td><td style="font-weight:700;">Abdullayev Davron Sobiroviç</td><td>Maktab</td><td>38</td><td>Özbekiston tarixi fani öqituvçisi</td><td>12</td><td>Ikkinçi</td><td>(99) 564-43-69</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">59</td><td style="font-weight:700;">Davletova Surayyo Ataboyevna</td><td>Maktab</td><td>35</td><td>Biologiya fani öqituvçisi</td><td>17</td><td>Birinçi</td><td>997360787</td></tr>
+              <tr data-type="Maktab"><td style="text-align:center;">60</td><td style="font-weight:700;">Sabirova Maşhura Baxtiyor qizi</td><td>Maktab</td><td>36</td><td>Ingliz tili fani öqituvçisi</td><td>7</td><td>Birinçi</td><td>(88) 517-76-67</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">61</td><td style="font-weight:700;">Xöjaeva Anorgul Qöşnazarovna</td><td>DMTT</td><td>38</td><td>MTT direktori</td><td>14</td><td>mutaxassis</td><td>976002520</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">62</td><td style="font-weight:700;">Egamberganova Gözal Farxod qizi</td><td>DMTT</td><td>37</td><td>MTT direktor örinbosari (metodist)</td><td>11</td><td>Birinçi</td><td>937418892</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">63</td><td style="font-weight:700;">Matirzayeva Şahlo Saparboyevna</td><td>DMTT</td><td>36</td><td>MTT direktor örinbosari (metodist)</td><td>9</td><td>mutaxassis</td><td>975187448</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">64</td><td style="font-weight:700;">Saporova Şirin Baxtiyorovna</td><td>DMTT</td><td>39</td><td>MTT hamşirasi</td><td>7</td><td>mutaxassis</td><td>884524554</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">65</td><td style="font-weight:700;">Sapaeva Gulmira Odilbekovna</td><td>DMTT</td><td>11</td><td>MTT direktori</td><td>6</td><td>mutaxassis</td><td>937460289</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">66</td><td style="font-weight:700;">Rajabova Xolida Şavkatovna</td><td>DMTT</td><td>7</td><td>MTT direktor örinbosari (metodist)</td><td>20</td><td>Ikkinçi</td><td>974564884</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">67</td><td style="font-weight:700;">Qöçqorova Malika Ravşanbekovna</td><td>DMTT</td><td>4</td><td>MTT direktor örinbosari (metodist)</td><td>17</td><td>Birinçi</td><td>941180692</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">68</td><td style="font-weight:700;">Matkarimova Zubayda Ravşanovna</td><td>DMTT</td><td>8</td><td>MTT hamşirasi</td><td>7</td><td>mutaxassis</td><td>975260797</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">69</td><td style="font-weight:700;">Jumaniyozova Maʼmura Jumaniyozovna</td><td>DMTT</td><td>21</td><td>MTT direktori</td><td>14</td><td>mutaxassis</td><td>956242190</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">70</td><td style="font-weight:700;">Madaminova Zamira Atanazarovna</td><td>DMTT</td><td>19</td><td>MTT direktor örinbosari (metodist)</td><td>25</td><td>Ikkinçi</td><td>975157906</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">71</td><td style="font-weight:700;">Atamuratova Nargiza Komiljanovna</td><td>DMTT</td><td>16</td><td>MTT direktor örinbosari (metodist)</td><td>11</td><td>Birinçi</td><td>997410882</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">72</td><td style="font-weight:700;">Sobirova Komila Boltaboyevna</td><td>DMTT</td><td>24</td><td>MTT hamşirasi</td><td>14</td><td>mutaxassis</td><td>995265184</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">73</td><td style="font-weight:700;">Sobirova Gulhayo Şavkatovna</td><td>DMTT</td><td>30</td><td>MTT direktori</td><td>16</td><td>mutaxassis</td><td>931059555</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">74</td><td style="font-weight:700;">Boltayeva Oygul Qurbonboy qizi</td><td>DMTT</td><td>29</td><td>MTT direktor örinbosari (metodist)</td><td>11</td><td>Birinçi</td><td>972119513</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">75</td><td style="font-weight:700;">Xöjayeva Yulduz Erkinboyevna</td><td>DMTT</td><td>40</td><td>MTT direktor örinbosari (metodist)</td><td>6</td><td>mutaxassis</td><td>995608210</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">76</td><td style="font-weight:700;">Rajabova Nazokat Ğayratovna</td><td>DMTT</td><td>7</td><td>MTT hamşirasi</td><td>11</td><td>mutaxassis</td><td>930947640</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">77</td><td style="font-weight:700;">Abdrimova Feruza Matyaqubovna</td><td>DMTT</td><td>28</td><td>MTT direktori</td><td>15</td><td>mutaxassis</td><td>949882885</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">78</td><td style="font-weight:700;">Otajonova Maftuna Ilhombek qizi</td><td>DMTT</td><td>20</td><td>MTT direktor örinbosari (metodist)</td><td>5</td><td>Ikkinçi</td><td>992235820</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">79</td><td style="font-weight:700;">Komilova Nilufar Otajonovna</td><td>DMTT</td><td>2</td><td>MTT direktor örinbosari (metodist)</td><td>8</td><td>mutaxassis</td><td>975132703</td></tr>
+              <tr data-type="DMTT"><td style="text-align:center;">80</td><td style="font-weight:700;">Allaberganova Şahlo Ismoilovna</td><td>DMTT</td><td>33</td><td>MTT hamşirasi</td><td>22</td><td>mutaxassis</td><td>9995011581</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+<script>
+function showTab(tabId, btn) {
+  document.querySelectorAll('.tab-pane').forEach(function(pane) {
+    pane.classList.remove('active');
+  });
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  var target = document.getElementById(tabId);
+  if(target) target.classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+</script>
+</body>
+</html>

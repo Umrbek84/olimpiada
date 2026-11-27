@@ -3158,7 +3158,7 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
       font-weight: 400 !important;
     }
   </style>
-<script src="olimpiada_data.js"></script>
+
 <style id='olimpiada-native-styles'>
 /* ===== ASOSIY FAN OLIMPIADASI TIZIMI (MAHALLIY / NATIVE ZAMONAVIY DIZAYN) ===== */
 .ol-container {
@@ -3866,8 +3866,208 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
   }
 }
 </style>
+<style>
+/* ===== ZAMONAVIY VERTICAL SIDEBAR VA PORTAL TARTIBI ===== */
+:root {
+  --sb-width: 280px;
+  --sb-bg: #0f172a;
+  --sb-hover: #1e293b;
+  --sb-active: #2563eb;
+  --sb-text: #cbd5e1;
+  --sb-title: #94a3b8;
+}
+
+@media(min-width: 1024px) {
+  body {
+    padding-left: var(--sb-width) !important;
+  }
+  .app-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--sb-width);
+    background: #0b1329;
+    background: linear-gradient(180deg, #090f20 0%, #0d1527 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    z-index: 2000;
+    overflow-y: auto;
+    color: #fff;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
+  }
+  .app-sidebar::-webkit-scrollbar {
+    width: 5px;
+  }
+  .app-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+  }
+  .sb-header {
+    padding: 22px 20px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .sb-header img {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #fff;
+    padding: 2px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  }
+  .sb-header .sb-title b {
+    font-size: 1.05rem;
+    display: block;
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+  }
+  .sb-header .sb-title span {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    display: block;
+    font-weight: 600;
+  }
+  .sb-nav {
+    padding: 16px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sb-group-title {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    padding: 12px 10px 4px;
+    margin-top: 6px;
+  }
+  .sb-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .sb-link:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+    transform: translateX(3px);
+  }
+  .sb-link.active, .sb-link.highlight {
+    background: linear-gradient(135deg, rgba(37,99,235,0.25), rgba(37,99,235,0.1));
+    border: 1px solid rgba(37,99,235,0.4);
+    color: #60a5fa;
+  }
+  .sb-link i {
+    width: 22px;
+    font-size: 1.05rem;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .sb-link .sb-badge {
+    margin-left: auto;
+    font-size: 0.65rem;
+    padding: 2px 7px;
+    border-radius: 12px;
+    font-weight: 800;
+  }
+  .sb-footer {
+    padding: 16px 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .sb-footer img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #38bdf8;
+  }
+  .sb-footer .sb-author b {
+    font-size: 0.88rem;
+    color: #fff;
+    display: block;
+  }
+  .sb-footer .sb-author small {
+    font-size: 0.72rem;
+    color: #94a3b8;
+  }
+  /* Topbar when sidebar is visible */
+  .nx-header {
+    left: var(--sb-width) !important;
+  }
+}
+
+@media(max-width: 1023px) {
+  .app-sidebar {
+    display: none;
+  }
+}
+</style>
 </head>
 <body>
+<!-- CHAP VERTICAL SIDEBAR MENYU -->
+<aside class="app-sidebar">
+  <div class="sb-header">
+    <img src="logo.png" alt="Logotip">
+    <div class="sb-title">
+      <b>Umrbek Mamatov</b>
+      <span>MMTB Taʼlim Portali</span>
+    </div>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="sb-group-title">Asosiy Boʻlimlar</div>
+    <a href="#home" class="sb-link active"><i class="fa-solid fa-house" style="color:#38bdf8"></i> <span>Bosh sahifa</span></a>
+    <a href="haqimda.html" class="sb-link"><i class="fa-solid fa-user-tie" style="color:#60a5fa"></i> <span>Men haqimda</span></a>
+    <a href="#ekotizim" class="sb-link"><i class="fa-solid fa-network-wired" style="color:#a78bfa"></i> <span>Taʼlim ekotizimi</span></a>
+
+    <div class="sb-group-title">Subdomenlar & Portallar</div>
+    <a href="https://olimpiada.umamatov.uz" target="_blank" rel="noopener" class="sb-link highlight"><i class="fa-solid fa-trophy" style="color:#fbbf24"></i> <span>Olimpiada portali</span> <span class="sb-badge" style="background:#f59e0b;color:#fff;">YANGI</span></a>
+    <a href="https://test.umamatov.uz" target="_blank" rel="noopener" class="sb-link"><i class="fa-solid fa-laptop-code" style="color:#34d399"></i> <span>Tayyorgarlik testi</span> <span class="sb-badge" style="background:#059669;color:#fff;">TEST</span></a>
+    <a href="https://pedagog.umamatov.uz" target="_blank" rel="noopener" class="sb-link"><i class="fa-solid fa-user-graduate" style="color:#60a5fa"></i> <span>Pedagog portali</span></a>
+    <a href="https://krk.umamatov.uz" target="_blank" rel="noopener" class="sb-link"><i class="fa-solid fa-lightbulb" style="color:#c084fc"></i> <span>Koʻrik-tanlovlar</span></a>
+
+    <div class="sb-group-title">Pedagoglar & Baholash</div>
+    <a href="attestatsiya.html" class="sb-link"><i class="fa-solid fa-table-list" style="color:#38bdf8"></i> <span>Attestatsiya 2026</span></a>
+    <a href="yangi-baholash.html" class="sb-link"><i class="fa-solid fa-school-circle-check" style="color:#a78bfa"></i> <span>Yangi baholash (45 maktab)</span></a>
+    <a href="akkreditatsiya.html" class="sb-link"><i class="fa-solid fa-stamp" style="color:#fb923c"></i> <span>Akkreditatsiya (24 muassasa)</span></a>
+
+    <div class="sb-group-title">Tahlil & Statistika</div>
+    <a href="otm-ballari.html" class="sb-link"><i class="fa-solid fa-ranking-star" style="color:#f472b6"></i> <span>OTM ballari 2026</span></a>
+    <a href="1-chorak-yakunlari.html" class="sb-link"><i class="fa-solid fa-chart-column" style="color:#4ade80"></i> <span>1-chorak tahlili</span></a>
+    <a href="otm-qabul.html" class="sb-link"><i class="fa-solid fa-building-columns" style="color:#fbbf24"></i> <span>OTMga qabul tahlili</span></a>
+
+    <div class="sb-group-title">Xizmatlar & Hisoblagichlar</div>
+    <a href="823qaror.html" class="sb-link"><i class="fa-solid fa-calculator" style="color:#34d399"></i> <span>823-ustama hisoblagich</span></a>
+    <a href="taqsimot.html" class="sb-link"><i class="fa-solid fa-table-cells" style="color:#38bdf8"></i> <span>Dars soatlari taqsimoti</span></a>
+    <a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener" class="sb-link"><i class="fa-brands fa-telegram" style="color:#229ed9"></i> <span>Taʼlim kanali</span></a>
+  </nav>
+
+  <div class="sb-footer">
+    <img src="footer-surat.jpg" alt="Umrbek Mamatov">
+    <div class="sb-author">
+      <b>Umrbek Mamatov</b>
+      <small>Bosh mutaxassis</small>
+    </div>
+  </div>
+</aside>
+
 <div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>
 
   <!-- 1. Yangi menyu -->
@@ -3978,25 +4178,25 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
     <div class="nx-hero-in">
       <div>
         <span class="nx-kicker"><span class="nx-pulse-live"></span> Qöşköpir tumani · 2026/2027 öquv yili</span>
-        <h1>Olimpiadalar, tanlovlar va <span class="nx-glow-text">taʼlim tahlili</span> bir joyda</h1>
-        <p>Tuman olimpiadasi natijalari, ğolib öquvçilar va ularning ustozlari, sinov grafigi hamda yil davomida ötkaziladigan olimpiada va tanlovlar.</p>
+        <h1>MMTB Raqamli Taʼlim Portali va <span class="nx-glow-text">Boshqaruv Tizimi</span></h1>
+        <p>Qoʻshkoʻpir tumani Maktabgacha va maktab taʼlimi boʻlimi: barcha rasmiy taʼlim platformalari, olimpiada tizimi, attestatsiya sinovlari, yangi baholash mezonlari va maktablar tahlili yagona markazda.</p>
         <div class="nx-cta">
-          <a href="#goliblar" class="nx-btn p"><i class="fa-solid fa-medal"></i> Ğoliblar va ustozlar</a>
-          <a href="#olimpiada" class="nx-btn o"><i class="fa-solid fa-square-poll-vertical"></i> Natijalar</a>
-          <a href="hududiy-bosqich.html" class="nx-btn o"><i class="fa-solid fa-calendar"></i> Hududiy bosqiç</a>
-          <a href="#yangi-baholash" class="nx-btn o"><i class="fa-solid fa-school-circle-check"></i> Yangi baholaş</a>
+          <a href="https://olimpiada.umamatov.uz" target="_blank" rel="noopener" class="nx-btn p"><i class="fa-solid fa-trophy"></i> Olimpiada Portali</a>
+          <a href="https://test.umamatov.uz" target="_blank" rel="noopener" class="nx-btn o"><i class="fa-solid fa-laptop-code"></i> Tayyorgarlik Testi</a>
+          <a href="https://pedagog.umamatov.uz" target="_blank" rel="noopener" class="nx-btn o"><i class="fa-solid fa-user-graduate"></i> Pedagog Tizimi</a>
+          <a href="attestatsiya.html" class="nx-btn o"><i class="fa-solid fa-clipboard-check"></i> Attestatsiya</a>
         </div>
-        <div class="nx-author"><span class="nx-me" role="img" aria-label="Umrbek Mamatov"></span><div><b>Umrbek Mamatov <i class="fa-solid fa-circle-check" style="color:#38bdf8;font-size:0.9rem"></i></b><small>Boş mutaxassis · Sayt muallifi</small></div></div>
+        <div class="nx-author"><span class="nx-me" role="img" aria-label="Umrbek Mamatov"></span><div><b>Umrbek Mamatov <i class="fa-solid fa-circle-check" style="color:#38bdf8;font-size:0.9rem"></i></b><small>Boş mutaxassis · Portal muallifi</small></div></div>
       </div>
       <div class="nx-tiles">
-        <a class="nx-tile" href="#olimpiada"><i class="fa-solid fa-square-poll-vertical" style="background:#2563eb"></i><span><b>Tuman natijalari</b><small>Real vaqt rejimida</small></span></a>
-        <a class="nx-tile" href="#goliblar"><i class="fa-solid fa-medal" style="background:#d97706"></i><span><b>Ğoliblar</b><small>124 ta sovrinli örin</small></span></a>
-        <a class="nx-tile" href="olimpiada-tahlil.html"><i class="fa-solid fa-chart-line" style="background:#059669"></i><span><b>Tahlillar</b><small>Maktab va fanlar kesimi</small></span></a>
-        <a class="nx-tile" href="hududiy-bosqich.html"><i class="fa-solid fa-calendar-days" style="background:#dc2626"></i><span><b>Hududiy grafigi</b><small>Sana, vaqt, smena</small></span></a>
-        <a class="nx-tile" href="#rasmiy"><i class="fa-solid fa-scroll" style="background:#7c3aed"></i><span><b>Olimpiadalar röyxati</b><small>Vazir buyruği, 35-son</small></span></a>
-        <a class="nx-tile" href="#rasmiy" onclick="setTimeout(function(){nxList2(2)},50)"><i class="fa-solid fa-lightbulb" style="background:#db2777"></i><span><b>Körik-tanlovlar</b><small>Rasmiy röyxat</small></span></a>
-        <a class="nx-tile" href="attestatsiya.html"><i class="fa-solid fa-clipboard-check" style="background:#0891b2"></i><span><b>Attestatsiya</b><small>Jadval va F.I.Ş. röyxati</small></span></a>
-        <a class="nx-tile" href="taqdirlash.html"><i class="fa-solid fa-award" style="background:#ea580c"></i><span><b>Taqdirlaş marosimi</b><small>Suratlar va ğoliblar</small></span></a>
+        <a class="nx-tile" href="https://olimpiada.umamatov.uz/tuman-natijalar.html" target="_blank" rel="noopener"><i class="fa-solid fa-trophy" style="background:#f59e0b"></i><span><b>Olimpiada natijalari</b><small>60 ta maktab, 124 gʻolib</small></span></a>
+        <a class="nx-tile" href="https://olimpiada.umamatov.uz/hududiy-bosqich.html" target="_blank" rel="noopener"><i class="fa-solid fa-calendar-days" style="background:#2563eb"></i><span><b>Hududiy grafigi</b><small>Viloyat bosqich sanalari</small></span></a>
+        <a class="nx-tile" href="https://test.umamatov.uz" target="_blank" rel="noopener"><i class="fa-solid fa-laptop-code" style="background:#059669"></i><span><b>Tayyorgarlik testi</b><small>Tuman & viloyat testlari</small></span></a>
+        <a class="nx-tile" href="attestatsiya.html"><i class="fa-solid fa-table-list" style="background:#0891b2"></i><span><b>Attestatsiya sinovlari</b><small>Pedagoglar test jadvali</small></span></a>
+        <a class="nx-tile" href="yangi-baholash.html"><i class="fa-solid fa-school-circle-check" style="background:#7c3aed"></i><span><b>Yangi baholash & ChSB</b><small>45 ta maktab onlayn grafigi</small></span></a>
+        <a class="nx-tile" href="akkreditatsiya.html"><i class="fa-solid fa-stamp" style="background:#ea580c"></i><span><b>Akkreditatsiya 2026</b><small>24 muassasa reja-grafigi</small></span></a>
+        <a class="nx-tile" href="otm-ballari.html"><i class="fa-solid fa-ranking-star" style="background:#0284c7"></i><span><b>OTM ballari 2026</b><small>Grant & kontrakt ballari</small></span></a>
+        <a class="nx-tile" href="823qaror.html"><i class="fa-solid fa-calculator" style="background:#10b981"></i><span><b>823-ustama hisoblagich</b><small>Pedagog, kutubxona, psixolog</small></span></a>
       </div>
     </div>
   </section>
@@ -4138,369 +4338,12 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 
 
     <!-- 3. Asosiy Fan Olimpiadasi Tizimi (Google Sheet Integratsiyasi - Mahalliy va Tezkor) -->
-  <section class="section-container" id="olimpiada" style="padding: 50px 20px 40px;">
-    <div class="ol-container">
-      
-      <div class="section-header" style="text-align: center; margin-bottom: 28px;">
-        <span class="nx-kicker" style="background:rgba(37,99,235,0.08);color:#2563eb;border:1.5px solid rgba(37,99,235,0.25);margin-bottom:10px;"><i class="fa-solid fa-signal" style="color:#10b981"></i> Real vaqt rejimi</span>
-        <h2 class="section-title" style="font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:900;color:#0f172a;margin-top:4px;">Olimpiada natijalari tizimi</h2>
-        <p style="color:#64748b;margin-top:6px;font-size:1.05rem;">Qoʻshkoʻpir tumani asosiy fan olimpiadasi natijalari, fanlar va maktablar reytingi.</p>
-      </div>
-
-      <!-- Hero Card & KPIs -->
-      <div class="ol-hero-card">
-        <div class="ol-kicker"><i class="fa-solid fa-landmark"></i> Qoʻshkoʻpir tumani taʼlim boʻlimi</div>
-        <h3 class="ol-title">🏅 Asosiy fan olimpiadasi</h3>
-        <div class="ol-subtitle">Qoʻshkoʻpir tuman bosqichi · 2026/2027-oʻquv yili</div>
-        <p class="ol-intro">Olimpiada ishtirokchilarining natijalari fanlar boʻyicha rasmiy manbalar va ushbu platformada eʼlon qilinadi. Qidiruv orqali oʻz natijangizni lahzada topishingiz mumkin.</p>
-        <div class="ol-btn-group">
-          <button type="button" class="ol-btn ol-btn-primary" onclick="olSwitchTab('fanlar')"><i class="fa-solid fa-layer-group"></i> Fanlar boʻyicha guruhlar</button>
-          <button type="button" class="ol-btn ol-btn-outline" onclick="olSwitchTab('natijalar')"><i class="fa-solid fa-table-list"></i> Barcha natijalarni koʻrish</button>
-          <button type="button" class="ol-btn ol-btn-outline" onclick="olSwitchTab('maktablar')"><i class="fa-solid fa-ranking-star"></i> Maktablar reytingi</button>
-        </div>
-
-        <div class="ol-stats-grid">
-          <div class="ol-stat-card">
-            <div class="ol-stat-lbl">Fanlar</div>
-            <div class="ol-stat-val">14 ta</div>
-            <div class="ol-stat-sub">42 ta fan-sinf yoʻnalishi</div>
-          </div>
-          <div class="ol-stat-card">
-            <div class="ol-stat-lbl">Ishtirokchilar</div>
-            <div class="ol-stat-val" id="olStatParticipants">2 723</div>
-            <div class="ol-stat-sub">Tuman bosqichida</div>
-          </div>
-          <div class="ol-stat-card">
-            <div class="ol-stat-lbl">Natijalar</div>
-            <div class="ol-stat-val" style="color:#059669">42 / 42</div>
-            <div class="ol-stat-sub">Barcha fanlar eʼlon qilindi</div>
-          </div>
-          <div class="ol-stat-card">
-            <div class="ol-stat-lbl">Gʻoliblar</div>
-            <div class="ol-stat-val" style="color:#d97706">124 nafar</div>
-            <div class="ol-stat-sub">1–3 oʻrin egalari</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Live Search Box -->
-      <div class="ol-search-wrap">
-        <div class="ol-search-title">
-          <i class="fa-solid fa-magnifying-glass" style="color:#2563eb"></i>
-          <span>Natijangizni toping</span>
-        </div>
-        <div class="ol-search-input-box">
-          <i class="fa-solid fa-search search-ic"></i>
-          <input type="text" id="olSearchInput" class="ol-search-input" placeholder="Familiya yoki ism (kamida 3 harf)... masalan: Tursunova" oninput="olHandleSearch(this.value)">
-          <button type="button" id="olSearchClear" class="ol-search-clear" onclick="olClearSearch()">✕</button>
-        </div>
-        <div id="olSearchResults" class="ol-search-results"></div>
-      </div>
-
-      <!-- Navigation Tabs -->
-      <div class="ol-tabs-bar">
-        <button type="button" class="ol-tab-btn active" id="olTabBtn_fanlar" onclick="olSwitchTab('fanlar')"><i class="fa-solid fa-book-open"></i> Fanlar (14)</button>
-        <button type="button" class="ol-tab-btn" id="olTabBtn_natijalar" onclick="olSwitchTab('natijalar')"><i class="fa-solid fa-list-ol"></i> Natijalar (42 yoʻnalish)</button>
-        <button type="button" class="ol-tab-btn" id="olTabBtn_goliblar" onclick="olSwitchTab('goliblar')"><i class="fa-solid fa-award"></i> Gʻoliblar (124)</button>
-        <button type="button" class="ol-tab-btn" id="olTabBtn_maktablar" onclick="olSwitchTab('maktablar')"><i class="fa-solid fa-school"></i> Maktablar reytingi (60)</button>
-      </div>
-
-      <!-- TAB 1: Fanlar -->
-      <div class="ol-tab-panel active" id="olTab_fanlar">
-        <div class="ol-fanlar-grid" id="olFanlarGrid">
-          <!-- JS orqali to'ldiriladi -->
-        </div>
-      </div>
-
-      <!-- TAB 2: Natijalar -->
-      <div class="ol-tab-panel" id="olTab_natijalar">
-        <div class="ol-table-box">
-          <div class="ol-filter-bar">
-            <select id="olFilterFan" class="ol-select" onchange="olApplyFilters(true)">
-              <option value="">Barcha fanlar (14 ta fan)</option>
-            </select>
-            <div class="ol-sinf-pills" id="olSinfPills">
-              <button type="button" class="ol-sinf-pill active" onclick="olSetSinf(0, this)">Barchasi</button>
-              <button type="button" class="ol-sinf-pill" onclick="olSetSinf(9, this)">9-sinf</button>
-              <button type="button" class="ol-sinf-pill" onclick="olSetSinf(10, this)">10-sinf</button>
-              <button type="button" class="ol-sinf-pill" onclick="olSetSinf(11, this)">11-sinf</button>
-            </div>
-            <div style="flex:1"></div>
-            <div style="color:#64748b;font-weight:700;font-size:0.9rem;" id="olTableSummary">Jami natijalar: yuklanmoqda...</div>
-          </div>
-
-          <div class="ol-table-responsive">
-            <table class="ol-table">
-              <thead>
-                <tr>
-                  <th style="width:70px">Oʻrin</th>
-                  <th>F.I.Sh. (Ishtirokchi)</th>
-                  <th>Taʼlim muassasasi</th>
-                  <th>Fan & Sinf</th>
-                  <th>1-10</th>
-                  <th>11-20</th>
-                  <th>21-30</th>
-                  <th>Jami Ball</th>
-                  <th>Oʻqituvchi</th>
-                </tr>
-              </thead>
-              <tbody id="olTableBody">
-                <!-- JS orqali to'ldiriladi -->
-              </tbody>
-            </table>
-          </div>
-
-          <div class="ol-pagination">
-            <div style="color:#64748b;font-size:0.88rem;" id="olPageInfo">Sahifa 1</div>
-            <div style="display:flex;gap:8px;">
-              <button type="button" class="ol-page-btn" id="olPrevBtn" onclick="olChangePage(-1)">← Avvalgi</button>
-              <button type="button" class="ol-page-btn" id="olNextBtn" onclick="olChangePage(1)">Keyingi →</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TAB 3: Gʻoliblar -->
-      <div class="ol-tab-panel" id="olTab_goliblar">
-        <div class="ol-table-box">
-          <div style="margin-bottom:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-            <select id="olFilterGolibFan" class="ol-select" onchange="olRenderGoliblar()">
-              <option value="">Barcha fanlar</option>
-            </select>
-            <div style="color:#64748b;font-weight:700;font-size:0.9rem;" id="olGolibSummary">124 nafar sovrindor</div>
-          </div>
-          <div class="ol-table-responsive">
-            <table class="ol-table">
-              <thead>
-                <tr>
-                  <th style="width:110px">Oʻrin</th>
-                  <th>Gʻolib oʻquvchi</th>
-                  <th>Taʼlim muassasasi</th>
-                  <th>Fan & Sinf</th>
-                  <th style="text-align:center" title="1-10 savollar bali">1-10</th>
-                  <th style="text-align:center" title="11-20 savollar bali">11-20</th>
-                  <th style="text-align:center" title="21-30 savollar bali">21-30</th>
-                  <th style="text-align:center">Jami ball</th>
-                  <th>Ustoz (Oʻqituvchi)</th>
-                </tr>
-              </thead>
-              <tbody id="olGolibTableBody">
-                <!-- JS orqali to'ldiriladi -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- TAB 4: Maktablar reytingi -->
-      <div class="ol-tab-panel" id="olTab_maktablar">
-        <div class="ol-table-box">
-          <div style="margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;">
-            <h4 style="font-size:1.15rem;font-weight:800;color:#0f172a;">Qoʻshkoʻpir tumani maktablari umumiy reytingi</h4>
-            <span style="font-size:0.86rem;color:#64748b;font-weight:700;">60 ta taʼlim muassasasi</span>
-          </div>
-          <div class="ol-table-responsive">
-            <table class="ol-table">
-              <thead>
-                <tr>
-                  <th style="width:60px">#</th>
-                  <th>Taʼlim muassasasi</th>
-                  <th style="text-align:center">Ishtirokchilar</th>
-                  <th style="text-align:center">1-oʻrin</th>
-                  <th style="text-align:center">2-oʻrin</th>
-                  <th style="text-align:center">3-oʻrin</th>
-                  <th style="text-align:center">Jami Gʻoliblar</th>
-                </tr>
-              </thead>
-              <tbody id="olMaktabTableBody">
-                <!-- JS orqali to'ldiriladi -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-<section class="nx-sec alt" id="goliblar">
-    <div class="nx-wrap">
-      <div class="nx-head"><span class="sub">2026/2027 · tuman bosqiçi</span><h2>Ğolib öquvçilar va ularning ustozlari</h2><p>Fan va sinf kesimida 1–3-örinni egallagan öquvçilar hamda ularni tayyorlagan fan öqituvçilari.</p></div>
-      <div class="nx-stats"><div><b>124</b><span>sovrinli örin</span></div><div><b>35</b><span>maktab</span></div><div><b>108</b><span>fan öqituvçisi</span></div><div><b>14</b><span>fan</span></div></div>
-      <div class="nx-tabs"><button class="nx-tab on" id="nxT1" onclick="nxTab(1)"><i class="fa-solid fa-medal"></i> Öquvçilar</button><button class="nx-tab" id="nxT2" onclick="nxTab(2)"><i class="fa-solid fa-chalkboard-user"></i> Ustozlar</button></div>
-      <div class="nx-filters"><input id="nxQ" placeholder="Ism, maktab yoki ustoz böyiça qidiriş…" oninput="nxRender(true)"><select id="nxF" onchange="nxRender(true)"><option value="">Barça fanlar</option></select><select id="nxC" onchange="nxRender(true)"><option value="">Barça sinflar</option><option>9</option><option>10</option><option>11</option></select></div>
-      <div class="nx-chips" id="nxChips"><button class="nx-chip on" data-p="0">Hammasi</button><button class="nx-chip" data-p="1">I örin</button><button class="nx-chip" data-p="2">II örin</button><button class="nx-chip" data-p="3">III örin</button><span class="nx-count" id="nxCnt"></span></div>
-      <div class="nx-win" id="nxList"></div>
-      <button class="nx-more" id="nxMore" onclick="nxShow+=24;nxRender(false)">Yana körsatiş</button>
-    </div>
-  </section>
 
   <!-- 5. Olimpiada natijalari (Apps Script / Iframe ulash joyi) -->
-  <section class="olympiad-portal-section" id="grafik">
-    <div class="olympiad-container">
-      
-      <!-- Yuqori Hero Banner (Toʻq koʻk naqshli orqa fon) -->
-      <div class="olympiad-hero">
-        <div class="olympiad-hero-left">
-          <div class="olympiad-hero-brand-row">
-            
-            <div>
-              <h1 class="olympiad-main-title">Asosiy<br>olimpiada</h1>
-              <p class="olympiad-main-subtitle">Tuman (şahar) bosqiçini ötkaziş grafigi</p>
-            </div>
-          </div>
-          <div class="olympiad-date-pill" style="margin-top: 14px;">
-            <i class="fa-regular fa-calendar"></i> 15 – 27 oktabr 2026
-          </div>
-        </div>
-
-        <!-- Oʻng tomondagi Jonli Keyingi Imtihon Kartasi -->
-        <div class="next-exam-widget" id="nextExamCard">
-          <div class="widget-header">
-            <i class="fa-regular fa-bell"></i> Keyingi imtihon
-          </div>
-          <h2 class="widget-subject" id="nextExamSubject">Qoraqalpoq tili / tojik tili / nemis tili</h2>
-          <div class="widget-meta">
-            <span id="nextExamDate"><i class="fa-regular fa-calendar-check"></i> 23-oktabr, juma</span>
-            <span id="nextExamTime"><i class="fa-regular fa-clock"></i> 12:00 – 13:00</span>
-            <span id="nextExamShift" class="badge-shift-active"><i class="fa-solid fa-users"></i> 10-sinf, 2-smena</span>
-          </div>
-          <div class="countdown-strip">
-            <span class="countdown-text" id="countdownLabel">Boşlanişiga</span>
-            <span class="countdown-digits" id="liveCountdownTimer">34 daqiqa</span>
-            <span class="countdown-text" id="countdownSuffix">qoldi</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Boshqaruv va Qidiruv Qatori -->
-      <div class="olympiad-toolbar">
-        <div class="class-filters-group">
-          <button class="filter-tab-btn active" onclick="setGradeFilter('all', this)">Barça sinflar</button>
-          <button class="filter-tab-btn" onclick="setGradeFilter('9', this)">9-sinf</button>
-          <button class="filter-tab-btn" onclick="setGradeFilter('10', this)">10-sinf</button>
-          <button class="filter-tab-btn" onclick="setGradeFilter('11', this)">11-sinf</button>
-        </div>
-
-        <div class="search-box-wrapper">
-          <i class="fa-solid fa-magnifying-glass search-icon"></i>
-          <input type="text" id="subjectSearchInput" class="search-input" placeholder="Fanni qidiriş, masalan: Fizika..." oninput="filterBySubject(this.value)">
-          <button class="clear-search-btn" id="clearSearchBtn" onclick="clearSearch()" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-
-        <div class="view-switch-group">
-          <button class="view-tab-btn active" id="viewCardsTab" onclick="changeDisplayMode('cards')"><i class="fa-solid fa-grip"></i> Kartalar</button>
-          <button class="view-tab-btn" id="viewTableTab" onclick="changeDisplayMode('table')"><i class="fa-solid fa-table-list"></i> Jadval</button>
-        </div>
-      </div>
-
-      <!-- Gorizontal Sana Lentasi (Date Slider Strip) -->
-      <div class="date-strip-scroller">
-        <div class="date-strip-track" id="dateStripTrack">
-          <!-- Dynamically populated via JS with 15-27 oktabr pills -->
-        </div>
-      </div>
-
-      <!-- 1-Rejim: Gorizontal Karta Kartochkalari (Kartalar Koʻrinishi) -->
-      <div class="schedule-cards-deck" id="cardsDeckContainer">
-        <!-- JS dynamically renders all days, shifts, active status and live timers -->
-      </div>
-
-      <!-- 2-Rejim: Keng Qamrovli Jadval Koʻrinishi (Jadval Koʻrinishi) -->
-      <div class="schedule-table-wrap" id="tableDeckContainer" style="display: none;">
-        <div class="table-scroll-area">
-          <table class="olympiad-master-table">
-            <thead>
-              <tr>
-                <th>Sana</th>
-                <th>Kun</th>
-                <th>Fan</th>
-                <th>Smena & Sinf</th>
-                <th>Vaqt oraliği</th>
-                <th>Davomiyligi</th>
-                <th>Savollar / Ball</th>
-                <th>Holati</th>
-              </tr>
-            </thead>
-            <tbody id="masterTableBody">
-              <!-- Dynamically rendered -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Pastki Qaydnoma -->
-      <div class="olympiad-footer-note">
-        <div class="note-pill"><i class="fa-solid fa-circle-info"></i> Tuman (şahar) bosqiçi ötkaziliş nizomi: Aniq vaqt hisobi böyiça testlar platformada avtomatik oçiladi va yopiladi. Iştirokçilar kamida 20 daqiqa oldin xonalarga joylaşişi şart.</div>
-      </div>
-
-    </div>
-  </section>
 
   
   <!-- 7. Akkreditatsiya va Tashqi Baholash Boʻlimi -->
     <!-- OTMga kirish tahlili -->
-  <section class="nx-sec" id="rasmiy">
-    <div class="nx-wrap">
-      <div class="nx-head"><span class="sub">Vazir buyruği · 2026-yil 30-yanvar, 35-son</span><h2>Olimpiadalar, körik-tanlovlar va musobaqalar röyxati</h2><p>2026–2027-öquv yilida öqituvçilarning bazaviy tarif stavkalariga direktor jamğarmasi hisobidan oylik ustama belgilaşda öquvçilarning iştiroki natijalari inobatga olinadigan tadbirlar.</p></div>
-      <div class="nx-tabs"><button class="nx-tab on" id="nxL1" onclick="nxList2(1)"><i class="fa-solid fa-trophy"></i> Fan olimpiadalari (38)</button><button class="nx-tab" id="nxL2" onclick="nxList2(2)"><i class="fa-solid fa-flag"></i> Körik-tanlov va musobaqalar (37)</button></div>
-      <div class="nx-filters" style="grid-template-columns:1fr"><input id="nxRQ" placeholder="Nomi böyiça qidiriş…" oninput="nxList2()"></div>
-      <ol class="nx-rlist" id="nxRL"></ol>
-      <p class="nx-note"><i class="fa-solid fa-circle-info"></i> Manba: Maktabgaça va maktab taʼlimi vazirining 2026-yil 30-yanvardagi 35-son buyruği ilovasi. Röyxatdagi bir xil takrorlangan bandlar bir marta keltirildi.</p>
-    </div>
-  </section>
-
-  <section class="yb" id="yangi-baholash"><div class="yb-in">
-    <div class="yb-top"><span class="yb-badge"><i class="fa-solid fa-school-circle-check"></i> Qöşköpir tumani · 2026/2027-öquv yili</span>
-    <h2>Yangi baholaş tizimi: tumanimizning 45 ta maktabi</h2>
-    <p>2026/2027-öquv yilida tumanimizdagi 45 ta umumtaʼlim maktabida 5–11-sinf öquvçilari bilimi yangi tartibda baholanadi. Uşbu bölim maktab rahbarlari va öqituvçilar uçun: tizim nima, qaysi hujjatlarga asoslanadi, qaysi maktablar kiradi va çorak davomida nimalar rejalaştirilgan.</p></div>
-
-    <div class="yb-k">
-      <div style="background:#dbeafe"><b style="color:#1d4ed8">45</b><span>maktabda yangi baholaş tizimi joriy etilgan</span></div>
-      <div style="background:#dcfce7"><b style="color:#15803d">14</b><span>maktab 2026/2027-öquv yilidan qöşildi</span></div>
-      <div style="background:#fef3c7"><b style="color:#b45309">31</b><span>maktab oldingi öquv yillaridan tajribaga ega</span></div>
-      <div style="background:#fce7f3"><b style="color:#be185d">648</b><span>sinf (5–11-sinflar) onlayn ÇSB ga qamrab olingan</span></div>
-    </div>
-
-    <h3 class="yb-h"><i class="fa-solid fa-circle-question" style="color:#2563eb"></i> Yangi baholaş tizimi nima?</h3>
-    <div class="yb-g">
-      <div class="yb-card"><i class="ic" style="background:#2563eb"><i class="fa-solid fa-ranking-star" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Reyting tizimi</h3><p>5–11-sinf öquvçilarining bilimi sifati yagona meʼyoriy tartibda nazorat qilinadi. Asos: Maktabgaça va maktab taʼlimi vazirining 2025-yil 4-fevraldagi 1-mh-sonli buyruği bilan tasdiqlangan nizom (röyxat raqami 2117).</p></div>
-      <div class="yb-card"><i class="ic" style="background:#16a34a"><i class="fa-solid fa-scale-balanced" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Xolis va şaffof baholaş</h3><p>Baholaş mezonlari, formativ va summativ baholaş talablari dars jarayonida xolis, şaffof va öz vaqtida yuritiladi. Talablar har bir fan öqituvçisi, öquvçi va ota-onalarga tuşuntiriladi.</p></div>
-      <div class="yb-card"><i class="ic" style="background:#9333ea"><i class="fa-solid fa-laptop-code" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Çorak yakuni: onlayn ÇSB</h3><p>Har çorak yakunida tanlab olingan fanlar böyiça çoraklik summativ baholaş (ÇSB) sinovlari «eMaktab» platformasida markazlaşgan holda onlayn ötkaziladi.</p></div>
-      <div class="yb-card"><i class="ic" style="background:#ea580c"><i class="fa-solid fa-chart-line" style="margin:0;font-size:1.3rem;background:none;width:auto;height:auto"></i></i><h3>Çorak tahlili</h3><p>Har çorak yakuni böyiça tahliliy xulosalar tayyorlanadi, natijalari past maktablar rahbarlari va fan öqituvçilari uçun maqsadli öquv-seminar va amaliy treninglar taşkil etiladi.</p></div>
-    </div>
-
-    <h3 class="yb-h"><i class="fa-solid fa-scroll" style="color:#2563eb"></i> Asosiy hujjatlar</h3>
-    <ul class="yb-tl">
-      <li><b>16.02.2026</b> · PF-22-son Prezident Farmoni<small>2026/2027-öquv yilidan yangi baholaş tizimi joriy etiladigan maktablar sonini respublika böyiça 4 500 taga yetkaziş belgilangan.</small></li>
-      <li><b>25.08.2026</b> · Vazirlikning 312-son buyruği<small>Respublikada 3 434 ta maktabda tizim joriy etilgan; qöşiladigan maktablar röyxati tasdiqlandi. Qöşköpir tumanidan 14 ta maktab kiritildi.</small></li>
-      <li><b>02.09.2026</b> · Xorazm viloyati boşqarmasining 240-son buyruği<small>Viloyatdagi 100 ta yangi maktabga oldingi yillarda tizimga ötgan maktablarni biriktiriş (ustoz-şogird) va har çorak yakunida tahlil hamda öquv-treninglar taşkil etiş belgilandi.</small></li>
-      <li><b>23.10.2026</b> · Vazirlikning 7-son buyruği<small>1-çorak yakuni böyiça markazlaşgan summativ baholaş sinovlari tartibi.</small></li>
-      <li><b>26.10.2026</b> · Viloyat boşqarmasining 289-son buyruği<small>Viloyatdagi 450 ta maktabning 5–11-sinf öquvçilari uçun ÇSB sinovlari 23-oktabr – 3-noyabr kunlari onlayn şaklda ötkaziladi.</small></li>
-      <li><b>28.10.2026</b> · Tuman bölimi boşliğining 923-12-172-MMTM/2026-son buyruği<small>Tuman Işçi guruhi tarkibi tasdiqlandi; barça 5–11-sinf öquvçilarini 100% qamrab oliş, sanitariya-gigiyena qoidalari, eMaktab materiallarini tarqatmaslik va texnik tayyorgarlik vazifalari belgilandi.</small></li>
-    </ul>
-
-    <h3 class="yb-h"><i class="fa-solid fa-school" style="color:#2563eb"></i> Tumanimizdagi 45 ta maktab</h3>
-    <div class="yb-two">
-      <div class="yb-box" style="background:#f0fdf4;border:1px solid #bbf7d0"><h3 style="color:#15803d"><i class="fa-solid fa-seedling"></i> 2026/2027-öquv yilidan qöşilgan (14 ta)</h3><p>Uşbu maktablarga tizim böyiça tajribali maktablar ustoz-şogird asosida biriktiriladi, tuman bölimi metodistlari doimiy amaliy va metodik yordam körsatadi.</p><span class="yb-c n">1-maktab</span><span class="yb-c n">3-maktab</span><span class="yb-c n">11-maktab</span><span class="yb-c n">12-maktab</span><span class="yb-c n">19-maktab</span><span class="yb-c n">20-maktab</span><span class="yb-c n">24-maktab</span><span class="yb-c n">27-maktab</span><span class="yb-c n">29-maktab</span><span class="yb-c n">30-maktab</span><span class="yb-c n">32-maktab</span><span class="yb-c n">39-maktab</span><span class="yb-c n">45-maktab</span><span class="yb-c n">54-maktab</span></div>
-      <div class="yb-box" style="background:#eff6ff;border:1px solid #bfdbfe"><h3 style="color:#1d4ed8"><i class="fa-solid fa-medal"></i> Oldingi yillardan tizimda (31 ta)</h3><p>Tizim joriy etilgan va tajriba töplagan maktablar. Ular yangi qöşilgan maktablar bilan tajriba almaşadi.</p><span class="yb-c o">4-AFÇÖM</span><span class="yb-c o">4-maktab</span><span class="yb-c o">5-maktab</span><span class="yb-c o">6-maktab</span><span class="yb-c o">7-maktab</span><span class="yb-c o">9-maktab</span><span class="yb-c o">10-maktab</span><span class="yb-c o">13-maktab</span><span class="yb-c o">15-maktab</span><span class="yb-c o">16-maktab</span><span class="yb-c o">18-maktab</span><span class="yb-c o">21-maktab</span><span class="yb-c o">23-maktab</span><span class="yb-c o">25-maktab</span><span class="yb-c o">26-maktab</span><span class="yb-c o">28-maktab</span><span class="yb-c o">31-maktab</span><span class="yb-c o">33-maktab</span><span class="yb-c o">36-maktab</span><span class="yb-c o">38-maktab</span><span class="yb-c o">41-maktab</span><span class="yb-c o">42-maktab</span><span class="yb-c o">43-maktab</span><span class="yb-c o">44-maktab</span><span class="yb-c o">46-maktab</span><span class="yb-c o">47-maktab</span><span class="yb-c o">48-maktab</span><span class="yb-c o">49-maktab</span><span class="yb-c o">50-maktab</span><span class="yb-c o">51-maktab</span><span class="yb-c o">52-maktab</span></div>
-    </div>
-
-    <h3 class="yb-h"><i class="fa-solid fa-list-check" style="color:#2563eb"></i> Maktablar uçun qisqa eslatma</h3>
-    <ul class="yb-lst">
-      <li><i class="fa-solid fa-circle-check"></i><span>Yangi reyting tizimi talablarini har bir fan öqituvçisi, öquvçi va ota-onalarga tuşuntiriş.</span></li>
-      <li><i class="fa-solid fa-circle-check"></i><span>Baholaş mezonlari, formativ va summativ baholaşni dars jarayonida xolis, şaffof va öz vaqtida yuritiş.</span></li>
-      <li><i class="fa-solid fa-circle-check"></i><span>5–11-sinf öquvçilarining tasdiqlangan jadval asosida ÇSB sinovlarida töliq iştirokini taʼminlaş.</span></li>
-      <li><i class="fa-solid fa-circle-check"></i><span>Kompyuter xonalari, elektr taʼminoti va internetning barqaror işlaşini oldindan tekşirib qöyiş.</span></li>
-      <li><i class="fa-solid fa-circle-check"></i><span>«eMaktab» platformasidagi sinov materiallari ijtimoiy tarmoqlarda tarqalmasligi uçun tuşuntiriş işlarini olib boriş.</span></li>
-      <li><i class="fa-solid fa-circle-check"></i><span>Dars tahlillari va baholaş böyiça pedagogik jamoaga doimiy metodik kömak körsatiş.</span></li>
-    </ul>
-
-    <div class="yb-n"><i class="fa-solid fa-handshake-angle"></i><div>Tuman bölimining Öquvçilar bilimini baholaş, tahlil qiliş va pedagoglarni kasbiy rivojlantirişni muvofiqlaştiriş şöbasi barça 45 ta maktabga metodik yordam körsatadi. Har çorak yakunida natijalar tahlil qilinadi va bu sahifada eʼlon qilinadi. Tahlillar maktab rahbarlari va öqituvçilar öz iş tajribasini tahlil qilib, xulosa çiqarişlari uçun tayyorlanadi.</div></div>
-
-    <div class="yb-go"><a href="1-chorak-yakunlari.html"><i class="fa-solid fa-chart-column"></i> 1-çorak yakunlari tahlili</a><a class="l" href="#baholash"><i class="fa-solid fa-calendar-check"></i> 1-çorak onlayn ÇSB grafigi</a></div>
-  </div></section>
 
   <!-- 4. Asosiy Yoʻnalishlar -->
   <section class="cq" id="chorak-tahlil"><div class="cq-in">
@@ -4521,301 +4364,6 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
     <div class="cq-n"><i class="fa-solid fa-circle-info"></i><div>Baʼzi sinflarda bilim sifati 0% ga yaqin yoki 0% ga teng. Bu sinfda aʼlo va yaxşi baho olgan öquvçi yöqligini bildiradi: barça öquvçi muvaffaqiyatli (3) baho bilan özlaştirgan. Masalan, 32-maktabning 9- va 10-sinflarida. Batafsil izoh keyingi sahifada.</div></div>
     <div class="cq-go"><a href="1-chorak-yakunlari.html"><i class="fa-solid fa-chart-line"></i> Töliq tahlilni oçiş</a></div>
   </div></section>
-
-  <section class="baholash-portal-section" id="baholash">
-    <div class="baholash-container">
-      
-      <!-- Sarlavha -->
-      <div class="section-header">
-        <span class="baholash-badge-top">
-          <i class="fa-solid fa-file-signature"></i> Qöşköpir tumani MMTB rasmiy reja-jadvali
-        </span>
-        <h2 class="section-title">1-çorak onlayn ÇSB topşiriş grafigi</h2>
-        <p style="color: #64748b; margin-top: 10px; max-width: 850px; margin-left: auto; margin-right: auto; font-size: 1.02rem;">
-          Özbekiston Respublikasi Prezidentining PF-22-son Farmoni hamda Maktabgaça va maktab taʼlimi vazirining 312-sonli buyruğiga muvofiq, Qöşköpir tumanidagi yangi baholaş tizimi joriy etilgan <strong>45 ta umumtaʼlim maktabida</strong> 5–11-sinf öquvçilari uçun onlayn çoraklik summativ baholaş (ÇSB) ötkaziş grafigi va maktablar reyestri.
-        </p>
-      </div>
-
-      <!-- Asosiy Koʻrsatkichlar Banneri -->
-      <div class="baholash-stat-banner">
-        <div class="baholash-stat-box">
-          <div class="baholash-stat-icon" style="background: #eff6ff; color: #2563eb;">
-            <i class="fa-solid fa-school-flag"></i>
-          </div>
-          <div>
-            <div class="baholash-stat-val">45 ta</div>
-            <div class="baholash-stat-sub">Umumtaʼlim maktabi</div>
-          </div>
-        </div>
-
-        <div class="baholash-stat-box">
-          <div class="baholash-stat-icon" style="background: #f0fdf4; color: #16a34a;">
-            <i class="fa-solid fa-users-between-lines"></i>
-          </div>
-          <div>
-            <div class="baholash-stat-val">5–11</div>
-            <div class="baholash-stat-sub">Sinflar töliq qamrovi</div>
-          </div>
-        </div>
-
-        <div class="baholash-stat-box">
-          <div class="baholash-stat-icon" style="background: #fefce8; color: #ca8a04;">
-            <i class="fa-solid fa-calendar-check"></i>
-          </div>
-          <div>
-            <div class="baholash-stat-val">23–30 Oktabr</div>
-            <div class="baholash-stat-sub">2026-yil (Sinov haftasi)</div>
-          </div>
-        </div>
-
-        <div class="baholash-stat-box">
-          <div class="baholash-stat-icon" style="background: #faf5ff; color: #9333ea;">
-            <i class="fa-solid fa-bolt"></i>
-          </div>
-          <div>
-            <div class="baholash-stat-val">08:00 – 18:00</div>
-            <div class="baholash-stat-sub">Uzluksiz elektr & onlayn tizim</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Interaktiv Boshqaruv Qatori (Tablar va Qidiruv) -->
-      <div class="baholash-tabs-wrapper">
-        <div class="baholash-nav-tabs">
-          <button class="b-tab-btn active" onclick="switchBaholashTab('jadval', this)">
-            <i class="fa-solid fa-calendar-days"></i> 1-ÇSB Sinov Jadvali
-          </button>
-          <button class="b-tab-btn" onclick="switchBaholashTab('maktablar', this)">
-            <i class="fa-solid fa-list-ol"></i> 45 ta Maktab Röyxati & Manzillari
-          </button>
-        </div>
-
-        <div class="b-search-wrap" id="schoolSearchBox" style="display: none;">
-          <i class="fa-solid fa-magnifying-glass b-search-icon"></i>
-          <input type="text" id="schoolSearchInput" class="b-search-input" placeholder="Maktab raqami, MFY yoki manzil böyiça qidiriş..." oninput="filterSchools()">
-        </div>
-      </div>
-
-      <!-- 1-TAB: 1-CHSB Sinovlari Grafigi -->
-      <div class="b-content-panel active" id="tab-jadval">
-        <div class="chsb-schedule-grid">
-          
-          <!-- 5-sinf -->
-          <div class="chsb-day-card">
-            <div class="chsb-card-top">
-              <span class="chsb-grade-tag">5-sinf</span>
-              <span class="chsb-date-badge"><i class="fa-regular fa-calendar"></i> 23-oktabr 2026 (Juma)</span>
-            </div>
-            <h3 class="chsb-subjects-title">Matematika, ona tili</h3>
-            <div class="chsb-meta-row">
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-clock"></i>
-                <span>Elektr taʼminoti: <strong>08:00 dan 18:00 ga qadar</strong></span>
-              </div>
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-network-wired"></i>
-                <span>Format: Vazirlik maxsus platformasida onlayn</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6-sinf -->
-          <div class="chsb-day-card">
-            <div class="chsb-card-top">
-              <span class="chsb-grade-tag">6-sinf</span>
-              <span class="chsb-date-badge"><i class="fa-regular fa-calendar"></i> 24-oktabr 2026 (Şanba)</span>
-            </div>
-            <h3 class="chsb-subjects-title">Matematika, ona tili</h3>
-            <div class="chsb-meta-row">
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-clock"></i>
-                <span>Elektr taʼminoti: <strong>08:00 dan 18:00 ga qadar</strong></span>
-              </div>
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-network-wired"></i>
-                <span>Format: Vazirlik maxsus platformasida onlayn</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 7-sinf -->
-          <div class="chsb-day-card">
-            <div class="chsb-card-top">
-              <span class="chsb-grade-tag">7-sinf</span>
-              <span class="chsb-date-badge"><i class="fa-regular fa-calendar"></i> 26-oktabr 2026 (Duşanba)</span>
-            </div>
-            <h3 class="chsb-subjects-title">Matematika, ona tili</h3>
-            <div class="chsb-meta-row">
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-clock"></i>
-                <span>Elektr taʼminoti: <strong>08:00 dan 18:00 ga qadar</strong></span>
-              </div>
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-network-wired"></i>
-                <span>Format: Vazirlik maxsus platformasida onlayn</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 8-sinf -->
-          <div class="chsb-day-card">
-            <div class="chsb-card-top">
-              <span class="chsb-grade-tag">8-sinf</span>
-              <span class="chsb-date-badge"><i class="fa-regular fa-calendar"></i> 27-oktabr 2026 (Seşanba)</span>
-            </div>
-            <h3 class="chsb-subjects-title">Algebra, fizika</h3>
-            <div class="chsb-meta-row">
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-clock"></i>
-                <span>Elektr taʼminoti: <strong>08:00 dan 18:00 ga qadar</strong></span>
-              </div>
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-network-wired"></i>
-                <span>Format: Vazirlik maxsus platformasida onlayn</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 9-sinf -->
-          <div class="chsb-day-card">
-            <div class="chsb-card-top">
-              <span class="chsb-grade-tag">9-sinf</span>
-              <span class="chsb-date-badge"><i class="fa-regular fa-calendar"></i> 28-oktabr 2026 (Çorşanba)</span>
-            </div>
-            <h3 class="chsb-subjects-title">Algebra, biologiya</h3>
-            <div class="chsb-meta-row">
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-clock"></i>
-                <span>Elektr taʼminoti: <strong>08:00 dan 18:00 ga qadar</strong></span>
-              </div>
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-network-wired"></i>
-                <span>Format: Vazirlik maxsus platformasida onlayn</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 10-sinf -->
-          <div class="chsb-day-card">
-            <div class="chsb-card-top">
-              <span class="chsb-grade-tag">10-sinf</span>
-              <span class="chsb-date-badge"><i class="fa-regular fa-calendar"></i> 29-oktabr 2026 (Payşanba)</span>
-            </div>
-            <h3 class="chsb-subjects-title">Algebra, kimyo</h3>
-            <div class="chsb-meta-row">
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-clock"></i>
-                <span>Elektr taʼminoti: <strong>08:00 dan 18:00 ga qadar</strong></span>
-              </div>
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-network-wired"></i>
-                <span>Format: Vazirlik maxsus platformasida onlayn</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 11-sinf -->
-          <div class="chsb-day-card" style="border-left-color: #f59e0b;">
-            <div class="chsb-card-top">
-              <span class="chsb-grade-tag" style="background: #fffbeb; color: #b45309; border-color: #fde68a;">11-sinf</span>
-              <span class="chsb-date-badge"><i class="fa-regular fa-calendar"></i> 30-oktabr 2026 (Juma)</span>
-            </div>
-            <h3 class="chsb-subjects-title">Algebra, çet tili (ingliz, nemis yoki fransuz tili)</h3>
-            <div class="chsb-meta-row">
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-clock"></i>
-                <span>Elektr taʼminoti: <strong>08:00 dan 18:00 ga qadar</strong></span>
-              </div>
-              <div class="chsb-meta-item">
-                <i class="fa-solid fa-network-wired"></i>
-                <span>Format: Vazirlik maxsus platformasida onlayn</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Muhim eslatma qutisi -->
-        <div class="note-pill" style="max-width: 100%; justify-content: flex-start; background: #ffffff; border: 1px solid #cbd5e1; color: #334155;">
-          <i class="fa-solid fa-circle-exclamation" style="color: #2563eb;"></i>
-          <span>
-            <strong>Muhim eslatma:</strong> Har bir smena boşlanişidan 30 daqiqa oldin kompyuterlarni tayyorlaş, platformaga ulaniş va öquvçilarni auditoriyaga kiritiş, smena yakunlangaç test natijalarini markaziy serverga yuklaş talab etiladi. Barça jarayon töliq videokuzatuv ostida taşkil etiladi.
-          </span>
-        </div>
-      </div>
-
-      <!-- 2-TAB: 45 ta Maktab Roʻyxati -->
-      <div class="b-content-panel" id="tab-maktablar">
-        <div class="schools-table-card">
-          <div class="schools-table-wrap">
-            <table class="schools-table" id="schoolsTable">
-              <thead>
-                <tr>
-                  <th style="width: 70px; text-align: center;">T/r</th>
-                  <th>Maktabning töliq nomi</th>
-                  <th>Joylaşgan manzili (MFY, qişloq, köça, uy)</th>
-                  <th style="width: 140px; text-align: center;">Holati</th>
-                </tr>
-              </thead>
-              <tbody id="schoolsTableBody">
-                <!-- 45 ta maktab maʼlumotlari -->
-                <tr><td><span class="school-num-badge">1</span></td><td><span class="school-name-text">1-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Qöşköpir tumani, Mustaqillik köçasi</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">2</span></td><td><span class="school-name-text">3-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Qotoğon qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">3</span></td><td><span class="school-name-text">4-son ayrim fanlar çuqur öqitiladigan maktab <span class="school-type-pill">Ixtisoslaşgan</span></span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Qöşköpir tumani, Bahoriston MFY, Al-Xorazmiy köçasi 12-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">4</span></td><td><span class="school-name-text">4-sonli umumtaʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Taraqqiyot MFY, Olçazor köçasi 71-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">5</span></td><td><span class="school-name-text">5-sonli ayrim fanlar çuqur öqitiladigan maktab <span class="school-type-pill">Ixtisoslaşgan</span></span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Çaros köçasi 80-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">6</span></td><td><span class="school-name-text">6-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Qöşköpir tumani, Ayronköl mahallasi, Yoşlik köçasi 79A-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">7</span></td><td><span class="school-name-text">7-sonli umumtaʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Şixmaşhad mahallasi, Yangi qoromon köçasi</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">8</span></td><td><span class="school-name-text">9-son ayrim fanlar çuqur öqitiladigan maktab <span class="school-type-pill">Ixtisoslaşgan</span></span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Dovud mahallasi, Zakovat köçasi 1-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">9</span></td><td><span class="school-name-text">10-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Kenagas qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">10</span></td><td><span class="school-name-text">11-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Kenagas mahallasi, Köçaboğ köçasi 20-A uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">11</span></td><td><span class="school-name-text">12-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Şixmaşhad MFY, Servikor köçasi 34-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">12</span></td><td><span class="school-name-text">13-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Qöşköpir tumani, Şixmaşhad şaharçasi, Zarbdor mahallasi, Marjon köçasi 6-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">13</span></td><td><span class="school-name-text">15-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Xadra qişloği, Polvon MFY</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">14</span></td><td><span class="school-name-text">16-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Xadra qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">15</span></td><td><span class="school-name-text">18-sonli umumtaʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Xonobod qişloği, Qadriyat mahallasi</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">16</span></td><td><span class="school-name-text">19-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Xonobod qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">17</span></td><td><span class="school-name-text">20-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Qöşköpir tumani, Hayrobod qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">18</span></td><td><span class="school-name-text">21-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Qöşköpir tumani, Xayrabod qişloği, Könazey MFY, Yurt ravnaqi köçasi 63a-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">19</span></td><td><span class="school-name-text">23-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Örtayop qişloği, Adolat MFY, Boğbonlar köçasi 31-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">20</span></td><td><span class="school-name-text">24-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Örtayop qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">21</span></td><td><span class="school-name-text">25-son örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Al-Beruniy köçasi 37-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">22</span></td><td><span class="school-name-text">26-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Şix qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">23</span></td><td><span class="school-name-text">27-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Oşoq-qalʼa mahallasi, Oşoq-qalʼa köçasi 64-A uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">24</span></td><td><span class="school-name-text">28-son umumtaʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Oqdarband qişloq, "Ittifoq" mahallasi, Yuqori qalʼa 1-berk köça 15-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">25</span></td><td><span class="school-name-text">29-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Qöşköpir tumani, Şix qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">26</span></td><td><span class="school-name-text">30-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Ğozovot qişloği, Şerobod mahallasi, Çamanzor köçasi 2A-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">27</span></td><td><span class="school-name-text">31-son umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Ğozovot qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">28</span></td><td><span class="school-name-text">32-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Ğozovot qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">29</span></td><td><span class="school-name-text">33-son umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Ğozovot qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">30</span></td><td><span class="school-name-text">36-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Özbekyop qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">31</span></td><td><span class="school-name-text">38-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Özbekyop qişloği, Amirqum mahallasi</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">32</span></td><td><span class="school-name-text">39-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Xosiyon qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">33</span></td><td><span class="school-name-text">41-son umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Örtayop QFY, Adolat MFY</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">34</span></td><td><span class="school-name-text">42-son umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Özbekyop qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">35</span></td><td><span class="school-name-text">43-son umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Xadra qişloği, Polvon mahallasi</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">36</span></td><td><span class="school-name-text">44-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Xonobod qişloği, Köktom mahallasi</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">37</span></td><td><span class="school-name-text">45-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Ğozovot qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">38</span></td><td><span class="school-name-text">46-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Örtayop qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">39</span></td><td><span class="school-name-text">47-son umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Xosiyon qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">40</span></td><td><span class="school-name-text">48-son umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Xonobod qişloği</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">41</span></td><td><span class="school-name-text">49-son umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Yoşlik mahallasi, Avaz Ötar köçasi</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">42</span></td><td><span class="school-name-text">50-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Baratlar MFY</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">43</span></td><td><span class="school-name-text">51-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Xosiyon qişloq, Tagalak MFY</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">44</span></td><td><span class="school-name-text">52-son umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Şixmaşhad şaharçasi</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-                <tr><td><span class="school-num-badge">45</span></td><td><span class="school-name-text">54-sonli umumiy örta taʼlim maktabi</span></td><td><span class="school-addr-text"><i class="fa-solid fa-location-dot"></i> Yovğir MFY, Az-Zamaxşariy köçasi 1/15-uy</span></td><td style="text-align: center;"><span class="day-badge-status current">Yangi baholaş</span></td></tr>
-              </tbody>
-            </table>
-            <div id="noSchoolMatch" class="no-results-msg">
-              <i class="fa-solid fa-triangle-exclamation" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
-              Mos keladigan maktab topilmadi.
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
   <!-- 7. Aloqa va Futer -->
   <section class="section" id="otm" style="background:#f8fafc;border-top:1px solid #e2e8f0;">
@@ -4839,202 +4387,6 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 
   <!-- 6. Olimpiada Grafigi (Vercel ilovasi yoki Skrinshot oʻrni) -->
     <!-- 6. Olimpiada Grafigi (olimpiada-jadval.vercel.app uslubida toʻliq original tizim) -->
-  <section class="section" id="akkreditatsiya" style="background: #ffffff; padding: 85px 24px; border-top: 1px solid #e2e8f0;">
-    <div class="main-container" style="max-width: 1300px; margin: 0 auto; padding: 0 10px;">
-      
-    
-    <!-- Sarlavha -->
-    <div class="top-hero">
-      <span class="badge-pill">
-        <i class="fa-solid fa-stamp"></i> Qöşköpir tumani MMTB rasmiy reja-grafigi
-      </span>
-      <h1>Akkreditatsiya va taşqi baholaş (2026-yil)</h1>
-      <p>Tumandagi 24 ta taʼlim muassasasi (18 ta maktab va 6 ta DMTT) uçun taşqi baholaş muddatlari va jalb etiladigan 80 nafar ekspertlar töliq reyestri.</p>
-    </div>
-
-    <!-- Tablar -->
-    <div class="tab-nav">
-      <button class="tab-btn active" onclick="showTab('reja', this)">
-        <i class="fa-solid fa-calendar-days"></i> 24 ta taşkilot rejasi
-      </button>
-      <button class="tab-btn" onclick="showTab('ekspert', this)">
-        <i class="fa-solid fa-users-gear"></i> 80 nafar ekspertlar
-      </button>
-    </div>
-
-    <!-- 1. JADVAL: 24 TA TASHKILOT REJASI -->
-    <div id="tab-reja" class="tab-content active">
-      <div class="search-filter-box">
-        <div>
-          <strong>Taʼlim muassasalari soni:</strong> 24 ta (18 ta maktab, 6 ta boğça)
-        </div>
-        <div style="position: relative;">
-          <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8;"></i>
-          <input type="text" id="orgSearch" class="search-inp" placeholder="Maktab raqami yoki rahbar F.I.Ş..." oninput="filterOrgs()">
-        </div>
-      </div>
-
-      <div class="table-container">
-        <div class="table-scroll">
-          <table id="orgsTable">
-            <thead>
-              <tr>
-                <th style="width: 60px; text-align: center;">T/r</th>
-                <th>Taşkilotning töliq nomi</th>
-                <th>Taşkilot rahbarining F.I.Ş.</th>
-                <th>Içki baholaş muddati</th>
-                <th>Taşqi baholaş (attestatsiya) muddati</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td style="text-align:center;">1</td><td style="font-weight:700;">16-sonli umumiy örta taʼlim maktabi</td><td>Saidov Şodlik Polvonoviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">2</td><td style="font-weight:700;">28-sonli umumiy örta taʼlim maktabi</td><td>Solirov Jasur Sultonoviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">3</td><td style="font-weight:700;">31-sonli umumiy örta taʼlim maktabi</td><td>Maşaripov Bekzod Bahtiyor öğli</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">4</td><td style="font-weight:700;">39-sonli umumiy örta taʼlim maktabi</td><td>Samandarova Sohiba Amanboyevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">5</td><td style="font-weight:700;">40-sonli umumiy örta taʼlim maktabi</td><td>Ruzmetova Guzaloy Yöldoşboyevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">6</td><td style="font-weight:700;">43-sonli umumiy örta taʼlim maktabi</td><td>Matniyazov Umarbek Arslonoviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">7</td><td style="font-weight:700;">46-sonli umumiy örta taʼlim maktabi</td><td>Maşaripov Uluğbek Qabuloviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">8</td><td style="font-weight:700;">30-sonli umumiy örta taʼlim maktabi</td><td>Otojonov Şodiyor Ğayibnazaroviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">9</td><td style="font-weight:700;">41-sonli umumiy örta taʼlim maktabi</td><td>Rajabov Hayitboy</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">10</td><td style="font-weight:700;">45-sonli umumiy örta taʼlim maktabi</td><td>Saidov Quvondiq Jumaboyeviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">11</td><td style="font-weight:700;">47-sonli umumiy örta taʼlim maktabi</td><td>Matyaqubov Botirbek Şarifboy öğli</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">12</td><td style="font-weight:700;">48-sonli umumiy örta taʼlim maktabi</td><td>Karimov Doniyorbek Şuxratoviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">13</td><td style="font-weight:700;">49-sonli umumiy örta taʼlim maktabi</td><td>Qiliçov Doniyor Otanazaroviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">14</td><td style="font-weight:700;">50-sonli umumiy örta taʼlim maktabi</td><td>Rahimova Dilrabo Safarboyevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">15</td><td style="font-weight:700;">51-sonli umumiy örta taʼlim maktabi</td><td>Raximov Furqat Farxodoviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">16</td><td style="font-weight:700;">52-sonli umumiy örta taʼlim maktabi</td><td>Tangriberganova Matluba Bekpölatovna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">17</td><td style="font-weight:700;">1-sonli ixtisoslaştirilgan davlat umumtaʼlim maktab-internati</td><td>Maşaripov Nuraddin Ataboyeviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">18</td><td style="font-weight:700;">4-sonli ixtisoslaştirilgan davlat umumtaʼlim maktabi</td><td>Matyoqubov Dilmurod Durdiboyeviç</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status school">7–9-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">19</td><td style="font-weight:700;">13-son davlat maktabgaça taʼlim taşkiloti</td><td>Iskandarova Dilaram Yuldaşevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">20</td><td style="font-weight:700;">16-son davlat maktabgaça taʼlim taşkiloti</td><td>Raximova Şoira Qurbondurdiyevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">21</td><td style="font-weight:700;">21-son davlat maktabgaça taʼlim taşkiloti</td><td>Isayeva Zuhrajon Hajiyevna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">22</td><td style="font-weight:700;">28-son davlat maktabgaça taʼlim taşkiloti</td><td>Abdirimova Feruza Matyaqubovna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">23</td><td style="font-weight:700;">30-son davlat maktabgaça taʼlim taşkiloti</td><td>Sabirova Gulxayo Şavkatovna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
-              <tr><td style="text-align:center;">24</td><td style="font-weight:700;">17-son davlat maktabgaça taʼlim taşkiloti</td><td>Ğofurova Oysuluv Farxadovna</td><td>10-sentabr - 5-oktabr</td><td><span class="badge-status kindergarten">9–11-dekabr 2026</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. EKSPERTLAR JADVALI (80 NAFAR) -->
-    <div id="tab-ekspert" class="tab-content">
-      <div class="search-filter-box">
-        <div style="display:flex; gap:8px;">
-          <button class="tab-btn active" id="flt-all" onclick="filterType('all', this)" style="padding:6px 14px; font-size:0.85rem;">Barçasi (80)</button>
-          <button class="tab-btn" id="flt-sch" onclick="filterType('Maktab', this)" style="padding:6px 14px; font-size:0.85rem;">Maktablar (60)</button>
-          <button class="tab-btn" id="flt-mtt" onclick="filterType('DMTT', this)" style="padding:6px 14px; font-size:0.85rem;">DMTT (20)</button>
-        </div>
-        <div style="position: relative;">
-          <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8;"></i>
-          <input type="text" id="expSearch" class="search-inp" placeholder="Ekspert F.I.Ş., fani yoki maktabi..." oninput="filterExperts()">
-        </div>
-      </div>
-
-      <div class="table-container">
-        <div class="table-scroll">
-          <table id="expertsTable">
-            <thead>
-              <tr>
-                <th style="width: 50px; text-align: center;">T/r</th>
-                <th>Ekspertning F.I.Ş.</th>
-                <th>Turi</th>
-                <th>Iş joyi</th>
-                <th>Lavozimi / Fani</th>
-                <th>Staji</th>
-                <th>Toifasi</th>
-                <th>Telefon raqami</th>
-              </tr>
-            </thead>
-            <tbody id="expertsBody">
-              <!-- Ekspertlar roʻyxati -->
-              <tr data-type="Maktab"><td style="text-align:center;">1</td><td style="font-weight:700;">Avezmetov Ortiqboy Baxtiyoroviç</td><td>Maktab</td><td>22</td><td>Direktor</td><td>29</td><td>mutaxassis</td><td>995047855</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">2</td><td style="font-weight:700;">Abdurazzokov Sultonnazir Botirboyeviç</td><td>Maktab</td><td>47</td><td>ÖIBDÖ</td><td>20</td><td>mutaxassis</td><td>(91) 999-11-83</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">3</td><td style="font-weight:700;">Otaboyev Rustambek Narimboyeviç</td><td>Maktab</td><td>51</td><td>MMIBDÖ</td><td>11</td><td>mutaxassis</td><td>(91) 094-77-78</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">4</td><td style="font-weight:700;">Aminova Dilfuza Bakdurdiyevna</td><td>Maktab</td><td>47</td><td>Boşlanğiç taʼlim</td><td>22</td><td>Birinçi</td><td>(95) 349-44-08</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">5</td><td style="font-weight:700;">Rözmetova Farida Rajabovna</td><td>Maktab</td><td>39</td><td>Boşlanğiç taʼlim</td><td>28</td><td>Ikkinçi</td><td>(99) 347-65-75</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">6</td><td style="font-weight:700;">Madraximova Şahodat Rustambekovna</td><td>Maktab</td><td>47</td><td>Ona tili fani öqituvçisi</td><td>18</td><td>Birinçi</td><td>(91) 277-73-64</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">7</td><td style="font-weight:700;">Raxmanova Nazokat Abdurazzoqovna</td><td>Maktab</td><td>39</td><td>Matematika fani öqituvçisi</td><td>21</td><td>Ikkinçi</td><td>(99) 504-21-83</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">8</td><td style="font-weight:700;">Raximov Izzat Baxtiyoroviç</td><td>Maktab</td><td>39</td><td>Kimyo fani öqituvçisi</td><td>9</td><td>mutaxassis</td><td>995029117</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">9</td><td style="font-weight:700;">Ibragimova Safura Sultanovna</td><td>Maktab</td><td>39</td><td>Fizika fani öqituvçisi</td><td>25</td><td>Ikkinçi</td><td>(77) 086-08-58</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">10</td><td style="font-weight:700;">Bobojonov Sardorbek Odilbek öğli</td><td>Maktab</td><td>47</td><td>Özbekiston tarixi fani öqituvçisi</td><td>8</td><td>Ikkinçi</td><td>977926310</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">11</td><td style="font-weight:700;">Rözmetova Nafosat Arslonovna</td><td>Maktab</td><td>39</td><td>Biologiya fani öqituvçisi</td><td>9</td><td>Ikkinçi</td><td>991811193</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">12</td><td style="font-weight:700;">Nurjanova Dinora Nodirbek qizi</td><td>Maktab</td><td>39</td><td>Ingliz tili fani öqituvçisi</td><td>3</td><td>Birinçi</td><td>(99) 942-22-90</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">13</td><td style="font-weight:700;">Saidov Xudaynazar Babajanoviç</td><td>Maktab</td><td>43</td><td>Direktor</td><td>24</td><td>mutaxassis</td><td>937490636</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">14</td><td style="font-weight:700;">Ismailova Onagul Atabayevna</td><td>Maktab</td><td>16</td><td>ÖIBDÖ</td><td>17</td><td>mutaxassis</td><td>(97) 453-02-86</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">15</td><td style="font-weight:700;">Bekçanova Zevar Şarifboyevna</td><td>Maktab</td><td>16</td><td>MMIBDÖ</td><td>22</td><td>mutaxassis</td><td>(99) 504-42-38</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">16</td><td style="font-weight:700;">Saʼdullayeva Sayyora Öktamovna</td><td>Maktab</td><td>15</td><td>Boşlanğiç taʼlim</td><td>23</td><td>Birinçi</td><td>(94) 119-08-79</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">17</td><td style="font-weight:700;">Sapaeva Feruza Quryozovna</td><td>Maktab</td><td>14</td><td>Boşlanğiç taʼlim</td><td>14</td><td>Ikkinçi</td><td>(99) 501-69-91</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">18</td><td style="font-weight:700;">Babajanova Gulasal Nematovna</td><td>Maktab</td><td>15</td><td>Ona tili fani öqituvçisi</td><td>31</td><td>Oliy</td><td>977679950</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">19</td><td style="font-weight:700;">Boltayev Murodjon Davronbek öğli</td><td>Maktab</td><td>43</td><td>Matematika fani öqituvçisi</td><td>4</td><td>Birinçi</td><td>(93) 198-75-65</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">20</td><td style="font-weight:700;">Babajanova Gulasal Nematovna</td><td>Maktab</td><td>15</td><td>Kimyo fani öqituvçisi</td><td>11</td><td>Ikkinçi</td><td>(94) 234-15-46</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">21</td><td style="font-weight:700;">Bobajonova Komila Otanazarovna</td><td>Maktab</td><td>14</td><td>Fizika fani öqituvçisi</td><td>19</td><td>mutaxassis</td><td>(97) 603-28-84</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">22</td><td style="font-weight:700;">Saporboyev Ximmat Bakpölat öğli</td><td>Maktab</td><td>43</td><td>Özbekiston tarixi fani öqituvçisi</td><td>5</td><td>Ikkinçi</td><td>(99) 965-44-95</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">23</td><td style="font-weight:700;">Qurbonov Kamoliddin Uktamoviç</td><td>Maktab</td><td>37</td><td>Biologiya fani öqituvçisi</td><td>11</td><td>Birinçi</td><td>998937428091</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">24</td><td style="font-weight:700;">Raximova Munira Qurbonboy qizi</td><td>Maktab</td><td>14</td><td>Ingliz tili fani öqituvçisi</td><td>4</td><td>oliy</td><td>933632123</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">25</td><td style="font-weight:700;">Bajiyev Tohirbek Otaboyeviç</td><td>Maktab</td><td>24</td><td>Direktor</td><td>11</td><td>mutaxassis</td><td>(97) 153-66-26</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">26</td><td style="font-weight:700;">Matyoqubov Saparboy Komiloviç</td><td>Maktab</td><td>41</td><td>ÖIBDÖ</td><td>32</td><td>mutaxassis</td><td>942353641</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">27</td><td style="font-weight:700;">Davletova Ozoda Yusupovna</td><td>Maktab</td><td>23</td><td>MMIBDÖ</td><td>25</td><td>mutaxassis</td><td>(97) 364-77-68</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">28</td><td style="font-weight:700;">Quryozova Dilnoza Ilxomboyevna</td><td>Maktab</td><td>24</td><td>Boşlanğiç taʼlim</td><td>15</td><td>Birinçi</td><td>943115699</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">29</td><td style="font-weight:700;">Allazarova Fazilat Rajabovna</td><td>Maktab</td><td>46</td><td>Boşlanğiç taʼlim</td><td>30</td><td>Ikkinçi</td><td>883627828</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">30</td><td style="font-weight:700;">Sobirova Dilfuza Otamamatovna</td><td>Maktab</td><td>24</td><td>Ona tili fani öqituvçisi</td><td>34</td><td>Ikkinçi</td><td>(93) 863-50-49</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">31</td><td style="font-weight:700;">Bajiyeva Iqbol Otobayevna</td><td>Maktab</td><td>23</td><td>Matematika fani öqituvçisi</td><td>27</td><td>oliy</td><td>(99) 348-50-78</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">32</td><td style="font-weight:700;">Xöjaniyozova Muhabbat Maşaripovna</td><td>Maktab</td><td>46</td><td>Kimyo fani öqituvçisi</td><td>30</td><td>mutaxassis</td><td>(97) 787-86-98</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">33</td><td style="font-weight:700;">Abdullayeva Risolat Şaripovna</td><td>Maktab</td><td>41</td><td>Fizika fani öqituvçisi</td><td>14</td><td>mutaxassis</td><td>975293031</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">34</td><td style="font-weight:700;">Xöjaniyazova Şahlo Rajabboy qizi</td><td>Maktab</td><td>46</td><td>Özbekiston tarixi fani öqituvçisi</td><td>11</td><td>Ikkinçi</td><td>977906310</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">35</td><td style="font-weight:700;">Artiqova Malohat Azimovna</td><td>Maktab</td><td>41</td><td>Biologiya fani öqituvçisi</td><td>14</td><td>Birinçi</td><td>943138602</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">36</td><td style="font-weight:700;">Qadirova Dilnoza Davronbekovna</td><td>Maktab</td><td>23</td><td>Ingliz tili fani öqituvçisi</td><td>17</td><td>oliy</td><td>(97) 361-88-46</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">37</td><td style="font-weight:700;">Ibragimov Mardonbek Maşariboviç</td><td>Maktab</td><td>18</td><td>Direktor</td><td>12</td><td>mutaxassis</td><td>973648703</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">38</td><td style="font-weight:700;">Ğoyipova Feruza Qadamboyevna</td><td>Maktab</td><td>48</td><td>ÖIBDÖ</td><td>26</td><td>mutaxassis</td><td>884528797</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">39</td><td style="font-weight:700;">Matyaqubov Mardonbek Ozodoviç</td><td>Maktab</td><td>17</td><td>MMIBDÖ</td><td>9</td><td>mutaxassis</td><td>974531922</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">40</td><td style="font-weight:700;">Ortiqova Maşhura Madrimovna</td><td>Maktab</td><td>17</td><td>Boşlanğiç taʼlim</td><td>12</td><td>Birinçi</td><td>991510506</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">41</td><td style="font-weight:700;">Rahimova Zulayho Baxodirovna</td><td>Maktab</td><td>19</td><td>Boşlanğiç taʼlim</td><td>24</td><td>Birinçi</td><td>932354670</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">42</td><td style="font-weight:700;">Raximova Nilufar Rözmatovna</td><td>Maktab</td><td>44</td><td>Ona tili fani öqituvçisi</td><td>19</td><td>Oliy</td><td>(97) 458-26-13</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">43</td><td style="font-weight:700;">Otanazarov Akmaljon Ikrombekoviç</td><td>Maktab</td><td>17</td><td>Matematika fani öqituvçisi</td><td>8</td><td>oliy</td><td>(93) 361-34-30</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">44</td><td style="font-weight:700;">Jumaniyazova Xolida Maşaribovna</td><td>Maktab</td><td>44</td><td>Kimyo fani öqituvçisi</td><td>11</td><td>Ikkinçi</td><td>(97) 510-12-99</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">45</td><td style="font-weight:700;">Allazarova Rözika Ganjayevna</td><td>Maktab</td><td>18</td><td>Fizika fani öqituvçisi</td><td>18</td><td>Ikkinçi</td><td>975133054</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">46</td><td style="font-weight:700;">Sobirova Muhayyo Orislonovna</td><td>Maktab</td><td>48</td><td>Özbekiston tarixi fani öqituvçisi</td><td>19</td><td>Ikkinçi</td><td>941178522</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">47</td><td style="font-weight:700;">Atayeva Muborak Egamberganovna</td><td>Maktab</td><td>44</td><td>Biologiya fani öqituvçisi</td><td>26</td><td>Ikkinçi</td><td>(97) 456-06-74</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">48</td><td style="font-weight:700;">Qurbonboyeva Şohida Dilşod qizi</td><td>Maktab</td><td>17</td><td>Ingliz tili fani öqituvçisi</td><td>8</td><td>oliy</td><td>(99) 029-96-13</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">49</td><td style="font-weight:700;">Rözmetov Fozilbek Atabayviç</td><td>Maktab</td><td>38</td><td>Direktor</td><td>29</td><td>mutaxassis</td><td>992513838</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">50</td><td style="font-weight:700;">Bobojanova Baxodir Quronboy öğli</td><td>Maktab</td><td>36</td><td>ÖIBDÖ</td><td>7</td><td>mutaxassis</td><td>(99) 421-31-47</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">51</td><td style="font-weight:700;">Abduraxmonova Navbaxor Abdukarimovna</td><td>Maktab</td><td>35</td><td>MMIBDÖ</td><td>22</td><td>mutaxassis</td><td>(99) 588-75-06</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">52</td><td style="font-weight:700;">Ismoilova Oybibi Abdullayevna</td><td>Maktab</td><td>38</td><td>Boşlanğiç taʼlim</td><td>27</td><td>Ikkinçi</td><td>(93) 468-18-75</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">53</td><td style="font-weight:700;">Törayeva Mehribon Bekçanovna</td><td>Maktab</td><td>36</td><td>Boşlanğiç taʼlim</td><td>22</td><td>Birinçi</td><td>(94) 318-34-95</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">54</td><td style="font-weight:700;">Allaberganova Gulnora Husinovna</td><td>Maktab</td><td>38</td><td>Ona tili fani öqituvçisi</td><td>19</td><td>Birinçi</td><td>(99) 213-13-01</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">55</td><td style="font-weight:700;">Tohirova Nafosat Ataboyevna</td><td>Maktab</td><td>38</td><td>Matematika fani öqituvçisi</td><td>16</td><td>Birinçi</td><td>(93) 285-13-86</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">56</td><td style="font-weight:700;">Allaberganova Donogul Xasanovna</td><td>Maktab</td><td>35</td><td>Kimyo fani öqituvçisi</td><td>16</td><td>mutaxassis</td><td>932831622</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">57</td><td style="font-weight:700;">Rustamova Maʼrifat Raşidbek qizi</td><td>Maktab</td><td>38</td><td>Fizika fani öqituvçisi</td><td>3</td><td>mutaxassis</td><td>(99) 251-38-38</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">58</td><td style="font-weight:700;">Abdullayev Davron Sobiroviç</td><td>Maktab</td><td>38</td><td>Özbekiston tarixi fani öqituvçisi</td><td>12</td><td>Ikkinçi</td><td>(99) 564-43-69</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">59</td><td style="font-weight:700;">Davletova Surayyo Ataboyevna</td><td>Maktab</td><td>35</td><td>Biologiya fani öqituvçisi</td><td>17</td><td>Birinçi</td><td>997360787</td></tr>
-              <tr data-type="Maktab"><td style="text-align:center;">60</td><td style="font-weight:700;">Sabirova Maşhura Baxtiyor qizi</td><td>Maktab</td><td>36</td><td>Ingliz tili fani öqituvçisi</td><td>7</td><td>Birinçi</td><td>(88) 517-76-67</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">61</td><td style="font-weight:700;">Xöjaeva Anorgul Qöşnazarovna</td><td>DMTT</td><td>38</td><td>MTT direktori</td><td>14</td><td>mutaxassis</td><td>976002520</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">62</td><td style="font-weight:700;">Egamberganova Gözal Farxod qizi</td><td>DMTT</td><td>37</td><td>MTT direktor örinbosari (metodist)</td><td>11</td><td>Birinçi</td><td>937418892</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">63</td><td style="font-weight:700;">Matirzayeva Şahlo Saparboyevna</td><td>DMTT</td><td>36</td><td>MTT direktor örinbosari (metodist)</td><td>9</td><td>mutaxassis</td><td>975187448</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">64</td><td style="font-weight:700;">Saporova Şirin Baxtiyorovna</td><td>DMTT</td><td>39</td><td>MTT hamşirasi</td><td>7</td><td>mutaxassis</td><td>884524554</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">65</td><td style="font-weight:700;">Sapaeva Gulmira Odilbekovna</td><td>DMTT</td><td>11</td><td>MTT direktori</td><td>6</td><td>mutaxassis</td><td>937460289</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">66</td><td style="font-weight:700;">Rajabova Xolida Şavkatovna</td><td>DMTT</td><td>7</td><td>MTT direktor örinbosari (metodist)</td><td>20</td><td>Ikkinçi</td><td>974564884</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">67</td><td style="font-weight:700;">Qöçqorova Malika Ravşanbekovna</td><td>DMTT</td><td>4</td><td>MTT direktor örinbosari (metodist)</td><td>17</td><td>Birinçi</td><td>941180692</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">68</td><td style="font-weight:700;">Matkarimova Zubayda Ravşanovna</td><td>DMTT</td><td>8</td><td>MTT hamşirasi</td><td>7</td><td>mutaxassis</td><td>975260797</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">69</td><td style="font-weight:700;">Jumaniyozova Maʼmura Jumaniyozovna</td><td>DMTT</td><td>21</td><td>MTT direktori</td><td>14</td><td>mutaxassis</td><td>956242190</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">70</td><td style="font-weight:700;">Madaminova Zamira Atanazarovna</td><td>DMTT</td><td>19</td><td>MTT direktor örinbosari (metodist)</td><td>25</td><td>Ikkinçi</td><td>975157906</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">71</td><td style="font-weight:700;">Atamuratova Nargiza Komiljanovna</td><td>DMTT</td><td>16</td><td>MTT direktor örinbosari (metodist)</td><td>11</td><td>Birinçi</td><td>997410882</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">72</td><td style="font-weight:700;">Sobirova Komila Boltaboyevna</td><td>DMTT</td><td>24</td><td>MTT hamşirasi</td><td>14</td><td>mutaxassis</td><td>995265184</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">73</td><td style="font-weight:700;">Sobirova Gulhayo Şavkatovna</td><td>DMTT</td><td>30</td><td>MTT direktori</td><td>16</td><td>mutaxassis</td><td>931059555</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">74</td><td style="font-weight:700;">Boltayeva Oygul Qurbonboy qizi</td><td>DMTT</td><td>29</td><td>MTT direktor örinbosari (metodist)</td><td>11</td><td>Birinçi</td><td>972119513</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">75</td><td style="font-weight:700;">Xöjayeva Yulduz Erkinboyevna</td><td>DMTT</td><td>40</td><td>MTT direktor örinbosari (metodist)</td><td>6</td><td>mutaxassis</td><td>995608210</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">76</td><td style="font-weight:700;">Rajabova Nazokat Ğayratovna</td><td>DMTT</td><td>7</td><td>MTT hamşirasi</td><td>11</td><td>mutaxassis</td><td>930947640</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">77</td><td style="font-weight:700;">Abdrimova Feruza Matyaqubovna</td><td>DMTT</td><td>28</td><td>MTT direktori</td><td>15</td><td>mutaxassis</td><td>949882885</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">78</td><td style="font-weight:700;">Otajonova Maftuna Ilhombek qizi</td><td>DMTT</td><td>20</td><td>MTT direktor örinbosari (metodist)</td><td>5</td><td>Ikkinçi</td><td>992235820</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">79</td><td style="font-weight:700;">Komilova Nilufar Otajonovna</td><td>DMTT</td><td>2</td><td>MTT direktor örinbosari (metodist)</td><td>8</td><td>mutaxassis</td><td>975132703</td></tr>
-              <tr data-type="DMTT"><td style="text-align:center;">80</td><td style="font-weight:700;">Allaberganova Şahlo Ismoilovna</td><td>DMTT</td><td>33</td><td>MTT hamşirasi</td><td>22</td><td>mutaxassis</td><td>9995011581</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-  </section>
 
   <!-- 8. Aloqa va Futer -->
   
@@ -5807,46 +5159,7 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 });
 </script>
-<script>
-(function(){
-var D=[{"n":"Rajapova Guljamol Bekpölat qizi","s":"55-maktab","c":9,"f":"Ona tili va adabiyoti","p":1,"b":45.0,"t":"Otaqova Nilufar Alişerovna","a":"1FmRs6xv3f5jnQJZornthr2U176L5QIZ_","q":"1Q5eNXiQ4zkBaFPkdjONeOnrryR4eifJ9"},{"n":"Odilbekova Xurşida Norbek qizi","s":"5-IDUM","c":9,"f":"Ona tili va adabiyoti","p":2,"b":43.9,"t":"Fayzullayeva Maqsuda Hamidbek qizi","a":"1QoDUQuJdMBDYBXQvAWtngvU_HejAjuch","q":"1q3x6_QEMi5ccq3uCE6DWyXgz4c5gMo_1"},{"n":"Xursandbekova Raʼnoxon Doniyorbek qizi","s":"55-maktab","c":9,"f":"Ona tili va adabiyoti","p":3,"b":42.0,"t":"Otaqova Nilufar Alişerovna","a":"1R-r2c1l36i19d2b_JjTZHbGyVPgDjXPo","q":"1Q5eNXiQ4zkBaFPkdjONeOnrryR4eifJ9"},{"n":"Rajapbayeva Sabina Şermat qizi","s":"55-maktab","c":10,"f":"Ona tili va adabiyoti","p":1,"b":38.7,"t":"Otaqova Nilufar Alişerovna","a":"1hRssAtxueI-MlfuAZphaOv9loeoforOu","q":"1Q5eNXiQ4zkBaFPkdjONeOnrryR4eifJ9"},{"n":"Otanazarova Sevinçoy Yöldoşboy qizi","s":"55-maktab","c":10,"f":"Ona tili va adabiyoti","p":2,"b":37.2,"t":"Xudayberganova Barno Erkinovna","a":"1B0PU7EheB4qojU5YFxAOm8By50kfKsee","q":"1Sa_6MCQAoIODOc-cShVaJa9TpxcvaolQ"},{"n":"Panayeva Dilnura Rajabovna","s":"34-maktab","c":10,"f":"Ona tili va adabiyoti","p":3,"b":36.8,"t":"Şaripova Matluba Obodboyevna","a":"1H7MAzfZu8cG2m7auuP5Di-gTpTayAFQD","q":"1HDcTw866dqSXpc92THh8PvapCMLEMzwV"},{"n":"Raximova Oynura Raşidbek qizi","s":"17-maktab","c":11,"f":"Ona tili va adabiyoti","p":1,"b":42.4,"t":"Quvandiqova Dilorom Roximovna","a":"1kYlkdr1aeqa2VMwPlnKyowXYuQDPoXvs","q":"1rPQToOFgRYb_c1zhKHsdue7U1OD7Zxmn"},{"n":"Zaripova Oqilaxon Omonboy qizi","s":"34-maktab","c":11,"f":"Ona tili va adabiyoti","p":2,"b":39.4,"t":"Şaripova Matluba Obodboyevna","a":"13803pA0INfD2xCfbisj_v3n5vRZwyPYo","q":"1HDcTw866dqSXpc92THh8PvapCMLEMzwV"},{"n":"Şaripova Asaloy Hamrobek qizi","s":"30-maktab","c":11,"f":"Ona tili va adabiyoti","p":3,"b":39.2,"t":"Şaripova Oltinoy Obodboy qizi","a":"1jVNhFuLnnaEV1yfzFgv90aB0yVaxKfRS","q":"1ijq44K7sxIxKSosc8ICZ7qIhjtzymaI8"},{"n":"Atanazarova Madinabonu Yunusbek qizi","s":"1-maktab","c":9,"f":"Özbek tili","p":1,"b":24.6,"t":"Ruzimova Nafisa Baymuratovna","a":"1XckuZO7KN-LRX9MYQ4t7KMN12XXVGqAl","q":"1JALmP_ZY-FfakMsh3TPZORg8WbZYgEDD"},{"n":"Jumyazova Sevinçoy Oybek qizi","s":"1-maktab","c":9,"f":"Özbek tili","p":2,"b":16.4,"t":"Avezova Muxabbat Xuşnudovna","a":"1RWVvGiosXRA82QBqt-aqa9DrkX6o18Hf","q":"1hlJ1ZINhfhSIOGDe_NpwZk9HEtqjFTTo"},{"n":"Tongriberganova Şahruza Anvarbek qizi","s":"1-maktab","c":10,"f":"Özbek tili","p":1,"b":27.8,"t":"Yöldoşeva Sevara Kamoladdin qizi","a":"1nYVF451iu9iNAXndL-P_DMuv4qF9zJt_","q":"1bGoYdvF_ekBC2PhDR_M-jeMwNe_av1wW"},{"n":"Rözimova Asaloy Jaxongir qizi","s":"1-maktab","c":10,"f":"Özbek tili","p":2,"b":22.2,"t":"Ruzimova Nafisa Baymuratovna","a":"1P-cy4nLg1X8gSwmE0PPqGScxNJF04zFM","q":"1JALmP_ZY-FfakMsh3TPZORg8WbZYgEDD"},{"n":"Saidjonova Bonu Boburbekovna","s":"1-maktab","c":10,"f":"Özbek tili","p":3,"b":12.7,"t":"Avezova Surayyo Botirovna","a":"1sizWLWOcPwNuKzcCHtS6tF5rEN-popgw","q":"19mtjPjHVRjk_yf_rgNz3s11bNByTBnrJ"},{"n":"Djumaniyazova Maryamjon Rovşanbek qizi","s":"1-maktab","c":11,"f":"Özbek tili","p":1,"b":24.4,"t":"Raximova Inobat Kamuldjanovna","a":"1lyZw-iUaxdcWrEwbjpYUHCzelw494_YX","q":"1cinSvFCkfcOOy7RwVADFb3gX5hb_HkOC"},{"n":"Kamalova Gulnigor Jalol qizi","s":"1-maktab","c":11,"f":"Özbek tili","p":2,"b":15.9,"t":"Nazarova Saida Bakdurdiyevna","a":"1K3jb8ezzh4_dImRqLZvN4xLnFNxoUXRn","q":"1C7s3gelaJgoRR2amMtyXnHPQWp1WNdaV"},{"n":"Atayev Amirbek Xamidbek öğli","s":"Ixtisoslaştirilgan maktab","c":9,"f":"Rus tili va adabiyoti","p":1,"b":26.9,"t":"Komilova Gulrux Şonazar qizi","a":"1NlJD06IWpgk4GC_Vj8-4t90PSE559HoF","q":"1_uCKQ8C3U-IW6EgSf9wQuch4s8DgesIV"},{"n":"Matnazarova Dilnura Mansurbek qizi","s":"30-maktab","c":9,"f":"Rus tili va adabiyoti","p":2,"b":26.1,"t":"Xasanova Zeboxon Bekpulatovna","a":"15kfFLVdnWwHFNt_sBz5DNjtCaL29-qIW","q":"1AKOPWBNrj5lrIjHJhTNOD0EH2zkSFd6L"},{"n":"Bahodirova Solixa Mavlonbek qizi","s":"30-maktab","c":9,"f":"Rus tili va adabiyoti","p":3,"b":23.7,"t":"Xasanova Zeboxon Bekpulatovna","a":"1PEXzUN3LlwDLaWfeSScnqDohG9knjXhW","q":"1AKOPWBNrj5lrIjHJhTNOD0EH2zkSFd6L"},{"n":"Xudayberganova Jasmina Hamro qizi","s":"24-maktab","c":10,"f":"Rus tili va adabiyoti","p":1,"b":36.7,"t":"Ollaberganova Iqboloy Xuşnudbek qizi","a":"1MymZ9wrMc9X2hYFunB8SgTfbWbyrLjN-","q":"1yvBOOtcVb-D3OXNVLN9rEA3cXOFvrNck"},{"n":"Rajabova Gulasal Otabek qizi","s":"30-maktab","c":10,"f":"Rus tili va adabiyoti","p":2,"b":27.1,"t":"Xasanova Zeboxon Bekpulatovna","a":"1Wy2TO2lru0BH4XWVzspAcWrXCzQFds1_","q":"1AKOPWBNrj5lrIjHJhTNOD0EH2zkSFd6L"},{"n":"Farxodov Behruzbek Ötkir öğli","s":"5-IDUM","c":10,"f":"Rus tili va adabiyoti","p":3,"b":26.3,"t":"Jumaniyazova Sanobar Kadamovna","a":"1t_ApjX3CUPnwtLtqaZDbowUMzjSHyb-b","q":"1uquwOHs3iA05T_yAUbRU_ioLyNmjGB97"},{"n":"Davletova Suğdiyona Jamoliddinovna","s":"1-maktab","c":11,"f":"Rus tili va adabiyoti","p":1,"b":28.0,"t":"Palvanova Zumrad Ibragimovna","a":"1pUEn49r3QQv98PAEQTbAnFTIXQ6pmze5","q":"1RTLqUTS3p6WRSj72jHEWWHhKrjSpnM7p"},{"n":"Matyoqubova Şabnam Otabek qizi","s":"34-maktab","c":11,"f":"Rus tili va adabiyoti","p":2,"b":27.4,"t":"Otajonova Xurriyat Kurvannazarovna","a":"1ko6pnbva_3n50k3IMYJKrXAZhNYvgrfQ","q":"1PKUgC5o7K6l_cZU1Js0udh40UAv21t_4"},{"n":"Polvonnazarova Nozima Jasurbek qizi","s":"1-maktab","c":11,"f":"Rus tili va adabiyoti","p":3,"b":27.1,"t":"Palvanova Zumrad Ibragimovna","a":"14iNbJUmh-qzPPbPkPm1H-0XWQBxjBhAO","q":"1RTLqUTS3p6WRSj72jHEWWHhKrjSpnM7p"},{"n":"Farxodova Gulşoda Alişer qizi","s":"4-IDUM","c":9,"f":"Ingliz tili","p":1,"b":46.7,"t":"Xajibayeva Nafosat Umidbek qizi","a":"1qxXke0-PSHrnt4Xhw4jyO2o5pngMID53","q":"1TqWVDsuKA4LMLlEI-sTn80gxSLnD9HZh"},{"n":"Matqurbanova Laylo Ruslonbek qizi","s":"4-IDUM","c":9,"f":"Ingliz tili","p":2,"b":44.0,"t":"Oçilova Hilola Habibjon qizi","a":"1hNHbqfdYf1t942GptHbydbDMsSU_Vg90","q":"1hrKji9QZD6ORjQNewWNqR8woQTEhtDmR"},{"n":"Tohirova Saida Xayrulla qizi","s":"11-maktab","c":9,"f":"Ingliz tili","p":3,"b":42.4,"t":"Sobirova Surayyo Ravşanbek qizi","a":"1xbHkzSnIkrjW9wALQy_S6Do3NOVP47bO","q":"1axWbrP2wC6agDJB2rkzG0-d1LjLHYP0B"},{"n":"Jumanazarova Sogdiana Otabek qizi","s":"Ixtisoslaştirilgan maktab","c":10,"f":"Ingliz tili","p":1,"b":41.5,"t":"Sadullayev Valijon Ğayratliyeviç","a":"1diYx7POHOAxkxSGaE2DhQ06II4Q-uLM5","q":"1_cTFRYdS9VsXzdtZm4Rpzep9X8mz66pt"},{"n":"Zaripboyeva Madina Umirbek qizi","s":"4-IDUM","c":10,"f":"Ingliz tili","p":2,"b":37.7,"t":"Tojibayeva Muslima Qahramon qizi","a":"1o1WG2QzwiznsRta1-ndLW7jDdC7jRr9z","q":"1rGDU8WOkg-CmH_uoa0nKRR3o3_8scxOr"},{"n":"Alişerov Abrorbek Xayrulla öğli","s":"55-maktab","c":10,"f":"Ingliz tili","p":3,"b":35.9,"t":"Otaboyev Hurmatbek Raxmatullayeviç","a":"11TEUwCAdxlFrKeoI1BpVJlklq5DAtHFw","q":"1MVk3kbRgaFFqBXkygKEdswWYWt3WXbxr"},{"n":"Davlatnazarova Marjona Atamurat qizi","s":"Ixtisoslaştirilgan maktab","c":11,"f":"Ingliz tili","p":1,"b":47.3,"t":"Sadullayev Valijon Ğayratliyeviç","a":"15zZ-CFhCbxkbyMHaeOoZgRL64DrHlsql","q":"1_cTFRYdS9VsXzdtZm4Rpzep9X8mz66pt"},{"n":"Bekdurdiyeva Zarinabonu Murodbekovna","s":"4-IDUM","c":11,"f":"Ingliz tili","p":2,"b":46.5,"t":"Rajabova Şodiya Abdulla qizi","a":"1T1YId7JjUAwo4Zru4rB5MQ1bzsqzU_tK","q":"1CTl2RHV5-EQHVpcMbDgkIHQT7gul_xJx"},{"n":"Ismoilova Diana Xursand qizi","s":"11-maktab","c":11,"f":"Ingliz tili","p":3,"b":45.6,"t":"Sobirova Surayyo Ravşanbek qizi","a":"1XAlFcLux_ZdV_zVTNqSvG2e0pN-lR1sn","q":"1axWbrP2wC6agDJB2rkzG0-d1LjLHYP0B"},{"n":"Karimova Zilola Umidbek qizi","s":"49-maktab","c":9,"f":"Nemis tili","p":1,"b":42.2,"t":"Boboyeva Maxbuba Quvondiq qizi","a":"1geXqsKBBsk3thIVQsixINAB5nILJu_Qd","q":"1jVrxaXrDoNxyZrORBqjBIrweKiqBVAm6"},{"n":"Azadova Laziza Jasurbekovna","s":"17-maktab","c":9,"f":"Nemis tili","p":2,"b":36.8,"t":"Matyakubova Maxbuba Raximberganovna","a":"1cbibtoHet3b75a7zistIwiP-Vr97Q8Od","q":"1E692LlajFe9RoW1gaSdBGMFXKUtR5d0n"},{"n":"Köziyeva Xolisa Mirzobek qizi","s":"44-maktab","c":9,"f":"Nemis tili","p":3,"b":24.1,"t":"Matniyozov Boburjon Saburjonoviç","a":"1a4Ny0KqjUlBL5xD52LVUw1sTvELXKShY","q":"1iNnlJ4XxdUe2UHW_jFKC6sb9HiiQmZ3z"},{"n":"Rahimova Sevinçoy Şodlik qizi","s":"49-maktab","c":10,"f":"Nemis tili","p":1,"b":37.4,"t":"Ismoilova Şahnoza Rözmatovna","a":"1cKmj-gHRINlc-hxSkdFs9OR6c2Q4nA3g","q":"1juAJ-i_JRgByHTcY8kzdkQkycU8vtASm"},{"n":"Farxodov Behruzbek Ötkir öğli","s":"5-IDUM","c":10,"f":"Nemis tili","p":2,"b":37.1,"t":"Allaberganova Feruza Saparbayevna","a":"1t_ApjX3CUPnwtLtqaZDbowUMzjSHyb-b","q":"177FOP5XBLsrdaq2cygiY_U9upQ9zZUAx"},{"n":"Raximbayeva Umida Jörabek qizi","s":"17-maktab","c":10,"f":"Nemis tili","p":3,"b":36.0,"t":"Şomuratova Şahnoza Ravşanbek qizi","a":"1aIrA5QPBVMxd4onYfx4lZrXg7lKBMoKz","q":"1iP6DHDC5BCdvrMc-1Hf6tcMH7AGicw1j"},{"n":"Yusupova Rözagul Jasurbek qizi","s":"17-maktab","c":11,"f":"Nemis tili","p":1,"b":43.7,"t":"Rözmetova Maʼmura Ikrombayevna","a":"1RsQDKOklrU1S5T1Z0XFF5NiYIG70xxjq","q":"1sRBJ2jdH-X1ZLSwKoRropqjoDx89kIlm"},{"n":"Ataxanova Mehribonu Ruslonbek qizi","s":"5-IDUM","c":11,"f":"Nemis tili","p":2,"b":38.4,"t":"Allaberganova Feruza Saparbayevna","a":"1JJQwyMZmr5smdOfNMTwbpY3hOTWh8Gz_","q":"177FOP5XBLsrdaq2cygiY_U9upQ9zZUAx"},{"n":"Egamberganov Alibek Oybek öğli","s":"44-maktab","c":11,"f":"Nemis tili","p":3,"b":29.1,"t":"Nazirova Şalola Quvondiqovna","a":"1Tf_yeW9dSCRYwmF6HX3U3W9vDwsqAl5e","q":"19WRdn0p1Ows_innp6fa8-pYYASFb8szD"},{"n":"Redjabova Aslzoda Dilşodbek qizi","s":"2-maktab","c":9,"f":"Fransuz tili","p":1,"b":34.1,"t":"Yakubova Adiljon Allanazarovna","a":"1zcmweFmyya7CPGL3YzSH8X-KXiGPmEmB","q":"1fFJA2vRpwqQ7OsRh3QWMeI_qFdSzh68e"},{"n":"Jumaboyeva Dildora Jasurbek qizi","s":"32-maktab","c":9,"f":"Fransuz tili","p":2,"b":29.3,"t":"Azimjonova Husniya Şonazar qizi","a":"1vOOw4LxnKaDrwEo4T0mWh5B87llF0XvA","q":"1muHrEbBWhRlMLdNyeenmidfd25J3gpfO"},{"n":"Qadamboyeva Madinabonu Şerzod qizi","s":"3-maktab","c":9,"f":"Fransuz tili","p":3,"b":27.7,"t":"Maşaripova Gulmira Maşaripovna","a":"1wDLt4D8tJZ357fhN7fTsCqFHNVE8fLEk","q":"1CwXWYCJ1tGYjSljX_SvD4HnD5pGOzkrE"},{"n":"Matkarimova Quvonçoy Xamroz qizi","s":"45-maktab","c":10,"f":"Fransuz tili","p":1,"b":24.8,"t":"Yusupova Mukaddam Abduşarip qizi","a":"1U2VDDwxGdirzrnPMbiKbOIoWvpvW7Kmq","q":"1qj9SAFABIUDih_zBMn6LQNYbMPA_Oxgn"},{"n":"Davlatnazarov Boburbek Davlatnazaroviç","s":"20-maktab","c":10,"f":"Fransuz tili","p":2,"b":22.6,"t":"Ollaberganova Matluba Karimberganovna","a":"1ACMnhmF0aXX4FU6A5RtsZmVlCGyL1prA","q":"1Fs5cw3RQdZudPHLt91UKVy2QV0Gb93r2"},{"n":"Rözimova Şoxruza Şodlik qizi","s":"32-maktab","c":10,"f":"Fransuz tili","p":3,"b":21.7,"t":"Azimjonova Husniya Şonazar qizi","a":"1YrENapNRy-tRFDNvMp4RmlApcoBIbTHU","q":"1muHrEbBWhRlMLdNyeenmidfd25J3gpfO"},{"n":"Zaripova Şabnam Otabek qizi","s":"24-maktab","c":11,"f":"Fransuz tili","p":1,"b":22.3,"t":"Gapparov Xasanboy Rözmatoviç","a":"1EFry3lp5q0RFwXb5cNbVpEJcUprb3RaX","q":"1j-pZ6WWSBdYIwoeofOTvMUsEdunIct4E"},{"n":"Ğayratova Marjona Şokir qizi","s":"32-maktab","c":11,"f":"Fransuz tili","p":2,"b":19.1,"t":"Aminova Hulkar Qadamboy qizi","a":"12K2WInGUs_GnXXzRiGrWmeDBxE-WX5Fd","q":"1Ylx4jI1iBKpqNyTpnVIU3-lJ4kuYh4-o"},{"n":"Bazarboyeva Saida Zafarbek qizi","s":"50-maktab","c":11,"f":"Fransuz tili","p":3,"b":17.8,"t":"Raximova Sevaraxon Şixnazarovna","a":"1OJsZG96O8Z4H25ksiOgLi6EkypDRMFaQ","q":"1PLX5ji7xWz1ngwmLZXdT6IKXT--Yc2FU"},{"n":"Ilxomboyev Munisbek Xusanbek öğli","s":"4-maktab","c":9,"f":"Matematika","p":1,"b":35.4,"t":"Ollaberganova Laylo Rözimbayevna","a":"1MPjEPZbW52kE1lHvUGuRhmlPUJW6uH6X","q":"1z-e-sckRlR_TJv7oSstlEW3CsLkSIa8U"},{"n":"Sultanov Dilmurod Dilşod öğli","s":"Ixtisoslaştirilgan maktab","c":9,"f":"Matematika","p":2,"b":30.5,"t":"Otamuratova Mavluda Jumanazarovna","a":"1dg_b_1qT6KZ0NePMvnIH9EgxLMYk2IyX","q":"1TJ7K6y_4IyWWDvGfbYOtXy21i7ysu18r"},{"n":"Saitova Moxinur Doniyor qizi","s":"10-maktab","c":9,"f":"Matematika","p":3,"b":30.0,"t":"Sobirova Bikajon Xudarganovna","a":"1RxU3T6rrO1MD9KosBf-pOHki9PaPV0hh","q":"1adPv2soqEwDdOOk2-YkcmzNlshnqe2Aq"},{"n":"Qalandarova Sabohat Azamat qizi","s":"12-maktab","c":10,"f":"Matematika","p":1,"b":31.4,"t":"Şomurotova Şoira Şaripovna","a":"1mtpZid8Dz_-XbdY9KdnNfWxSiDzpreoY","q":"14C64WwE9JmCjDE1hJbonN33htYS3cGjU"},{"n":"Matirzayeva Mohira Omonboy qizi","s":"30-maktab","c":10,"f":"Matematika","p":2,"b":28.4,"t":"Rözimova Şohnoza Sultan qizi","a":"1SGw5Q7JeGVSV6GwXn_VizjlPQF-_fcjD","q":"1rPjQgaO8MgFxP9zo25htpiW2UVwyklyS"},{"n":"Sattarova Oyjamol Atabek qizi","s":"11-maktab","c":10,"f":"Matematika","p":3,"b":27.7,"t":"Safayeva Hilala Madrimovna","a":"14S74PFBmB5IwDXj0RQUIMEU56CfqN9yx","q":"1h1qCj9tElY2jikOIolTb6CSQqXY9p_2m"},{"n":"Şarafaddinova Dilnura Xurmatbek qizi","s":"Ixtisoslaştirilgan maktab","c":11,"f":"Matematika","p":1,"b":32.7,"t":"Bekdurdiyev Zufarbek Şodlik öğli","a":"1T6z0ivIyFJV9qTRaB9oFlY60I8FJoLfK","q":"1GKqphk0qtTqsmtCrqgEHOVYkBJ_z6PRY"},{"n":"Yuldaşev Behruzbek Mansurbek öğli","s":"25-maktab","c":11,"f":"Matematika","p":2,"b":32.2,"t":"Karimov Kamoladdin Farxodoviç","a":"1LUC59Zi78iA6odZJGdXEZXFz67Crec8s","q":"1fGRqr9fD1T-yoevtOBdtKWY13FepvmCm"},{"n":"Niyazmetov Maʼmurjon Ibrat öğli","s":"18-maktab","c":11,"f":"Matematika","p":3,"b":29.8,"t":"Nurllayeva Şaxlo Atabayevna","a":"19iLIczRAGUHhQInm70ik-PCiZADeRw1H","q":"13xvBUYA6DgG0O_LW58iX1FlIkYKZQz12"},{"n":"Ollonazarov Doniyorbek Sardorbek öğli","s":"Ixtisoslaştirilgan maktab","c":9,"f":"Fizika","p":1,"b":31.3,"t":"Matyakubov Temur Baxrambekoviç","a":"1FXUfF3oeXhT1GMhAbHkPPptEPiodm4Dm","q":"1qbeDmHZVulE2ZhF2buRWhtTKebrudl_P"},{"n":"Saporboyev Azizbek Ibragim öğli","s":"44-maktab","c":9,"f":"Fizika","p":2,"b":21.9,"t":"Xudjayeva Arzigul Raximovna","a":"16WTjABEogzWImeFow6MKJV0qLqPOVf4g","q":"1HpyXvA_nlQQD8zDcDCstp0idJpN7KtKA"},{"n":"Saparboyeva Zaxroxon Xidoyat qizi","s":"46-maktab","c":9,"f":"Fizika","p":3,"b":21.5,"t":"Yusupova Gulçexra Yuldoşovna","a":"1KYkxqERx5ajT7TlrsYiVExnxpFXFmS5p","q":"1bfesXA-X6ecIbAF03t54umImC1XSrM25"},{"n":"Qurbonboyeva Tabassum Otabek qizi","s":"Ixtisoslaştirilgan maktab","c":10,"f":"Fizika","p":1,"b":45.8,"t":"Qadambayeva Nafisaxon Ilxombek qizi","a":"1WNKwZMR6Qf0oMpSDmZBdtuIXmMH8JH2R","q":"1jVf6B87XZjyuL7JuhEaHolpDUJ_JpCag"},{"n":"Maşaripov Mehriddin Yöldoşboy öğli","s":"Ixtisoslaştirilgan maktab","c":10,"f":"Fizika","p":2,"b":31.4,"t":"Matyakubov Temur Baxrambekoviç","a":"1BIkO_Wb4wd0BNu80HRuwhW0-u8FNof8r","q":"1qbeDmHZVulE2ZhF2buRWhtTKebrudl_P"},{"n":"Ikramboyev Muhammadjon Obodjon öğli","s":"24-maktab","c":10,"f":"Fizika","p":3,"b":24.4,"t":"Boboyozov Uluğbek Dösçonoviç","a":"1n1Uz1JM4yCt-QGvK3Ij9_e0ntSi-l19O","q":"1-CPsrN6BbG4HaRyhKCgFQhFiHN_aTd03"},{"n":"Niyazmetov Maʼmurjon Ibrat öğli","s":"18-maktab","c":11,"f":"Fizika","p":1,"b":23.3,"t":"Allazarova Rözikajon Kenjaboyevna","a":"19iLIczRAGUHhQInm70ik-PCiZADeRw1H","q":"1s4IE-_xZcqYXlEGTxIcfYSRq1UMZM9YX"},{"n":"Erkinova Laziza Bahrom qizi","s":"2-maktab","c":11,"f":"Fizika","p":2,"b":19.4,"t":"Yusupova Kuvançoy Erkinovna","a":"1WwTzr4m_eer_3IZs_2uLBigsQfG_BFsB","q":"1OFnMm-IKsD7PTaGRUVuf44_ARMl1pLht"},{"n":"Omonboyev Akrombek Bahrom öğli","s":"26-maktab","c":11,"f":"Fizika","p":3,"b":18.7,"t":"Saidova Nasibaxon Saparboyevna","a":"1AUoWWzsygbPR9RY_glK7w9TV77XltIlL","q":"1En01winD4bpnGA7fk1MSB6M00nC4XB8Z"},{"n":"Ollonazarov Doniyorbek Sardorbek öğli","s":"Ixtisoslaştirilgan maktab","c":9,"f":"Kimyo","p":1,"b":48.5,"t":"Qarriyev Rasuljon Boltaboyeviç","a":"1FXUfF3oeXhT1GMhAbHkPPptEPiodm4Dm","q":"18ipVa9R8_smVzZkBNIZvzwl73hVz71Je"},{"n":"Annamuradov Bunyodbek Ilyosbek öğli","s":"41-maktab","c":9,"f":"Kimyo","p":2,"b":42.0,"t":"Salayeva Dilnoza Mamatsaloyevna","a":"1byW32I22KI3npXzJT6zbqS7tG6r7K3el","q":"1D8YPxnt1B67e4hhsuv7h2dU1JQnrbgy_"},{"n":"Rustamova Muslima Mansur qizi","s":"4-IDUM","c":9,"f":"Kimyo","p":3,"b":36.6,"t":"Qarriyeva Maʼmura Boltabayevna","a":"1dNBx6w0yHKZTXZKWqTZms3gsQrXdlbhb","q":"1iGiMwHoQ5XDrdioqmNNbBhM0QQXj8CxT"},{"n":"Maşaripov Mehriddin Yöldoşboy öğli","s":"Ixtisoslaştirilgan maktab","c":10,"f":"Kimyo","p":1,"b":34.0,"t":"Matçanova Xamşirajon Yusupboyevna","a":"1BIkO_Wb4wd0BNu80HRuwhW0-u8FNof8r","q":"1DsonjUBOo-S1dIUFWAIeGQYSTCQvsilD"},{"n":"Egamberganov Abdusalom Yunus öğli","s":"55-maktab","c":10,"f":"Kimyo","p":2,"b":34.0,"t":"Norbayeva Zevarjon Tangriberganovna","a":"1LDtZCA1QvVu9O_WGjwJLD-NyIGpSBYNm","q":"1QXEiq-jSHa3IzyZSRqnguPo6MfuOCJRb"},{"n":"Xudarganov Faxriddin Xursand öğli","s":"4-IDUM","c":10,"f":"Kimyo","p":3,"b":32.4,"t":"Qarriyeva Maʼmura Boltabayevna","a":"1kdlSOLaTZnMzsLRMarhsfaeynY2SmDMT","q":"1iGiMwHoQ5XDrdioqmNNbBhM0QQXj8CxT"},{"n":"Rustamboyev Asilbek Dadabek öğli","s":"48-maktab","c":11,"f":"Kimyo","p":1,"b":33.0,"t":"Egamberganova Barno Şodlik qizi","a":"1i2IwlGW4rUUW4fd1CsT-ZpcS8FmcM-kG","q":"1hTODEaBhkXPnIbhHJGjHzrn6ux6iPNQJ"},{"n":"Rözmetov Feruzbek Madrim öğli","s":"Ixtisoslaştirilgan maktab","c":11,"f":"Kimyo","p":2,"b":29.4,"t":"Qarriyev Rasuljon Boltaboyeviç","a":"137mSdrVP6x86kDtxlrGQ1z7e2Np8ZCL5","q":"18ipVa9R8_smVzZkBNIZvzwl73hVz71Je"},{"n":"Abdullayev Eʼzozbek Javlonbek öğli","s":"55-maktab","c":11,"f":"Kimyo","p":3,"b":28.2,"t":"Raximov Jahongir Muzaffaroviç","a":"1pitM0NRelxs_y1qVGbD2BrAQWk8fe_Jl","q":"1EyML5mpMGVbizajM9LO4F22bE2jUtrdf"},{"n":"Ravşanbekov Rahmatulla Otabek öğli","s":"Ixtisoslaştirilgan maktab","c":9,"f":"Biologiya","p":1,"b":44.6,"t":"Nazarova Çaros Farxodovna","a":"1jOzEMCtGVE__Ri_l-MBs8aA2l1ZHT9Vl","q":"1eV9bGE5xpbOuEDY-TIKNcCPZG2u4hSEM"},{"n":"Komiljonova Şaxina Jasurbek qizi","s":"34-maktab","c":9,"f":"Biologiya","p":2,"b":40.0,"t":"Saydimova Nuquljon Otaboyevna","a":"1I2wbOgupTjc83v6YNKSma0vu44h8_IWg","q":"1uhBf2OUqrETeXhfRaypYHtXcd74YPkhn"},{"n":"Ollonazarov Doniyorbek Sardorbek öğli","s":"Ixtisoslaştirilgan maktab","c":9,"f":"Biologiya","p":3,"b":37.4,"t":"Qazaqova Baxtigul Nurulla qizi","a":"1FXUfF3oeXhT1GMhAbHkPPptEPiodm4Dm","q":"1pNgcU6Z9KhESZoi_P2r9j6zbVdlPV-pb"},{"n":"Abdullayev Lazizbek Qaxramon öğli","s":"37-maktab","c":10,"f":"Biologiya","p":1,"b":33.7,"t":"Qurbonov Kamoliddin Uktamoviç","a":"1A-6VCfFx7rZ6tJcT41sSV9JcwePbIWp4","q":"1MdEKsiFEgNtHvzOrho6tCmYhWCYsCIkL"},{"n":"Quranbayeva Gulruh Bahodir qizi","s":"55-maktab","c":10,"f":"Biologiya","p":2,"b":33.1,"t":"Jumaniyozova Gulnoza Şavkatovna","a":"1M_h6w1TFKa5A1gnRmO_MOtH2T3vXU3ca","q":"16T9OlqcNKe4tgzkwwTlbfRtXOqJN6N0d"},{"n":"Maşaripov Mehriddin Yöldoşboy öğli","s":"Ixtisoslaştirilgan maktab","c":10,"f":"Biologiya","p":3,"b":31.6,"t":"Qutimova Gulçexra Nurjonovna","a":"1BIkO_Wb4wd0BNu80HRuwhW0-u8FNof8r","q":"1ERRcZUxYd-E9Jl7CyS4E6-QiY8btnnpO"},{"n":"Norboyeva Jasmina Farxod qizi","s":"5-IDUM","c":11,"f":"Biologiya","p":1,"b":43.8,"t":"Bannayeva Dilafröz Soataliyevna","a":"110daIPGCm3DDS17jU2HIHOg498N0ZuRn","q":"1ptpRPaSY-rXj0GvYqz9PE-ueL8fjzvN0"},{"n":"Abdullayeva Zebo Oybek qizi","s":"33-maktab","c":11,"f":"Biologiya","p":2,"b":38.1,"t":"Bekmetova Xosiyat Baxodirovna","a":"1M5u2hjhbEizWjYokH-KCdWx5acQFa8TV","q":"1hbKkS1Lqou1ln9Fs9YwQ2-COuWb3DkxI"},{"n":"Otaboyev Davlatbek Oybek öğli","s":"14-maktab","c":11,"f":"Biologiya","p":3,"b":35.1,"t":"Ollayorov Jöşqin Matçonoviç","a":"11sJPXWXVdbEOTRJpHE4CjYyUVF6LF6_r","q":"1dnz-s_9MB64M7n5wsS1ECictaRnEGAZ4"},{"n":"Matkarimov Dostonbek Qahramon öğli","s":"Ixtisoslaştirilgan maktab","c":9,"f":"Geografiya","p":1,"b":39.4,"t":"Matkarimov Şixnazar Rözmat öğli","a":"18gQMPPNeDIPf8hBnJYmR0PwSvzGYAfs7","q":"1CQ1dSjc4lvr21BCqy2kfBYM-D0FSKoor"},{"n":"Komilova Kamola Dilmurod qizi","s":"6-maktab","c":9,"f":"Geografiya","p":2,"b":26.6,"t":"Sultanova Nargisa Ibodullayevna","a":"1Zo3r9Hf63PE1dXJmVSNh019Lq3x61WgO","q":"1bTFfOxvJm_Z3G5e5AWMHUqkcBUvHMpCL"},{"n":"Jumanazarov Navruzbek Oybek öğli","s":"4-IDUM","c":9,"f":"Geografiya","p":3,"b":24.9,"t":"Rasulova Dilnavoz Sultanbayevna","a":"1r1pIqCgoTKI6PsSUM7OGWsu1ICtI0C-h","q":"1wxryha2JbnzfpcdeWX2hqxDCw01rDUle"},{"n":"Xasanova Şoxruzaxon Xajiboy qizi","s":"32-maktab","c":10,"f":"Geografiya","p":1,"b":32.0,"t":"Mirjonova Xurşida Kurbannazarovna","a":"1-vZZQSJRmY8lbL3dMEECROgWNiNgplzK","q":"16O_9OqNYY4YUWtCVmZ-BMCTw1UkXJLtV"},{"n":"Kamiljonov Mirjalol Mirzabek öğli","s":"1-maktab","c":10,"f":"Geografiya","p":2,"b":30.7,"t":"Raximova Muqaddas Şodlikovna","a":"18H32AbHq_3oou7k9cL2fi0JVrCgQxemR","q":"1qXoDuXxO7qORlZpnMGNjobYEUpO_4skt"},{"n":"Jumanazarova Mahliyo Eldorbek qizi","s":"19-maktab","c":10,"f":"Geografiya","p":3,"b":28.9,"t":"Xudayberganova Nargiza Abduşaripovna","a":"1lzmGPHzRapy-e2de82KB2lcBNFQl2S-y","q":"1XXwhs0HJvSbW4yF-EqIc5HCDsCBcIhcR"},{"n":"Pulatova Çarosxon Muxammad qizi","s":"55-maktab","c":11,"f":"Geografiya","p":1,"b":33.0,"t":"Allaberganova Anamoy Atabayevna","a":"1CJBUB3w6YVtkGRyL4YCjSZVC5nsith73","q":"1pkXVXr7y003_OWPemN7ue5Hbmo0QGg6_"},{"n":"Ismailova Xonzoda Sanjarbek qizi","s":"48-maktab","c":11,"f":"Geografiya","p":2,"b":23.3,"t":"Atayeva Sanobar Şarofaddinovna","a":"1E5e59q3w9yd1F2wqGmoId_tVTz_bnvBy","q":"1gl4yv3ve1UN8Hry75cXXHAb02TCMjrYR"},{"n":"Jumabayeva Bibi Robiya Umidovna","s":"4-maktab","c":11,"f":"Geografiya","p":3,"b":23.2,"t":"Sultonova Fazilat Abdullayevna","a":"1j32aPFlkViJWWz9od8gZmnWRkvN30lau","q":"1cttoTgnHXWq7f4gu5FxwnRajiqh776_3"},{"n":"Bobonazarova Xonzoda Maqsudbek qizi","s":"46-maktab","c":9,"f":"Tarix","p":1,"b":50.0,"t":"Xöjaniyazova Şahlo Rajabboy qizi","a":"1N5kuM75manbLofBPUplmyH3oDsqWqwyd","q":"1NtSqbXKyUBU04HhH1Blqxs0MjPbPy7Xs"},{"n":"Qodirova Laylo Hasan qizi","s":"47-maktab","c":9,"f":"Tarix","p":2,"b":45.6,"t":"Bobojonov Sardorbek Odilbek öğli","a":"1Tw3bWUJ0EeQPeiJ-hR56RqOoMVigPVRx","q":"1Fj3lEKyLbtwaXUsSoSrjUtFRPduA3n8N"},{"n":"Ollaberganova Asaloy Bekturdi qizi","s":"51-maktab","c":9,"f":"Tarix","p":3,"b":45.0,"t":"Karimova Başorat Quranboyevna","a":"1gKYpIxlj1qfaxEN6qVu3a7NwOgpP4gwr","q":"1GXsJ_uYek7w7QWg1mn4xIuqS8HM_Yitx"},{"n":"Yöldoşeva Rayhona Kamoladdin qizi","s":"4-IDUM","c":10,"f":"Tarix","p":1,"b":47.4,"t":"Otajonova Şoira Saʼdullayevna","a":"10Hy0XeD6kWS6B4Yjpl-8J-G5Z2p0THBF","q":"1XINCH7VVEg1ZyMm2sw3NvWExEH96x49W"},{"n":"Nizomatdinova Nigina Alimardon qizi","s":"4-IDUM","c":10,"f":"Tarix","p":2,"b":44.8,"t":"Karimova Nadira Sadullayevna","a":"1ZRqRu_cBzKrP90_s-dF48eelRVM2S66e","q":"1I9DkN95wncFXl1rMEA9p16E5lgLOrV_r"},{"n":"Maratova Onaxon Jasurbek qizi","s":"32-maktab","c":10,"f":"Tarix","p":3,"b":42.2,"t":"Matsafoyeva Şohista Ibroximovna","a":"1nXLgN0cF8zOi6xrvfsX70AJWR4FtFBbn","q":"19Dxq7NYT-bUnJg_T_PJffEFV_327fkKv"},{"n":"Bobojonov Botir Boymurod öğli","s":"46-maktab","c":11,"f":"Tarix","p":1,"b":44.1,"t":"Xöjaniyazova Şahlo Rajabboy qizi","a":"1I2KtJqlJfMXDrlk9jYEWTwUD9v4ropbe","q":"1NtSqbXKyUBU04HhH1Blqxs0MjPbPy7Xs"},{"n":"Tangriberganov Amirbek Komiljon öğli","s":"2-maktab","c":11,"f":"Tarix","p":2,"b":35.9,"t":"Xudayberganova Tozagul Atanazarovna","a":"1XNCCjC8Hs8mt2ZG3d4-e07vbbC-sbgkQ","q":"1PAZef1q7PHceW29M9y8qrOyvVpSSPP4S"},{"n":"Ibadullayeva Maftuna Umirbek qizi","s":"30-maktab","c":11,"f":"Tarix","p":3,"b":35.8,"t":"Saidova Şohista Ataboyevna","a":"1xzDupob7i0kHDm-fhEq2uEOwpIwg0Scd","q":"1OaniwZ2hk-S74E0TO2iTUz7pcQx-xXqi"},{"n":"Ğayibnazarova Şabnam Erkin qizi","s":"51-maktab","c":9,"f":"Davlat va huquq asoslari","p":1,"b":47.0,"t":"Ibragimova Tabassum Ğoyibnazar qizi","a":"1qmUcMla5Q2-SiUb8x2_bL8d9sQdsqQTg","q":"1fugJaHPcCOckoK2bDrpr-16BnvDgAwTY"},{"n":"Safoyev Diydorbek Erkaboy öğli","s":"11-maktab","c":9,"f":"Davlat va huquq asoslari","p":2,"b":44.4,"t":"Olloberganova Şaydo Nuraddin qizi","a":"1d6OEQsCOMhPUh6B6z0K3JICjaM7HU0Bq","q":"1JKGQ_F32UgpTC6d3Pfb-EIQGjHkGEXOE"},{"n":"Baxodirova Şabnam Xamdambek qizi","s":"44-maktab","c":9,"f":"Davlat va huquq asoslari","p":3,"b":41.1,"t":"Quranbayev Qurbonboy Baxtiyoroviç","a":"1NzlGqqywkTydDIFHuG_Uu9N2gf811btu","q":"16TBsZ8trRhw-s0W6nccdH407AJ-BUmbQ"},{"n":"Alişerov Abrorbek Xayrulla öğli","s":"55-maktab","c":10,"f":"Davlat va huquq asoslari","p":1,"b":45.0,"t":"Xamidjon qizi Maxliyo Egamberganovna","a":"11TEUwCAdxlFrKeoI1BpVJlklq5DAtHFw","q":"1p4MTeijEPgJ_RPIrnQZkFmpBB71BDsMe"},{"n":"Rejabboyev Jamşidbek Odilbek öğli","s":"4-IDUM","c":10,"f":"Davlat va huquq asoslari","p":2,"b":43.5,"t":"Bobojanov Xamidbek Azimboyeviç","a":"1389XYYNCzalWjAhTvpP1VmLUBNDBxRMD","q":"1A-YxAwQcVMHCc-JYkJPhTamdmtxd15w9"},{"n":"Egamova Şaydo Ikromjon qizi","s":"Ixtisoslaştirilgan maktab","c":10,"f":"Davlat va huquq asoslari","p":3,"b":43.5,"t":"Abdullayeva Dildor Yuldaşevna","a":"1hEV11jyJlF1L8pnXJ5ciq7RvBm3GdJX7","q":"1CSNglpbBe9ivVUUoNUaZ0tBlsdmRzN5p"},{"n":"Rajabboyeva Şohruza Rustamboy qizi","s":"44-maktab","c":11,"f":"Davlat va huquq asoslari","p":1,"b":49.1,"t":"Batirova Mavluda Baxodirovna","a":"1x5SKWGUvUC1CoJCQft8ZRpjBA6ELu-sz","q":"1VXU852QjguArGH_CYsbddDv4T3EE4fHo"},{"n":"Reyimboyeva Dinora Xursandbek qizi","s":"33-maktab","c":11,"f":"Davlat va huquq asoslari","p":2,"b":49.1,"t":"Boynazarova Sabura Qodamboy qizi","a":"1kfEcmxoYJ4tVtmoAjZcLDfNnZ9xv9x4p","q":"153jLN0JPwjMiWHuwo1789gBf-eXpwed-"},{"n":"Yuldaşev Davlatbek Akbarjon öğli","s":"25-maktab","c":11,"f":"Davlat va huquq asoslari","p":3,"b":46.7,"t":"Rözimova Mavjuda Boymurotovna","a":"1WPyIKeeXTGJKBUYW6F7dJSD9SnIZ3s4A","q":"13TcMxW6wAsR6XXCIt1QjNWBcKHP_soHV"},{"n":"Qodirberganov Behrözbek Dilşodoviç","s":"33-maktab","c":9,"f":"Informatika va AT","p":1,"b":40.6,"t":"Sapayeva Dilfuza Yusupovna","a":"1U9nUOP_R0iy-g3nMOTVyI7u_Ciscsouw","q":"1MggejctvrwkRNwbLrc24kSJbmfpMTyb1"},{"n":"Ilxomboyev Munisbek Xusanbek öğli","s":"4-maktab","c":9,"f":"Informatika va AT","p":2,"b":25.9,"t":"Saidova Adolat Azadbayevna","a":"1MPjEPZbW52kE1lHvUGuRhmlPUJW6uH6X","q":"1Tsp8YDqSV9FMlRsUINGMwOgPgnJSENdy"},{"n":"Otajonov Akromjon Ğulomjon öğli","s":"23-maktab","c":9,"f":"Informatika va AT","p":3,"b":25.1,"t":"Atanafasova Mahfuza Rahmonovna","a":"1eVG24taoAsrC_LAjwqhzKu-OQb-s30JW","q":"17-fvGcflVd78tNzeNfbOpL8BWFCLVgFc"},{"n":"Omonov Jöşqinbek Otabek öğli","s":"4-IDUM","c":10,"f":"Informatika va AT","p":1,"b":41.4,"t":"Amanbayeva Dilnoza Saparbayevna","a":"1xoHbTZPBWZ1nArvnHWuAaYE6nGOdM1Ou","q":"1gxm5tg4ayR5ErojD9HqeZ7X53uwriRC0"},{"n":"Raximov Abrorbek Yuldaş öğli","s":"44-maktab","c":10,"f":"Informatika va AT","p":2,"b":35.4,"t":"Matçanov Zafarbek Xolmuratoviç","a":"1pAmYxi8PgSVm2IHbvhWi0zK-FzsMnwGH","q":"1lz2I2W5Tsd6HJyNJpZf7TYDSRvG9aT7T"},{"n":"Alimboyeva Zaynab Sanjar qizi","s":"23-maktab","c":10,"f":"Informatika va AT","p":3,"b":29.1,"t":"Atanafasova Mahfuza Rahmonovna","a":"1FWTQJRlpmMxDpIYMSVpcWejWnkds5wH8","q":"17-fvGcflVd78tNzeNfbOpL8BWFCLVgFc"},{"n":"Şixnazarov Muhammadrasul Hamidjon öğli","s":"Ixtisoslaştirilgan maktab","c":11,"f":"Informatika va AT","p":1,"b":29.4,"t":"Salayev Dosçanboy Raximboyeviç","a":"1DG5zVjlKArzDzNJHWywr_mTg40MgPh1T","q":"1RSjDhwS5qQbUg7SLiOuP09GHu_0nV77Q"},{"n":"Niyazmetov Maʼmurjon Ibrat öğli","s":"18-maktab","c":11,"f":"Informatika va AT","p":2,"b":26.2,"t":"Ibragimov Şodlik Durdiyeviç","a":"19iLIczRAGUHhQInm70ik-PCiZADeRw1H","q":"1ns_b6GVdj8nAynk5W3T-eDAByUnlFlhv"},{"n":"Pölatboyev Jahongir Jasurbek öğli","s":"5-IDUM","c":11,"f":"Informatika va AT","p":3,"b":24.4,"t":"Raximberganova Iqbol Farxod qizi","a":"1J1xHYF1BRDDjzakdLO3ZQzF1fo5b-Oc_","q":"10aHEaYHI_m9rI7_RuQMqUNzANbXlJ8Hn"}],P=0,T=1;window.nxShow=24;
-var R=['','I','II','III'];
-var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
-var fans=[];D.forEach(function(x){if(fans.indexOf(x.f)<0)fans.push(x.f)});
-var fs=document.getElementById('nxF');fans.forEach(function(f){var o=document.createElement('option');o.textContent=f;fs.appendChild(o)});
-document.querySelectorAll('#nxChips .nx-chip').forEach(function(b){b.onclick=function(){document.querySelectorAll('#nxChips .nx-chip').forEach(function(x){x.classList.remove('on')});b.classList.add('on');P=+b.getAttribute('data-p');nxRender(true)}});
-window.nxTab=function(n){T=n;document.getElementById('nxT1').classList.toggle('on',n==1);document.getElementById('nxT2').classList.toggle('on',n==2);document.getElementById('nxChips').style.display=n==1?'flex':'none';nxRender(true)};
-window.nxErr=function(i){var s=document.createElement('span');s.className='ini';s.textContent=i.alt.split(' ').slice(0,2).map(function(w){return w[0]}).join('').toUpperCase();i.replaceWith(s)};
-window.nxImg=function(id,n,sz){var ini='<span class="ini">'+esc(n.split(' ').slice(0,2).map(function(w){return w[0]}).join('')).toUpperCase()+'</span>';if(!id)return ini;return '<img loading="lazy" referrerpolicy="no-referrer" alt="'+esc(n)+'" src="https://drive.google.com/thumbnail?id='+id+'&sz=w'+(sz||300)+'" onerror="nxErr(this)">'};
-window.nxRender=function(reset){
- if(reset)window.nxShow=24;
- var q=document.getElementById('nxQ').value.toLowerCase().trim(),f=fs.value,c=document.getElementById('nxC').value;
- var rows=D.filter(function(x){return (!f||x.f==f)&&(!c||x.c==c)&&(T==2||!P||x.p==P)&&(!q||(x.n+' '+x.s+' '+x.t+' '+x.f).toLowerCase().indexOf(q)>-1)});
- var out='',list;
- if(T==1){list=rows;
-  out=list.slice(0,nxShow).map(function(x){return '<div class="nx-w"><div class="nx-av">'+nxImg(x.a,x.n)+'<div class="nx-medal m'+x.p+'">'+R[x.p]+'</div></div><div><b class="n">'+esc(x.n)+'</b><div class="m"><span class="f">'+esc(x.f)+'</span>'+esc(x.s)+' · '+x.c+'-sinf · '+String(x.b).replace('.',',')+' ball</div><div class="nx-tp">'+nxImg(x.q,x.t,120)+'<span>Ustoz: '+esc(x.t)+'</span></div></div></div>'}).join('');
-  document.getElementById('nxCnt').textContent=list.length+' ta natija';
- }else{
-  var m={};rows.forEach(function(x){var k=x.t+'|'+x.s;(m[k]=m[k]||{t:x.t,s:x.s,q:x.q,w:[]}).w.push(x)});
-  list=Object.keys(m).map(function(k){return m[k]}).sort(function(a,b){return b.w.length-a.w.length||a.t.localeCompare(b.t)});
-  out=list.slice(0,nxShow).map(function(g){return '<div class="nx-w nx-tcard"><div class="nx-av">'+nxImg(g.q,g.t)+'</div><div style="flex:1"><b class="n">'+esc(g.t)+'</b><div class="m">'+esc(g.s)+'</div><div class="t">'+g.w.map(function(x){return esc(x.n)+' — '+esc(x.f)+', '+x.c+'-sinf, '+R[x.p]+' örin'}).join('<br>')+'</div></div><span class="cnt">'+g.w.length+' ta</span></div>'}).join('');
-  document.getElementById('nxCnt').textContent='';
- }
- document.getElementById('nxList').innerHTML=out||'<div class="nx-empty">Heç narsa topilmadi</div>';
- document.getElementById('nxMore').style.display=list.length>nxShow?'block':'none';
-};
-nxRender(true);
-var RL=[["Asosiy fan olimpiadasi", "Al-Xorazmiy nomidagi aniq va tabiiy fanlar (Science)", "Abu Rayhon Beruniy nomidagi xalqaro Kimyo olimpiadasi (ARBIÇO)", "Xalqaro Yoşlar Bolqon Matematika olimpiadasi", "Xalqaro Kimyo olimpiadasi (IChO)", "Xalqaro Matematika Olimpiadasi (IMO)", "Xalqaro Fizika Olimpiadasi (IPhO)", "Xalqaro Informatika Olimpiadasi (IOI)", "Jahon Oçiq Astronomiya Olimpiadasiga saralaş", "Xalqaro Matematika Musobaqasi (IMC)", "Jahon Oçiq Astronomiya Olimpiadasi", "22-Xalqaro yoşlar tabiiy fanlar olimpiadasiga saralaş", "Nufuzli xalqaro olimpiadalarga saralaş", "Nufuzli xalqaro olimpiadalar (IMO, IPhO, IBO, IChO, IOI)", "22-Xalqaro yoşlar tabiiy fanlar olimpiadasi", "Xalqaro Jautikov Olimpiadasi", "Xalqaro Nemis tili olimpiadasiga saralaş", "Xalqaro Ingliz tili olimpiadasi (ELO)", "Xalqaro Geografiya olimpiadasi (IGeO)", "Xalqaro Iqtisod Olimpiadasi (IEO)", "Xalqaro Kavkaz Matematika Olimpiadasi (CMO)", "Osiyo Tinç okeani mintaqasi Matematika Olimpiadasi (APMO)", "Xalqaro Bolqon Matematika Olimpiadasi (BMO)", "Ösmirlar örtasida Bolqon Matematika Olimpiadasi (JBMO)", "Osiyo Fizika olimpiadasi (APhO)", "Yevropa Fizika Olimpiadasi", "Osiyo Tinç okeani mintaqasi Informatika Olimpiadasi (APIO)", "Yevropa Qizlar Matematika Olimpiadasi (EGMO)", "Yevropa Qizlar Informatika Olimpiadasi (EGOI)", "Xalqaro Turkmaniston Olimpiadasi", "Xalqaro Oçiq Biologiya Olimpiadasi", "Alişer Navoiy nomidagi Xalqaro Özbek tili Olimpiadasi", "Al-Xorazmiy nomidagi Xalqaro Matematika va Informatika olimpiadasi", "Al-Farğoniy nomidagi Xalqaro Fizika Olimpiadasi", "Abu Ali Ibn Sino nomidagi xalqaro biologiya olimpiadasi", "Buyuk Şarq Renessansi xalqaro olimpiadasi", "Xalqaro ingliz tili olimpiadasiga saralaş bosqiçlari", "Xalqaro geografiya olimpiadasiga saralaş bosqiçlari"],["“Huquqiy-maʼrifiy bilimdon” körik-tanlovi", "“Men giyohvandlikka qarşiman” körik-tanlovi", "“Yoş qutqaruvçi” musobaqasi", "“Yoş gvardiyaçi” musobaqasi", "“Yoş çegaraçi” musobaqasi", "“Vatanparvar” musobaqasi", "“Yaşil çiroq” musobaqasi", "“Jasorat uçqunlari” musobaqasi", "Öquvçilar örtasidagi “Zakovat” intellektual öyini musobaqasi", "“Turon” maktab teatri", "“Iqtidor” maktab ansambli", "“Jadidlar izidan” körik-tanlovi", "Badiiy gimnastika böyiça “Maktabgaça va maktab taʼlimi vaziri kubogi” musobaqasi", "Umumtaʼlim maktab öquvçilari örtasida “Beş taşabbus” olimpiadasi", "“Öquvçilar kengaşi” liderlar tanlovi", "“Yil sardori” körik-tanlovi", "“Eng namunali maktab sardorlari kengaşi” körik-tanlovi", "“Eng namunali mahalliy sardorlari kengaşi” körik-tanlovi", "“Eng namunali hududiy sardorlari kengaşi” körik-tanlovi", "Öquvçilar örtasida “Yoşlar va qonun” körik-tanlovi", "“Kitobxonlik festivali” körik-tanlovi", "Öquvçilar örtasida “Futbolimiz kelajagi sening qölingda” şiori ostida respublika birinçiligi", "“Yoş bojxonaçi” körik-tanlovi", "Huquqiy-maʼrifiy bilimdon ijodiy körik-tanlovi", "“Jaholatga qarşi maʼrifat” mavzusida ijodiy işlar tanlovi", "“Mening huquq va majburiyatlarim” körik-tanlovi", "“Zulfiya” davlat mukofoti", "“Yoş kitobxon” körik-tanlovi", "“Inson huquqlari” körik-tanlovi", "“Sen isteʼdodlisan” körik-tanlovi", "“Xorijiy tillarni öqitiş böyiça eng yaxşi maktab tanlovi”", "“Siz ekologiyaga oid qonunlarni bilasizmi?” körik-tanlovi", "“Eco-Schools Uzbekistan” loyihasi doirasida ötkaziladigan tanlovlar", "“Raqamli avlod qizlari” tanlovi", "“Ixtiroçilikka qadam” tanlovi", "Öquvçi qizlar örtasida “Maktabgaça va maktab taʼlimi vaziri kubogi” musobaqasi", "Maktabgaça va maktab taʼlimi vazirligi tasarrufidagi respublika taşkilotlarining Vazirlik bilan kelişilgan holda ötkazilgan körik-tanlovlar, musobaqa va tadbirlar"]],cur=1;
-window.nxList2=function(n){if(n)cur=n;document.getElementById('nxL1').classList.toggle('on',cur==1);document.getElementById('nxL2').classList.toggle('on',cur==2);var q=document.getElementById('nxRQ').value.toLowerCase().trim();
- var h=RL[cur-1].map(function(x,i){return [i+1,x]}).filter(function(a){return !q||a[1].toLowerCase().indexOf(q)>-1}).map(function(a){return '<li value="'+a[0]+'">'+esc(a[1])+'</li>'}).join('');
- document.getElementById('nxRL').innerHTML=h||'<div class="nx-empty">Heç narsa topilmadi</div>'};
-nxList2(1);
-// menyu
-document.querySelectorAll('.nx-nav>li>button').forEach(function(b){b.addEventListener('click',function(e){var li=b.parentNode,was=li.classList.contains('open');document.querySelectorAll('.nx-nav>li').forEach(function(x){x.classList.remove('open')});if(!was)li.classList.add('open');e.stopPropagation()})});
-document.addEventListener('click',function(){document.querySelectorAll('.nx-nav>li').forEach(function(x){x.classList.remove('open')})});
-document.querySelectorAll('.nx-nav a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nxNav').classList.remove('show')})});
-})();
-</script>
+
 <script>
 /* Hisoblagiçlar menyusi */
 (function(){var t=document.getElementById('nxTools');if(!t)return;
@@ -5901,328 +5214,7 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
 </script>
 <script src="qulaylik.js?v=2" defer></script>
 
-<script>
-/* ===== MAHALIY VA TEZKOR OLIMPIADA TIZIMI LOGIKASI ===== */
-(function(){
-  var rawData = window.OLIMPIADA_DATA || { sozlama: {}, fanlar: [], maktablar: [], goliblar: [], natijalar: [] };
-  var currentSinf = 0;
-  var currentPage = 1;
-  var pageSize = 25;
-  var filteredNatijalar = [];
 
-  function initOlimpiada() {
-    if ((!window.OLIMPIADA_DATA || !window.OLIMPIADA_DATA.natijalar) && typeof fetch !== 'undefined') {
-      fetch('olimpiada_data.json').then(function(r){ return r.json(); }).then(function(d){
-        window.OLIMPIADA_DATA = d;
-        rawData = d;
-        setupUI();
-      }).catch(function(){ setupUI(); });
-    } else {
-      rawData = window.OLIMPIADA_DATA;
-      setupUI();
-    }
-  }
-
-  function setupUI() {
-    if (!rawData) return;
-
-    // 1. Ishtirokchilar va umumiy statistika
-    var stP = document.getElementById('olStatParticipants');
-    if (stP && rawData.natijalar) stP.textContent = rawData.natijalar.length.toLocaleString('uz-UZ');
-
-    var stW = document.getElementById('olStatWinners');
-    if (stW) {
-      var wCount = (rawData.goliblar && rawData.goliblar.length) || 124;
-      stW.textContent = wCount + ' nafar';
-    }
-
-    // 2. Fanlar selectlarini to'ldirish
-    var selFan = document.getElementById('olFilterFan');
-    var selGolibFan = document.getElementById('olFilterGolibFan');
-    if (selFan && rawData.fanlar) {
-      selFan.innerHTML = '<option value="">Barcha fanlar</option>';
-      if (selGolibFan) selGolibFan.innerHTML = '<option value="">Barcha fanlar</option>';
-
-      rawData.fanlar.forEach(function(f){
-        var opt = document.createElement('option');
-        opt.value = f.name;
-        opt.textContent = (f.emoji || '📚') + ' ' + f.name;
-        selFan.appendChild(opt);
-
-        if (selGolibFan) {
-          var opt2 = opt.cloneNode(true);
-          selGolibFan.appendChild(opt2);
-        }
-      });
-    }
-
-    // 3. Fanlar gridini chizish
-    renderFanlarGrid();
-
-    // 4. Boshlang'ich natijalarni filtrlash va chizish
-    olApplyFilters(true);
-
-    // 5. G'oliblarni chizish
-    renderGoliblar();
-
-    // 6. Maktablar reytingini chizish
-    renderMaktablar();
-  }
-
-  function renderFanlarGrid() {
-    var grid = document.getElementById('olFanlarGrid');
-    if (!grid || !rawData.fanlar) return;
-    var html = '';
-    rawData.fanlar.forEach(function(f){
-      html += '<div class="ol-fan-card">';
-      html += '  <div class="ol-fc-header">';
-      html += '    <div class="ol-fc-emoji">' + (f.emoji || '📚') + '</div>';
-      html += '    <span class="ol-fc-date"><i class="fa-regular fa-calendar"></i> ' + (f.date || '2026') + '</span>';
-      html += '  </div>';
-      html += '  <div class="ol-fc-name">' + f.name + '</div>';
-      html += '  <div class="ol-fc-counts">';
-      html += '    <div class="ol-fc-count-item"><b>' + (f.c9 || 0) + '</b><small>9-sinf</small></div>';
-      html += '    <div class="ol-fc-count-item"><b>' + (f.c10 || 0) + '</b><small>10-sinf</small></div>';
-      html += '    <div class="ol-fc-count-item"><b>' + (f.c11 || 0) + '</b><small>11-sinf</small></div>';
-      html += '  </div>';
-      html += '  <div class="ol-fc-actions">';
-      html += '    <button type="button" class="ol-fc-btn ol-fc-btn-view" onclick="olFilterByFan(\'' + f.name.replace(/'/g, "\\'") + '\')"><i class="fa-solid fa-list"></i> Natijalar</button>';
-      if (f.tg9 || f.tg10 || f.tg11) {
-        var tgLink = f.tg9 || f.tg10 || f.tg11;
-        html += '    <a href="' + tgLink + '" target="_blank" rel="noopener" class="ol-fc-btn ol-fc-btn-tg"><i class="fa-brands fa-telegram"></i> Guruh</a>';
-      }
-      html += '  </div>';
-      html += '</div>';
-    });
-    grid.innerHTML = html;
-  }
-
-  window.olSwitchTab = function(tabName) {
-    document.querySelectorAll('.ol-tab-btn').forEach(function(b){ b.classList.remove('active'); });
-    document.querySelectorAll('.ol-tab-panel').forEach(function(p){ p.classList.remove('active'); });
-    var btn = document.getElementById('olTabBtn_' + tabName);
-    var panel = document.getElementById('olTab_' + tabName);
-    if (btn) btn.classList.add('active');
-    if (panel) panel.classList.add('active');
-
-    if (tabName === 'natijalar') renderTable();
-    else if (tabName === 'goliblar') renderGoliblar();
-    else if (tabName === 'maktablar') renderMaktablar();
-    else if (tabName === 'fanlar') renderFanlarGrid();
-  };
-
-  window.olSetSinf = function(sinf, btn) {
-    currentSinf = sinf;
-    document.querySelectorAll('#olSinfPills .ol-sinf-pill').forEach(function(b){ b.classList.remove('active'); });
-    if (btn) btn.classList.add('active');
-    olApplyFilters(true);
-  };
-
-  window.olFilterByFan = function(fanName) {
-    var sel = document.getElementById('olFilterFan');
-    if (sel) sel.value = fanName;
-    olSwitchTab('natijalar');
-    olApplyFilters(true);
-  };
-
-  window.olApplyFilters = function(resetPage) {
-    if (resetPage) currentPage = 1;
-    var selFan = document.getElementById('olFilterFan');
-    var fanVal = selFan ? selFan.value : '';
-
-    filteredNatijalar = (rawData.natijalar || []).filter(function(r){
-      var matchFan = !fanVal || r.f === fanVal;
-      var matchSinf = !currentSinf || r.s === currentSinf;
-      return matchFan && matchSinf;
-    });
-
-    renderTable();
-  };
-
-  function renderTable() {
-    var tb = document.getElementById('olTableBody');
-    var info = document.getElementById('olPageInfo');
-    var sum = document.getElementById('olTableSummary');
-    var prev = document.getElementById('olPrevBtn');
-    var next = document.getElementById('olNextBtn');
-    if (!tb) return;
-
-    var total = filteredNatijalar.length;
-    var totalPages = Math.ceil(total / pageSize) || 1;
-    if (currentPage > totalPages) currentPage = totalPages;
-    if (currentPage < 1) currentPage = 1;
-
-    var start = (currentPage - 1) * pageSize;
-    var end = start + pageSize;
-    var pageItems = filteredNatijalar.slice(start, end);
-
-    var html = '';
-    pageItems.forEach(function(r){
-      var badgeCls = 'ol-rank-def';
-      var badgeText = r.p || '-';
-      if (r.p === 1) { badgeCls = 'ol-rank-1'; badgeText = '🥇 1'; }
-      else if (r.p === 2) { badgeCls = 'ol-rank-2'; badgeText = '🥈 2'; }
-      else if (r.p === 3) { badgeCls = 'ol-rank-3'; badgeText = '🥉 3'; }
-
-      html += '<tr>';
-      html += '  <td><span class="ol-rank-badge ' + badgeCls + '">' + badgeText + '</span></td>';
-      html += '  <td><b>' + (r.n || '-') + '</b></td>';
-      html += '  <td><span style="color:#475569">' + (r.m || '-') + '</span></td>';
-      html += '  <td><span style="font-weight:700">' + (r.f || '-') + '</span> <small style="color:#64748b">(' + (r.s || '-') + '-sinf)</small></td>';
-      html += '  <td style="text-align:center;">' + (r.b1 || '-') + '</td>';
-      html += '  <td style="text-align:center;">' + (r.b2 || '-') + '</td>';
-      html += '  <td style="text-align:center;">' + (r.b3 || '-') + '</td>';
-      html += '  <td style="text-align:center;"><span class="ol-score-pill">' + (r.b != null ? String(r.b).replace('.', ',') : '-') + '</span></td>';
-      html += '  <td><small style="color:#475569">' + (r.t || '-') + '</small></td>';
-      html += '</tr>';
-    });
-
-    tb.innerHTML = html || '<tr><td colspan="9" style="text-align:center;padding:30px;color:#94a3b8">Hech qanday maʼlumot topilmadi</td></tr>';
-    if (sum) sum.textContent = 'Jami natijalar: ' + total + ' ta';
-    if (info) info.textContent = 'Sahifa ' + currentPage + ' / ' + totalPages + ' (jami ' + total + ')';
-    if (prev) prev.disabled = currentPage <= 1;
-    if (next) next.disabled = currentPage >= totalPages;
-  }
-
-  window.olChangePage = function(delta) {
-    currentPage += delta;
-    renderTable();
-  };
-
-  function renderGoliblar() {
-    var sel = document.getElementById('olFilterGolibFan');
-    var fanVal = sel ? sel.value : '';
-    var tb = document.getElementById('olGolibTableBody');
-    var sum = document.getElementById('olGolibSummary');
-    if (!tb) return;
-
-    var list = (rawData.goliblar && rawData.goliblar.length) 
-               ? rawData.goliblar 
-               : (rawData.natijalar || []).filter(function(r){ return r.p >= 1 && r.p <= 3; });
-
-    if (fanVal) {
-      list = list.filter(function(r){ return r.f === fanVal; });
-    }
-
-    var html = '';
-    list.forEach(function(r){
-      var badgeCls = 'ol-rank-1', badgeText = '🥇 1-oʻrin';
-      if (r.p === 2) { badgeCls = 'ol-rank-2'; badgeText = '🥈 2-oʻrin'; }
-      else if (r.p === 3) { badgeCls = 'ol-rank-3'; badgeText = '🥉 3-oʻrin'; }
-
-      html += '<tr>';
-      html += '  <td><span class="ol-rank-badge ' + badgeCls + '">' + badgeText + '</span></td>';
-      html += '  <td><b>' + (r.n || '-') + '</b></td>';
-      html += '  <td><span style="color:#475569">' + (r.m || '-') + '</span></td>';
-      html += '  <td><b>' + (r.f || '-') + '</b> · ' + (r.s || '-') + '-sinf</td>';
-      html += '  <td style="text-align:center;">' + (r.b1 || '-') + '</td>';
-      html += '  <td style="text-align:center;">' + (r.b2 || '-') + '</td>';
-      html += '  <td style="text-align:center;">' + (r.b3 || '-') + '</td>';
-      html += '  <td style="text-align:center;"><span class="ol-score-pill" style="font-weight:800;">' + (r.b != null ? String(r.b).replace('.', ',') : '-') + '</span></td>';
-      html += '  <td><small style="color:#475569;">' + (r.t || '-') + '</small></td>';
-      html += '</tr>';
-    });
-
-    tb.innerHTML = html || '<tr><td colspan="9" style="text-align:center;padding:30px;color:#94a3b8">Gʻoliblar topilmadi</td></tr>';
-    if (sum) sum.textContent = list.length + ' nafar gʻolib';
-  }
-  window.olRenderGoliblar = renderGoliblar;
-
-  function renderMaktablar() {
-    var tb = document.getElementById('olMaktabTableBody');
-    if (!tb) return;
-
-    var list = rawData.maktablar || [];
-    if (!list || list.length === 0) {
-      tb.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:30px;color:#94a3b8">Maʼlumot topilmadi</td></tr>';
-      return;
-    }
-
-    var html = '';
-    list.forEach(function(item, idx){
-      var rankBadge = (idx + 1);
-      if (idx === 0) rankBadge = '<span class="ol-rank-badge ol-rank-1">🥇 1</span>';
-      else if (idx === 1) rankBadge = '<span class="ol-rank-badge ol-rank-2">🥈 2</span>';
-      else if (idx === 2) rankBadge = '<span class="ol-rank-badge ol-rank-3">🥉 3</span>';
-
-      html += '<tr>';
-      html += '  <td style="text-align:center;font-weight:800;color:#64748b;">' + rankBadge + '</td>';
-      html += '  <td><b>' + (item.short || item.full) + '</b>' + (item.full && item.full !== item.short ? '<small style="display:block;color:#64748b;font-size:0.8rem;">' + item.full + '</small>' : '') + '</td>';
-      html += '  <td style="text-align:center;font-weight:700;">' + (item.participants || 0) + '</td>';
-      html += '  <td style="text-align:center;"><span style="color:#b45309;font-weight:800;">' + (item.w1 ? item.w1 + ' ta' : '-') + '</span></td>';
-      html += '  <td style="text-align:center;"><span style="color:#475569;font-weight:800;">' + (item.w2 ? item.w2 + ' ta' : '-') + '</span></td>';
-      html += '  <td style="text-align:center;"><span style="color:#c2410c;font-weight:800;">' + (item.w3 ? item.w3 + ' ta' : '-') + '</span></td>';
-      html += '  <td style="text-align:center;"><span class="ol-score-pill" style="background:#fef3c7;color:#b45309;font-weight:800;">' + (item.totalW ? item.totalW + ' ta' : '0') + '</span></td>';
-      html += '</tr>';
-    });
-
-    tb.innerHTML = html;
-  }
-  window.olRenderMaktablar = renderMaktablar;
-
-  // JONLI QIDIRUV
-  window.olHandleSearch = function(val) {
-    var q = (val || '').toLowerCase().trim();
-    var box = document.getElementById('olSearchResults');
-    var clear = document.getElementById('olSearchClear');
-    if (!box || !clear) return;
-
-    clear.style.display = q.length > 0 ? 'block' : 'none';
-
-    if (q.length < 3) {
-      box.style.display = 'none';
-      return;
-    }
-
-    var matches = (rawData.natijalar || []).filter(function(r){
-      return (r.n && r.n.toLowerCase().indexOf(q) > -1) ||
-             (r.m && r.m.toLowerCase().indexOf(q) > -1) ||
-             (r.t && r.t.toLowerCase().indexOf(q) > -1);
-    }).slice(0, 15);
-
-    if (matches.length === 0) {
-      box.innerHTML = '<div style="padding:14px;color:#94a3b8;text-align:center;">Hech narsa topilmadi</div>';
-      box.style.display = 'block';
-      return;
-    }
-
-    var html = '';
-    matches.forEach(function(r){
-      var rankBadge = '';
-      if (r.p === 1) rankBadge = '🥇 1-oʻrin';
-      else if (r.p === 2) rankBadge = '🥈 2-oʻrin';
-      else if (r.p === 3) rankBadge = '🥉 3-oʻrin';
-      else if (r.p) rankBadge = r.p + '-oʻrin';
-
-      html += '<div class="ol-sr-item" onclick="olFilterByFan(\'' + (r.f || '').replace(/'/g, "\\'") + '\')">';
-      html += '  <div>';
-      html += '    <b style="color:#0f172a;font-size:0.96rem;">' + r.n + '</b>';
-      html += '    <div style="font-size:0.82rem;color:#64748b;">' + r.m + ' · ' + r.f + ' (' + r.s + '-sinf)</div>';
-      html += '  </div>';
-      html += '  <div style="text-align:right">';
-      html += '    <span class="ol-score-pill">' + (r.b != null ? String(r.b).replace('.', ',') : '-') + ' ball</span>';
-      if (rankBadge) html += '    <div style="font-size:0.75rem;color:#b45309;font-weight:700;">' + rankBadge + '</div>';
-      html += '  </div>';
-      html += '</div>';
-    });
-
-    box.innerHTML = html;
-    box.style.display = 'block';
-  };
-
-  window.olClearSearch = function() {
-    var inp = document.getElementById('olSearchInput');
-    if (inp) { inp.value = ''; olHandleSearch(''); }
-  };
-
-  // Initsializatsiya
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initOlimpiada);
-  } else {
-    initOlimpiada();
-  }
-})();
-</script>
 
 
 <script>
