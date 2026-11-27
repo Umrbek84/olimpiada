@@ -4487,6 +4487,247 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<style>
+/* Tepadagi oq panelni butunlay olib tashlash */
+.nx-header, .portal-topbar, .nx-quick-actions, .mobile-header-bar {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Asosiy sahifa butunlay yuqoridan boshlansin */
+body {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+.nx-hero {
+  padding-top: 48px !important;
+}
+</style>
+<style>
+/* === YANGI VA CHROYLI SIDEBAR DIZAYNI === */
+:root {
+  --sb-width: 310px;
+}
+body {
+  padding-left: var(--sb-width) !important;
+  background: #090e1f !important;
+  color: #fff;
+  margin: 0;
+}
+.app-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sb-width);
+  background: #090e1f;
+  background: linear-gradient(180deg, #090e1f 0%, #0c142b 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  z-index: 99999;
+  overflow-y: auto;
+  box-shadow: 6px 0 30px rgba(0, 0, 0, 0.4);
+}
+.app-sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+.app-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+.sb-header {
+  padding: 22px 18px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.sb-header img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 2px;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+.sb-title b {
+  font-size: 1.05rem;
+  display: block;
+  color: #ffffff;
+  font-weight: 800;
+}
+.sb-title span {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  display: block;
+  font-weight: 600;
+}
+.sb-nav {
+  padding: 14px 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sb-section-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  padding: 6px 10px 2px;
+}
+.sb-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.sb-item:hover, .sb-item.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+/* Card guruhlari (O'quvchilar va Pedagoglar) */
+.sb-card-group {
+  margin-top: 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+.sb-card-header {
+  padding: 11px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+}
+.student-group .sb-card-header {
+  color: #fbbf24;
+  border-left: 3px solid #fbbf24;
+}
+.teacher-group .sb-card-header {
+  color: #38bdf8;
+  border-left: 3px solid #38bdf8;
+}
+.service-group .sb-card-header {
+  color: #4ade80;
+  border-left: 3px solid #4ade80;
+}
+
+.sb-card-links {
+  padding: 6px 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sb-subitem {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  text-decoration: none;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all 0.2s;
+  position: relative;
+}
+.sb-subitem:hover {
+  background: rgba(37, 99, 235, 0.2);
+  border-color: rgba(37, 99, 235, 0.5);
+  color: #ffffff;
+  transform: translateX(3px);
+}
+.sb-subitem.pri {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(37, 99, 235, 0.1));
+  border-color: rgba(245, 158, 11, 0.3);
+}
+.sb-subitem.live-btn {
+  background: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.4);
+}
+.sb-subitem i {
+  font-size: 1.05rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.sb-subitem b {
+  display: block;
+  font-size: 0.84rem;
+  color: #f1f5f9;
+  line-height: 1.25;
+}
+.sb-subitem small {
+  display: block;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+.sb-tag {
+  margin-left: auto;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.sb-tag.yellow {
+  background: #f59e0b;
+  color: #fff;
+}
+.sb-tag.green {
+  background: #059669;
+  color: #fff;
+}
+.sb-footer {
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.25);
+}
+.sb-footer img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #38bdf8;
+  object-fit: cover;
+}
+.sb-author b {
+  font-size: 0.88rem;
+  color: #ffffff;
+  display: block;
+}
+.sb-author small {
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+@media(max-width: 1023px) {
+  body {
+    padding-left: 0 !important;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -4503,6 +4744,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 
 <!-- CHAP VERTICAL SIDEBAR MENYU -->
+<!-- CHAP VERTICAL ASOSIY BOSHQARUV MENYUSI -->
 <aside class="app-sidebar" id="appSidebar">
   <div class="sb-header">
     <img src="logo.png" alt="Logotip">
@@ -4510,152 +4752,153 @@ document.addEventListener('DOMContentLoaded', function() {
       <b>Umrbek Mamatov</b>
       <span>MMTB Taʼlim Portali</span>
     </div>
-    <button type="button" class="sb-close-btn" id="sbCloseBtn"><i class="fa-solid fa-xmark"></i></button>
   </div>
 
   <nav class="sb-nav">
-    <div class="sb-group-title">Asosiy</div>
-    <a href="#home" class="sb-link active"><i class="fa-solid fa-house" style="color:#38bdf8"></i> <span>Bosh sahifa</span></a>
-    <a href="haqimda.html" class="sb-link"><i class="fa-solid fa-user-tie" style="color:#60a5fa"></i> <span>Men haqimda</span></a>
-    <a href="#ekotizim" class="sb-link"><i class="fa-solid fa-network-wired" style="color:#a78bfa"></i> <span>Taʼlim ekotizimi</span></a>
+    <div class="sb-section-label">ASOSIY</div>
+    <a href="#home" class="sb-item active"><i class="fa-solid fa-house" style="color:#38bdf8"></i> <span>Bosh sahifa</span></a>
+    <a href="haqimda.html" class="sb-item"><i class="fa-solid fa-user-tie" style="color:#60a5fa"></i> <span>Men haqimda</span></a>
+    <a href="#ekotizim" class="sb-item"><i class="fa-solid fa-network-wired" style="color:#a78bfa"></i> <span>Taʼlim ekotizimi</span></a>
 
-    <!-- O'QUVCHILAR UCHUN KATTA BO'LIM (AKKORDEON / MODAL) -->
-    <div class="sb-accordion-item open" id="accStudents">
-      <button type="button" class="sb-accordion-btn" onclick="toggleAccordion('accStudents')">
-        <span class="sb-acc-title"><i class="fa-solid fa-graduation-cap" style="color:#fbbf24"></i> Oʻquvchilar uchun</span>
-        <i class="fa-solid fa-chevron-down sb-acc-arrow"></i>
-      </button>
-      <div class="sb-accordion-content">
-        <a href="https://olimpiada.umamatov.uz" target="_blank" rel="noopener" class="sb-sublink highlight">
+    <!-- 1. O'QUVCHILAR UCHUN KATTA BO'LIM -->
+    <div class="sb-card-group student-group">
+      <div class="sb-card-header">
+        <i class="fa-solid fa-graduation-cap" style="color:#fbbf24"></i>
+        <span>Oʻquvchilar uchun</span>
+      </div>
+      <div class="sb-card-links">
+        <a href="https://olimpiada.umamatov.uz" target="_blank" rel="noopener" class="sb-subitem pri">
           <i class="fa-solid fa-trophy" style="color:#f59e0b"></i>
           <div>
-            <b>Olimpiada natijalari tizimi</b>
+            <b>Olimpiada natijalari</b>
             <small>60 ta maktab, 124 nafar gʻolib</small>
           </div>
+          <span class="sb-tag yellow">YANGI</span>
         </a>
-        <a href="https://olimpiada.umamatov.uz/hududiy-bosqich.html" target="_blank" rel="noopener" class="sb-sublink highlight">
-          <i class="fa-solid fa-calendar-days" style="color:#2563eb"></i>
+        <a href="https://olimpiada.umamatov.uz/hududiy-bosqich.html" target="_blank" rel="noopener" class="sb-subitem">
+          <i class="fa-solid fa-calendar-days" style="color:#38bdf8"></i>
           <div>
-            <b>Hududiy (viloyat) bosqich grafigi</b>
-            <small>Sana, vaqt, smena va manzillar</small>
+            <b>Hududiy (viloyat) grafigi</b>
+            <small>Sana, smena va sinov joylari</small>
           </div>
         </a>
-        <a href="https://test.umamatov.uz" target="_blank" rel="noopener" class="sb-sublink">
+        <a href="https://test.umamatov.uz" target="_blank" rel="noopener" class="sb-subitem">
           <i class="fa-solid fa-laptop-code" style="color:#10b981"></i>
           <div>
-            <b>Tayyorgarlik testlari platformasi</b>
-            <small>Tuman & viloyat bosqichi uchun</small>
+            <b>Tayyorgarlik testlari</b>
+            <small>Tuman & viloyat bosqichiga</small>
           </div>
+          <span class="sb-tag green">TEST</span>
         </a>
-        <a href="otm-ballari.html" class="sb-sublink">
+        <a href="otm-ballari.html" class="sb-subitem">
           <i class="fa-solid fa-ranking-star" style="color:#ec4899"></i>
           <div>
             <b>OTMga kirish ballari 2026</b>
             <small>Grant va shartnoma kvotalari</small>
           </div>
         </a>
-        <a href="https://olimpiada.umamatov.uz/ixtirochilik/index.html" target="_blank" rel="noopener" class="sb-sublink">
+        <a href="https://olimpiada.umamatov.uz/ixtirochilik/index.html" target="_blank" rel="noopener" class="sb-subitem">
           <i class="fa-solid fa-lightbulb" style="color:#f97316"></i>
           <div>
-            <b>“Ixtirochilikka qadam” tanlovi</b>
-            <small>Tuman bosqichi onlayn reytingi</small>
+            <b>“Ixtirochilikka qadam”</b>
+            <small>Tanlov nizomi va natijalari</small>
           </div>
         </a>
-        <a href="jonli.html" target="_blank" rel="noopener" class="sb-sublink" style="background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.4);">
+        <a href="jonli.html" target="_blank" rel="noopener" class="sb-subitem live-btn">
           <i class="fa-solid fa-circle-play" style="color:#ef4444"></i>
           <div>
-            <b style="color:#f87171">JONLI EFIR (Olimpiada)</b>
-            <small style="color:#fca5a5">Jonli kuzatuv translyatsiyasi</small>
+            <b style="color:#f87171">JONLI EFIR</b>
+            <small style="color:#fca5a5">Olimpiada jarayoni onlayn</small>
           </div>
         </a>
       </div>
     </div>
 
-    <!-- PEDAGOGLAR UCHUN KATTA BO'LIM (AKKORDEON) -->
-    <div class="sb-accordion-item open" id="accTeachers">
-      <button type="button" class="sb-accordion-btn" onclick="toggleAccordion('accTeachers')">
-        <span class="sb-acc-title"><i class="fa-solid fa-chalkboard-user" style="color:#38bdf8"></i> Pedagoglar uchun</span>
-        <i class="fa-solid fa-chevron-down sb-acc-arrow"></i>
-      </button>
-      <div class="sb-accordion-content">
-        <a href="attestatsiya.html" class="sb-sublink">
+    <!-- 2. PEDAGOGLAR UCHUN KATTA BO'LIM -->
+    <div class="sb-card-group teacher-group">
+      <div class="sb-card-header">
+        <i class="fa-solid fa-chalkboard-user" style="color:#38bdf8"></i>
+        <span>Pedagoglar uchun</span>
+      </div>
+      <div class="sb-card-links">
+        <a href="attestatsiya.html" class="sb-subitem">
           <i class="fa-solid fa-table-list" style="color:#38bdf8"></i>
           <div>
-            <b>Attestatsiya 2026 sinov grafigi</b>
-            <small>Pedagoglar test jadvali va F.I.Sh.</small>
+            <b>Attestatsiya sinov grafigi</b>
+            <small>2026-yil pedagoglar test jadvali</small>
           </div>
         </a>
-        <a href="https://krk.umamatov.uz" target="_blank" rel="noopener" class="sb-sublink">
+        <a href="https://krk.umamatov.uz" target="_blank" rel="noopener" class="sb-subitem">
           <i class="fa-solid fa-user-gear" style="color:#c084fc"></i>
           <div>
-            <b>Kasbiy rivojlanish kuni (KRK)</b>
-            <small>Metodika, testlar va koʻrik-tanlovlar</small>
+            <b>Kasbiy rivojlanish kuni</b>
+            <small>KRK metodikasi va testlari</small>
           </div>
         </a>
-        <a href="yangi-baholash.html" class="sb-sublink">
+        <a href="yangi-baholash.html" class="sb-subitem">
           <i class="fa-solid fa-school-circle-check" style="color:#a78bfa"></i>
           <div>
-            <b>Yangi baholash tizimi & ChSB</b>
-            <small>45 ta maktab onlayn grafigi</small>
+            <b>Yangi baholash tizimi</b>
+            <small>45 ta maktab onlayn ChSB grafigi</small>
           </div>
         </a>
-        <a href="akkreditatsiya.html" class="sb-sublink">
+        <a href="akkreditatsiya.html" class="sb-subitem">
           <i class="fa-solid fa-stamp" style="color:#fb923c"></i>
           <div>
-            <b>Akkreditatsiya va tashqi baholash</b>
-            <small>24 ta muassasa reja-grafigi</small>
+            <b>Akkreditatsiya 2026</b>
+            <small>24 ta taʼlim muassasasi grafigi</small>
           </div>
         </a>
-        <a href="https://pedagog.umamatov.uz" target="_blank" rel="noopener" class="sb-sublink">
+        <a href="https://pedagog.umamatov.uz" target="_blank" rel="noopener" class="sb-subitem">
           <i class="fa-solid fa-book-open-reader" style="color:#34d399"></i>
           <div>
             <b>pedagog.umamatov.uz</b>
             <small>Darsliklar asosidagi test tizimi</small>
           </div>
         </a>
-        <a href="taqsimot.html" class="sb-sublink">
+        <a href="taqsimot.html" class="sb-subitem">
           <i class="fa-solid fa-table-cells" style="color:#38bdf8"></i>
           <div>
             <b>Dars soatlari taqsimoti</b>
-            <small>3271-nizom asosida avtomatlashtirilgan</small>
+            <small>3271-nizom asosida avtomatik</small>
           </div>
         </a>
       </div>
     </div>
 
-    <!-- XIZMATLAR VA TAHLILLAR BO'LIMI -->
-    <div class="sb-accordion-item" id="accServices">
-      <button type="button" class="sb-accordion-btn" onclick="toggleAccordion('accServices')">
-        <span class="sb-acc-title"><i class="fa-solid fa-chart-pie" style="color:#4ade80"></i> Tahlillar & Xizmatlar</span>
-        <i class="fa-solid fa-chevron-down sb-acc-arrow"></i>
-      </button>
-      <div class="sb-accordion-content">
-        <a href="823qaror.html" class="sb-sublink">
+    <!-- 3. TAHLILLAR VA XIZMATLAR -->
+    <div class="sb-card-group service-group">
+      <div class="sb-card-header">
+        <i class="fa-solid fa-chart-pie" style="color:#4ade80"></i>
+        <span>Tahlil & Xizmatlar</span>
+      </div>
+      <div class="sb-card-links">
+        <a href="823qaror.html" class="sb-subitem">
           <i class="fa-solid fa-calculator" style="color:#34d399"></i>
           <div>
             <b>823-ustama hisoblagich</b>
-            <small>Oʻqituvchi, psixolog, kutubxonachi</small>
+            <small>Oʻqituvchi, psixolog, kutubxona</small>
           </div>
         </a>
-        <a href="1-chorak-yakunlari.html" class="sb-sublink">
+        <a href="1-chorak-yakunlari.html" class="sb-subitem">
           <i class="fa-solid fa-chart-column" style="color:#a3e635"></i>
           <div>
-            <b>1-chorak yakunlari tahlili</b>
+            <b>1-chorak tahlili</b>
             <small>Bilim sifati: maktablar va sinflar</small>
           </div>
         </a>
-        <a href="otm-qabul.html" class="sb-sublink">
+        <a href="otm-qabul.html" class="sb-subitem">
           <i class="fa-solid fa-building-columns" style="color:#fbbf24"></i>
           <div>
             <b>OTMga qabul tahlili</b>
-            <small>Grant, shartnoma, tuman koʻrsatkichi</small>
+            <small>Grant & kontrakt taqsimoti</small>
           </div>
         </a>
-        <a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener" class="sb-sublink">
+        <a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener" class="sb-subitem">
           <i class="fa-brands fa-telegram" style="color:#229ed9"></i>
           <div>
             <b>Taʼlimga oid hujjatlar</b>
-            <small>Telegram kanal: qarorlar, yangiliklar</small>
+            <small>Telegram kanal: rasmiy qarorlar</small>
           </div>
         </a>
       </div>
@@ -4670,6 +4913,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 </aside>
+
 
 
 <div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>
