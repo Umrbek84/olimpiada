@@ -3724,6 +3724,95 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
   .ol-sinf-pills { overflow-x: auto; }
 }
 </style>
+<style>
+/* === ANIQ VA MOSLASHUVCHAN NAVIGATSIYA QOIDALARI === */
+.nx-nav > li.nx-about-m,
+.nx-nav > li.nx-tools-m {
+  display: none !important;
+}
+
+@media(min-width: 1001px) {
+  .nx-bar {
+    gap: 8px !important;
+  }
+  .nx-nav > li > a,
+  .nx-nav > li > button {
+    padding: 8px 10px !important;
+    font-size: 0.94rem !important;
+  }
+  .nx-hb-d {
+    padding: 8px 12px !important;
+    font-size: 0.78rem !important;
+  }
+}
+
+@media(max-width: 1000px) {
+  .nx-burger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    background: #f1f5f9;
+    border: 0;
+    border-radius: 10px;
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
+    color: #0f2547;
+    cursor: pointer;
+  }
+  .nx-nav > li.nx-about-m,
+  .nx-nav > li.nx-tools-m {
+    display: block !important;
+  }
+  .nx-tools {
+    display: none !important;
+  }
+  .nx-header .nx-nav {
+    display: none;
+    position: absolute !important;
+    top: 68px !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: #ffffff !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 12px 16px 30px !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.18) !important;
+    max-height: calc(100vh - 68px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 0 !important;
+    z-index: 99999 !important;
+  }
+  .nx-header .nx-nav.show {
+    display: flex !important;
+  }
+  .nx-header .nx-nav > li > a:not(.nx-hb):not(.nx-live),
+  .nx-header .nx-nav > li > button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    position: relative !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 13px 18px !important;
+    min-height: 48px !important;
+    margin: 4px 0 !important;
+    border-radius: 12px !important;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    text-align: left !important;
+    cursor: pointer !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>
@@ -3738,12 +3827,15 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
           <span>Boş mutaxassis · Taʼlim portali</span>
         </div>
       </a>
-      <button class="nx-burger" aria-label="Menyu" onclick="document.getElementById('nxNav').classList.toggle('show')">
+      <button class="nx-burger" aria-label="Menyu" onclick="document.getElementById('nxNav').classList.toggle('show'); event.stopPropagation();">
         <i class="fa-solid fa-bars"></i>
       </button>
       <ul class="nx-nav" id="nxNav">
         <li><a href="#home" title="Boş sahifa"><i class="fa-solid fa-house"></i><span class="nx-hm"> Boş sahifa</span></a></li>
-        <li><a href="haqimda.html" style="font-weight:800;color:#2563eb;"><i class="fa-solid fa-user-tie" style="color:#2563eb"></i> Men haqimda</a></li>
+        
+        <!-- Faqat mobil qurilmalarda ko'rinadigan "Men haqimda" (Desktopda ortiqcha joy olmasligi uchun) -->
+        <li class="nx-about-m"><a href="haqimda.html" style="color:#2563eb;font-weight:800;"><i class="fa-solid fa-user-tie" style="color:#2563eb"></i> Men haqimda</a></li>
+        
         <li><a href="#ekotizim"><i class="fa-solid fa-network-wired" style="color:#2563eb"></i> Ekotizim</a></li>
         
         <li><button type="button"><i class="fa-solid fa-trophy" style="color:#d97706"></i> Olimpiada <i class="fa-solid fa-chevron-down"></i></button>
@@ -3781,10 +3873,11 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
           </ul>
         </li>
 
-        <li><button type="button"><i class="fa-solid fa-calculator" style="color:#059669"></i> Xizmatlar <i class="fa-solid fa-chevron-down"></i></button>
+        <!-- Faqat mobil qurilmalarda ko'rinadigan "Xizmatlar" menyusi -->
+        <li class="nx-tools-m"><button type="button"><i class="fa-solid fa-calculator" style="color:#059669"></i> Xizmatlar <i class="fa-solid fa-chevron-down"></i></button>
           <ul class="nx-drop">
             <li><a href="haqimda.html"><i class="fa-solid fa-user-tie" style="color:#2563eb"></i><span><b>Men haqimda</b><small>Umrbek Mamatov — qisqaça tanişuv</small></span></a></li>
-            <li><a href="tuman-natijalar.html"><i class="fa-solid fa-medal" style="color:#f59e0b"></i><span><b>Tuman olimpiada natijalari</b><small>Alohida toʻliq natijalar sahifasi</small></span></a></li>
+            <li><a href="tuman-natijalar.html"><i class="fa-solid fa-medal" style="color:#f59e0b"></i><span><b>Tuman olimpiada natijalari</b><small>Alohida toʻliq sahifa</small></span></a></li>
             <li><a href="823qaror.html"><i class="fa-solid fa-calculator"></i><span><b>823-ustama</b><small>Pedagog, kutubxonaçi va psixolog ustamasi</small></span></a></li>
             <li><a href="taqsimot.html"><i class="fa-solid fa-table-cells"></i><span><b>Dars soatlari taqsimoti</b><small>3271-nizom asosida avtomatik</small></span></a></li>
             <li><a href="otm-ballari.html"><i class="fa-solid fa-ranking-star"></i><span><b>OTMga kirish ballari</b><small>2026-yil qabul koʻrsatkichlari</small></span></a></li>
@@ -3795,7 +3888,7 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 
         <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Aloqa</a></li>
 
-        <!-- Mobil harakat tugmalari (Mobile Only) -->
+        <!-- Mobil harakat tugmalari (Faqat mobilda chiqadi) -->
         <li class="nx-hb-m"><a href="haqimda.html" class="nx-hb" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)!important"><i class="fa-solid fa-user-tie"></i> Men haqimda — Umrbek Mamatov</a></li>
         <li class="nx-hb-m"><a href="https://test.umamatov.uz" target="_blank" rel="noopener" class="nx-hb" style="background:linear-gradient(135deg,#059669,#0284c7)!important"><i class="fa-solid fa-laptop-code"></i> Tayyorgarlik Testi <span style="background:#fff;color:#059669;border-radius:12px;font-size:0.65rem;padding:2px 6px;margin-left:4px;font-weight:800">YANGI</span></a></li>
         <li class="nx-hb-m"><a href="otm-ballari.html" class="nx-hb nx-otmb"><i class="fa-solid fa-ranking-star"></i> OTMga kiriş ballari 2026 <span class="nx-nb">11-SINF</span></a></li>
@@ -6078,5 +6171,26 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
 })();
 </script>
 
+
+<script>
+// Mukammal va ishonchli mobil menyu skripti
+document.addEventListener('DOMContentLoaded', function() {
+  var b = document.querySelector('.nx-burger');
+  var n = document.getElementById('nxNav');
+  if (b && n) {
+    b.addEventListener('click', function(e) {
+      e.stopPropagation();
+      n.classList.toggle('show');
+    });
+  }
+  document.addEventListener('click', function(e) {
+    if (n && n.classList.contains('show')) {
+      if (!n.contains(e.target) && !b.contains(e.target)) {
+        n.classList.remove('show');
+      }
+    }
+  });
+});
+</script>
 </body>
 </html>
