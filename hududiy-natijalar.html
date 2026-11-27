@@ -85,6 +85,11 @@ footer{margin:46px 0 26px;text-align:center;color:var(--mut);font-size:.92rem}
 table.tt{min-width:640px}.rs.tt td small{color:var(--mut);font-size:.82rem}.bar{height:12px;background:#e5eaf3;border-radius:99px;overflow:hidden;min-width:110px}.bar i{display:block;height:100%;background:linear-gradient(90deg,#f59e0b,#16a34a);border-radius:99px}
 .chp{display:inline-block;margin:2px 3px 2px 0;padding:2px 8px;border-radius:8px;font-size:.78rem;font-weight:700;color:#1e293b}
 @media(max-width:820px){.ttg{grid-template-columns:1fr}.rs.tt thead{display:table-header-group}.rs.tt tr{display:table-row;padding:0}.rs.tt td,.rs.tt th{display:table-cell;padding:9px 10px;border-bottom:1px solid #edf1f7}.rs.tt td.dk{display:table-cell}.tth{flex-direction:row}.tth h2{font-size:1.4rem}}
+.svs3{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.svs3 span{border-radius:999px;padding:8px 16px;font-weight:700;color:#fff}.svs3 b{font-size:1.15em}.svs3 .m1,.mdl.m1{background:linear-gradient(135deg,#f6d37a,#b8860b);color:#3a2800}.svs3 .m2,.mdl.m2{background:linear-gradient(135deg,#e5e9ef,#8a94a6);color:#1f2937}.svs3 .m3,.mdl.m3{background:linear-gradient(135deg,#e29a52,#a85f1a)}.svs3 .mt{background:var(--navy)}
+.mdl{display:inline-block;border-radius:999px;padding:6px 14px;font-weight:700;white-space:nowrap;color:#fff}.mdl.m1{color:#3a2800}.mdl.m2{color:#1f2937}
+.rs.sv td{vertical-align:middle}.svn{display:flex;align-items:center;gap:12px}.svn small{display:block;color:var(--mut);font-size:.88rem}.sph{width:58px;height:76px;object-fit:cover;border-radius:12px;border:2px solid #f0d58a;flex:none;background:#eef2f8}.sph.no{display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:1.6rem}
+.svf i{color:#b45309;margin-right:6px}.svb b{font-size:1.3rem;color:var(--navy)}.svb small{display:block;color:var(--mut);font-size:.82rem}
+@media(max-width:700px){.rs.sv tr{display:flex;flex-direction:column;gap:6px;padding:14px 12px}.rs.sv td{display:block;grid-column:auto}.rs.sv td.svf:before,.rs.sv td.svb:before,.rs.sv td.svu:before{content:attr(data-l)": ";color:var(--mut)}.rs.sv td.svb{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.rs.sv td.svn{display:flex}}
 </style></head><body>
 <header class="top"><div class="top-in"><a class="brand" href="index.html"><b>Umrbek Mamatov</b><span>Boş mutaxassis · Taʼlim portali</span></a>
 <nav><a href="index.html"><i class="fa-solid fa-house"></i> Boş sahifa</a><a href="index.html#olimpiada"><i class="fa-solid fa-trophy"></i> Olimpiadalar</a><a href="hududiy-bosqich.html"><i class="fa-solid fa-calendar-days"></i> Hududiy bosqiç grafigi</a><a href="hududiy-natijalar.html" class="on vn"><i class="fa-solid fa-ranking-star"></i> Viloyat natijalari <b>YANGI</b></a><a href="jonli.html" target="_blank" rel="noopener"><i class="fa-solid fa-tower-broadcast"></i> Jonli efir</a></nav></div></header>
@@ -93,7 +98,7 @@ table.tt{min-width:640px}.rs.tt td small{color:var(--mut);font-size:.82rem}.bar{
 <p>Asosiy olimpiadaning uçinçi – hududiy bosqiçi: har bir fan va sinf böyiça rasmiy qarorlar. Qöşköpir tumani öquvçilari alohida belgilangan.</p></div></section>
 <main class="wrap">
 <div class="stats" id="stats"></div>
-<div class="tabs" id="tabs"><button data-v="fs" class="on"><i class="fa-solid fa-table-cells"></i> Fan va sinf böyiça</button><button data-v="qq"><i class="fa-solid fa-star"></i> Qöşköpir öquvçilari</button><button data-v="tt" class="hot"><i class="fa-solid fa-scale-balanced"></i> Taqqoslaş va reyting</button></div>
+<div class="tabs" id="tabs"><button data-v="fs" class="on"><i class="fa-solid fa-table-cells"></i> Fan va sinf böyiça</button><button data-v="qq"><i class="fa-solid fa-star"></i> Qöşköpir öquvçilari</button><button data-v="tt" class="hot"><i class="fa-solid fa-scale-balanced"></i> Taqqoslaş va reyting</button><button data-v="sv"><i class="fa-solid fa-trophy"></i> Sovrindorlar</button></div>
 <div id="view"></div>
 <p class="note" id="note"></p>
 </main>
@@ -236,16 +241,36 @@ function ttView(){
  h+=ttMatrix(arr)+ttStud(arr);
  return h}
 
+var PH={},FIC={Matematika:'fa-square-root-variable',Fizika:'fa-atom',Kimyo:'fa-flask',Biologiya:'fa-dna',Informatika:'fa-laptop-code'};
+function pkey(n){n=n.toLowerCase().replace(/[ʼ'ʻ’]/g,'').replace(/ö/g,'o').replace(/ğ/g,'g').replace(/ş/g,'sh').replace(/ç/g,'ch');return (n.match(/[a-z]+/g)||[]).slice(0,2).join(' ')}
+function near(a,b){if(!a||!b||a.length!==b.length)return false;var d=0;for(var i=0;i<a.length;i++)if(a[i]!==b[i])d++;return d<=1}
+function pfind(n){var k=pkey(n);if(PH[k])return PH[k];var s=k.split(' '),c=Object.keys(PH).filter(function(x){var y=x.split(' ');return y[0]===s[0]&&near(y[1],s[1])});return c.length===1?PH[c[0]]:null}
+function svView(){
+ var W=[];R.forEach(function(b){b.part.forEach(function(r){if(isQ(r)&&r.rk<=3)W.push({b:b,r:r})})});
+ W.sort(function(a,c){return a.r.rk-c.r.rk||a.b.fan.localeCompare(c.b.fan)||a.b.sinf-c.b.sinf});
+ var cn=[0,0,0];W.forEach(function(x){cn[x.r.rk-1]++});
+ var h='<div class="tth"><i class="fa-solid fa-trophy"></i><div><h2>Qöşköpir sovrindorlari</h2><p>Viloyat bosqiçida 1–3-örinlarni egallağan öquvçilarimiz. Jadval yangi natijalar qöşilganda özi yangilanadi.</p></div></div>';
+ if(!W.length)return h+'<div class="card empty" style="margin-top:16px">Hozircha sovrinli örinlar yoq.</div>';
+ h+='<div class="svs3"><span class="m1"><i class="fa-solid fa-medal"></i> 1-örin: <b>'+cn[0]+'</b></span><span class="m2"><i class="fa-solid fa-medal"></i> 2-örin: <b>'+cn[1]+'</b></span><span class="m3"><i class="fa-solid fa-medal"></i> 3-örin: <b>'+cn[2]+'</b></span><span class="mt"><i class="fa-solid fa-award"></i> Jami: <b>'+W.length+'</b></span></div>';
+ h+='<div class="card" style="margin-top:14px;overflow:hidden"><div class="tw"><table class="rs sv"><thead><tr><th>Örin</th><th>Öquvçi</th><th>Fan va sinf</th><th>Ball</th><th>Ustoz</th></tr></thead><tbody>';
+ W.forEach(function(x){var r=x.r,b=x.b,p=pfind(r[1]),u=p&&p.u?p.u:'—',bl=String(r[5]).replace('.',',');
+  h+='<tr><td class="svr"><span class="mdl m'+r.rk+'"><i class="fa-solid fa-medal"></i> '+r.rk+'-örin</span></td>'+
+   '<td class="svn">'+(p?'<img class="sph" alt="" src="'+p.p+'">':'<span class="sph no"><i class="fa-solid fa-user-graduate"></i></span>')+'<span><b>'+esc(r[1])+'</b><small>'+esc(r[3])+'</small></span></td>'+
+   '<td class="svf" data-l="Fan"><i class="fa-solid '+(FIC[b.fan]||'fa-book-open')+'"></i> '+esc(b.fan)+' · '+b.sinf+'-sinf</td>'+
+   '<td class="svb" data-l="Ball"><b>'+bl+'</b><small>'+b.n+' nafar qatnaşçi orasida</small></td>'+
+   '<td class="svu" data-l="Ustoz">'+esc(u)+'</td></tr>'});
+ return h+'</tbody></table></div></div>'}
 function draw(){
- $('view').innerHTML=S.v==='fs'?fsView():S.v==='tt'?ttView():qqView();
+ $('view').innerHTML=S.v==='fs'?fsView():S.v==='tt'?ttView():S.v==='sv'?svView():qqView();
  [].forEach.call(document.querySelectorAll('#seg button'),function(b){b.onclick=function(){S.m=b.getAttribute('data-m');draw()}});
  [].forEach.call(document.querySelectorAll('.cell:not(.no)'),function(b){b.onclick=function(){S.fan=b.getAttribute('data-f');S.sinf=+b.getAttribute('data-s');S.q='';S.only=false;try{history.replaceState(null,'','#'+encodeURIComponent(S.fan)+'/'+S.sinf)}catch(e){}draw();var h=document.querySelector('.hd');if(h)h.scrollIntoView({behavior:'smooth',block:'start'})}});
  var qi=$('q');if(qi)qi.oninput=function(){S.q=qi.value;var pos=qi.selectionStart;draw();var n=$('q');n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}};
  var on=$('only');if(on)on.onclick=function(){S.only=!S.only;draw()};
  $('note').innerHTML=S.v==='tt'?'★ — Qöşköpir tumani. Reyting eʼlon qilingan natijalar böyiça hisoblangan va yangi natijalar qöşilganda yangilanadi.':S.v==='fs'&&S.fan?'Reyting jami ball böyiça hisoblangan (teng ballarda örin bir xil). Rasmiy «Egallagan örni» ustuni qarorda töldirilganda yangilanadi. ★ — Qöşköpir tumani öquvçisi.':'★ — Qöşköpir tumani öquvçisi. Yangi natijalar eʼlon qilinganda sahifa yangilanib boradi.'}
 [].forEach.call(document.querySelectorAll('#tabs button'),function(b){b.onclick=function(){S.v=b.getAttribute('data-v');[].forEach.call(document.querySelectorAll('#tabs button'),function(x){x.classList.toggle('on',x===b)});draw()}});
+fetch('hududiy-rasmlar.json?v='+Date.now()).then(function(r){return r.json()}).then(function(p){PH=p;if(D&&S.v==='sv')draw()}).catch(function(){});
 fetch('hududiy-natijalar.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){D=j;prep();stats();
- var m=decodeURIComponent(location.hash.slice(1)).split('/');if(m[0]==='taqqoslas'){S.v='tt';[].forEach.call(document.querySelectorAll('#tabs button'),function(x){x.classList.toggle('on',x.getAttribute('data-v')==='tt')})}if(m.length===2&&find(m[0],+m[1])){S.fan=m[0];S.sinf=+m[1]}
+ var m=decodeURIComponent(location.hash.slice(1)).split('/');if(m[0]==='sovrindorlar'){S.v='sv';[].forEach.call(document.querySelectorAll('#tabs button'),function(x){x.classList.toggle('on',x.getAttribute('data-v')==='sv')})}if(m[0]==='taqqoslas'){S.v='tt';[].forEach.call(document.querySelectorAll('#tabs button'),function(x){x.classList.toggle('on',x.getAttribute('data-v')==='tt')})}if(m.length===2&&find(m[0],+m[1])){S.fan=m[0];S.sinf=+m[1]}
  else if(R.length){S.fan=R[R.length-1].fan;S.sinf=R[R.length-1].sinf}
  draw()}).catch(function(){$('view').innerHTML='<div class="card empty" style="margin-top:16px">Maʼlumotni yuklab bölmadi. Sahifani yangilang.</div>'});
 })();
