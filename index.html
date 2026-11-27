@@ -2933,7 +2933,7 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 .nx-burger{display:none;margin-left:auto;background:#f1f5f9;border:0;border-radius:10px;width:42px;height:42px;font-size:1.2rem;color:#0f2547;cursor:pointer}
 @media(max-width:1000px){
  .nx-burger{display:flex;align-items:center;justify-content:center}
- .nx-nav{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:12px 16px 50px;overflow-y:auto;-webkit-overflow-scrolling:touch;z-index:9999;border-top:1px solid #e2e8f0;box-shadow:0 12px 36px rgba(15,23,42,.15);margin:0}
+ .nx-nav{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:12px 16px 50px;max-height:calc(100vh - 68px);overflow-y:auto;-webkit-overflow-scrolling:touch;z-index:99999;border-top:1px solid #e2e8f0;box-shadow:0 12px 36px rgba(15,23,42,.15);margin:0}
  .nx-nav.show{display:flex}
  .nx-drop{position:static;box-shadow:none;border:0;border-radius:0;margin:4px 0 10px;padding:0;min-width:0}
  .nx-nav li.open>.nx-drop{display:block}
@@ -3726,40 +3726,90 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 </style>
 <style>
 /* === ANIQ VA MOSLASHUVCHAN NAVIGATSIYA QOIDALARI === */
+/* Desktop menyusida 'Men haqimda' va 'Xizmatlar' alohida qator bo'lib sig'may qolmasligi uchun yashiriladi (3-chiziqli Xizmatlar menyusida va mobilda to'liq ko'rinadi) */
 .nx-nav > li.nx-about-m,
 .nx-nav > li.nx-tools-m {
   display: none !important;
 }
 
 @media(min-width: 1001px) {
+  .nx-header {
+    height: 68px !important;
+  }
   .nx-bar {
+    max-width: 1440px !important;
     gap: 8px !important;
+    padding: 0 16px !important;
+  }
+  .nx-brand {
+    gap: 10px !important;
+    flex-shrink: 0 !important;
+  }
+  .nx-brand .nx-bt b {
+    font-size: 1.05rem !important;
+  }
+  .nx-brand .nx-bt span {
+    font-size: 0.65rem !important;
+  }
+  .nx-nav {
+    gap: 4px !important;
+    margin-left: auto !important;
   }
   .nx-nav > li > a,
   .nx-nav > li > button {
     padding: 8px 10px !important;
-    font-size: 0.94rem !important;
+    font-size: 0.92rem !important;
+    white-space: nowrap !important;
   }
   .nx-hb-d {
+    padding: 8px 11px !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap !important;
+  }
+  .nx-live {
     padding: 8px 12px !important;
     font-size: 0.78rem !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media(min-width: 1001px) and (max-width: 1220px) {
+  .nx-bar {
+    gap: 6px !important;
+    padding: 0 10px !important;
+  }
+  .nx-nav > li > a,
+  .nx-nav > li > button {
+    padding: 7px 8px !important;
+    font-size: 0.88rem !important;
+  }
+  .nx-hb-d {
+    padding: 7px 9px !important;
+    font-size: 0.74rem !important;
+  }
+  .nx-hb-d.nx-otmb .nx-nt {
+    display: none !important;
+  }
+  .nx-hb-d .nx-hg {
+    display: none !important;
   }
 }
 
 @media(max-width: 1000px) {
   .nx-burger {
     display: flex !important;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    background: #f1f5f9;
-    border: 0;
-    border-radius: 10px;
-    width: 42px;
-    height: 42px;
-    font-size: 1.25rem;
-    color: #0f2547;
-    cursor: pointer;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    background: #f1f5f9 !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.3rem !important;
+    color: #0f2547 !important;
+    cursor: pointer !important;
+    z-index: 10001 !important;
   }
   .nx-nav > li.nx-about-m,
   .nx-nav > li.nx-tools-m {
@@ -3778,9 +3828,9 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
     flex-direction: column !important;
     align-items: stretch !important;
     gap: 0 !important;
-    padding: 12px 16px 30px !important;
+    padding: 14px 16px 36px !important;
     border-bottom: 2px solid #e2e8f0 !important;
-    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.18) !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.22) !important;
     max-height: calc(100vh - 68px) !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
@@ -3810,6 +3860,9 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
     color: #0f172a !important;
     text-align: left !important;
     cursor: pointer !important;
+  }
+  .nx-header .nx-nav > li.open > .nx-drop {
+    display: block !important;
   }
 }
 </style>
@@ -6174,23 +6227,39 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
 
 <script>
 // Mukammal va ishonchli mobil menyu skripti
-document.addEventListener('DOMContentLoaded', function() {
-  var b = document.querySelector('.nx-burger');
-  var n = document.getElementById('nxNav');
-  if (b && n) {
-    b.addEventListener('click', function(e) {
+(function() {
+  function initMobileMenu() {
+    var b = document.querySelector('.nx-burger');
+    var n = document.getElementById('nxNav');
+    if (!b || !n) return;
+
+    b.onclick = function(e) {
+      e.preventDefault();
       e.stopPropagation();
       n.classList.toggle('show');
+    };
+
+    document.addEventListener('click', function(e) {
+      if (n.classList.contains('show')) {
+        if (!n.contains(e.target) && !b.contains(e.target)) {
+          n.classList.remove('show');
+        }
+      }
+    });
+
+    // Mobil menyu ichidagi havolalar bosilganda yopish
+    n.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        n.classList.remove('show');
+      });
     });
   }
-  document.addEventListener('click', function(e) {
-    if (n && n.classList.contains('show')) {
-      if (!n.contains(e.target) && !b.contains(e.target)) {
-        n.classList.remove('show');
-      }
-    }
-  });
-});
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
+})();
 </script>
 </body>
 </html>
