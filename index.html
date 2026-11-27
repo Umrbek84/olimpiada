@@ -4728,6 +4728,12 @@ body {
   }
 }
 </style>
+<style>
+.school-group .sb-card-header {
+  color: #c084fc !important;
+  border-left: 3px solid #c084fc !important;
+}
+</style>
 </head>
 <body>
 
@@ -4745,6 +4751,7 @@ body {
 
 <!-- CHAP VERTICAL SIDEBAR MENYU -->
 <!-- CHAP VERTICAL ASOSIY BOSHQARUV MENYUSI -->
+<!-- CHAP VERTICAL ASOSIY BOSHQARUV MENYUSI -->
 <aside class="app-sidebar" id="appSidebar">
   <div class="sb-header">
     <img src="logo.png" alt="Logotip">
@@ -4760,7 +4767,7 @@ body {
     <a href="haqimda.html" class="sb-item"><i class="fa-solid fa-user-tie" style="color:#60a5fa"></i> <span>Men haqimda</span></a>
     <a href="#ekotizim" class="sb-item"><i class="fa-solid fa-network-wired" style="color:#a78bfa"></i> <span>Taʼlim ekotizimi</span></a>
 
-    <!-- 1. O'QUVCHILAR UCHUN KATTA BO'LIM -->
+    <!-- 1. O'QUVCHILAR UCHUN -->
     <div class="sb-card-group student-group">
       <div class="sb-card-header">
         <i class="fa-solid fa-graduation-cap" style="color:#fbbf24"></i>
@@ -4814,7 +4821,7 @@ body {
       </div>
     </div>
 
-    <!-- 2. PEDAGOGLAR UCHUN KATTA BO'LIM -->
+    <!-- 2. PEDAGOGLAR UCHUN -->
     <div class="sb-card-group teacher-group">
       <div class="sb-card-header">
         <i class="fa-solid fa-chalkboard-user" style="color:#38bdf8"></i>
@@ -4835,20 +4842,6 @@ body {
             <small>KRK metodikasi va testlari</small>
           </div>
         </a>
-        <a href="yangi-baholash.html" class="sb-subitem">
-          <i class="fa-solid fa-school-circle-check" style="color:#a78bfa"></i>
-          <div>
-            <b>Yangi baholash tizimi</b>
-            <small>45 ta maktab onlayn ChSB grafigi</small>
-          </div>
-        </a>
-        <a href="akkreditatsiya.html" class="sb-subitem">
-          <i class="fa-solid fa-stamp" style="color:#fb923c"></i>
-          <div>
-            <b>Akkreditatsiya 2026</b>
-            <small>24 ta taʼlim muassasasi grafigi</small>
-          </div>
-        </a>
         <a href="https://pedagog.umamatov.uz" target="_blank" rel="noopener" class="sb-subitem">
           <i class="fa-solid fa-book-open-reader" style="color:#34d399"></i>
           <div>
@@ -4856,35 +4849,49 @@ body {
             <small>Darsliklar asosidagi test tizimi</small>
           </div>
         </a>
-        <a href="taqsimot.html" class="sb-subitem">
-          <i class="fa-solid fa-table-cells" style="color:#38bdf8"></i>
+        <a href="1-chorak-yakunlari.html" class="sb-sublink">
+          <i class="fa-solid fa-chart-column" style="color:#a3e635"></i>
           <div>
-            <b>Dars soatlari taqsimoti</b>
-            <small>3271-nizom asosida avtomatik</small>
+            <b>1-chorak yakunlari tahlili</b>
+            <small>Bilim sifati: maktablar va sinflar</small>
           </div>
         </a>
       </div>
     </div>
 
-    <!-- 3. TAHLILLAR VA XIZMATLAR -->
-    <div class="sb-card-group service-group">
+    <!-- 3. TA'LIM TASHKILOTLARI UCHUN (AKKREDITATSIYA, YANGI BAHOLASH, 823, 3271) -->
+    <div class="sb-card-group school-group">
       <div class="sb-card-header">
-        <i class="fa-solid fa-chart-pie" style="color:#4ade80"></i>
-        <span>Tahlil & Xizmatlar</span>
+        <i class="fa-solid fa-school" style="color:#a855f7"></i>
+        <span>Taʼlim tashkilotlari uchun</span>
       </div>
       <div class="sb-card-links">
-        <a href="823qaror.html" class="sb-subitem">
-          <i class="fa-solid fa-calculator" style="color:#34d399"></i>
+        <a href="akkreditatsiya.html" class="sb-subitem">
+          <i class="fa-solid fa-stamp" style="color:#fb923c"></i>
           <div>
-            <b>823-ustama hisoblagich</b>
-            <small>Oʻqituvchi, psixolog, kutubxona</small>
+            <b>Akkreditatsiya 2026</b>
+            <small>24 ta taʼlim muassasasi reja-grafigi</small>
           </div>
         </a>
-        <a href="1-chorak-yakunlari.html" class="sb-subitem">
-          <i class="fa-solid fa-chart-column" style="color:#a3e635"></i>
+        <a href="yangi-baholash.html" class="sb-subitem">
+          <i class="fa-solid fa-school-circle-check" style="color:#a78bfa"></i>
           <div>
-            <b>1-chorak tahlili</b>
-            <small>Bilim sifati: maktablar va sinflar</small>
+            <b>Yangi baholash tizimi & ChSB</b>
+            <small>45 ta maktab onlayn ChSB grafigi</small>
+          </div>
+        </a>
+        <a href="823qaror.html" class="sb-subitem">
+          <i class="fa-solid fa-calculator" style="color:#10b981"></i>
+          <div>
+            <b>823-ustama hisoblagich</b>
+            <small>Pedagog, kutubxonachi, psixolog ustamasi</small>
+          </div>
+        </a>
+        <a href="taqsimot.html" class="sb-subitem">
+          <i class="fa-solid fa-table-cells" style="color:#38bdf8"></i>
+          <div>
+            <b>3271-dars soatlari taqsimoti</b>
+            <small>Nizom asosida avtomatik taqsimlash</small>
           </div>
         </a>
         <a href="otm-qabul.html" class="sb-subitem">
@@ -4897,8 +4904,8 @@ body {
         <a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener" class="sb-subitem">
           <i class="fa-brands fa-telegram" style="color:#229ed9"></i>
           <div>
-            <b>Taʼlimga oid hujjatlar</b>
-            <small>Telegram kanal: rasmiy qarorlar</small>
+            <b>Taʼlimga oid rasmiy hujjatlar</b>
+            <small>Telegram kanal: buyruq va qarorlar</small>
           </div>
         </a>
       </div>
@@ -4913,6 +4920,7 @@ body {
     </div>
   </div>
 </aside>
+
 
 
 
