@@ -8,7 +8,7 @@
   <!-- Shriftlar va Ikonkalar (FontAwesome + Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Manrope:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -23,13 +23,20 @@
       --text: #334155;
       --radius: 16px;
       --transition: all 0.3s ease;
+    
+      --font-body: 'Lexend', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-heading: 'Manrope', 'Lexend', sans-serif;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: var(--font-body);
+    }
+
+    h1, h2, h3, h4, h5, h6, .brand, .nx-brand, .banner h1, .section-title, .modal-title, .eco-title, .eco-name {
+      font-family: var(--font-heading);
     }
 
     body {
@@ -2290,7 +2297,7 @@ li {
       font-weight: 700;
       text-transform: uppercase;
       border: 1px solid #fde68a;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: var(--font-body);
       margin-bottom: 12px;
     }
 
@@ -2329,7 +2336,7 @@ li {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: var(--font-body);
       transition: var(--transition);
     }
 
@@ -2433,7 +2440,7 @@ li {
       color: #ffffff;
       padding: 14px 16px;
       font-weight: 700;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: var(--font-body);
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.4px;
@@ -2456,7 +2463,7 @@ li {
       border-radius: 6px;
       font-weight: 700;
       display: inline-block;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: var(--font-body);
     }
 
     .badge-status.school {
@@ -2482,7 +2489,7 @@ li {
       border-radius: 12px;
       margin-bottom: 18px;
       border: 1px solid #e2e8f0;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: var(--font-body);
     }
 
     .search-inp {
@@ -2512,10 +2519,204 @@ li {
     }
   
 
-  </style>
+  
+/* ===== YAGONA TA'LIM EKOTIZIMI (SUBDOMENLAR) ===== */
+.ecosystem-section {
+  padding: 50px 20px 30px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.eco-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.eco-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.eco-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.eco-sub {
+  color: #64748b;
+  font-size: 1.05rem;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.eco-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+.eco-card {
+  position: relative;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 22px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.07);
+  overflow: hidden;
+}
+.eco-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--ec-color, #2563eb);
+  box-shadow: 0 22px 40px -12px rgba(15, 23, 42, 0.16);
+}
+.eco-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.eco-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: var(--ec-bg, #eff6ff);
+  color: var(--ec-color, #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  flex-shrink: 0;
+  transition: transform 0.35s ease;
+}
+.eco-card:hover .eco-icon {
+  transform: scale(1.1) rotate(4deg);
+}
+.eco-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: var(--ec-bg, #eff6ff);
+  color: var(--ec-color, #2563eb);
+  border: 1px solid var(--ec-border, #bfdbfe);
+  letter-spacing: 0.02em;
+}
+.eco-badge .pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: ecoPulse 1.6s infinite;
+}
+@keyframes ecoPulse {
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.4; }
+  100% { transform: scale(0.9); opacity: 1; }
+}
+.eco-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.eco-desc {
+  font-size: 0.94rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+.eco-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ec-color, #2563eb);
+}
+.eco-footer i {
+  transition: transform 0.25s ease;
+}
+.eco-card:hover .eco-footer i {
+  transform: translateX(5px) translateY(-2px);
+}
+
+/* Visitor Counter Bar */
+.visitor-banner {
+  margin: 36px auto 14px;
+  max-width: 960px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 22px;
+  padding: 20px 30px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-shadow: 0 16px 35px -10px rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.visitor-stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.visitor-stat i {
+  font-size: 28px;
+  color: #38bdf8;
+}
+.vs-num {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  font-family: var(--font-heading);
+}
+.vs-lbl {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 3px;
+}
+.vs-divider {
+  width: 1px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.15);
+}
+@media (max-width: 700px) {
+  .vs-divider { display: none; }
+  .visitor-banner { flex-direction: column; align-items: flex-start; padding: 18px 22px; gap: 16px; }
+  .ecosystem-section { padding: 36px 16px 20px; }
+}
+
+</style>
 
 <style id="otm-styles">
-#otm,#otm *{font-family:'Times New Roman',Times,serif;}
+#otm,#otm *{font-family:var(--font-body);}
 #otm .otm-sub{color:#64748b;margin-top:8px;}
 #otm .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:18px;margin-bottom:34px;}
 #otm .kpi{background:#fff;border:1px solid #e2e8f0;border-radius:var(--radius);padding:22px;box-shadow:0 10px 26px rgba(2,8,23,.06);transition:var(--transition);}
@@ -2556,10 +2757,10 @@ li {
 #otm .toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;background:#fff;border:1px solid #e2e8f0;padding:15px 18px;border-radius:14px;margin:30px 0 18px;box-shadow:0 4px 16px rgba(2,8,23,.03);}
 #otm .search-box{position:relative;flex:1;min-width:240px;max-width:430px;}
 #otm .search-box i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#94a3b8;}
-#otm .search-box input{width:100%;padding:12px 14px 12px 40px;border:1px solid #cdd8ea;border-radius:10px;font-size:1rem;outline:none;font-family:'Times New Roman',Times,serif;transition:var(--transition);}
+#otm .search-box input{width:100%;padding:12px 14px 12px 40px;border:1px solid #cdd8ea;border-radius:10px;font-size:1rem;outline:none;font-family:var(--font-body);transition:var(--transition);}
 #otm .search-box input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.15);}
 #otm .sort-group{display:flex;gap:7px;flex-wrap:wrap;}
-#otm .sort-btn{padding:10px 16px;border:1px solid #cdd8ea;background:#f6f8fc;border-radius:9px;font-size:.92rem;font-weight:700;color:#3a4a66;cursor:pointer;transition:var(--transition);display:inline-flex;align-items:center;gap:6px;font-family:'Times New Roman',Times,serif;}
+#otm .sort-btn{padding:10px 16px;border:1px solid #cdd8ea;background:#f6f8fc;border-radius:9px;font-size:.92rem;font-weight:700;color:#3a4a66;cursor:pointer;transition:var(--transition);display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);}
 #otm .sort-btn:hover{background:#eaeff6;}
 #otm .sort-btn.active{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 4px 12px rgba(37,99,235,.3);}
 #otm .tbl-card{background:#fff;border:1px solid #e2e8f0;border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 26px rgba(2,8,23,.06);}
@@ -2582,7 +2783,7 @@ li {
 @media(max-width:900px){#otm .grid2{grid-template-columns:1fr;}}
 </style>
 <style id='embed-fonts'>
-/* ===== (Inter removed — Times New Roman used) ===== */
+/* ===== Shriftlar: Lexend & Manrope (Zamonaviy ta'lim standarti) ===== */
 
 
 
@@ -2809,7 +3010,7 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 @media(max-width:700px){.cq{padding:56px 16px}.cq-op{width:100%;text-align:center}.cq-b{max-width:none}}
 </style>
 <style id="yb-style">
-.yb{padding:80px 24px;background:linear-gradient(180deg,#f0f9ff 0,#fff 60%);border-top:1px solid #e2e8f0;font-family:'Times New Roman','Liberation Serif',Times,serif}
+.yb{padding:80px 24px;background:linear-gradient(180deg,#f0f9ff 0,#fff 60%);border-top:1px solid #e2e8f0;font-family:var(--font-body)}
 .yb *:not(i){font-family:inherit}.yb-in{max-width:1200px;margin:0 auto}
 .yb-top{text-align:center;margin-bottom:32px}.yb-badge{display:inline-flex;gap:8px;align-items:center;background:#dcfce7;color:#15803d;font-weight:700;padding:7px 16px;border-radius:50px;font-size:1rem}
 .yb h2{font-size:clamp(1.8rem,3.2vw,2.6rem);color:#0f2547;margin:14px 0 10px;line-height:1.2}.yb-top p{color:#475569;font-size:1.2rem;max-width:860px;margin:0 auto;line-height:1.6}
@@ -2851,56 +3052,52 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
       <button class="nx-burger" aria-label="Menyu" onclick="document.getElementById('nxNav').classList.toggle('show')"><i class="fa-solid fa-bars"></i></button>
       <ul class="nx-nav" id="nxNav">
         <li><a href="#home" title="Boş sahifa"><i class="fa-solid fa-house"></i><span class="nx-hm"> Boş sahifa</span></a></li>
-        <li class="nx-hb-m"><a href="otm-ballari.html" class="nx-hb nx-otmb"><i class="fa-solid fa-ranking-star"></i> OTMga kiriş ballari 2026 <span class="nx-nb">11-SINF</span></a></li>
-        <li><button type="button"><i class="fa-solid fa-trophy"></i> Olimpiadalar <i class="fa-solid fa-chevron-down"></i></button>
+        <li><a href="#ekotizim"><i class="fa-solid fa-network-wired" style="color:#2563eb"></i> Ekotizim</a></li>
+        <li class="nx-hb-m"><a href="https://test.umamatov.uz" target="_blank" rel="noopener" class="nx-hb" style="background:linear-gradient(135deg,#059669,#0284c7)!important"><i class="fa-solid fa-laptop-code"></i> Tayyorgarlik Testi <span style="background:#fff;color:#059669;border-radius:12px;font-size:0.65rem;padding:2px 6px;margin-left:4px;font-weight:800">YANGI</span></a></li>
+        <li><button type="button"><i class="fa-solid fa-trophy" style="color:#d97706"></i> Olimpiada <i class="fa-solid fa-chevron-down"></i></button>
           <ul class="nx-drop">
+            <li><a href="https://olimpiada.umamatov.uz" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" style="color:#d97706"></i><span><b>olimpiada.umamatov.uz</b><small>Olimpiada rasmiy portali</small></span></a></li>
+            <li><a href="https://test.umamatov.uz" target="_blank" rel="noopener"><i class="fa-solid fa-laptop-code" style="color:#059669"></i><span><b>test.umamatov.uz</b><small>Tuman va viloyat tayyorgarlik testlari</small></span></a></li>
             <li><a href="#olimpiada"><i class="fa-solid fa-square-poll-vertical"></i><span><b>Tuman natijalari</b><small>Fan olimpiadasi, real vaqt</small></span></a></li>
             <li><a href="#goliblar"><i class="fa-solid fa-medal"></i><span><b>Ğoliblar va ustozlar</b><small>124 örin, 108 nafar ustoz</small></span></a></li>
-            <li><a href="olimpiada-tahlil.html"><i class="fa-solid fa-chart-line"></i><span><b>Natijalar tahlili</b><small>Maktablar, fanlar, ötgan yil bilan soliştiriş</small></span></a></li>
+            <li><a href="hududiy-bosqich.html"><i class="fa-solid fa-calendar-days"></i><span><b>Hududiy bosqiç grafigi</b><small>Sana, vaqt, smena</small></span></a></li>
+            <li><a href="olimpiada-tahlil.html"><i class="fa-solid fa-chart-line"></i><span><b>Natijalar tahlili</b><small>Maktablar va fanlar soliştiruvi</small></span></a></li>
             <li><a href="taqdirlash.html"><i class="fa-solid fa-award"></i><span><b>Taqdirlaş marosimi</b><small>Suratlar, yangiliklar, ğoliblar</small></span></a></li>
-            <li><a href="#grafik"><i class="fa-solid fa-calendar-days"></i><span><b>Sinov grafigi</b><small>Sana, vaqt, smena</small></span></a></li>
-            <li><a href="#rasmiy"><i class="fa-solid fa-scroll"></i><span><b>Olimpiadalar röyxati</b><small>Xalqaro va respublika olimpiadalari (38 ta)</small></span></a></li>
-            <li><a href="#rasmiy" onclick="setTimeout(function(){nxList2(2)},50)"><i class="fa-solid fa-lightbulb"></i><span><b>Körik-tanlov va musobaqalar</b><small>Rasmiy röyxat (37 ta)</small></span></a></li>
-            
+            <li><a href="https://krk.umamatov.uz" target="_blank" rel="noopener"><i class="fa-solid fa-lightbulb" style="color:#7c3aed"></i><span><b>krk.umamatov.uz</b><small>Körik-tanlovlar va KRK testlari</small></span></a></li>
+          </ul></li>
+        <li><button type="button"><i class="fa-solid fa-user-graduate" style="color:#2563eb"></i> Pedagoglarga <i class="fa-solid fa-chevron-down"></i></button>
+          <ul class="nx-drop">
+            <li><a href="https://pedagog.umamatov.uz" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" style="color:#2563eb"></i><span><b>pedagog.umamatov.uz</b><small>Darsliklar asosidagi test tizimi</small></span></a></li>
+            <li><a href="attestatsiya.html"><i class="fa-solid fa-table-list"></i><span><b>Attestatsiya sinov grafigi</b><small>Pedagoglar test jadvali va F.I.Ş.</small></span></a></li>
+            <li><a href="823qaror.html"><i class="fa-solid fa-calculator"></i><span><b>823-ustama hisoblagiçi</b><small>Pedagog, kutubxonaçi va psixolog</small></span></a></li>
+            <li><a href="taqsimot.html"><i class="fa-solid fa-table-cells"></i><span><b>Dars soatlari taqsimoti</b><small>3271-nizom asosida avtomatik</small></span></a></li>
+            <li><a href="#akkreditatsiya"><i class="fa-solid fa-stamp"></i><span><b>Akkreditatsiya 2026</b><small>Taşkilotlar va ekspertlar</small></span></a></li>
           </ul></li>
         <li><button type="button"><i class="fa-solid fa-graduation-cap"></i> Tahlil <i class="fa-solid fa-chevron-down"></i></button>
           <ul class="nx-drop">
-<li><a href="otm-ballari.html"><i class="fa-solid fa-ranking-star"></i><span><b>OTMga kiriş ballari 2026</b><small>Grant va şartnoma ballari, filtr (11-sinf uçun)</small></span></a></li>
-<li><a href="#yangi-baholash"><i class="fa-solid fa-school-circle-check"></i><span><b>Yangi baholaş tizimi</b><small>Tumandagi 45 ta maktab, hujjatlar</small></span></a></li>
-                        <li><a href="1-chorak-yakunlari.html"><i class="fa-solid fa-chart-column"></i><span><b>1-çorak yakunlari tahlili</b><small>Bilim sifati: sinflar va maktablar</small></span></a></li>
-            <li><a href="#baholash"><i class="fa-solid fa-calendar-check"></i><span><b>1-çorak onlayn ÇSB topşiriş grafigi</b><small>Sana, fan va maktablar jadvali</small></span></a></li>
-            <li><a href="#otm"><i class="fa-solid fa-building-columns"></i><span><b>OTM tahlili</b><small>Bitiruvçilarning qabul natijalari</small></span></a></li>
+            <li><a href="otm-ballari.html"><i class="fa-solid fa-ranking-star"></i><span><b>OTMga kiriş ballari 2026</b><small>Grant va şartnoma ballari, filtr</small></span></a></li>
+            <li><a href="#yangi-baholash"><i class="fa-solid fa-school-circle-check"></i><span><b>Yangi baholaş tizimi</b><small>Tumandagi 45 ta maktab, hujjatlar</small></span></a></li>
+            <li><a href="1-chorak-yakunlari.html"><i class="fa-solid fa-chart-column"></i><span><b>1-çorak yakunlari tahlili</b><small>Bilim sifati: sinflar va maktablar</small></span></a></li>
             <li><a href="otm-qabul.html"><i class="fa-solid fa-building-columns"></i><span><b>OTMga qabul: 2025–2026</b><small>Grant, şartnoma, OTM turlari</small></span></a></li>
             <li><a href="otm-solishtirma.html"><i class="fa-solid fa-code-compare"></i><span><b>OTM: 2025–2026 soliştirma</b><small>Majburiy, 4- va 5-blok fanlari</small></span></a></li>
             <li><a href="otm-past-natija.html"><i class="fa-solid fa-chart-simple"></i><span><b>OTM: past natijalar tahlili</b><small>Maktab va fanlar kesimida</small></span></a></li>
-            <li><a href="#directions"><i class="fa-solid fa-book-open"></i><span><b>Asosiy yönalişlar</b><small>Faoliyat bilan tanişiş</small></span></a></li>
-          </ul></li>
-        <li><button type="button"><i class="fa-solid fa-clipboard-check"></i> Attestatsiya <i class="fa-solid fa-chevron-down"></i></button>
-          <ul class="nx-drop">
-            <li><a href="attestatsiya.html"><i class="fa-solid fa-table-list"></i><span><b>Pedagoglar attestatsiyasi: test topşiriş grafigi</b><small>Sana, vaqt, fan va guruh böyiça qidiruv</small></span></a></li>
-            <li><a href="#akkreditatsiya"><i class="fa-solid fa-stamp"></i><span><b>Akkreditatsiya 2026</b><small>Taşkilotlar va ekspertlar</small></span></a></li>
           </ul></li>
         <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Aloqa</a></li>
-        <li class="nx-hb-m"><a href="hududiy-bosqich.html" class="nx-hb"><i class="fa-solid fa-calendar-days"></i> Olimpiadaning hududiy bosqiçi grafigi</a></li>
-        <li class="nx-live-m"><a href="jonli.html" target="_blank" rel="noopener" class="nx-live"><span class="d"></span> JONLI EFIR</a></li>
-        <li class="nx-tools-m"><button type="button"><i class="fa-solid fa-calculator"></i> Xizmatlar <i class="fa-solid fa-chevron-down"></i></button>
-          <ul class="nx-drop">
-            <li><a href="823qaror.html"><i class="fa-solid fa-calculator"></i><span><b>823-ustama</b><small>Pedagog, kutubxonaçi va psixolog ustamasi hisoblagiçi</small></span></a></li>
-            <li><a href="taqsimot.html"><i class="fa-solid fa-table-cells"></i><span><b>Dars soatlari taqsimoti</b><small>3271-nizom asosida avtomatik taqsimlaş</small></span></a></li>
-            <li><a href="haqimda.html"><i class="fa-solid fa-user-tie"></i><span><b>Men haqimda</b><small>Umrbek Mamatov — qisqaça tanişuv</small></span></a></li>
-            <li><a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i><span><b>Taʼlimga oid hujjatlar</b><small>Telegram kanal: yangiliklar, qarorlar, buyruqlar</small></span></a></li>
-          </ul></li>
       </ul>
+      <a href="https://test.umamatov.uz" target="_blank" rel="noopener" class="nx-hb nx-hb-d" style="background:linear-gradient(135deg,#059669,#0284c7)!important" title="Olimpiada tayyorgarlik testlari"><i class="fa-solid fa-laptop-code"></i> <span>TAYYORGARLIK TESTI</span></a>
       <a href="otm-ballari.html" class="nx-hb nx-hb-d nx-otmb" title="OTMga kiriş ballari 2026 (11-sinf uçun)"><i class="fa-solid fa-ranking-star"></i> <span class="nx-nt">OTM BALLARI</span> <span class="nx-nb">2026</span></a>
-      <a href="hududiy-bosqich.html" class="nx-hb nx-hb-d" title="Olimpiadaning hududiy bosqiçi grafigi"><i class="fa-solid fa-calendar-days"></i> <span>HUDUDIY BOSQIÇ<span class="nx-hg"> GRAFIGI</span></span></a>
       <a href="jonli.html" target="_blank" rel="noopener" class="nx-live"><span class="d"></span> JONLI EFIR</a>
       <div class="nx-tools" id="nxTools">
         <button type="button" class="nx-tools-btn" aria-label="Xizmatlar menyusi" aria-haspopup="true"><i class="fa-solid fa-bars"></i></button>
         <ul class="nx-drop">
-            <li><a href="823qaror.html"><i class="fa-solid fa-calculator"></i><span><b>823-ustama</b><small>Pedagog, kutubxonaçi va psixolog ustamasi hisoblagiçi</small></span></a></li>
-            <li><a href="taqsimot.html"><i class="fa-solid fa-table-cells"></i><span><b>Dars soatlari taqsimoti</b><small>3271-nizom asosida avtomatik taqsimlaş</small></span></a></li>
+            <li><a href="https://test.umamatov.uz" target="_blank" rel="noopener"><i class="fa-solid fa-laptop-code" style="color:#059669"></i><span><b>test.umamatov.uz</b><small>Olimpiada tayyorgarlik platformasi</small></span></a></li>
+            <li><a href="https://olimpiada.umamatov.uz" target="_blank" rel="noopener"><i class="fa-solid fa-trophy" style="color:#d97706"></i><span><b>olimpiada.umamatov.uz</b><small>Fan olimpiadalari portali</small></span></a></li>
+            <li><a href="https://pedagog.umamatov.uz" target="_blank" rel="noopener"><i class="fa-solid fa-user-graduate" style="color:#2563eb"></i><span><b>pedagog.umamatov.uz</b><small>Darsliklar asosidagi test tizimi</small></span></a></li>
+            <li><a href="https://krk.umamatov.uz" target="_blank" rel="noopener"><i class="fa-solid fa-award" style="color:#7c3aed"></i><span><b>krk.umamatov.uz</b><small>Körik-tanlovlar va musobaqalar</small></span></a></li>
+            <li><a href="823qaror.html"><i class="fa-solid fa-calculator"></i><span><b>823-ustama</b><small>Pedagog, kutubxonaçi va psixolog ustamasi</small></span></a></li>
+            <li><a href="taqsimot.html"><i class="fa-solid fa-table-cells"></i><span><b>Dars soatlari taqsimoti</b><small>3271-nizom asosida avtomatik</small></span></a></li>
             <li><a href="haqimda.html"><i class="fa-solid fa-user-tie"></i><span><b>Men haqimda</b><small>Umrbek Mamatov — qisqaça tanişuv</small></span></a></li>
-            <li><a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i><span><b>Taʼlimga oid hujjatlar</b><small>Telegram kanal: yangiliklar, qarorlar, buyruqlar</small></span></a></li>
+            <li><a href="https://t.me/talimxujjatlari" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i><span><b>Taʼlimga oid hujjatlar</b><small>Telegram kanal: yangiliklar, qarorlar</small></span></a></li>
         </ul>
       </div>
     </div>
@@ -2933,6 +3130,102 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
       </div>
     </div>
   </section>
+
+  <!-- 2.5 Yagona Ta'lim Ekotizimi (Subdomenlar Markazi) -->
+  <section class="ecosystem-section" id="ekotizim">
+    <div class="eco-header">
+      <div class="eco-kicker"><i class="fa-solid fa-network-wired"></i> Markaziy Taʼlim Ekotizimi</div>
+      <h2 class="eco-title">Raqamli taʼlim platformalari va xizmatlari</h2>
+      <p class="eco-sub">Qöşköpir tumani taʼlim sohasidagi barcha ixtisoslaşgan tizimlar, onlayn sinovlar va monitoring bazalari bir joyda jamlangan.</p>
+    </div>
+
+    <div class="eco-grid">
+      <!-- 1. test.umamatov.uz -->
+      <a href="https://test.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#059669;--ec-bg:#ecfdf5;--ec-border:#a7f3d0;">
+        <div class="eco-top">
+          <div class="eco-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <span class="eco-badge"><span class="pulse-dot"></span> Tuman & Viloyat</span>
+        </div>
+        <h3 class="eco-name">Olimpiada Tayyorgarlik Platformasi</h3>
+        <p class="eco-desc">Fan olimpiadalarining tuman va viloyat (hududiy) bosqiçlariga tayyorgarlik köriş uçun maxsus onlayn testlar va interaktiv sinovlar bazasi.</p>
+        <div class="eco-footer">
+          <span>test.umamatov.uz</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </div>
+      </a>
+
+      <!-- 2. olimpiada.umamatov.uz -->
+      <a href="https://olimpiada.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#d97706;--ec-bg:#fffbeb;--ec-border:#fde68a;">
+        <div class="eco-top">
+          <div class="eco-icon"><i class="fa-solid fa-trophy"></i></div>
+          <span class="eco-badge"><span class="pulse-dot"></span> Olimpiada 2026</span>
+        </div>
+        <h3 class="eco-name">Fan Olimpiadalari Portali</h3>
+        <p class="eco-desc">Tuman va hududiy fan olimpiadalari sinov grafigi, real vaqt natijalari, 124 nafar ğoliblar va ustozlar reyestri hamda tahlillar.</p>
+        <div class="eco-footer">
+          <span>olimpiada.umamatov.uz</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </div>
+      </a>
+
+      <!-- 3. pedagog.umamatov.uz -->
+      <a href="https://pedagog.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#2563eb;--ec-bg:#eff6ff;--ec-border:#bfdbfe;">
+        <div class="eco-top">
+          <div class="eco-icon"><i class="fa-solid fa-user-graduate"></i></div>
+          <span class="eco-badge">Attestatsiya & Test</span>
+        </div>
+        <h3 class="eco-name">Pedagoglar Test Tizimi & Attestatsiya</h3>
+        <p class="eco-desc">Maktab darsliklari asosida tuzilgan pedagoglar test tizimi, malaka toifasi (attestatsiya) sinov grafigi, 823-ustama va 3271-taqsimot.</p>
+        <div class="eco-footer">
+          <span>pedagog.umamatov.uz</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </div>
+      </a>
+
+      <!-- 4. krk.umamatov.uz -->
+      <a href="https://krk.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#7c3aed;--ec-bg:#f5f3ff;--ec-border:#ddd6fe;">
+        <div class="eco-top">
+          <div class="eco-icon"><i class="fa-solid fa-award"></i></div>
+          <span class="eco-badge">KRK & Tanlovlar</span>
+        </div>
+        <h3 class="eco-name">Körik-tanlovlar & Musobaqalar</h3>
+        <p class="eco-desc">Respublika va viloyat miqyosidagi körik-tanlovlar, ijodiy va sport musobaqalari, KRK testlari va gʻoliblar bazasi.</p>
+        <div class="eco-footer">
+          <span>krk.umamatov.uz</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </div>
+      </a>
+    </div>
+
+    <!-- Universal Real-Vaqt Tashriflar Paneli -->
+    <div class="visitor-banner">
+      <div class="visitor-stat">
+        <i class="fa-solid fa-users-viewfinder"></i>
+        <div>
+          <div class="vs-num" id="liveVisitorCount">2 237+</div>
+          <div class="vs-lbl">Yagona Ekotizim Tashriflari</div>
+        </div>
+      </div>
+      <div class="vs-divider"></div>
+      <div class="visitor-stat">
+        <i class="fa-solid fa-bolt" style="color:#f59e0b"></i>
+        <div>
+          <div class="vs-num">4 ta</div>
+          <div class="vs-lbl">Faol Subdomen Platforma</div>
+        </div>
+      </div>
+      <div class="vs-divider"></div>
+      <div class="visitor-stat">
+        <i class="fa-solid fa-signal" style="color:#10b981"></i>
+        <div>
+          <div class="vs-num" style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#10b981;display:inline-block;animation:ecoPulse 1.4s infinite"></span> Real Vaqt</div>
+          <div class="vs-lbl">GoatCounter Monitoring</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
 
   <section class="section embed-section" id="olimpiada">
@@ -3751,9 +4044,17 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
     <div class="footer-copy">
       © 2026 Umrbek Mamatov. Barça huquqlar himoyalangan.
     </div>
-  <div class="gc-bar" style="display:none;text-align:center;padding:16px 16px 22px;color:#94a3b8;font-size:1rem;border-top:1px solid rgba(148,163,184,.2);font-family:'Times New Roman',Times,serif"><i class="fa-solid fa-eye"></i> Sayt tashrifları: <b id="gcN" style="color:#fff">…</b></div>
+  <div class="gc-bar" style="display:none;text-align:center;padding:16px 16px 22px;color:#94a3b8;font-size:1rem;border-top:1px solid rgba(148,163,184,.2);font-family:var(--font-body)"><i class="fa-solid fa-eye"></i> Sayt tashrifları: <b id="gcN" style="color:#fff">…</b></div>
 <script data-goatcounter="https://umamatov.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-<script>(function(){var e=document.getElementById('gcN');if(!e)return;fetch('https://umamatov.goatcounter.com/counter/TOTAL.json').then(function(r){return r.json()}).then(function(d){if(d.count&&d.count!=='0'){e.textContent=d.count;e.parentNode.style.display='block'}}).catch(function(){})})();</script>
+<script>(function(){var e=document.getElementById('gcN');
+  fetch('https://umamatov.goatcounter.com/counter/TOTAL.json').then(function(r){return r.json()}).then(function(d){
+    var cnt = d.count_unique || d.count;
+    if(cnt && cnt!=='0'){
+      if(e){e.textContent=cnt;e.parentNode.style.display='block';}
+      var lvc=document.getElementById('liveVisitorCount');
+      if(lvc){lvc.textContent=cnt+'+';}
+    }
+  }).catch(function(){});})();</script>
 </footer>
 
   <!-- Slayderning avtomatik aylanish skripti -->
