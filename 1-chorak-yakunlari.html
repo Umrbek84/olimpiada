@@ -2,7 +2,7 @@
 <html lang="uz"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>1-çorak yakunlari | Umrbek Mamatov</title>
 <style id='embed-fonts'>
-/* ===== (Inter removed — Times New Roman used) ===== */
+/* ===== (Inter removed — Lexend, Plus Jakarta Sans, sans-serif used) ===== */
 
 
 
@@ -36,7 +36,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: 'Lexend', 'Plus Jakarta Sans', sans-serif;
     }
 body {
       background-color: var(--light-bg);
@@ -298,6 +298,25 @@ body{background:#f8fafc;padding-bottom:0}</style><style id="yz-prog-css">.yz-pro
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Testmakon Typography: Lexend + Manrope + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Manrope:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style id="testmakon-typography">
+    :root {
+      --font-sans: 'Lexend', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-heading: 'Manrope', 'Lexend', sans-serif;
+    }
+    body, p, span, a, div, li, td, th, input, button, select, textarea, label {
+      font-family: var(--font-sans) !important;
+    }
+    h1, h2, h3, h4, h5, h6, .brand, .nx-brand, .title, .heading {
+      font-family: var(--font-heading) !important;
+    }
+    [class*="fa-"], .fa, .fas, .far, .fab {
+      font-family: var(--fa-style-family, "Font Awesome 6 Free") !important;
+    }
+  </style>
 </head><body>
 <div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>
 <header class="nx-header">

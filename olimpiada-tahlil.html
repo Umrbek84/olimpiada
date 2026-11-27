@@ -321,6 +321,25 @@ footer{background:var(--dark);color:#94a3b8;padding:60px 24px 30px;border-top:1p
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Manrope:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Testmakon Typography: Lexend + Manrope + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Manrope:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style id="testmakon-typography">
+    :root {
+      --font-sans: 'Lexend', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-heading: 'Manrope', 'Lexend', sans-serif;
+    }
+    body, p, span, a, div, li, td, th, input, button, select, textarea, label {
+      font-family: var(--font-sans) !important;
+    }
+    h1, h2, h3, h4, h5, h6, .brand, .nx-brand, .title, .heading {
+      font-family: var(--font-heading) !important;
+    }
+    [class*="fa-"], .fa, .fas, .far, .fab {
+      font-family: var(--fa-style-family, "Font Awesome 6 Free") !important;
+    }
+  </style>
 </head>
 <body>
 <div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>

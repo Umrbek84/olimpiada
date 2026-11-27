@@ -6,7 +6,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 :root{--navy:#0f2a5c;--gold:#f59e0b;--line:#e2e8f0;--mut:#64748b}
-body{font-family:'Times New Roman',Times,serif;background:#f8fafc;color:#0f172a;line-height:1.5;font-size:17px}
+body{font-family:'Lexend', 'Plus Jakarta Sans', sans-serif;background:#f8fafc;color:#0f172a;line-height:1.5;font-size:17px}
 a{color:inherit;text-decoration:none}button,input{font-family:inherit}
 .top{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(15,23,42,.05)}
 .top-in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
@@ -90,7 +90,26 @@ table.tt{min-width:640px}.rs.tt td small{color:var(--mut);font-size:.82rem}.bar{
 .rs.sv td{vertical-align:middle}.svn{display:flex;align-items:center;gap:12px}.svn small{display:block;color:var(--mut);font-size:.88rem}.sph{width:58px;height:76px;object-fit:cover;border-radius:12px;border:2px solid #f0d58a;flex:none;background:#eef2f8}.sph.no{display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:1.6rem}
 .svf i{color:#b45309;margin-right:6px}.svb b{font-size:1.3rem;color:var(--navy)}.svb small{display:block;color:var(--mut);font-size:.82rem}
 @media(max-width:700px){.rs.sv tr{display:flex;flex-direction:column;gap:6px;padding:14px 12px}.rs.sv td{display:block;grid-column:auto}.rs.sv td.svf:before,.rs.sv td.svb:before,.rs.sv td.svu:before{content:attr(data-l)": ";color:var(--mut)}.rs.sv td.svb{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.rs.sv td.svn{display:flex}}
-</style></head><body>
+</style>  <!-- Testmakon Typography: Lexend + Manrope + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Manrope:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style id="testmakon-typography">
+    :root {
+      --font-sans: 'Lexend', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-heading: 'Manrope', 'Lexend', sans-serif;
+    }
+    body, p, span, a, div, li, td, th, input, button, select, textarea, label {
+      font-family: var(--font-sans) !important;
+    }
+    h1, h2, h3, h4, h5, h6, .brand, .nx-brand, .title, .heading {
+      font-family: var(--font-heading) !important;
+    }
+    [class*="fa-"], .fa, .fas, .far, .fab {
+      font-family: var(--fa-style-family, "Font Awesome 6 Free") !important;
+    }
+  </style>
+</head><body>
 <header class="top"><div class="top-in"><a class="brand" href="index.html"><b>Umrbek Mamatov</b><span>Boş mutaxassis · Taʼlim portali</span></a>
 <nav><a href="index.html"><i class="fa-solid fa-house"></i> Boş sahifa</a><a href="index.html#olimpiada"><i class="fa-solid fa-trophy"></i> Olimpiadalar</a><a href="hududiy-bosqich.html"><i class="fa-solid fa-calendar-days"></i> Hududiy bosqiç grafigi</a><a href="hududiy-natijalar.html" class="on vn"><i class="fa-solid fa-ranking-star"></i> Viloyat natijalari <b>YANGI</b></a><a href="jonli.html" target="_blank" rel="noopener"><i class="fa-solid fa-tower-broadcast"></i> Jonli efir</a></nav></div></header>
 <section class="hero"><div class="hero-in"><span class="kick"><i class="fa-solid fa-ranking-star"></i> 2026–2027-öquv yili</span>

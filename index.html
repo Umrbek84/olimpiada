@@ -2520,108 +2520,124 @@ li {
   
 
   
-/* ===== YAGONA TA'LIM EKOTIZIMI (SUBDOMENLAR) ===== */
+/* ===== YAGONA TA'LIM EKOTIZIMI (SUBDOMENLAR) JONLI DIZAYN ===== */
 .ecosystem-section {
-  padding: 50px 20px 30px;
+  padding: 65px 20px 40px;
   max-width: 1440px;
   margin: 0 auto;
+  position: relative;
 }
 .eco-header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 .eco-kicker {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #eff6ff;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(14, 165, 233, 0.12));
   color: #2563eb;
-  border: 1px solid #bfdbfe;
-  padding: 6px 18px;
+  border: 1.5px solid rgba(37, 99, 235, 0.25);
+  padding: 7px 22px;
   border-radius: 50px;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
 }
 .eco-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 800;
+  font-size: clamp(2rem, 3.8vw, 2.9rem);
+  font-weight: 900;
   color: #0f172a;
   line-height: 1.2;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .eco-sub {
-  color: #64748b;
-  font-size: 1.05rem;
-  max-width: 720px;
+  color: #475569;
+  font-size: 1.12rem;
+  max-width: 740px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 .eco-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 22px;
-  margin-top: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+  gap: 26px;
+  margin-top: 36px;
 }
 .eco-card {
   position: relative;
   background: #ffffff;
   border: 1.5px solid #e2e8f0;
-  border-radius: 22px;
-  padding: 26px 24px;
+  border-radius: 24px;
+  padding: 30px 26px 24px;
   display: flex;
   flex-direction: column;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   color: inherit;
-  box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.07);
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
   overflow: hidden;
 }
+.eco-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--ec-gradient, var(--ec-color));
+  transition: height 0.3s ease;
+}
 .eco-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   border-color: var(--ec-color, #2563eb);
-  box-shadow: 0 22px 40px -12px rgba(15, 23, 42, 0.16);
+  box-shadow: 0 25px 45px -12px var(--ec-glow, rgba(15, 23, 42, 0.18));
+}
+.eco-card:hover::before {
+  height: 8px;
 }
 .eco-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 .eco-icon {
-  width: 58px;
-  height: 58px;
-  border-radius: 18px;
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
   background: var(--ec-bg, #eff6ff);
   color: var(--ec-color, #2563eb);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: 27px;
   flex-shrink: 0;
-  transition: transform 0.35s ease;
+  box-shadow: 0 8px 20px -4px var(--ec-glow, rgba(37, 99, 235, 0.25));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .eco-card:hover .eco-icon {
-  transform: scale(1.1) rotate(4deg);
+  transform: scale(1.12) rotate(4deg);
 }
 .eco-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   padding: 6px 14px;
   border-radius: 30px;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 800;
   background: var(--ec-bg, #eff6ff);
   color: var(--ec-color, #2563eb);
   border: 1px solid var(--ec-border, #bfdbfe);
-  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 .eco-badge .pulse-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: currentColor;
   animation: ecoPulse 1.6s infinite;
@@ -2632,65 +2648,118 @@ li {
   100% { transform: scale(0.9); opacity: 1; }
 }
 .eco-name {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: #0f172a;
   line-height: 1.3;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .eco-desc {
-  font-size: 0.94rem;
+  font-size: 0.96rem;
   color: #64748b;
-  line-height: 1.6;
-  margin-bottom: 22px;
+  line-height: 1.65;
+  margin-bottom: 20px;
   flex-grow: 1;
 }
-.eco-footer {
+.eco-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+.eco-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #475569;
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+.eco-action-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 16px;
+  padding-top: 18px;
   border-top: 1px solid #f1f5f9;
+}
+.eco-domain {
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--ec-color, #2563eb);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-.eco-footer i {
-  transition: transform 0.25s ease;
+.eco-btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ec-color, #2563eb);
+  color: #ffffff !important;
+  padding: 9px 18px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  box-shadow: 0 4px 14px -2px var(--ec-glow, rgba(37, 99, 235, 0.4));
+  transition: all 0.25s ease;
 }
-.eco-card:hover .eco-footer i {
-  transform: translateX(5px) translateY(-2px);
+.eco-card:hover .eco-btn-pill {
+  transform: translateX(4px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 18px -2px var(--ec-glow, rgba(37, 99, 235, 0.6));
 }
 
-/* Visitor Counter Bar */
+/* JONLI TELEMETRIYA & TASHRIF HISOBCHISI */
 .visitor-banner {
-  margin: 36px auto 14px;
-  max-width: 960px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  border-radius: 22px;
-  padding: 20px 30px;
+  margin: 48px auto 14px;
+  max-width: 1120px;
+  background: linear-gradient(135deg, #091024 0%, #0f1c3f 50%, #091024 100%);
+  border-radius: 26px;
+  padding: 24px 36px;
   color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
-  box-shadow: 0 16px 35px -10px rgba(15, 23, 42, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 22px;
+  box-shadow: 0 20px 45px -10px rgba(9, 16, 36, 0.5), 0 0 0 1px rgba(147, 197, 253, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.visitor-banner::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.08), transparent 60%);
+  pointer-events: none;
 }
 .visitor-stat {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
 }
-.visitor-stat i {
-  font-size: 28px;
-  color: #38bdf8;
+.vs-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .vs-num {
-  font-size: 1.65rem;
-  font-weight: 800;
-  color: #ffffff;
+  font-size: 1.85rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   line-height: 1.1;
   font-family: var(--font-heading);
 }
@@ -2700,18 +2769,22 @@ li {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 .vs-divider {
   width: 1px;
-  height: 42px;
-  background: rgba(255, 255, 255, 0.15);
+  height: 48px;
+  background: rgba(255, 255, 255, 0.12);
+}
+@media (max-width: 900px) {
+  .vs-divider { display: none; }
+  .visitor-banner { padding: 22px; justify-content: flex-start; }
 }
 @media (max-width: 700px) {
-  .vs-divider { display: none; }
-  .visitor-banner { flex-direction: column; align-items: flex-start; padding: 18px 22px; gap: 16px; }
-  .ecosystem-section { padding: 36px 16px 20px; }
+  .visitor-banner { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .ecosystem-section { padding: 40px 16px 20px; }
 }
+
 
 </style>
 
@@ -2925,8 +2998,14 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 .nx-header .nx-drop li a{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:11px 14px;margin:6px 0;text-align:left}
 }
 /* HERO */
-.nx-hero{position:relative;padding:130px 20px 80px;background:radial-gradient(1200px 500px at 85% -10%,#2b5fd9 0%,transparent 60%),radial-gradient(900px 500px at -10% 110%,#0ea5e9 0%,transparent 55%),#0b1e3f;color:#fff;overflow:hidden}
-.nx-hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(#000,transparent 90%)}
+.nx-hero{position:relative;padding:135px 20px 85px;background:radial-gradient(1000px 500px at 80% -10%,#1e40af 0%,transparent 60%),radial-gradient(900px 500px at 15% 100%,#0369a1 0%,transparent 55%),radial-gradient(600px 400px at 50% 50%,rgba(124,58,237,.15) 0%,transparent 70%),#080e1e;color:#fff;overflow:hidden}
+.nx-hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse at 50% 50%,#000 60%,transparent 100%);pointer-events:none}
+.nx-glow-text{background:linear-gradient(135deg,#38bdf8 0%,#818cf8 50%,#c084fc 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900}
+.nx-kicker{display:inline-flex;align-items:center;gap:10px;background:rgba(30,58,138,.5);border:1px solid rgba(147,197,253,.3);padding:8px 18px;border-radius:50px;font-size:.88rem;color:#93c5fd;font-weight:700;backdrop-filter:blur(10px);box-shadow:0 4px 15px rgba(30,58,138,.3)}
+.nx-pulse-live{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.7);animation:liveBeacon 1.8s infinite}
+@keyframes liveBeacon{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(34,197,94,.8)}70%{transform:scale(1.15);box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{transform:scale(.95);box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.nx-tile{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:16px 18px;color:#fff;text-decoration:none;transition:all .28s cubic-bezier(.16,1,.3,1);backdrop-filter:blur(12px);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.nx-tile:hover{background:rgba(255,255,255,.12);border-color:rgba(147,197,253,.4);transform:translateY(-3px);box-shadow:0 14px 28px rgba(0,0,0,.35)}
 .nx-hero-in{position:relative;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
 .nx-kicker{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:7px 14px;border-radius:50px;font-size:.88rem;color:#fde68a;font-weight:700}
 .nx-hero h1{font-size:clamp(2.1rem,4.2vw,3.5rem);line-height:1.1;margin:18px 0 16px;letter-spacing:.2px}
@@ -3041,6 +3120,25 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Testmakon Typography: Lexend + Manrope + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Manrope:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style id="testmakon-typography">
+    :root {
+      --font-sans: 'Lexend', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-heading: 'Manrope', 'Lexend', sans-serif;
+    }
+    body, p, span, a, div, li, td, th, input, button, select, textarea, label {
+      font-family: var(--font-sans) !important;
+    }
+    h1, h2, h3, h4, h5, h6, .brand, .nx-brand, .title, .heading {
+      font-family: var(--font-heading) !important;
+    }
+    [class*="fa-"], .fa, .fas, .far, .fab {
+      font-family: var(--fa-style-family, "Font Awesome 6 Free") !important;
+    }
+  </style>
 </head>
 <body>
 <div class="yz-prog" id="yzProg" aria-hidden="true"><i></i></div>
@@ -3103,35 +3201,35 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
     </div>
   </header>
 
-  <!-- 2. Full-Width Slayder (3 ta Manzarali slayd) -->
+    <!-- 2. Hero Section (Jonli & Zamonaviy) -->
   <section class="nx-hero" id="home">
     <div class="nx-hero-in">
       <div>
-        <span class="nx-kicker"><i class="fa-solid fa-graduation-cap"></i> Qöşköpir tumani · 2026/2027 öquv yili</span>
-        <h1>Olimpiadalar, tanlovlar va <em>taʼlim tahlili</em> bir joyda</h1>
+        <span class="nx-kicker"><span class="nx-pulse-live"></span> Qöşköpir tumani · 2026/2027 öquv yili</span>
+        <h1>Olimpiadalar, tanlovlar va <span class="nx-glow-text">taʼlim tahlili</span> bir joyda</h1>
         <p>Tuman olimpiadasi natijalari, ğolib öquvçilar va ularning ustozlari, sinov grafigi hamda yil davomida ötkaziladigan olimpiada va tanlovlar.</p>
         <div class="nx-cta">
           <a href="#goliblar" class="nx-btn p"><i class="fa-solid fa-medal"></i> Ğoliblar va ustozlar</a>
           <a href="#olimpiada" class="nx-btn o"><i class="fa-solid fa-square-poll-vertical"></i> Natijalar</a>
-          <a href="#grafik" class="nx-btn o"><i class="fa-solid fa-calendar"></i> Sinov grafigi</a>
+          <a href="hududiy-bosqich.html" class="nx-btn o"><i class="fa-solid fa-calendar"></i> Hududiy bosqiç</a>
           <a href="#yangi-baholash" class="nx-btn o"><i class="fa-solid fa-school-circle-check"></i> Yangi baholaş</a>
         </div>
-        <div class="nx-author"><span class="nx-me" role="img" aria-label="Umrbek Mamatov"></span><div><b>Umrbek Mamatov</b><small>Boş mutaxassis · Sayt muallifi</small></div></div>
+        <div class="nx-author"><span class="nx-me" role="img" aria-label="Umrbek Mamatov"></span><div><b>Umrbek Mamatov <i class="fa-solid fa-circle-check" style="color:#38bdf8;font-size:0.9rem"></i></b><small>Boş mutaxassis · Sayt muallifi</small></div></div>
       </div>
       <div class="nx-tiles">
-        <a class="nx-tile" href="#olimpiada"><i class="fa-solid fa-square-poll-vertical" style="background:#1d4ed8"></i><span><b>Tuman natijalari</b><small>Real vaqt rejimida</small></span></a>
-        <a class="nx-tile" href="#goliblar"><i class="fa-solid fa-medal" style="background:#d97706"></i><span><b>Ğoliblar</b><small>Öquvçi va ustozlar</small></span></a>
+        <a class="nx-tile" href="#olimpiada"><i class="fa-solid fa-square-poll-vertical" style="background:#2563eb"></i><span><b>Tuman natijalari</b><small>Real vaqt rejimida</small></span></a>
+        <a class="nx-tile" href="#goliblar"><i class="fa-solid fa-medal" style="background:#d97706"></i><span><b>Ğoliblar</b><small>124 ta sovrinli örin</small></span></a>
         <a class="nx-tile" href="olimpiada-tahlil.html"><i class="fa-solid fa-chart-line" style="background:#059669"></i><span><b>Tahlillar</b><small>Maktab va fanlar kesimi</small></span></a>
+        <a class="nx-tile" href="hududiy-bosqich.html"><i class="fa-solid fa-calendar-days" style="background:#dc2626"></i><span><b>Hududiy grafigi</b><small>Sana, vaqt, smena</small></span></a>
         <a class="nx-tile" href="#rasmiy"><i class="fa-solid fa-scroll" style="background:#7c3aed"></i><span><b>Olimpiadalar röyxati</b><small>Vazir buyruği, 35-son</small></span></a>
         <a class="nx-tile" href="#rasmiy" onclick="setTimeout(function(){nxList2(2)},50)"><i class="fa-solid fa-lightbulb" style="background:#db2777"></i><span><b>Körik-tanlovlar</b><small>Rasmiy röyxat</small></span></a>
-        <a class="nx-tile" href="attestatsiya.html"><i class="fa-solid fa-clipboard-check" style="background:#0891b2"></i><span><b>Attestatsiya</b><small>Jadval va röyxatlar</small></span></a>
-        <a class="nx-tile" href="1-chorak-yakunlari.html"><i class="fa-solid fa-chart-column" style="background:#4f46e5"></i><span><b>1-çorak yakunlari</b><small>Bilim sifati tahlili</small></span></a>
+        <a class="nx-tile" href="attestatsiya.html"><i class="fa-solid fa-clipboard-check" style="background:#0891b2"></i><span><b>Attestatsiya</b><small>Jadval va F.I.Ş. röyxati</small></span></a>
         <a class="nx-tile" href="taqdirlash.html"><i class="fa-solid fa-award" style="background:#ea580c"></i><span><b>Taqdirlaş marosimi</b><small>Suratlar va ğoliblar</small></span></a>
       </div>
     </div>
   </section>
 
-  <!-- 2.5 Yagona Ta'lim Ekotizimi (Subdomenlar Markazi) -->
+    <!-- 2.5 Yagona Ta'lim Ekotizimi (Subdomenlar Markazi - Jonli Dizayn) -->
   <section class="ecosystem-section" id="ekotizim">
     <div class="eco-header">
       <div class="eco-kicker"><i class="fa-solid fa-network-wired"></i> Markaziy Taʼlim Ekotizimi</div>
@@ -3141,66 +3239,88 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
 
     <div class="eco-grid">
       <!-- 1. test.umamatov.uz -->
-      <a href="https://test.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#059669;--ec-bg:#ecfdf5;--ec-border:#a7f3d0;">
+      <a href="https://test.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#059669;--ec-bg:#ecfdf5;--ec-border:#a7f3d0;--ec-glow:rgba(5,150,105,0.35);--ec-gradient:linear-gradient(90deg,#059669,#06b6d4);">
         <div class="eco-top">
           <div class="eco-icon"><i class="fa-solid fa-laptop-code"></i></div>
           <span class="eco-badge"><span class="pulse-dot"></span> Tuman & Viloyat</span>
         </div>
         <h3 class="eco-name">Olimpiada Tayyorgarlik Platformasi</h3>
-        <p class="eco-desc">Fan olimpiadalarining tuman va viloyat (hududiy) bosqiçlariga tayyorgarlik köriş uçun maxsus onlayn testlar va interaktiv sinovlar bazasi.</p>
-        <div class="eco-footer">
-          <span>test.umamatov.uz</span>
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <p class="eco-desc">Fan olimpiadalarining tuman va viloyat (hududiy) bosqiçlariga puxta tayyorgarlik köriş uçun maxsus testlar, tahliliy yechimlar va reyting tizimi.</p>
+        <div class="eco-tags">
+          <span class="eco-tag">#OnlaynSinov</span>
+          <span class="eco-tag">#TumanBosqichi</span>
+          <span class="eco-tag">#ViloyatTayyorgarlik</span>
+        </div>
+        <div class="eco-action-row">
+          <span class="eco-domain"><i class="fa-solid fa-globe"></i> test.umamatov.uz</span>
+          <span class="eco-btn-pill">Kiriş <i class="fa-solid fa-arrow-right"></i></span>
         </div>
       </a>
 
       <!-- 2. olimpiada.umamatov.uz -->
-      <a href="https://olimpiada.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#d97706;--ec-bg:#fffbeb;--ec-border:#fde68a;">
+      <a href="https://olimpiada.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#d97706;--ec-bg:#fffbeb;--ec-border:#fde68a;--ec-glow:rgba(217,119,6,0.35);--ec-gradient:linear-gradient(90deg,#d97706,#f59e0b);">
         <div class="eco-top">
           <div class="eco-icon"><i class="fa-solid fa-trophy"></i></div>
           <span class="eco-badge"><span class="pulse-dot"></span> Olimpiada 2026</span>
         </div>
         <h3 class="eco-name">Fan Olimpiadalari Portali</h3>
-        <p class="eco-desc">Tuman va hududiy fan olimpiadalari sinov grafigi, real vaqt natijalari, 124 nafar ğoliblar va ustozlar reyestri hamda tahlillar.</p>
-        <div class="eco-footer">
-          <span>olimpiada.umamatov.uz</span>
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <p class="eco-desc">Tuman va hududiy fan olimpiadalari sinov grafigi, real vaqt natijalari, 124 nafar ğoliblar va 108 ustozlar reyestri hamda tahliliy hisobotlar.</p>
+        <div class="eco-tags">
+          <span class="eco-tag">#124Ğolib</span>
+          <span class="eco-tag">#RealVaqt</span>
+          <span class="eco-tag">#Reyting</span>
+        </div>
+        <div class="eco-action-row">
+          <span class="eco-domain"><i class="fa-solid fa-globe"></i> olimpiada.umamatov.uz</span>
+          <span class="eco-btn-pill">Kiriş <i class="fa-solid fa-arrow-right"></i></span>
         </div>
       </a>
 
       <!-- 3. pedagog.umamatov.uz -->
-      <a href="https://pedagog.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#2563eb;--ec-bg:#eff6ff;--ec-border:#bfdbfe;">
+      <a href="https://pedagog.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#2563eb;--ec-bg:#eff6ff;--ec-border:#bfdbfe;--ec-glow:rgba(37,99,235,0.35);--ec-gradient:linear-gradient(90deg,#2563eb,#6366f1);">
         <div class="eco-top">
           <div class="eco-icon"><i class="fa-solid fa-user-graduate"></i></div>
-          <span class="eco-badge">Attestatsiya & Test</span>
+          <span class="eco-badge"><span class="pulse-dot"></span> Attestatsiya & Ustama</span>
         </div>
         <h3 class="eco-name">Pedagoglar Test Tizimi & Attestatsiya</h3>
-        <p class="eco-desc">Maktab darsliklari asosida tuzilgan pedagoglar test tizimi, malaka toifasi (attestatsiya) sinov grafigi, 823-ustama va 3271-taqsimot.</p>
-        <div class="eco-footer">
-          <span>pedagog.umamatov.uz</span>
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <p class="eco-desc">Maktab darsliklari asosida tuzilgan pedagoglar test tizimi, malaka toifasi (attestatsiya) sinov grafigi, 823-ustama va 3271-taqsimot kalkulyatori.</p>
+        <div class="eco-tags">
+          <span class="eco-tag">#DarsliklarTesti</span>
+          <span class="eco-tag">#823Ustama</span>
+          <span class="eco-tag">#Taqsimot</span>
+        </div>
+        <div class="eco-action-row">
+          <span class="eco-domain"><i class="fa-solid fa-globe"></i> pedagog.umamatov.uz</span>
+          <span class="eco-btn-pill">Kiriş <i class="fa-solid fa-arrow-right"></i></span>
         </div>
       </a>
 
       <!-- 4. krk.umamatov.uz -->
-      <a href="https://krk.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#7c3aed;--ec-bg:#f5f3ff;--ec-border:#ddd6fe;">
+      <a href="https://krk.umamatov.uz" target="_blank" rel="noopener" class="eco-card" style="--ec-color:#7c3aed;--ec-bg:#f5f3ff;--ec-border:#ddd6fe;--ec-glow:rgba(124,58,237,0.35);--ec-gradient:linear-gradient(90deg,#7c3aed,#ec4899);">
         <div class="eco-top">
           <div class="eco-icon"><i class="fa-solid fa-award"></i></div>
-          <span class="eco-badge">KRK & Tanlovlar</span>
+          <span class="eco-badge"><span class="pulse-dot"></span> KRK & Tanlovlar</span>
         </div>
         <h3 class="eco-name">Körik-tanlovlar & Musobaqalar</h3>
-        <p class="eco-desc">Respublika va viloyat miqyosidagi körik-tanlovlar, ijodiy va sport musobaqalari, KRK testlari va gʻoliblar bazasi.</p>
-        <div class="eco-footer">
-          <span>krk.umamatov.uz</span>
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <p class="eco-desc">Respublika va viloyat miqyosidagi körik-tanlovlar, ijodiy va sport musobaqalari, KRK testlari va ğoliblar bazasi.</p>
+        <div class="eco-tags">
+          <span class="eco-tag">#KRKTest</span>
+          <span class="eco-tag">#IjodiyTanlovlar</span>
+          <span class="eco-tag">#Musobaqalar</span>
+        </div>
+        <div class="eco-action-row">
+          <span class="eco-domain"><i class="fa-solid fa-globe"></i> krk.umamatov.uz</span>
+          <span class="eco-btn-pill">Kiriş <i class="fa-solid fa-arrow-right"></i></span>
         </div>
       </a>
     </div>
 
-    <!-- Universal Real-Vaqt Tashriflar Paneli -->
+    <!-- Universal Real-Vaqt Tashriflar & Telemetriya Paneli -->
     <div class="visitor-banner">
       <div class="visitor-stat">
-        <i class="fa-solid fa-users-viewfinder"></i>
+        <div class="vs-icon-wrap" style="color:#38bdf8">
+          <i class="fa-solid fa-users-viewfinder"></i>
+        </div>
         <div>
           <div class="vs-num" id="liveVisitorCount">2 237+</div>
           <div class="vs-lbl">Yagona Ekotizim Tashriflari</div>
@@ -3208,7 +3328,9 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
       </div>
       <div class="vs-divider"></div>
       <div class="visitor-stat">
-        <i class="fa-solid fa-bolt" style="color:#f59e0b"></i>
+        <div class="vs-icon-wrap" style="color:#f59e0b">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
         <div>
           <div class="vs-num">4 ta</div>
           <div class="vs-lbl">Faol Subdomen Platforma</div>
@@ -3216,10 +3338,25 @@ header.nx-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgb
       </div>
       <div class="vs-divider"></div>
       <div class="visitor-stat">
-        <i class="fa-solid fa-signal" style="color:#10b981"></i>
+        <div class="vs-icon-wrap" style="color:#ec4899">
+          <i class="fa-solid fa-medal"></i>
+        </div>
         <div>
-          <div class="vs-num" style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#10b981;display:inline-block;animation:ecoPulse 1.4s infinite"></span> Real Vaqt</div>
-          <div class="vs-lbl">GoatCounter Monitoring</div>
+          <div class="vs-num">124 nafar</div>
+          <div class="vs-lbl">Olimpiada Ğoliblari</div>
+        </div>
+      </div>
+      <div class="vs-divider"></div>
+      <div class="visitor-stat">
+        <div class="vs-icon-wrap" style="color:#10b981">
+          <i class="fa-solid fa-signal"></i>
+        </div>
+        <div>
+          <div class="vs-num" style="display:flex;align-items:center;gap:8px">
+            <span style="width:11px;height:11px;border-radius:50%;background:#10b981;display:inline-block;animation:ecoPulse 1.4s infinite;box-shadow:0 0 10px #10b981"></span>
+            Real Vaqt
+          </div>
+          <div class="vs-lbl">Jonli Monitoring Tizimi</div>
         </div>
       </div>
     </div>
