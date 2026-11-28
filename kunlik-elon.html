@@ -91,6 +91,16 @@ a{color:inherit;text-decoration:none}
     }
   </style>
 </head><body>
+<header style="background:rgba(15,23,42,0.92);backdrop-filter:blur(8px);padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);position:sticky;top:0;z-index:1000;">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;font-weight:700;font-size:14px;">
+    <img src="logo.png" alt="Logo" style="width:28px;height:28px;border-radius:6px;">
+    <span>Umrbek Mamatov · Taʼlim portali</span>
+  </a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;font-size:13px;font-weight:600;">
+    ← Boş sahifaga qaytiş
+  </a>
+</header>
+
 <div class="wrap">
  <div class="head"><div class="org">Qöşköpir tumani taʼlim bölimi</div>
   <div class="clock"><small>Hozirgi soat</small><span class="dg" id="clk">--:--:--</span></div></div>
@@ -148,4 +158,6 @@ function start(){window.__auto=isoOf(nowTK());draw();tick();setInterval(tick,100
 function parse(h){var m=h.match(/const DATA=(\{[\s\S]*?\});\n/);if(!m)throw 0;return JSON.parse(m[1])}
 fetch('hududiy-bosqich.html',{cache:'no-store'}).then(function(r){return r.text()}).then(function(h){D=parse(h);D.events=D.events.filter(function(e){return e.program==='h1'||e.program==='h2'});start()}).catch(function(){$('list').innerHTML='<div class="msg">Maʼlumotni yükläb bölmadi. Sahifani yangilang.</div>'});
 })();
-</script></body></html>
+</script>
+<script src="qulaylik.js" defer></script>
+</body></html>
