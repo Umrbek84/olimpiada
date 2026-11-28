@@ -59,8 +59,13 @@ td.fan{text-align:left;font-weight:700}td.dl{font-weight:800}td.dl.up{background
 .dual .pair div span{position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-size:.8rem;font-weight:800;white-space:nowrap}
 .dual .nm{font-weight:700;font-size:.85rem;text-align:center;line-height:1.2}
 @media(max-width:600px){
-  .dual{gap:8px;padding:26px 4px 10px}
-  .dual .pair{height:160px;gap:4px}
+  .dual{gap:4px !important;padding:22px 2px 8px !important;justify-content:space-between !important;overflow-x:hidden !important}
+  .dual .g{min-width:0 !important;flex:1 !important;gap:4px !important}
+  .dual .pair{height:150px !important;gap:3px !important}
+  .dual .pair div{width:16px !important;border-radius:4px 4px 0 0 !important}
+  .dual .pair div span{font-size:.65rem !important;top:-18px !important}
+  .dual .nm{font-size:.68rem !important;line-height:1.15 !important}
+}
   .dual .pair div{width:22px}
   .dual .nm{font-size:.78rem}
   .dual .pair div span{font-size:.74rem}
