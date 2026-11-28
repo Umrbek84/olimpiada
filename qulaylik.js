@@ -43,7 +43,8 @@ var css='#qz{position:fixed;right:24px;top:18px;z-index:2147483000;font-family:"
 +'html.qz-c1 body,html.qz-c1 body *{background:#000!important;background-image:none!important;color:#fff!important;border-color:#ff0!important;box-shadow:none!important;text-shadow:none!important}'
 +'html.qz-c1 body a,html.qz-c1 body a *{color:#ff0!important}'
 +'html.qz-c2{filter:grayscale(1)}'
-+'@media print{#qz{display:none}}';
++'@media print{#qz{display:none}}'
++'@media (max-width:991px){#qz{display:none!important}}';
 
 var box,bA,bV,P,bS,note;
 function $(s){return box.querySelector(s)}
