@@ -4935,7 +4935,7 @@ function umOpenSub(url) {
           <i class="fa-solid fa-medal" style="color:#f59e0b"></i>
           <div>
             <b style="color:#fbbf24">Hududiy (viloyat) natijalari <span style="background:#f59e0b;color:#0f172a;font-size:10px;padding:1px 5px;border-radius:6px;font-weight:800;">YANGI</span></b>
-            <small style="color:#fde68a">29 nafar saralangan öquvçi reytingi</small>
+            <small style="color:#fde68a" class="hududiy-dyn-sub">Viloyat bosqiçi saralangan natijalari</small>
           </div>
         </a>
 <a href="https://olimpiada.umamatov.uz/hududiy-bosqich.html" target="_blank" onclick="return umOpenSub(this.href)" class="sb-subitem">
@@ -5123,7 +5123,7 @@ function umOpenSub(url) {
       <div class="nx-tiles">
         <a class="nx-tile" href="https://olimpiada.umamatov.uz/tuman-natijalar.html" target="_blank" onclick="return umOpenSub(this.href)"><i class="fa-solid fa-trophy" style="background:#f59e0b"></i><span><b>Olimpiada natijalari</b><small>60 ta maktab, 124 ğolib</small></span></a>
         <a class="nx-tile" href="https://olimpiada.umamatov.uz/hududiy-bosqich.html" target="_blank" onclick="return umOpenSub(this.href)"><i class="fa-solid fa-calendar-days" style="background:#2563eb"></i><span><b>Hududiy grafigi</b><small>Viloyat bosqiç sanalari</small></span></a>
-        <a class="nx-tile" href="https://olimpiada.umamatov.uz/hududiy-natijalar.html" target="_blank" onclick="return umOpenSub(this.href)" style="border-color:rgba(245,158,11,0.5);background:rgba(245,158,11,0.12);box-shadow:0 8px 24px rgba(245,158,11,0.2);"><i class="fa-solid fa-ranking-star" style="background:linear-gradient(135deg,#f59e0b,#ea580c)"></i><span><b style="color:#fef08a">Hududiy bosqiç natijalari <span style="background:#f59e0b;color:#0f172a;font-size:10px;padding:2px 6px;border-radius:6px;font-weight:800;vertical-align:middle;margin-left:4px;">YANGI</span></b><small style="color:#fed7aa">Viloyat natijalari · 29 ta öquvçi</small></span></a>
+        <a class="nx-tile" href="https://olimpiada.umamatov.uz/hududiy-natijalar.html" target="_blank" onclick="return umOpenSub(this.href)" style="border-color:rgba(245,158,11,0.5);background:rgba(245,158,11,0.12);box-shadow:0 8px 24px rgba(245,158,11,0.2);"><i class="fa-solid fa-ranking-star" style="background:linear-gradient(135deg,#f59e0b,#ea580c)"></i><span><b style="color:#fef08a">Hududiy bosqiç natijalari <span style="background:#f59e0b;color:#0f172a;font-size:10px;padding:2px 6px;border-radius:6px;font-weight:800;vertical-align:middle;margin-left:4px;">YANGI</span></b><small style="color:#fed7aa" class="hududiy-dyn-tile">Viloyat natijalari · Rasmiy eʼlon</small></span></a>
         <a class="nx-tile" href="https://test.umamatov.uz" target="_blank" onclick="return umOpenSub(this.href)"><i class="fa-solid fa-laptop-code" style="background:#059669"></i><span><b>Tayyorgarlik testi</b><small>Tuman & viloyat testlari</small></span></a>
         <a class="nx-tile" href="attestatsiya.html"><i class="fa-solid fa-table-list" style="background:#0891b2"></i><span><b>Attestatsiya sinovlari</b><small>Pedagoglar test jadvali</small></span></a>
         <a class="nx-tile" href="yangi-baholash.html"><i class="fa-solid fa-school-circle-check" style="background:#7c3aed"></i><span><b>Yangi baholaş & ÇSB</b><small>45 ta maktab onlayn grafigi</small></span></a>
@@ -6142,5 +6142,35 @@ b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia
   }
 })();
 </script>
+
+<script>
+// Hududiy bosqich natijalari (Qo'shko'pir o'quvchilari soni)ni dinamik yangilash
+(function() {
+  function updateHududiyCount() {
+    var url = 'hududiy-natijalar.json?v=' + Date.now();
+    fetch(url).then(function(r) { return r.json(); }).then(function(d) {
+      if (!d || !d.results) return;
+      var qCount = 0;
+      d.results.forEach(function(b) {
+        (b.rows || []).forEach(function(r) {
+          if (/Qöşköpir/i.test(r[2])) qCount++;
+        });
+      });
+      if (qCount > 0) {
+        var subText = qCount + ' nafar saralangan öquvçi reytingi';
+        var tileText = 'Viloyat natijalari · ' + qCount + ' ta öquvçi';
+        document.querySelectorAll('.hududiy-dyn-sub').forEach(function(el) { el.textContent = subText; });
+        document.querySelectorAll('.hududiy-dyn-tile').forEach(function(el) { el.textContent = tileText; });
+      }
+    }).catch(function() {});
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateHududiyCount);
+  } else {
+    updateHududiyCount();
+  }
+})();
+</script>
+
 </body>
 </html>
