@@ -279,7 +279,8 @@
   // Ichki sahifalarga "Bosh sahifa" suzuvchi tugmasini o'rnatish
   function buildSubpageHomeBtn() {
     if (isHome) return; // Asosiy sahifada kerak emas
-    if (document.getElementById('um-floating-home')) return;
+    if (document.getElementById('um-floating-home') || document.getElementById('um-portal-back')) return;
+    if (location.hostname !== 'umamatov.uz' && location.hostname !== 'localhost') return;
 
     var btn = document.createElement('a');
     btn.id = 'um-floating-home';
